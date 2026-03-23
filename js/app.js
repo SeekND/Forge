@@ -625,7 +625,13 @@ function addToRequest(t,k){
     reqOrder.items=reqOrder.items.filter(w=>!(w.type===t&&w.key===k));
   }else{
     const item=findItem(t,k);
-    if(item)reqOrder.items.push({type:t,key:k,qty:1,crafted:false,deducted:null,slotQ:{},item});
+    if(item){
+      // Build slotQ — requesters default to Q1000 (maximum quality request)
+      const slotQ={};
+      if(item.pieces){item.pieces.forEach(p=>{(p.recipe||[]).filter(r=>r.material&&r.slot&&r.amount_cscu>0).forEach(r=>{slotQ[p.piece_type+'|'+r.slot]=1000;});});}
+      else{getSlottedRec(item).forEach(r=>{slotQ[r.slot]=1000;});}
+      reqOrder.items.push({type:t,key:k,qty:1,crafted:false,deducted:null,slotQ,item});
+    }
   }
   saveState();filterBlueprints();updateWOBadge();
 }
@@ -942,6 +948,13 @@ function toggleWOSelectAll(c){const o=getActiveOrder();if(!o)return;woSelected=n
 function updSelCount(){const el=document.getElementById('wo-sel-count');if(el)el.textContent=woSelected.size?`${woSelected.size} selected`:'';}
 function getExportItems(){const o=getActiveOrder();if(!o)return[];if(woSelected.size)return[...woSelected].map(i=>o.items[i]).filter(w=>w&&!w.crafted);return o.items.filter(w=>!w.crafted);}
 
+// Helper: quality note for clipboard export
+function qNote(q){
+  if(q>=1000)return ' (maximum)';
+  if(q<=adminConfig.defaultMinQuality)return ' (minimum)';
+  return '';
+}
+
 // ── Export ──
 function copyWOText(){
   const o=getActiveOrder();if(!o)return;const items=getExportItems(),m={};
@@ -960,13 +973,13 @@ function copyWOText(){
         pSlots.forEach(r=>{
           const sqKey=p.piece_type+'|'+r.slot;
           const sq=wo.slotQ?.[sqKey]??500;
-          lines.push(`      ${r.slot}: ${uFmt(r.amount_cscu*wo.qty)} ${r.material} @ Q${sq}`);
+          lines.push(`      ${r.slot}: ${uFmt(r.amount_cscu*wo.qty)} ${r.material} @ Q${sq}${qNote(sq)}`);
         });
       });
     }else{
       getSlottedRec(wo.item).forEach(r=>{
         const sq=wo.slotQ?.[r.slot]??500;
-        lines.push(`    ${r.slot}: ${uFmt(r.amount_cscu*wo.qty)} ${r.material} @ Q${sq}`);
+        lines.push(`    ${r.slot}: ${uFmt(r.amount_cscu*wo.qty)} ${r.material} @ Q${sq}${qNote(sq)}`);
       });
     }
   });
@@ -1109,13 +1122,26 @@ function importWOFromHash(hash){
       // Parse shared slot qualities
       const sharedQ={};
       if(segs[3]){segs[3].split(',').forEach(sq=>{const[s,q]=sq.split('=');if(s&&q)sharedQ[decodeURIComponent(s)]=parseInt(q)||1000;});}
-      // Auto-assign: try best inventory batch, fall back to shared quality or 1000
+      // Auto-assign quality with threshold logic:
+      // - If requester asked for Q1000 (maximum): pick best inventory batch if >= MIN_AUTO_HIGH, else keep Q1000 as request
+      // - If requester asked for minimum or specific: keep the requested quality — don't auto-assign inventory
+      // This preserves the requester's intent: "maximum" means use your best, "minimum/specific" means exactly that
+      const MIN_AUTO_HIGH=300; // minimum inventory quality to auto-assign for maximum requests
       const slotQ={};
       const assignSlot=(sqKey,mat)=>{
         const requested=sharedQ[sqKey]??1000;
-        const best=bestQuality(mat);
-        // If crafter has inventory, use best batch; otherwise keep request
-        slotQ[sqKey]=best>0?best:requested;
+        if(requested>=1000){
+          // Requester wants maximum — auto-assign best inventory if good enough
+          const batches=getBatches(mat).filter(b=>b.qty>0).sort((a,b)=>b.quality-a.quality);
+          if(batches.length&&batches[0].quality>=MIN_AUTO_HIGH){
+            slotQ[sqKey]=batches[0].quality;
+          }else{
+            slotQ[sqKey]=requested;
+          }
+        }else{
+          // Requester specified a quality — respect it exactly
+          slotQ[sqKey]=requested;
+        }
       };
       if(item.pieces){item.pieces.forEach(pp=>{(pp.recipe||[]).filter(rr=>rr.material&&rr.slot&&rr.amount_cscu>0).forEach(rr=>{assignSlot(pp.piece_type+'|'+rr.slot,rr.material);});});}
       else{getSlottedRec(item).forEach(rr=>{assignSlot(rr.slot,rr.material);});}
