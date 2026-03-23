@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SC Blueprint Mission Rewards</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        h1 {
+            color: #00d4ff;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background: rgba(0,212,255,0.1);
+            border: 1px solid rgba(0,212,255,0.3);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-box .number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+        
+        .stat-box .label {
+            font-size: 0.8rem;
+            color: #888;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+        .search-box input::placeholder {
+            color: #666;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #00d4ff;
+        }
+        
+        .view-toggle {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .view-toggle button {
+            padding: 12px 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            color: #e0e0e0;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        .view-toggle button:first-child {
+            border-radius: 8px 0 0 8px;
+        }
+        
+        .view-toggle button:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .view-toggle button.active {
+            background: #00d4ff;
+            color: #1a1a2e;
+            border-color: #00d4ff;
+        }
+        
+        .view-toggle button:hover:not(.active) {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .mission-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .mission-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .mission-card:hover {
+            border-color: rgba(0,212,255,0.5);
+            transform: translateY(-2px);
+        }
+        
+        .mission-header {
+            padding: 15px 20px;
+            background: rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .mission-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .mission-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .badge.random {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: #fff;
+        }
+        
+        .badge.guaranteed {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: #1a1a2e;
+        }
+        
+        .badge.count {
+            background: rgba(255,255,255,0.1);
+            color: #aaa;
+        }
+        
+        .mission-body {
+            padding: 15px 20px;
+            display: none;
+        }
+        
+        .mission-card.expanded .mission-body {
+            display: block;
+        }
+        
+        .mission-card.expanded .mission-header {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .reward-list {
+            list-style: none;
+        }
+        
+        .reward-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .reward-item:last-child {
+            border-bottom: none;
+        }
+        
+        .reward-name {
+            color: #e0e0e0;
+        }
+        
+        .reward-name.unknown {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .reward-chance {
+            background: rgba(255,255,255,0.1);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: #00d4ff;
+            font-weight: 500;
+        }
+        
+        /* Item view styles */
+        .item-grid {
+            display: none;
+        }
+        
+        .item-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 15px 20px;
+        }
+        
+        .item-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+        
+        .item-sources {
+            list-style: none;
+        }
+        
+        .item-source {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .item-source:last-child {
+            border-bottom: none;
+        }
+        
+        .expand-icon {
+            transition: transform 0.2s;
+        }
+        
+        .mission-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        .load-section {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255,255,255,0.03);
+            border: 2px dashed rgba(255,255,255,0.2);
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .load-section p {
+            margin-bottom: 15px;
+            color: #888;
+        }
+        
+        .load-btn {
+            padding: 12px 30px;
+            background: #00d4ff;
+            color: #1a1a2e;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .load-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .view-toggle {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 SC Blueprint Mission Rewards</h1>
+            <p class="subtitle">Star Citizen Crafting Blueprint Sources</p>
+            <div class="stats" id="stats"></div>
+        </header>
+        
+        <div class="load-section" id="loadSection">
+            <p>Loading blueprint data...</p>
+        </div>
+        
+        <div class="controls hidden" id="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Search missions or items...">
+            </div>
+            <div class="view-toggle">
+                <button class="active" onclick="setView('missions')">By Mission</button>
+                <button onclick="setView('items')">By Item</button>
+            </div>
+        </div>
+        
+        <div class="mission-grid" id="missionGrid"></div>
+        <div class="item-grid" id="itemGrid"></div>
+    </div>
+    
+    <script>
+        let data = null;
+        let currentView = 'missions';
+        
+        // Auto-load from data/ folder
+        (async function(){
+            const loadSection = document.getElementById('loadSection');
+            try {
+                const resp = await fetch('data/blueprint_mission_rewards.json');
+                if (!resp.ok) throw new Error(resp.status);
+                data = await resp.json();
+                loadSection.classList.add('hidden');
+                document.getElementById('controls').classList.remove('hidden');
+                renderStats();
+                renderMissions();
+            } catch (err) {
+                loadSection.innerHTML = `
+                    <p>Could not auto-load data. <strong>Load manually:</strong></p>
+                    <input type="file" id="fileInput" accept=".json" style="display:none">
+                    <button class="load-btn" onclick="document.getElementById('fileInput').click()">📂 Load JSON File</button>
+                `;
+                document.getElementById('fileInput').addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (!file) return;
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        try {
+                            data = JSON.parse(e.target.result);
+                            loadSection.classList.add('hidden');
+                            document.getElementById('controls').classList.remove('hidden');
+                            renderStats();
+                            renderMissions();
+                        } catch (err) {
+                            alert('Error parsing JSON file: ' + err.message);
+                        }
+                    };
+                    reader.readAsText(file);
+                });
+            }
+        })();
+        
+        function renderStats() {
+            const stats = document.getElementById('stats');
+            stats.innerHTML = `
+                <div class="stat-box">
+                    <div class="number">${data.summary.total_missions}</div>
+                    <div class="label">Missions</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">${data.summary.guaranteed}</div>
+                    <div class="label">Guaranteed</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">${data.summary.random}</div>
+                    <div class="label">Random Pools</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">${Object.keys(data.item_sources).length}</div>
+                    <div class="label">Unique Items</div>
+                </div>
+            `;
+        }
+        
+        function renderMissions(filter = '') {
+            const grid = document.getElementById('missionGrid');
+            const filterLower = filter.toLowerCase();
+            
+            let html = '';
+            for (const mission of data.missions) {
+                // Filter check
+                if (filter) {
+                    const matchMission = mission.name.toLowerCase().includes(filterLower);
+                    const matchReward = mission.rewards.some(r => 
+                        r.name.toLowerCase().includes(filterLower)
+                    );
+                    if (!matchMission && !matchReward) continue;
+                }
+                
+                const badgeClass = mission.type === 'RANDOM' ? 'random' : 'guaranteed';
+                const badgeIcon = mission.type === 'RANDOM' ? '🎲' : '🎯';
+                
+                let rewardsHtml = '';
+                for (const r of mission.rewards) {
+                    const nameClass = r.name === 'Unknown' ? 'reward-name unknown' : 'reward-name';
+                    const chanceText = mission.type === 'RANDOM' ? `${r.probability}%` : '✓';
+                    rewardsHtml += `
+                        <li class="reward-item">
+                            <span class="${nameClass}">${escapeHtml(r.name)}</span>
+                            <span class="reward-chance">${chanceText}</span>
+                        </li>
+                    `;
+                }
+                
+                html += `
+                    <div class="mission-card" onclick="toggleCard(this)">
+                        <div class="mission-header">
+                            <span class="mission-name">${escapeHtml(mission.name)}</span>
+                            <div class="mission-badge">
+                                <span class="badge count">${mission.reward_count} items</span>
+                                <span class="badge ${badgeClass}">${badgeIcon} ${mission.type}</span>
+                                <span class="expand-icon">▼</span>
+                            </div>
+                        </div>
+                        <div class="mission-body">
+                            <ul class="reward-list">${rewardsHtml}</ul>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            grid.innerHTML = html || '<p style="text-align:center;color:#666;">No missions found</p>';
+        }
+        
+        function renderItems(filter = '') {
+            const grid = document.getElementById('itemGrid');
+            const filterLower = filter.toLowerCase();
+            
+            let html = '';
+            const sortedItems = Object.entries(data.item_sources).sort((a, b) => 
+                a[0].localeCompare(b[0])
+            );
+            
+            for (const [itemName, sources] of sortedItems) {
+                // Filter check
+                if (filter) {
+                    const matchItem = itemName.toLowerCase().includes(filterLower);
+                    const matchSource = sources.some(s => 
+                        s.mission.toLowerCase().includes(filterLower)
+                    );
+                    if (!matchItem && !matchSource) continue;
+                }
+                
+                let sourcesHtml = '';
+                for (const s of sources) {
+                    const chanceText = s.type === 'RANDOM' ? `${s.probability}%` : 'GUARANTEED';
+                    sourcesHtml += `
+                        <li class="item-source">
+                            <span>${escapeHtml(s.mission)}</span>
+                            <span>${chanceText}</span>
+                        </li>
+                    `;
+                }
+                
+                html += `
+                    <div class="item-card">
+                        <div class="item-name">${escapeHtml(itemName)}</div>
+                        <ul class="item-sources">${sourcesHtml}</ul>
+                    </div>
+                `;
+            }
+            
+            grid.innerHTML = html || '<p style="text-align:center;color:#666;">No items found</p>';
+        }
+        
+        function setView(view) {
+            currentView = view;
+            const buttons = document.querySelectorAll('.view-toggle button');
+            buttons.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const missionGrid = document.getElementById('missionGrid');
+            const itemGrid = document.getElementById('itemGrid');
+            
+            if (view === 'missions') {
+                missionGrid.style.display = 'grid';
+                itemGrid.style.display = 'none';
+                renderMissions(document.getElementById('searchInput').value);
+            } else {
+                missionGrid.style.display = 'none';
+                itemGrid.style.display = 'grid';
+                renderItems(document.getElementById('searchInput').value);
+            }
+        }
+        
+        function toggleCard(card) {
+            card.classList.toggle('expanded');
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const filter = e.target.value;
+            if (currentView === 'missions') {
+                renderMissions(filter);
+            } else {
+                renderItems(filter);
+            }
+        });
+    </script>
+</body>
+</html>
