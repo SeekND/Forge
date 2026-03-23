@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RediMake Crafting Calculator — Star Citizen</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+  <style>
+    /* Sources info icon + popover */
+    .sources-wrap{position:relative;display:inline-flex;align-items:center}
+    .sources-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#1e293b;color:#60a5fa;font-size:11px;font-weight:700;font-style:normal;cursor:pointer;border:1px solid #334155;transition:background .15s,color .15s;line-height:1;user-select:none}
+    .sources-icon:hover,.sources-wrap:focus-within .sources-icon{background:#334155;color:#93c5fd}
+    .sources-pop{display:none;position:absolute;left:0;top:calc(100% + 6px);z-index:100;min-width:200px;max-width:340px;width:max-content;padding:8px 10px;background:#1e293b;border:1px solid #334155;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+    .sources-wrap:hover .sources-pop,.sources-wrap:focus-within .sources-pop{display:block}
+    .src-line{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:3px 0;font-size:12px;color:#cbd5e1;border-bottom:1px solid #0f172a}
+    .src-line:last-child{border-bottom:none}
+    .src-default{color:#4ade80;font-weight:600}
+    .src-mission{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .src-prob{color:#60a5fa;font-weight:600;font-size:11px;flex-shrink:0}
+    /* Piece-row sources icon — slightly smaller */
+    .piece-row .sources-icon{width:16px;height:16px;font-size:10px}
+    .piece-row .sources-pop{left:0}
+    /* Ore request group + mode toggle */
+    .ore-req-group{display:flex;flex-direction:column;gap:4px}
+    .ore-mode-toggle{display:flex;border-radius:6px;overflow:hidden;border:1px solid #334155}
+    .ore-mode{flex:1;padding:3px 8px;font-size:11px;font-weight:600;background:#0f172a;color:#64748b;border:none;cursor:pointer;transition:background .15s,color .15s}
+    .ore-mode.active{background:#1e40af;color:#e2e8f0}
+    .ore-mode:hover:not(.active){background:#1e293b;color:#94a3b8}
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="brand">
+          <h1><span class="accent">⬡</span> RediMake Crafting Calculator</h1>
+          <div class="subtitle" id="subtitle">Star Citizen · Loading...</div>
+        </div>
+        <button class="unit-toggle" id="unit-toggle" onclick="toggleUnit()" title="Switch between cSCU and SCU">cSCU</button>
+      </div>
+      <nav id="tabs">
+        <button class="tab active" data-tab="home" onclick="switchTab('home')">Home</button>
+        <button class="tab" data-tab="blueprints" onclick="switchTab('blueprints')">Blueprints</button>
+        <button class="tab" data-tab="sets" onclick="switchTab('sets')">Set Planner</button>
+        <button class="tab" data-tab="inventory" onclick="switchTab('inventory')">Inventory</button>
+        <button class="tab" data-tab="workorder" onclick="switchTab('workorder')">Work Orders <span id="wo-badge" class="tab-badge"></span></button>
+        <button class="tab" data-tab="materials" onclick="switchTab('materials')">Materials</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ═══ HOME ═══ -->
+    <section id="tab-home" class="tab-content active">
+      <div class="hero">
+        <h2 class="hero-title">Star Citizen Crafting Calculator</h2>
+        <p class="hero-sub">Plan your crafts, track your materials, share work orders with your org.</p>
+      </div>
+      <div class="pipeline">
+        <div class="pipe-step"><div class="pipe-icon">⛏</div><div class="pipe-label">Mine</div><div class="pipe-desc">Gather raw ores from asteroids and planet surfaces</div></div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step"><div class="pipe-icon">⚗</div><div class="pipe-label">Refine</div><div class="pipe-desc">Process raw ore into refined materials at a refinery</div></div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step"><div class="pipe-icon">⬡</div><div class="pipe-label">Craft</div><div class="pipe-desc">Load materials into a fabricator to build gear</div></div>
+      </div>
+      <div class="home-cards">
+        <div class="home-card" onclick="switchTab('blueprints')"><h3>Blueprints</h3><p>Browse all craftable armor, weapons, undersuits, and backpacks with full recipe details.</p><span class="home-card-stat" id="hc-bp"></span></div>
+        <div class="home-card" onclick="switchTab('sets')"><h3>Set Planner</h3><p>Build a complete armor loadout — pick each piece and see total material costs.</p><span class="home-card-stat" id="hc-sets"></span></div>
+        <div class="home-card" onclick="switchTab('inventory')"><h3>Inventory</h3><p>Enter your materials and see what you can craft right now.</p><span class="home-card-stat" id="hc-inv"></span></div>
+        <div class="home-card" onclick="switchTab('workorder')"><h3>Work Orders</h3><p>Queue items with quantities, share orders with your org via link or clipboard.</p><span class="home-card-stat" id="hc-wo"></span></div>
+        <div class="home-card" onclick="switchTab('materials')"><h3>Materials</h3><p>All crafting materials — ore sources, crafting slots, and which categories use them.</p><span class="home-card-stat" id="hc-mat"></span></div>
+      </div>
+
+    </section>
+
+    <!-- ═══ BLUEPRINTS ═══ -->
+    <section id="tab-blueprints" class="tab-content">
+      <div class="cat-bar">
+        <button class="cat-btn active" data-cat="armor" onclick="setBpCategory('armor')"><span class="cat-label">Armor</span><span class="cat-count" id="cc-armor"></span></button>
+        <button class="cat-btn" data-cat="weapons" onclick="setBpCategory('weapons')"><span class="cat-label">Weapons</span><span class="cat-count" id="cc-weapons"></span></button>
+        <button class="cat-btn" data-cat="undersuits" onclick="setBpCategory('undersuits')"><span class="cat-label">Undersuits</span><span class="cat-count" id="cc-undersuits"></span></button>
+      </div>
+      <input type="text" id="bp-search" class="search-input" placeholder="Search names, materials, manufacturers..." oninput="filterBlueprints()">
+      <div id="global-filters" class="filter-panel">
+        <div class="fp-groups">
+          <div class="fp-group"><span class="fp-label">Status</span><div class="fp-chips" id="f-unlock"></div></div>
+        </div>
+      </div>
+      <div id="armor-filters" class="filter-panel">
+        <div class="fp-groups">
+          <div class="fp-group"><span class="fp-label">Weight</span><div class="fp-chips" id="f-weight"></div></div><div class="fp-sep"></div>
+          <div class="fp-group"><span class="fp-label">Role</span><div class="fp-chips" id="f-role"></div></div><div class="fp-sep"></div>
+          <div class="fp-group"><span class="fp-label">Piece</span><div class="fp-chips" id="f-piece"></div></div>
+        </div>
+        <button class="fp-clear" id="armor-clear" onclick="clearFilters('armor')" style="display:none">✕ Clear</button>
+      </div>
+      <div id="weapon-filters" class="filter-panel" style="display:none">
+        <div class="fp-groups">
+          <div class="fp-group"><span class="fp-label">Kind</span><div class="fp-chips" id="f-wkind"></div></div><div class="fp-sep"></div>
+          <div class="fp-group"><span class="fp-label">Type</span><div class="fp-chips" id="f-wtype"></div></div><div class="fp-sep"></div>
+          <div class="fp-group"><span class="fp-label">Damage</span><div class="fp-chips" id="f-dmg"></div></div>
+        </div>
+        <button class="fp-clear" id="weapon-clear" onclick="clearFilters('weapons')" style="display:none">✕ Clear</button>
+      </div>
+      <div class="results-info" id="bp-results-info"></div>
+      <div id="bp-grid" class="card-grid"></div>
+    </section>
+
+    <!-- ═══ SET PLANNER ═══ -->
+    <section id="tab-sets" class="tab-content">
+      <div class="section-intro"><h2>Set Planner</h2><p class="dim">Build a full armor loadout and see total materials.</p></div>
+      <div class="planner-layout">
+        <div class="planner-slots" id="planner-slots"></div>
+        <div class="planner-summary">
+          <h3>Materials Needed</h3>
+          <div id="planner-materials" class="planner-materials"><div class="dim">Select pieces to see totals</div></div>
+          <div id="planner-actions" class="planner-actions" style="display:none">
+            <button class="btn-primary" onclick="addPlannerToWO()">Add to Work Order</button>
+            <button class="btn-secondary" onclick="copyPlannerText()">Copy as Text</button>
+            <button class="btn-secondary" onclick="savePlannerSet()">Save Set</button>
+          </div>
+          <div id="saved-sets" class="saved-sets"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ INVENTORY ═══ -->
+    <section id="tab-inventory" class="tab-content">
+      <div class="section-intro"><h2>Inventory — What Can I Craft?</h2><p class="dim">Enter your materials below. We'll show what you can build.</p></div>
+      <div class="inventory-layout">
+        <div class="inventory-inputs" id="inventory-inputs"></div>
+        <div class="inventory-results">
+          <div class="filter-panel">
+            <div class="fp-groups">
+              <div class="fp-group"><span class="fp-label">Status</span>
+                <div class="fp-chips">
+                  <button class="fp-chip active" data-ig="status" data-iv="all" onclick="setInvFilter('status','all')">All</button>
+                  <button class="fp-chip" data-ig="status" data-iv="craftable" onclick="setInvFilter('status','craftable')">Craftable</button>
+                  <button class="fp-chip" data-ig="status" data-iv="partial" onclick="setInvFilter('status','partial')">Partial</button>
+                </div>
+              </div><div class="fp-sep"></div>
+              <div class="fp-group"><span class="fp-label">Type</span><div class="fp-chips" id="inv-type-filters"></div></div><div class="fp-sep"></div>
+              <div class="fp-group"><span class="fp-label">Weight</span><div class="fp-chips" id="inv-weight-filters"></div></div>
+            </div>
+          </div>
+          <div id="inv-grid" class="card-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ WORK ORDERS ═══ -->
+    <section id="tab-workorder" class="tab-content">
+      <div class="section-intro"><h2>Work Orders</h2><p class="dim">Create named orders, track progress, share with your org.</p></div>
+      <div class="wo-top-bar">
+        <div class="wo-order-tabs" id="wo-order-tabs"></div>
+        <button class="btn-secondary btn-sm" onclick="createNewOrder()">+ New Order</button>
+      </div>
+      <div class="wo-layout">
+        <div class="wo-items" id="wo-items"><div class="dim">Select or create a work order above</div></div>
+        <div class="wo-sidebar">
+          <div class="wo-panel">
+            <h3>Materials Required</h3>
+            <div id="wo-materials"></div>
+          </div>
+          <div class="wo-panel" id="wo-time-panel" style="display:none">
+            <h3>Time Estimate</h3>
+            <div id="wo-time"></div>
+          </div>
+          <div class="wo-btns" id="wo-btns" style="display:none">
+            <button class="btn-primary" onclick="copyWOText()">Order Request</button>
+            <div class="ore-req-group">
+              <button class="btn-secondary" onclick="copyOreRequest()">Ore Request</button>
+              <div class="ore-mode-toggle" id="ore-mode-toggle">
+                <button class="ore-mode active" data-mode="all" onclick="setOreMode('all')">All</button>
+                <button class="ore-mode" data-mode="remaining" onclick="setOreMode('remaining')">Remaining</button>
+              </div>
+            </div>
+            <button class="btn-danger" onclick="deleteCurrentOrder()">Delete Order</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ MATERIALS ═══ -->
+    <section id="tab-materials" class="tab-content">
+      <div class="section-intro"><h2>Material Reference</h2><p class="dim">All crafting materials — ore sources, crafting slots, and common uses.</p></div>
+      <div id="materials-grid" class="materials-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>This site is not endorsed by or affiliated with the Cloud Imperium or Roberts Space Industries group of companies. All game content and materials are copyright Cloud Imperium Rights LLC and Cloud Imperium Rights Ltd.. Star Citizen®, Squadron 42®, Roberts Space Industries®, and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC. All rights reserved.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

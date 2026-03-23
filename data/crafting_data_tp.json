@@ -1,0 +1,5962 @@
+{
+  "meta": {
+    "source": "Datamined from Star Citizen game files",
+    "source_url": "",
+    "extracted_date": "2026-02-22",
+    "current_patch": "4.7",
+    "data_updated": "2026-02-22",
+    "news_reel": "",
+    "note": "Auto-extracted by sc_crafting_miner v3.",
+    "machine_name": "RediMake Item Fabricator"
+  },
+  "armor_sets": [
+    {
+      "set_key": "ccc_medium_armor|01",
+      "set_name": "Aves",
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "CC Consolidated",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.75,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Ouratite": 10.0
+      },
+      "pieces": [
+        {
+          "name": "Aves Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "64631198-28b5-49f0-893f-92b9bfadf95e",
+          "blueprint_file": "bp_craft_ccc_medium_armor_arms_01_01_01.xml"
+        },
+        {
+          "name": "Aves Core",
+          "piece_type": "core",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "8834d182-25d6-4804-b017-75cd1c87879a",
+          "blueprint_file": "bp_craft_ccc_medium_armor_core_01_01_01.xml"
+        },
+        {
+          "name": "Aves Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "83462bdc-21c1-47e7-b315-76d505dfa1cf",
+          "blueprint_file": "bp_craft_ccc_medium_armor_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Aves Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "74dd7626-27c8-4b4c-bda4-8192f251f4d5",
+          "blueprint_file": "bp_craft_ccc_medium_armor_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "cds_armor_heavy|01",
+      "set_name": "ADP-mk4 Woodland",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "CDS",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.75,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Ouratite": 10.0
+      },
+      "pieces": [
+        {
+          "name": "ADP-mk4 Arms Woodland",
+          "piece_type": "arms",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "bef9cd69-24f0-434a-ba7a-2bf751228093",
+          "blueprint_file": "bp_craft_cds_armor_heavy_arms_01_01_01.xml"
+        },
+        {
+          "name": "ADP-mk4 Core Woodland",
+          "piece_type": "core",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "8eabeef4-5d8d-4db4-a4df-9fa151062b42",
+          "blueprint_file": "bp_craft_cds_armor_heavy_core_01_01_01.xml"
+        },
+        {
+          "name": "ADP-mk4 Helmet Woodland",
+          "piece_type": "helmet",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "80fd0b3b-2ceb-4288-8867-ca30ffb7c4bd",
+          "blueprint_file": "bp_craft_cds_armor_heavy_helmet_01_01_01.xml"
+        },
+        {
+          "name": "ADP-mk4 Legs Woodland",
+          "piece_type": "legs",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "b400fde5-495b-47b1-a9d8-210b1d5cb4fd",
+          "blueprint_file": "bp_craft_cds_armor_heavy_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "cds_armor_light|01",
+      "set_name": "Field Recon",
+      "weight": "light",
+      "role": "combat",
+      "manufacturer": "CDS",
+      "is_environment_suit": false,
+      "complete": false,
+      "missing": [
+        "arms"
+      ],
+      "piece_count": 4,
+      "total_cscu": 13.75,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Ouratite": 9.0
+      },
+      "pieces": [
+        {
+          "name": "Field Recon Suit Core",
+          "piece_type": "core",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "1516552d-9a25-40f5-9aed-e99e2dae8017",
+          "blueprint_file": "bp_craft_cds_armor_light_core_01_01_01.xml"
+        },
+        {
+          "name": "Field Recon Suit Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "7d328d9e-a8dc-4279-b973-692964eb0fe9",
+          "blueprint_file": "bp_craft_cds_armor_light_arms_01_01_01.xml"
+        },
+        {
+          "name": "Field Recon Suit Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "7d328d9e-a8dc-4279-b973-692964eb0fe9",
+          "blueprint_file": "bp_craft_cds_armor_light_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Field Recon Suit Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "cc7aa50a-e09d-4d23-a417-1386a35b0a2b",
+          "blueprint_file": "bp_craft_cds_armor_light_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "cds_armor_medium|01",
+      "set_name": "ORC-mkX Woodland",
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "CDS",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.75,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Ouratite": 10.0
+      },
+      "pieces": [
+        {
+          "name": "ORC-mkX Arms Woodland",
+          "piece_type": "arms",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "e38bac8b-2e1f-4b41-9b1b-ccc16ed9b17d",
+          "blueprint_file": "bp_craft_cds_armor_medium_arms_01_01_01.xml"
+        },
+        {
+          "name": "ORC-mkX Core Woodland",
+          "piece_type": "core",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "8b93bc9b-8881-410c-9ac2-9df2ee7aebb3",
+          "blueprint_file": "bp_craft_cds_armor_medium_core_01_01_01.xml"
+        },
+        {
+          "name": "ORC-mkX Helmet Woodland",
+          "piece_type": "helmet",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "ffba2a67-69ee-4a3b-9ca9-600b1983cc84",
+          "blueprint_file": "bp_craft_cds_armor_medium_helmet_01_01_01.xml"
+        },
+        {
+          "name": "ORC-mkX Legs Woodland",
+          "piece_type": "legs",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "b42ecd28-d8e0-402e-aaf9-86c4a9d97169",
+          "blueprint_file": "bp_craft_cds_armor_medium_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "cds_legacy_armor_heavy|01",
+      "set_name": "ADP Woodland",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "CDS",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.75,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Ouratite": 10.0
+      },
+      "pieces": [
+        {
+          "name": "ADP Arms Woodland",
+          "piece_type": "arms",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "8fd1742f-d8d6-46bb-a2a6-bf07dd7a5bd6",
+          "blueprint_file": "bp_craft_cds_legacy_armor_heavy_arms_01_01_01.xml"
+        },
+        {
+          "name": "ADP Core",
+          "piece_type": "core",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "cf98d3f9-24d1-47b2-9cb9-f7ba09e3571f",
+          "blueprint_file": "bp_craft_cds_legacy_armor_heavy_core_01_01_01.xml"
+        },
+        {
+          "name": "Balor HCH Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "35e498db-02e4-4963-9afa-ee08970c2036",
+          "blueprint_file": "bp_craft_cds_legacy_armor_heavy_helmet_01_01_01.xml"
+        },
+        {
+          "name": "ADP Legs Woodland",
+          "piece_type": "legs",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "67985f0c-9d48-44f6-ab8c-ea9ba38b211a",
+          "blueprint_file": "bp_craft_cds_legacy_armor_heavy_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "cds_legacy_armor_light|01",
+      "set_name": "PAB-1",
+      "weight": "light",
+      "role": "combat",
+      "manufacturer": "CDS",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 13.75,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Ouratite": 9.0
+      },
+      "pieces": [
+        {
+          "name": "PAB-1 Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "1208181e-d6ff-4407-a9e6-c2e91bfcfa2e",
+          "blueprint_file": "bp_craft_cds_legacy_armor_light_arms_01_01_01.xml"
+        },
+        {
+          "name": "PAB-1 Core",
+          "piece_type": "core",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "d134f428-2f9e-47c4-8e69-2edbcd68cce4",
+          "blueprint_file": "bp_craft_cds_legacy_armor_light_core_01_01_01.xml"
+        },
+        {
+          "name": "CBH-3 Helmet Base",
+          "piece_type": "helmet",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "3d06b920-80a4-4db2-b5be-51268afb09b5",
+          "blueprint_file": "bp_craft_cds_legacy_armor_light_helmet_01_01_01.xml"
+        },
+        {
+          "name": "PAB-1 Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "3714af80-6da5-4c42-8b78-60166d1b5987",
+          "blueprint_file": "bp_craft_cds_legacy_armor_light_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "cds_legacy_armor_medium|01",
+      "set_name": "ORC-mkV",
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "CDS",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.75,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Ouratite": 10.0
+      },
+      "pieces": [
+        {
+          "name": "ORC-mkV Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "f1183bfe-f860-465f-94bb-9c6d463e0de4",
+          "blueprint_file": "bp_craft_cds_legacy_armor_medium_arms_01_01_01.xml"
+        },
+        {
+          "name": "ORC-mkV Core",
+          "piece_type": "core",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "43b3e729-5fb2-4396-a9d7-02b7ab9e6844",
+          "blueprint_file": "bp_craft_cds_legacy_armor_medium_core_01_01_01.xml"
+        },
+        {
+          "name": "Aves Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "83462bdc-21c1-47e7-b315-76d505dfa1cf",
+          "blueprint_file": "bp_craft_cds_legacy_armor_medium_helmet_01_01_01.xml"
+        },
+        {
+          "name": "ORC-mkV Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "bf9e7f98-fee7-4d17-8588-02238efcb637",
+          "blueprint_file": "bp_craft_cds_legacy_armor_medium_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "clda_combat_light|01",
+      "set_name": "Badami",
+      "weight": "light",
+      "role": "combat",
+      "manufacturer": "Caldera",
+      "is_environment_suit": false,
+      "complete": false,
+      "missing": [
+        "arms",
+        "core",
+        "legs"
+      ],
+      "piece_count": 1,
+      "total_cscu": 2.75,
+      "material_totals": {
+        "Aslarite": 1.0,
+        "Taranite": 1.75
+      },
+      "pieces": [
+        {
+          "name": "Badami Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 2.75,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "305c8b36-61a3-4065-b514-199719de9ac0",
+          "blueprint_file": "bp_craft_clda_combat_light_helmet_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "clda_env_heavy|01",
+      "set_name": "Novikov",
+      "weight": "heavy",
+      "role": "environment",
+      "manufacturer": "Caldera",
+      "is_environment_suit": true,
+      "complete": true,
+      "missing": [],
+      "piece_count": 2,
+      "total_cscu": 16.25,
+      "material_totals": {
+        "Aslarite": 4.25,
+        "Stileron": 12.0
+      },
+      "pieces": [
+        {
+          "name": "Novikov Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 11.0,
+          "recipe": [
+            {
+              "slot": "Shell",
+              "material": "Stileron",
+              "raw_ore": "Stileron Ore",
+              "amount_cscu": 8.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 3.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "924ac206-9122-4584-8682-af7d61f56929",
+          "blueprint_file": "bp_craft_clda_env_armor_heavy_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Novikov Exploration Suit",
+          "piece_type": "suit",
+          "total_cscu": 5.25,
+          "recipe": [
+            {
+              "slot": "Shell",
+              "material": "Stileron",
+              "raw_ore": "Stileron Ore",
+              "amount_cscu": 4.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "e04391b4-6ef1-42c5-b23f-20a4a3709770",
+          "blueprint_file": "bp_craft_clda_env_armor_heavy_suit_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "clda_env_heavy|02",
+      "set_name": "Pembroke",
+      "weight": "heavy",
+      "role": "environment",
+      "manufacturer": "Caldera",
+      "is_environment_suit": true,
+      "complete": true,
+      "missing": [],
+      "piece_count": 2,
+      "total_cscu": 16.25,
+      "material_totals": {
+        "Aslarite": 4.25,
+        "Stileron": 12.0
+      },
+      "pieces": [
+        {
+          "name": "Pembroke Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 11.0,
+          "recipe": [
+            {
+              "slot": "Shell",
+              "material": "Stileron",
+              "raw_ore": "Stileron Ore",
+              "amount_cscu": 8.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 3.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "b4545643-195c-4b70-977c-55d680ec34c2",
+          "blueprint_file": "bp_craft_clda_utility_heavy_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Pembroke Exploration Suit",
+          "piece_type": "suit",
+          "total_cscu": 5.25,
+          "recipe": [
+            {
+              "slot": "Shell",
+              "material": "Stileron",
+              "raw_ore": "Stileron Ore",
+              "amount_cscu": 4.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "13a8f1c2-9679-4e0f-8281-f88c20925a1a",
+          "blueprint_file": "bp_craft_clda_utility_heavy_suit_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "clda_env_heavy|03",
+      "set_name": "Siebe",
+      "weight": "heavy",
+      "role": "environment",
+      "manufacturer": "Caldera",
+      "is_environment_suit": true,
+      "complete": false,
+      "missing": [
+        "suit"
+      ],
+      "piece_count": 1,
+      "total_cscu": 11.0,
+      "material_totals": {
+        "Aslarite": 3.0,
+        "Stileron": 8.0
+      },
+      "pieces": [
+        {
+          "name": "Siebe Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 11.0,
+          "recipe": [
+            {
+              "slot": "Shell",
+              "material": "Stileron",
+              "raw_ore": "Stileron Ore",
+              "amount_cscu": 8.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 3.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "06cbc938-0b97-4c1b-a4e1-8c5334152deb",
+          "blueprint_file": "bp_craft_clda_utility_heavy_helmet_03_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "clda_env_heavy|04",
+      "set_name": "Stirling",
+      "weight": "heavy",
+      "role": "environment",
+      "manufacturer": "Caldera",
+      "is_environment_suit": true,
+      "complete": true,
+      "missing": [],
+      "piece_count": 2,
+      "total_cscu": 16.25,
+      "material_totals": {
+        "Aslarite": 4.25,
+        "Stileron": 12.0
+      },
+      "pieces": [
+        {
+          "name": "Stirling Exploration Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 5.25,
+          "recipe": [
+            {
+              "slot": "Shell",
+              "material": "Stileron",
+              "raw_ore": "Stileron Ore",
+              "amount_cscu": 4.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Filter",
+              "material": "",
+              "raw_ore": "",
+              "amount_cscu": 0.0,
+              "is_catalyst": true
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "90a3923f-ba5d-403b-a0e5-c85290a22e1e",
+          "blueprint_file": "bp_craft_clda_utility_heavy_helmet_04_01_01.xml"
+        },
+        {
+          "name": "Stirling Exploration Suit",
+          "piece_type": "suit",
+          "total_cscu": 11.0,
+          "recipe": [
+            {
+              "slot": "Shell",
+              "material": "Stileron",
+              "raw_ore": "Stileron Ore",
+              "amount_cscu": 8.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 3.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Filter",
+              "material": "",
+              "raw_ore": "",
+              "amount_cscu": 0.0,
+              "is_catalyst": true
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "711208e1-0378-42f3-a503-cdac8ee56e31",
+          "blueprint_file": "bp_craft_clda_utility_heavy_suit_03_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "doom_armor_medium|02",
+      "set_name": "The Butcher",
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "Doom",
+      "is_environment_suit": false,
+      "complete": false,
+      "missing": [
+        "arms",
+        "core",
+        "legs"
+      ],
+      "piece_count": 1,
+      "total_cscu": 3.25,
+      "material_totals": {
+        "Aslarite": 1.0,
+        "Ouratite": 2.25
+      },
+      "pieces": [
+        {
+          "name": "The Butcher Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "be61097a-d81e-4520-ab50-2039392a28d8",
+          "blueprint_file": "bp_craft_doom_armor_medium_helmet_02_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "fta_medium|01",
+      "set_name": "Strata Shooting Star",
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "FTA",
+      "is_environment_suit": false,
+      "complete": false,
+      "missing": [
+        "arms",
+        "core",
+        "legs"
+      ],
+      "piece_count": 1,
+      "total_cscu": 3.0,
+      "material_totals": {
+        "Aslarite": 1.0,
+        "Corundum": 2.0
+      },
+      "pieces": [
+        {
+          "name": "Strata Helmet Shooting Star",
+          "piece_type": "helmet",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Plating",
+              "material": "Corundum",
+              "raw_ore": "Raw Corundum",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "7d2d71de-993f-4a41-aeef-fcb431962974",
+          "blueprint_file": "bp_craft_fta_medium_helmet_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "grin_utility_medium|01",
+      "set_name": "Aril",
+      "weight": "medium",
+      "role": "salvager",
+      "manufacturer": "Grindel",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 13.25,
+      "material_totals": {
+        "Aslarite": 5.0,
+        "Corundum": 8.25
+      },
+      "pieces": [
+        {
+          "name": "Aril Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Plating",
+              "material": "Corundum",
+              "raw_ore": "Raw Corundum",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "13814aae-488c-48c0-80a2-5501cb76343c",
+          "blueprint_file": "bp_craft_grin_utility_medium_arms_01_01_01.xml"
+        },
+        {
+          "name": "Aril Core",
+          "piece_type": "core",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Plating",
+              "material": "Corundum",
+              "raw_ore": "Raw Corundum",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "490501c8-baea-4734-b0a5-62a0cd6bd1d6",
+          "blueprint_file": "bp_craft_grin_utility_medium_core_01_01_01.xml"
+        },
+        {
+          "name": "Aril Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Plating",
+              "material": "Corundum",
+              "raw_ore": "Raw Corundum",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "b07c855e-79ac-4c5c-b7b7-aa8df9b1a987",
+          "blueprint_file": "bp_craft_grin_utility_medium_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Aril Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Plating",
+              "material": "Corundum",
+              "raw_ore": "Raw Corundum",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "f4255f29-7e56-424e-9d1f-9ef52c7458a5",
+          "blueprint_file": "bp_craft_grin_utility_medium_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "grin_utility_medium|02",
+      "set_name": "[Unknown:80ebb28f-cf3]",
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "Grindel",
+      "is_environment_suit": false,
+      "complete": false,
+      "missing": [
+        "helmet"
+      ],
+      "piece_count": 3,
+      "total_cscu": 10.25,
+      "material_totals": {
+        "Aslarite": 4.0,
+        "Beradom": 2.0,
+        "Corundum": 4.25
+      },
+      "pieces": [
+        {
+          "name": "[Unknown:80ebb28f-cf3]",
+          "piece_type": "arms",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Plating",
+              "material": "Beradom",
+              "raw_ore": "Beradom",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "80ebb28f-cf3f-4a06-82f4-981a2467a9eb",
+          "blueprint_file": "bp_craft_grin_utility_medium_arms_02_01_01.xml"
+        },
+        {
+          "name": "[Unknown:068b179e-bb1]",
+          "piece_type": "core",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Plating",
+              "material": "Corundum",
+              "raw_ore": "Raw Corundum",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "068b179e-bb1b-471e-9bf8-2f27b0ff2d26",
+          "blueprint_file": "bp_craft_grin_utility_medium_core_02_01_01.xml"
+        },
+        {
+          "name": "[Unknown:245424cb-f2f]",
+          "piece_type": "legs",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Plating",
+              "material": "Corundum",
+              "raw_ore": "Raw Corundum",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "245424cb-f2fc-4ac5-8959-a971009e8607",
+          "blueprint_file": "bp_craft_grin_utility_medium_legs_02_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "gys|01",
+      "set_name": "Carnifex",
+      "weight": "light",
+      "role": "combat",
+      "manufacturer": "Greycat",
+      "is_environment_suit": false,
+      "complete": false,
+      "missing": [
+        "arms",
+        "helmet"
+      ],
+      "piece_count": 2,
+      "total_cscu": 7.25,
+      "material_totals": {
+        "Aslarite": 2.5,
+        "Ouratite": 4.75
+      },
+      "pieces": [
+        {
+          "name": "Carnifex Armor Core",
+          "piece_type": "core",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "a27c00b7-9eea-4025-bec7-395e3edf3ee9",
+          "blueprint_file": "bp_craft_gys_jacket_01_01_01.xml"
+        },
+        {
+          "name": "Carnifex Armor Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "9b5f61f6-ea52-4c42-a95e-d99a51e8d84c",
+          "blueprint_file": "bp_craft_gys_pants_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "kap_combat_light|01",
+      "set_name": "Geist",
+      "weight": "light",
+      "role": "combat",
+      "manufacturer": "Kessler & Pollard",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.25,
+      "material_totals": {
+        "Aslarite": 7.0,
+        "Tin": 7.25
+      },
+      "pieces": [
+        {
+          "name": "Geist Armor Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "ff40b10e-b358-4e20-8036-780d9c11984e",
+          "blueprint_file": "bp_craft_kap_combat_light_arms_01_01_01.xml"
+        },
+        {
+          "name": "Geist Armor Core",
+          "piece_type": "core",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "619bfecf-f076-46aa-bc4f-bf2b1e1b5aeb",
+          "blueprint_file": "bp_craft_kap_combat_light_core_01_01_01.xml"
+        },
+        {
+          "name": "Geist Armor Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "fe6ecbc9-a063-4c1c-9249-d3203aa08619",
+          "blueprint_file": "bp_craft_kap_combat_light_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Geist Armor Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "7cc3a072-0145-459e-b76e-1401f7e6dfc6",
+          "blueprint_file": "bp_craft_kap_combat_light_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "ksar_armor_light|01",
+      "set_name": "Microid Battle",
+      "weight": "light",
+      "role": "combat",
+      "manufacturer": "Kastak Arms",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 12.0,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Taranite": 7.25
+      },
+      "pieces": [
+        {
+          "name": "Microid Battle Suit Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "c9f0ef56-f2fc-4275-839f-ebe6c5911513",
+          "blueprint_file": "bp_craft_ksar_armor_light_arms_01_01_01.xml"
+        },
+        {
+          "name": "Microid Battle Suit Core",
+          "piece_type": "core",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "c9d14082-2ac7-464b-a772-7e48e086e865",
+          "blueprint_file": "bp_craft_ksar_armor_light_core_01_01_01.xml"
+        },
+        {
+          "name": "Microid Battle Suit Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 2.75,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "cd8b1a7b-9473-47c0-b52b-e24403cceec8",
+          "blueprint_file": "bp_craft_ksar_armor_light_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Microid Battle Suit Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "98aeb87d-3583-4a4a-b342-20b596c8eae7",
+          "blueprint_file": "bp_craft_ksar_armor_light_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "omc_utility_heavy|01",
+      "set_name": "Corbel Smolder",
+      "weight": "heavy",
+      "role": "engineer",
+      "manufacturer": "OMC",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.25,
+      "material_totals": {
+        "Aslarite": 5.0,
+        "Tin": 9.25
+      },
+      "pieces": [
+        {
+          "name": "Corbel Arms Smolder",
+          "piece_type": "arms",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "f7bc48ae-f075-43d3-a4b9-ce6ab3dc7fac",
+          "blueprint_file": "bp_craft_omc_utility_heavy_arms_01_01_01.xml"
+        },
+        {
+          "name": "Corbel Core Smolder",
+          "piece_type": "core",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "49b52040-a1f0-407f-a64b-0896274cfe82",
+          "blueprint_file": "bp_craft_omc_utility_heavy_core_01_01_01.xml"
+        },
+        {
+          "name": "Corbel Helmet Smolder",
+          "piece_type": "helmet",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "fdaffa09-1693-4db2-a3b1-99d90fdfb384",
+          "blueprint_file": "bp_craft_omc_utility_heavy_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Corbel Legs Smolder",
+          "piece_type": "legs",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "acb808af-0c02-4459-97e4-9e3ac06d6a15",
+          "blueprint_file": "bp_craft_omc_utility_heavy_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "outlaw_legacy_armor_heavy|01",
+      "set_name": "Citadel Base",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Outlaw",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.75,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Ouratite": 10.0
+      },
+      "pieces": [
+        {
+          "name": "Citadel Arms Base",
+          "piece_type": "arms",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "0609e473-5cf1-4637-8cbd-ad4f2aab0860",
+          "blueprint_file": "bp_craft_outlaw_legacy_armor_heavy_arms_01_01_01.xml"
+        },
+        {
+          "name": "Citadel Core Base",
+          "piece_type": "core",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "f37b03a9-c689-47a6-bc25-49358e0043d8",
+          "blueprint_file": "bp_craft_outlaw_legacy_armor_heavy_core_01_01_01.xml"
+        },
+        {
+          "name": "Fortifier Helmet Base",
+          "piece_type": "helmet",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "726203eb-24e1-4430-bd80-20e7b86f8e41",
+          "blueprint_file": "bp_craft_outlaw_legacy_armor_heavy_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Citadel Legs Base",
+          "piece_type": "legs",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "cf694a72-5848-43b0-a3d2-1a570e029abd",
+          "blueprint_file": "bp_craft_outlaw_legacy_armor_heavy_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "outlaw_legacy_armor_light|01",
+      "set_name": "Lynx",
+      "weight": "light",
+      "role": "engineer",
+      "manufacturer": "Outlaw",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 12.25,
+      "material_totals": {
+        "Aslarite": 5.0,
+        "Tin": 7.25
+      },
+      "pieces": [
+        {
+          "name": "Lynx Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "48609392-c78c-4909-8714-387900059785",
+          "blueprint_file": "bp_craft_outlaw_legacy_armor_light_arms_01_01_01.xml"
+        },
+        {
+          "name": "Lynx Core",
+          "piece_type": "core",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "52fe2c27-32f5-4a17-82fe-5fce8c8fbe41",
+          "blueprint_file": "bp_craft_outlaw_legacy_armor_light_core_01_01_01.xml"
+        },
+        {
+          "name": "Oracle Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 2.75,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "5512d873-28bb-4e2c-a452-f2474ec26d36",
+          "blueprint_file": "bp_craft_outlaw_legacy_armor_light_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Lynx Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "be1ffc25-c87f-4c26-8a55-692f752a80fe",
+          "blueprint_file": "bp_craft_outlaw_legacy_armor_light_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "outlaw_legacy_armor_medium|01",
+      "set_name": "Inquisitor Base",
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "Outlaw",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 15.25,
+      "material_totals": {
+        "Aslarite": 5.0,
+        "Tungsten": 10.25
+      },
+      "pieces": [
+        {
+          "name": "Inquisitor Arms Base",
+          "piece_type": "arms",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "3b977c63-9a6b-45b8-ad94-98568f7aff79",
+          "blueprint_file": "bp_craft_outlaw_legacy_armor_medium_arms_01_01_01.xml"
+        },
+        {
+          "name": "Inquisitor Core",
+          "piece_type": "core",
+          "total_cscu": 4.25,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "986906da-1cd1-4a0b-b237-6d246a4b1687",
+          "blueprint_file": "bp_craft_outlaw_legacy_armor_medium_core_01_01_01.xml"
+        },
+        {
+          "name": "Morningstar Helmet Icefall",
+          "piece_type": "helmet",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "73754ce9-d505-4510-9a7e-e7be4c1943bc",
+          "blueprint_file": "bp_craft_outlaw_legacy_medium_armor_helmet_01_02_01.xml"
+        },
+        {
+          "name": "Inquisitor Legs Base",
+          "piece_type": "legs",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "304fbb02-3fd4-4d75-b39e-a4b1f7634d91",
+          "blueprint_file": "bp_craft_outlaw_legacy_armor_medium_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "qrt_specialist_heavy|01",
+      "set_name": "Antium",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Quirinus Technologies",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 15.75,
+      "material_totals": {
+        "Aslarite": 5.0,
+        "Tungsten": 10.75
+      },
+      "pieces": [
+        {
+          "name": "Antium Arms",
+          "piece_type": "arms",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "127fb2c6-6566-4e17-8e6c-ce214e2ec408",
+          "blueprint_file": "bp_craft_qrt_specialist_heavy_arms_01_01_01.xml"
+        },
+        {
+          "name": "Antium Core",
+          "piece_type": "core",
+          "total_cscu": 4.5,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 3.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "3c09b16a-0c8b-41df-84c9-e0a4a271c0fa",
+          "blueprint_file": "bp_craft_qrt_specialist_heavy_core_01_01_01.xml"
+        },
+        {
+          "name": "Antium Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "8821103e-f5fa-46d9-99c4-f3d6b5e5cb24",
+          "blueprint_file": "bp_craft_qrt_specialist_heavy_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Antium Legs",
+          "piece_type": "legs",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "4221af8b-ae76-423e-b178-169756aa1757",
+          "blueprint_file": "bp_craft_qrt_specialist_heavy_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "qrt_specialist_medium|01",
+      "set_name": "Artimex",
+      "weight": "medium",
+      "role": "stealth",
+      "manufacturer": "Quirinus Technologies",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.75,
+      "material_totals": {
+        "Aslarite": 7.0,
+        "Tin": 7.75
+      },
+      "pieces": [
+        {
+          "name": "Artimex Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "08e03240-d9e7-4242-b76e-2b85296ba2d9",
+          "blueprint_file": "bp_craft_qrt_specialist_medium_arms_01_01_01.xml"
+        },
+        {
+          "name": "Artimex Core",
+          "piece_type": "core",
+          "total_cscu": 4.25,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "c488aefd-c738-4cae-a558-fe12cfa0bcb1",
+          "blueprint_file": "bp_craft_qrt_specialist_medium_core_01_01_01.xml"
+        },
+        {
+          "name": "Artimex Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "7491b9a8-f601-47d4-97ff-148924704363",
+          "blueprint_file": "bp_craft_qrt_specialist_medium_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Artimex Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "de6425e3-468e-499b-a0ba-f3e39b5ccee9",
+          "blueprint_file": "bp_craft_qrt_specialist_medium_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "rrs_specialist_heavy|01",
+      "set_name": "Morozov-SH",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "R&R Systems",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 15.75,
+      "material_totals": {
+        "Aslarite": 5.0,
+        "Tungsten": 10.75
+      },
+      "pieces": [
+        {
+          "name": "Morozov-SH Arms",
+          "piece_type": "arms",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "d995442f-ff27-4c84-a412-3b0a4bd6e491",
+          "blueprint_file": "bp_craft_rrs_specialist_heavy_arms_01_01_01.xml"
+        },
+        {
+          "name": "Morozov-SH Core",
+          "piece_type": "core",
+          "total_cscu": 4.5,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 3.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "2dd4b126-eb45-427f-870d-4e1b4de3a22d",
+          "blueprint_file": "bp_craft_rrs_specialist_heavy_core_01_01_01.xml"
+        },
+        {
+          "name": "Morozov-SH Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "92b7a470-5842-48fe-bd53-dc9df9bb5271",
+          "blueprint_file": "bp_craft_rrs_specialist_heavy_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Morozov-SH Legs",
+          "piece_type": "legs",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "805b6ef1-ee22-4a65-90fb-3ff610b843f4",
+          "blueprint_file": "bp_craft_rrs_specialist_heavy_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "rrs_specialist_light|01",
+      "set_name": "Arden-SL",
+      "weight": "light",
+      "role": "combat",
+      "manufacturer": "R&R Systems",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.25,
+      "material_totals": {
+        "Aslarite": 5.0,
+        "Tungsten": 9.25
+      },
+      "pieces": [
+        {
+          "name": "Arden-SL Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "8e429569-4dc8-4cbf-81ba-7c3dbd8e4e71",
+          "blueprint_file": "bp_craft_rrs_specialist_light_arms_01_01_01.xml"
+        },
+        {
+          "name": "Arden-SL Core",
+          "piece_type": "core",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "ab2c5f25-2592-47a8-a157-ab7857f58c42",
+          "blueprint_file": "bp_craft_rrs_specialist_light_core_01_01_01.xml"
+        },
+        {
+          "name": "Arden-SL Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "35a43d37-67fb-487a-b907-727d3737caf1",
+          "blueprint_file": "bp_craft_rrs_specialist_light_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Arden-SL Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Protective Sheathing",
+              "material": "Tungsten",
+              "raw_ore": "Tungsten Ore",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "16bde033-8e67-44ae-bc79-b6e4859d4a43",
+          "blueprint_file": "bp_craft_rrs_specialist_light_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "rsi_deckcrew_armor_light|01",
+      "set_name": "MacFlex",
+      "weight": "light",
+      "role": "cosmonaut",
+      "manufacturer": "RSI",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 12.25,
+      "material_totals": {
+        "Aslarite": 5.0,
+        "Taranite": 7.25
+      },
+      "pieces": [
+        {
+          "name": "MacFlex Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "ba8131c0-5cff-489d-9930-51d3bdb13c23",
+          "blueprint_file": "bp_craft_rsi_deckcrew_armor_light_arms_01_01_01.xml"
+        },
+        {
+          "name": "MacFlex Core",
+          "piece_type": "core",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "f4769b2b-0997-4c68-8b47-38cc93041a22",
+          "blueprint_file": "bp_craft_rsi_deckcrew_armor_light_core_01_01_01.xml"
+        },
+        {
+          "name": "Horizon Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 2.75,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "8845a66f-ec8c-49a5-9c23-4a5c00db7603",
+          "blueprint_file": "bp_craft_rsi_deckcrew_armor_light_helmet_01_01_01.xml"
+        },
+        {
+          "name": "MacFlex Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "161db7cd-3351-43af-9961-972ec7e0ef39",
+          "blueprint_file": "bp_craft_rsi_deckcrew_armor_light_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "rsi_explorer_armor_light|01",
+      "set_name": "Venture",
+      "weight": "light",
+      "role": "cosmonaut",
+      "manufacturer": "RSI",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 12.25,
+      "material_totals": {
+        "Aslarite": 5.0,
+        "Taranite": 7.25
+      },
+      "pieces": [
+        {
+          "name": "Venture Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "28cea84c-30bb-4381-8d0f-d009d6cb51f8",
+          "blueprint_file": "bp_craft_rsi_explorer_armor_light_arms_01_01_01.xml"
+        },
+        {
+          "name": "Venture Core",
+          "piece_type": "core",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "dc079d73-0014-41ff-8c00-3adf0eabbc3b",
+          "blueprint_file": "bp_craft_rsi_explorer_armor_light_core_01_01_01.xml"
+        },
+        {
+          "name": "Venture Helmet White",
+          "piece_type": "helmet",
+          "total_cscu": 2.75,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "2a1c2646-b44d-4253-81e7-dab2c86f002c",
+          "blueprint_file": "bp_craft_rsi_explorer_armor_light_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Venture Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "70f6dd3a-790c-4b8b-b355-c256e09af19f",
+          "blueprint_file": "bp_craft_rsi_explorer_armor_light_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "slaver_armor_heavy|01",
+      "set_name": "Defiance Tactical",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Slaver",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.75,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Ouratite": 10.0
+      },
+      "pieces": [
+        {
+          "name": "Defiance Arms Tactical",
+          "piece_type": "arms",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "c5accc85-3784-40dc-b819-8949e1394f66",
+          "blueprint_file": "bp_craft_slaver_armor_heavy_arms_01_01_01.xml"
+        },
+        {
+          "name": "Defiance Core Tactical",
+          "piece_type": "core",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "f7552eb5-407f-4390-ac65-62ae63549ec8",
+          "blueprint_file": "bp_craft_slaver_armor_heavy_core_01_01_01.xml"
+        },
+        {
+          "name": "Defiance Helmet Tactical",
+          "piece_type": "helmet",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "ca3c32d9-9575-482a-914d-17f5200de89b",
+          "blueprint_file": "bp_craft_slaver_armor_heavy_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Defiance Legs Tactical",
+          "piece_type": "legs",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "9010ca86-09f5-43de-9016-5aafc4cbb481",
+          "blueprint_file": "bp_craft_slaver_armor_heavy_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "slaver_armor_light|01",
+      "set_name": "Calico Tactical",
+      "weight": "light",
+      "role": "combat",
+      "manufacturer": "Slaver",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 13.75,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Ouratite": 9.0
+      },
+      "pieces": [
+        {
+          "name": "Calico Arms Tactical",
+          "piece_type": "arms",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "307aa0ea-c51b-4f86-a223-f9f45c855f6f",
+          "blueprint_file": "bp_craft_slaver_armor_light_arms_01_01_01.xml"
+        },
+        {
+          "name": "Calico Core Tactical",
+          "piece_type": "core",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "751a666e-fb4b-49db-b90e-c9e50b5e0315",
+          "blueprint_file": "bp_craft_slaver_armor_light_core_01_01_01.xml"
+        },
+        {
+          "name": "Calico Helmet Tactical",
+          "piece_type": "helmet",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "69e5c3b0-90d7-4269-a664-553169988519",
+          "blueprint_file": "bp_craft_slaver_armor_light_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Calico Legs Tactical",
+          "piece_type": "legs",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "132f3822-b981-4b61-8358-02df0f7c1f4d",
+          "blueprint_file": "bp_craft_slaver_armor_light_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "slaver_armor_medium|01",
+      "set_name": "DustUp Tactical",
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "Slaver",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.75,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Ouratite": 10.0
+      },
+      "pieces": [
+        {
+          "name": "DustUp Arms Tactical",
+          "piece_type": "arms",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "1bc2aa7b-d8c1-4158-8d3f-dcef1fed5305",
+          "blueprint_file": "bp_craft_slaver_armor_medium_arms_01_01_01.xml"
+        },
+        {
+          "name": "DustUp Core Tactical",
+          "piece_type": "core",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "d2a646ec-e3ad-4b97-9903-0f0510dbf840",
+          "blueprint_file": "bp_craft_slaver_armor_medium_core_01_01_01.xml"
+        },
+        {
+          "name": "DustUp Helmet Tactical",
+          "piece_type": "helmet",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "68d8a024-9d3b-4d9b-8746-8e7ae25b4475",
+          "blueprint_file": "bp_craft_slaver_armor_medium_helmet_01_01_01.xml"
+        },
+        {
+          "name": "DustUp Legs Tactical",
+          "piece_type": "legs",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "d45f28b2-c1a6-4ddf-bb25-ec262c518610",
+          "blueprint_file": "bp_craft_slaver_armor_medium_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "srvl_armor_heavy|01",
+      "set_name": "Overlord Supernova",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Survival",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.75,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Ouratite": 10.0
+      },
+      "pieces": [
+        {
+          "name": "Overlord Arms Supernova",
+          "piece_type": "arms",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "20001b62-0d2f-4045-a61d-5d38de1038f8",
+          "blueprint_file": "bp_craft_srvl_armor_heavy_arms_01_01_01.xml"
+        },
+        {
+          "name": "Overlord Core Supernova",
+          "piece_type": "core",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "28bfe788-0d3d-41f5-a749-d35bf7f7fa0d",
+          "blueprint_file": "bp_craft_srvl_armor_heavy_core_01_01_01.xml"
+        },
+        {
+          "name": "Overlord Helmet Supernova",
+          "piece_type": "helmet",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "a173cc6f-4c6d-4f31-8ce7-67b9b6a0fe37",
+          "blueprint_file": "bp_craft_srvl_armor_heavy_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Overlord Legs Supernova",
+          "piece_type": "legs",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 2.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "4fd216ed-b7b4-4c42-b6bf-ba12040a996a",
+          "blueprint_file": "bp_craft_srvl_armor_heavy_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "srvl_armor_heavy|02",
+      "set_name": "Dust Devil",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Kastak Arms",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.0,
+      "material_totals": {
+        "Aslarite": 4.75,
+        "Taranite": 9.25
+      },
+      "pieces": [
+        {
+          "name": "Dust Devil Armor Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "dd9f47b0-64bf-4ad7-bbb9-358270296e74",
+          "blueprint_file": "bp_craft_srvl_armor_heavy_arms_02_01_01.xml"
+        },
+        {
+          "name": "Dust Devil Armor Core",
+          "piece_type": "core",
+          "total_cscu": 3.75,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 2.5,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "8640bf64-96b6-4cc8-ad9d-23a66588fc2b",
+          "blueprint_file": "bp_craft_srvl_armor_heavy_core_02_01_01.xml"
+        },
+        {
+          "name": "Manticore Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "aff93126-aee5-4fef-958f-bc30ba55158e",
+          "blueprint_file": "bp_craft_ksar_armor_heavy_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Dust Devil Armor Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 2.25,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "88c0468f-9ef6-4ed1-87c2-725db632ddd2",
+          "blueprint_file": "bp_craft_srvl_armor_heavy_legs_02_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "srvl_combat_light|01",
+      "set_name": "Piecemeal",
+      "weight": "light",
+      "role": "combat",
+      "manufacturer": "Survival",
+      "is_environment_suit": false,
+      "complete": false,
+      "missing": [
+        "helmet"
+      ],
+      "piece_count": 3,
+      "total_cscu": 9.25,
+      "material_totals": {
+        "Aslarite": 3.75,
+        "Taranite": 5.5
+      },
+      "pieces": [
+        {
+          "name": "Piecemeal Armor Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "21e26536-0dfd-4d43-8247-679ce76ce06a",
+          "blueprint_file": "bp_craft_srvl_combat_light_arms_01_01_01.xml"
+        },
+        {
+          "name": "Piecemeal Armor Core",
+          "piece_type": "core",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "9b2d97da-d08f-4df8-99bb-7af97983bd5c",
+          "blueprint_file": "bp_craft_srvl_combat_light_core_01_01_01.xml"
+        },
+        {
+          "name": "Piecemeal Armor Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Segment Panelling",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "36200c80-ecf8-472f-9cbe-4994e11ecbab",
+          "blueprint_file": "bp_craft_srvl_combat_light_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "thp_light|01",
+      "set_name": "Aztalan",
+      "weight": "light",
+      "role": "stealth",
+      "manufacturer": "THP",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 14.25,
+      "material_totals": {
+        "Aslarite": 7.0,
+        "Tin": 7.25
+      },
+      "pieces": [
+        {
+          "name": "Aztalan Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "41aac635-0df3-41a0-8169-0db696b3659c",
+          "blueprint_file": "bp_craft_thp_light_arms_01_01_01.xml"
+        },
+        {
+          "name": "Aztalan Core",
+          "piece_type": "core",
+          "total_cscu": 4.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "5ac5def7-58d9-451c-8288-8dab99c150c5",
+          "blueprint_file": "bp_craft_thp_light_core_01_01_01.xml"
+        },
+        {
+          "name": "Aztalan Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 3.25,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "bccb4451-aee1-49a2-8262-87a58d372f19",
+          "blueprint_file": "bp_craft_thp_light_helmet_01_01_01.xml"
+        },
+        {
+          "name": "Aztalan Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "fd0cdccb-eb52-4c8e-a872-ebdaea337d5a",
+          "blueprint_file": "bp_craft_thp_light_legs_01_01_01.xml"
+        }
+      ]
+    },
+    {
+      "set_key": "vgl_armor_light|01",
+      "set_name": "TrueDef-Pro",
+      "weight": "light",
+      "role": "engineer",
+      "manufacturer": "Virgil",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 12.25,
+      "material_totals": {
+        "Aslarite": 5.0,
+        "Tin": 7.25
+      },
+      "pieces": [
+        {
+          "name": "TrueDef-Pro Arms",
+          "piece_type": "arms",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "1036805c-1d16-43db-ae15-7f04f7c38a66",
+          "blueprint_file": "bp_craft_vgl_armor_light_arms_01_01_01.xml"
+        },
+        {
+          "name": "TrueDef-Pro Core Base",
+          "piece_type": "core",
+          "total_cscu": 3.5,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 2.0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.5,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "b6317788-ec10-44c1-a457-d9400670c962",
+          "blueprint_file": "bp_craft_vgl_armor_light_core_01_01_01.xml"
+        },
+        {
+          "name": "Argus Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 2.75,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "e9812df7-f461-4ae6-94df-5e682d50ef61",
+          "blueprint_file": "bp_craft_vgl_armor_light_helmet_01_01_01.xml"
+        },
+        {
+          "name": "TrueDef-Pro Legs",
+          "piece_type": "legs",
+          "total_cscu": 3.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "material": "Tin",
+              "raw_ore": "Tin Ore",
+              "amount_cscu": 1.75,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.25,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "2816e88f-f39c-4187-9da3-96807712a9b9",
+          "blueprint_file": "bp_craft_vgl_armor_light_legs_01_01_01.xml"
+        }
+      ]
+    }
+  ],
+  "backpacks": [
+    {
+      "name": "CSP-68H Backpack",
+      "piece_type": "backpack",
+      "total_cscu": 4.0,
+      "recipe": [
+        {
+          "slot": "Armored Carapace",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 2.75,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.25,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "fb904353-c334-4674-874c-874b64a4c6db",
+      "blueprint_file": "bp_craft_cds_combat_heavy_backpack_01_01_01.xml",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "CDS"
+    },
+    {
+      "name": "Morozov-CH Backpack",
+      "piece_type": "backpack",
+      "total_cscu": 4.0,
+      "recipe": [
+        {
+          "slot": "Protective Sheathing",
+          "material": "Tungsten",
+          "raw_ore": "Tungsten Ore",
+          "amount_cscu": 2.75,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.25,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "c6ce6063-0d43-470a-aef3-49e65289a53e",
+      "blueprint_file": "bp_craft_rrs_combat_heavy_backpack_01_01_01.xml",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "R&R Systems"
+    },
+    {
+      "name": "Arden-CL Backpack",
+      "piece_type": "backpack",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Protective Sheathing",
+          "material": "Tungsten",
+          "raw_ore": "Tungsten Ore",
+          "amount_cscu": 2.25,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.25,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "d502827b-23b7-4e61-ab6d-86cba29b6f30",
+      "blueprint_file": "bp_craft_rrs_combat_light_backpack_01_01_01.xml",
+      "weight": "light",
+      "role": "combat",
+      "manufacturer": "R&R Systems"
+    },
+    {
+      "name": "CSP-68L Backpack",
+      "piece_type": "backpack",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Casing",
+          "material": "Tin",
+          "raw_ore": "Tin Ore",
+          "amount_cscu": 1.75,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.75,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "d176699d-7032-4eeb-a351-3e27d567e4a7",
+      "blueprint_file": "bp_craft_cds_combat_light_backpack_01_01_01.xml",
+      "weight": "light",
+      "role": "combat",
+      "manufacturer": "CDS"
+    },
+    {
+      "name": "CSP-68M Backpack",
+      "piece_type": "backpack",
+      "total_cscu": 3.75,
+      "recipe": [
+        {
+          "slot": "Armored Carapace",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 2.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.25,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "f5fbd0ef-8f54-47a5-94ff-f7f9b4c323d3",
+      "blueprint_file": "bp_craft_cds_combat_medium_backpack_01_01_01.xml",
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "CDS"
+    },
+    {
+      "name": "Sinkhole Backpack",
+      "piece_type": "backpack",
+      "total_cscu": 3.75,
+      "recipe": [
+        {
+          "slot": "Armored Carapace",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 2.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.25,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "4a8738c7-c9dc-4e35-b8d6-05ed5c891812",
+      "blueprint_file": "bp_craft_doom_combat_medium_backpack_01_01_01.xml",
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "Doom"
+    },
+    {
+      "name": "[Unknown:a5bb46f9-c72]",
+      "piece_type": "backpack",
+      "total_cscu": 3.25,
+      "recipe": [
+        {
+          "slot": "Plating",
+          "material": "Corundum",
+          "raw_ore": "Raw Corundum",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.25,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "a5bb46f9-c728-46c6-a4b2-53f21d96813a",
+      "blueprint_file": "bp_craft_grin_utility_medium_backpack_02_01_01.xml",
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "Grindel"
+    },
+    {
+      "name": "MacFlex \"Rucksack\" Backpack",
+      "piece_type": "backpack",
+      "total_cscu": 3.0,
+      "recipe": [
+        {
+          "slot": "Segment Panelling",
+          "material": "Taranite",
+          "raw_ore": "Raw Taranite",
+          "amount_cscu": 1.75,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.25,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "84982692-cf64-4157-a03d-678a2e297ddc",
+      "blueprint_file": "bp_craft_rsi_light_utility_backpack_01_01_01.xml",
+      "weight": "light",
+      "role": "cosmonaut",
+      "manufacturer": "RSI"
+    },
+    {
+      "name": "Novikov Backpack Smolder",
+      "piece_type": "backpack",
+      "total_cscu": 5.25,
+      "recipe": [
+        {
+          "slot": "Shell",
+          "material": "Stileron",
+          "raw_ore": "Stileron Ore",
+          "amount_cscu": 4.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.25,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "855aabae-2c59-4a79-9e81-0376f9ddc7f6",
+      "blueprint_file": "bp_craft_clda_env_heavy_backpack_01_02_01.xml",
+      "weight": "heavy",
+      "role": "environment",
+      "manufacturer": "Caldera"
+    },
+    {
+      "name": "Pembroke Backpack",
+      "piece_type": "backpack",
+      "total_cscu": 5.25,
+      "recipe": [
+        {
+          "slot": "Shell",
+          "material": "Stileron",
+          "raw_ore": "Stileron Ore",
+          "amount_cscu": 4.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.25,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "f48257c7-d224-4d32-8279-6368e3c2a09b",
+      "blueprint_file": "bp_craft_clda_utility_heavy_backpack_01_01_01.xml",
+      "weight": "heavy",
+      "role": "environment",
+      "manufacturer": "Caldera"
+    },
+    {
+      "name": "Stirling Exploration Backpack",
+      "piece_type": "backpack",
+      "total_cscu": 5.25,
+      "recipe": [
+        {
+          "slot": "Shell",
+          "material": "Stileron",
+          "raw_ore": "Stileron Ore",
+          "amount_cscu": 4.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.25,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Filter",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "ec96a58f-4675-4fc4-bbd7-33e3332e105f",
+      "blueprint_file": "bp_craft_rsi_utility_heavy_backpack_02_01_01.xml",
+      "weight": "heavy",
+      "role": "environment",
+      "manufacturer": "RSI"
+    },
+    {
+      "name": "Aril Backpack",
+      "piece_type": "backpack",
+      "total_cscu": 3.25,
+      "recipe": [
+        {
+          "slot": "Plating",
+          "material": "Corundum",
+          "raw_ore": "Raw Corundum",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.25,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "173269f1-e6fe-494a-99df-e390a63dac84",
+      "blueprint_file": "bp_craft_grin_utility_medium_backpack_01_01_01.xml",
+      "weight": "medium",
+      "role": "salvager",
+      "manufacturer": "Grindel"
+    }
+  ],
+  "weapons": [
+    {
+      "name": "Demeco LMG",
+      "piece_type": "lmg",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Corundum",
+          "raw_ore": "Raw Corundum",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Lenses",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "b13a3815-92e7-4e09-962f-b24bcdaf3a42",
+      "blueprint_file": "bp_craft_klwe_lmg_energy_01.xml",
+      "weapon_type": "lmg",
+      "damage_type": "energy",
+      "manufacturer": "Klaus & Werner"
+    },
+    {
+      "name": "F55 LMG",
+      "piece_type": "lmg",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "d52a4cbb-4791-476d-a104-9f21e8d3f855",
+      "blueprint_file": "bp_craft_gmni_lmg_ballistic_01.xml",
+      "weapon_type": "lmg",
+      "damage_type": "ballistic",
+      "manufacturer": "Gemini"
+    },
+    {
+      "name": "FS-9 LMG",
+      "piece_type": "lmg",
+      "total_cscu": 4.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "6f1674b1-fb58-4661-9114-f418862751d2",
+      "blueprint_file": "bp_craft_behr_lmg_ballistic_01.xml",
+      "weapon_type": "lmg",
+      "damage_type": "ballistic",
+      "manufacturer": "Behring"
+    },
+    {
+      "name": "Fresnel Energy LMG",
+      "piece_type": "lmg",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Tungsten",
+          "raw_ore": "Tungsten Ore",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Cabling",
+          "material": "Gold",
+          "raw_ore": "Gold Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Power Regulator",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "af55f514-d7fd-49fd-89c8-6aee01f25859",
+      "blueprint_file": "bp_craft_volt_lmg_energy_01.xml",
+      "weapon_type": "lmg",
+      "damage_type": "energy",
+      "manufacturer": "Volt"
+    },
+    {
+      "name": "Arclight Pistol",
+      "piece_type": "pistol",
+      "total_cscu": 1.25,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Lindinium",
+          "raw_ore": "Lindinium Ore",
+          "amount_cscu": 0.75,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 0.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Lenses",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "0ff9144c-970d-4861-ae27-b27ee3c969a9",
+      "blueprint_file": "bp_craft_klwe_pistol_energy_01.xml",
+      "weapon_type": "pistol",
+      "damage_type": "energy",
+      "manufacturer": "Klaus & Werner"
+    },
+    {
+      "name": "Coda Pistol",
+      "piece_type": "pistol",
+      "total_cscu": 1.75,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Lindinium",
+          "raw_ore": "Lindinium Ore",
+          "amount_cscu": 0.75,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Grip",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 0.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 0.5,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "b97279f7-b795-4f17-9458-022068edd98f",
+      "blueprint_file": "bp_craft_ksar_pistol_ballistic_01.xml",
+      "weapon_type": "pistol",
+      "damage_type": "ballistic",
+      "manufacturer": "Kastak Arms"
+    },
+    {
+      "name": "LH86 Pistol",
+      "piece_type": "pistol",
+      "total_cscu": 1.75,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Lindinium",
+          "raw_ore": "Lindinium Ore",
+          "amount_cscu": 0.75,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Grip",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 0.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 0.5,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "b15f7736-0010-4c85-b684-85118761d124",
+      "blueprint_file": "bp_craft_gmni_pistol_ballistic_01.xml",
+      "weapon_type": "pistol",
+      "damage_type": "ballistic",
+      "manufacturer": "Gemini"
+    },
+    {
+      "name": "Pulse Laser Pistol",
+      "piece_type": "pistol",
+      "total_cscu": 1.25,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Lindinium",
+          "raw_ore": "Lindinium Ore",
+          "amount_cscu": 0.75,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Cabling",
+          "material": "Gold",
+          "raw_ore": "Gold Ore",
+          "amount_cscu": 0.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Power Regulator",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "02e848a0-d729-4826-a780-8506a2ae4a89",
+      "blueprint_file": "bp_craft_volt_pistol_energy_01.xml",
+      "weapon_type": "pistol",
+      "damage_type": "energy",
+      "manufacturer": "Volt"
+    },
+    {
+      "name": "S-38 Pistol",
+      "piece_type": "pistol",
+      "total_cscu": 1.75,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Lindinium",
+          "raw_ore": "Lindinium Ore",
+          "amount_cscu": 0.75,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Grip",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 0.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 0.5,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "1f3400e1-0aa3-48bf-8595-38f4f4218df9",
+      "blueprint_file": "bp_craft_behr_pistol_ballistic_01.xml",
+      "weapon_type": "pistol",
+      "damage_type": "ballistic",
+      "manufacturer": "Behring"
+    },
+    {
+      "name": "Salvo Frag Pistol",
+      "piece_type": "pistol",
+      "total_cscu": 1.75,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Lindinium",
+          "raw_ore": "Lindinium Ore",
+          "amount_cscu": 0.75,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Grip",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 0.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 0.5,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "3b6d199f-9eaa-4bcd-b607-398f7f50482c",
+      "blueprint_file": "bp_craft_hdgw_pistol_ballistic_01.xml",
+      "weapon_type": "pistol",
+      "damage_type": "ballistic",
+      "manufacturer": "Hedeby Gunworks"
+    },
+    {
+      "name": "Yubarev Pistol",
+      "piece_type": "pistol",
+      "total_cscu": 1.25,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Lindinium",
+          "raw_ore": "Lindinium Ore",
+          "amount_cscu": 0.75,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 0.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Lenses",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "959520d7-d83d-45b7-9e7a-f6d057494736",
+      "blueprint_file": "bp_craft_lbco_pistol_energy_01.xml",
+      "weapon_type": "pistol",
+      "damage_type": "energy",
+      "manufacturer": "Lightning Bolt Co."
+    },
+    {
+      "name": "Gallant Rifle",
+      "piece_type": "rifle",
+      "total_cscu": 2.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Corundum",
+          "raw_ore": "Raw Corundum",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Lenses",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "8bc41f99-ad80-4050-99ff-958c0b54c973",
+      "blueprint_file": "bp_craft_klwe_rifle_energy_01.xml",
+      "weapon_type": "rifle",
+      "damage_type": "energy",
+      "manufacturer": "Klaus & Werner"
+    },
+    {
+      "name": "Karna Rifle",
+      "piece_type": "rifle",
+      "total_cscu": 2.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Corundum",
+          "raw_ore": "Raw Corundum",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Conduit",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stabilizer",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "3825f6fa-bfcd-4ced-b207-47c2643a2258",
+      "blueprint_file": "bp_craft_ksar_rifle_energy_01.xml",
+      "weapon_type": "rifle",
+      "damage_type": "ballistic",
+      "manufacturer": "Kastak Arms"
+    },
+    {
+      "name": "Killshot Rifle",
+      "piece_type": "rifle",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "c098e722-902a-435b-83f8-a96cec36a012",
+      "blueprint_file": "bp_craft_none_rifle_multi_01.xml",
+      "weapon_type": "rifle",
+      "damage_type": "ballistic",
+      "manufacturer": ""
+    },
+    {
+      "name": "P4-AR Rifle",
+      "piece_type": "rifle",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "02d4cd2e-fa98-4086-aee1-6b2dfce8ea27",
+      "blueprint_file": "bp_craft_behr_rifle_ballistic_01.xml",
+      "weapon_type": "rifle",
+      "damage_type": "ballistic",
+      "manufacturer": "Behring"
+    },
+    {
+      "name": "P8-AR Rifle",
+      "piece_type": "rifle",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "53042ca6-a9ba-4b0e-8c36-a11a5f47feb9",
+      "blueprint_file": "bp_craft_behr_rifle_ballistic_02.xml",
+      "weapon_type": "rifle",
+      "damage_type": "ballistic",
+      "manufacturer": "Behring"
+    },
+    {
+      "name": "Parallax Energy Assault Rifle",
+      "piece_type": "rifle",
+      "total_cscu": 2.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Tungsten",
+          "raw_ore": "Tungsten Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Cabling",
+          "material": "Gold",
+          "raw_ore": "Gold Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Power Regulator",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "b144a16c-bba4-427e-9f78-bd379f9509f8",
+      "blueprint_file": "bp_craft_volt_rifle_energy_01.xml",
+      "weapon_type": "rifle",
+      "damage_type": "energy",
+      "manufacturer": "Volt"
+    },
+    {
+      "name": "S71 Rifle",
+      "piece_type": "rifle",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "39086302-d8f9-457d-a746-255c511ea6cf",
+      "blueprint_file": "bp_craft_gmni_rifle_ballistic_01.xml",
+      "weapon_type": "rifle",
+      "damage_type": "ballistic",
+      "manufacturer": "Gemini"
+    },
+    {
+      "name": "BR-2 Shotgun",
+      "piece_type": "shotgun",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Torite",
+          "raw_ore": "Torite Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "70fba024-7de1-4b3e-b169-256a77cc080f",
+      "blueprint_file": "bp_craft_behr_shotgun_ballistic_01.xml",
+      "weapon_type": "shotgun",
+      "damage_type": "ballistic",
+      "manufacturer": "Behring"
+    },
+    {
+      "name": "Deadrig Shotgun",
+      "piece_type": "shotgun",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Torite",
+          "raw_ore": "Torite Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "7b17e697-ad38-4999-87e4-14f5a6bee3ac",
+      "blueprint_file": "bp_craft_none_shotgun_ballistic_01.xml",
+      "weapon_type": "shotgun",
+      "damage_type": "ballistic",
+      "manufacturer": ""
+    },
+    {
+      "name": "Devastator Shotgun",
+      "piece_type": "shotgun",
+      "total_cscu": 2.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Torite",
+          "raw_ore": "Torite Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Lenses",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "e5b42569-10da-40a5-a16f-497f5b84cf3c",
+      "blueprint_file": "bp_craft_ksar_shotgun_energy_01.xml",
+      "weapon_type": "shotgun",
+      "damage_type": "energy",
+      "manufacturer": "Kastak Arms"
+    },
+    {
+      "name": "Prism Laser Shotgun",
+      "piece_type": "shotgun",
+      "total_cscu": 2.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Torite",
+          "raw_ore": "Torite Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Cabling",
+          "material": "Gold",
+          "raw_ore": "Gold Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Power Regulator",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "7dd1988f-77cf-40f0-a29e-dac5e2186aad",
+      "blueprint_file": "bp_craft_volt_shotgun_energy_01.xml",
+      "weapon_type": "shotgun",
+      "damage_type": "energy",
+      "manufacturer": "Volt"
+    },
+    {
+      "name": "R97 Shotgun",
+      "piece_type": "shotgun",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Torite",
+          "raw_ore": "Torite Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "4577e319-8762-4247-8050-882fabe0ea10",
+      "blueprint_file": "bp_craft_gmni_shotgun_ballistic_01.xml",
+      "weapon_type": "shotgun",
+      "damage_type": "ballistic",
+      "manufacturer": "Gemini"
+    },
+    {
+      "name": "Ravager-212 Twin Shotgun",
+      "piece_type": "shotgun",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Torite",
+          "raw_ore": "Torite Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "3ec76bc1-de5a-44f8-8469-783ec803d89d",
+      "blueprint_file": "bp_craft_ksar_shotgun_ballistic_01.xml",
+      "weapon_type": "shotgun",
+      "damage_type": "ballistic",
+      "manufacturer": "Kastak Arms"
+    },
+    {
+      "name": "C54 SMG",
+      "piece_type": "smg",
+      "total_cscu": 2.6,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 0.8,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 0.8,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "8e3e44bd-d289-4a8c-b2e6-289746b02d27",
+      "blueprint_file": "bp_craft_gmni_smg_ballistic_01.xml",
+      "weapon_type": "smg",
+      "damage_type": "ballistic",
+      "manufacturer": "Gemini"
+    },
+    {
+      "name": "Custodian SMG",
+      "piece_type": "smg",
+      "total_cscu": 1.8,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Corundum",
+          "raw_ore": "Raw Corundum",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 0.8,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Lenses",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "71ffee18-c359-4809-a4d0-3cb79bc32d30",
+      "blueprint_file": "bp_craft_ksar_smg_energy_01.xml",
+      "weapon_type": "smg",
+      "damage_type": "energy",
+      "manufacturer": "Kastak Arms"
+    },
+    {
+      "name": "Lumin V SMG",
+      "piece_type": "smg",
+      "total_cscu": 1.8,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Torite",
+          "raw_ore": "Torite Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 0.8,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Lenses",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "75809555-848a-4f4d-81a0-db4457edba2d",
+      "blueprint_file": "bp_craft_klwe_smg_energy_01.xml",
+      "weapon_type": "smg",
+      "damage_type": "energy",
+      "manufacturer": "Klaus & Werner"
+    },
+    {
+      "name": "P8-SC SMG",
+      "piece_type": "smg",
+      "total_cscu": 2.6,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 0.8,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 0.8,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "bc644573-ea0f-4974-b23c-63b24425f639",
+      "blueprint_file": "bp_craft_behr_smg_ballistic_01.xml",
+      "weapon_type": "smg",
+      "damage_type": "ballistic",
+      "manufacturer": "Behring"
+    },
+    {
+      "name": "Ripper \"Sunblock\" SMG",
+      "piece_type": "smg",
+      "total_cscu": 1.8,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Torite",
+          "raw_ore": "Torite Ore",
+          "amount_cscu": 1.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 0.8,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Lenses",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "4c1892db-cc94-41f2-a513-0b7e1cba8f26",
+      "blueprint_file": "bp_craft_none_smg_energy_01.xml",
+      "weapon_type": "smg",
+      "damage_type": "energy",
+      "manufacturer": ""
+    },
+    {
+      "name": "A03 Sniper Rifle",
+      "piece_type": "sniper",
+      "total_cscu": 5.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Taranite",
+          "raw_ore": "Raw Taranite",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Precision Parts",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "6b1fb5e8-f9ec-49bc-befb-c81b7c08c5ea",
+      "blueprint_file": "bp_craft_gmni_sniper_ballistic_01.xml",
+      "weapon_type": "sniper",
+      "damage_type": "ballistic",
+      "manufacturer": "Gemini"
+    },
+    {
+      "name": "Arrowhead Sniper Rifle",
+      "piece_type": "sniper",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Taranite",
+          "raw_ore": "Raw Taranite",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Lenses",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        },
+        {
+          "slot": "Precision Parts",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "5ea1071e-2dc7-4c96-8ae7-aa10775a093a",
+      "blueprint_file": "bp_craft_klwe_sniper_energy_01.xml",
+      "weapon_type": "sniper",
+      "damage_type": "energy",
+      "manufacturer": "Klaus & Werner"
+    },
+    {
+      "name": "Atzkav Sniper Rifle",
+      "piece_type": "sniper",
+      "total_cscu": 3.5,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Taranite",
+          "raw_ore": "Raw Taranite",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Lenses",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        },
+        {
+          "slot": "Precision Parts",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "7623e7fa-3be9-4e9d-891c-597482c448b5",
+      "blueprint_file": "bp_craft_lbco_sniper_energy_01.xml",
+      "weapon_type": "sniper",
+      "damage_type": "energy",
+      "manufacturer": "Lightning Bolt Co."
+    },
+    {
+      "name": "P6-LR Sniper Rifle",
+      "piece_type": "sniper",
+      "total_cscu": 5.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Taranite",
+          "raw_ore": "Raw Taranite",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Precision Parts",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "01f2b88a-9752-4cd8-9f73-d151b4b2ca61",
+      "blueprint_file": "bp_craft_behr_sniper_ballistic_01.xml",
+      "weapon_type": "sniper",
+      "damage_type": "ballistic",
+      "manufacturer": "Behring"
+    },
+    {
+      "name": "Scalpel Sniper Rifle",
+      "piece_type": "sniper",
+      "total_cscu": 5.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Taranite",
+          "raw_ore": "Raw Taranite",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 1.5,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Precision Parts",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "bab1362b-0860-4a52-ad5b-dfb63d12f651",
+      "blueprint_file": "bp_craft_ksar_sniper_ballistic_01.xml",
+      "weapon_type": "sniper",
+      "damage_type": "ballistic",
+      "manufacturer": "Kastak Arms"
+    },
+    {
+      "name": "Zenith Laser Sniper Rifle",
+      "piece_type": "sniper",
+      "total_cscu": 17.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "material": "Taranite",
+          "raw_ore": "Raw Taranite",
+          "amount_cscu": 2.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Cabling",
+          "material": "Gold",
+          "raw_ore": "Gold Ore",
+          "amount_cscu": 15.0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Power Regulator",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        },
+        {
+          "slot": "Precision Parts",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "is_catalyst": true
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "0c37582b-ab78-440d-911e-c39322bccf1f",
+      "blueprint_file": "bp_craft_volt_sniper_energy_01.xml",
+      "weapon_type": "sniper",
+      "damage_type": "energy",
+      "manufacturer": "Volt"
+    }
+  ],
+  "undersuits": [
+    {
+      "name": "A23 Helmet Woodland",
+      "piece_type": "helmet",
+      "total_cscu": 3.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 3.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "9a26bc89-a35b-4317-adfd-ec4a285d7e72",
+      "blueprint_file": "bp_craft_cds_undersuit_helmet_01_01_01.xml",
+      "manufacturer": "CDS"
+    },
+    {
+      "name": "Beacon Undersuit",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "b8bad4f1-faa8-4e9a-b7ba-55a0418026cb",
+      "blueprint_file": "bp_craft_rsi_deckcrew_undersuit_01_01_01.xml",
+      "manufacturer": "RSI"
+    },
+    {
+      "name": "Calva Helmet",
+      "piece_type": "helmet",
+      "total_cscu": 3.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 3.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "57386b72-68c8-4d08-ab87-2e2c9e1380e5",
+      "blueprint_file": "bp_craft_qrt_mantis_undersuit_helmet_01_01_01.xml",
+      "manufacturer": "Quirinus Technologies"
+    },
+    {
+      "name": "Deep-Space Undersuit",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "e1edb8e9-7287-4ff2-8425-bd505288e892",
+      "blueprint_file": "bp_craft_gys_undersuit_01_01_01.xml",
+      "manufacturer": "Greycat"
+    },
+    {
+      "name": "ForceFlex Undersuit Black/Gold",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "e8f87624-cf90-4c1a-811a-b789eb83b36c",
+      "blueprint_file": "bp_craft_vgl_undersuit_01_01_01.xml",
+      "manufacturer": "Virgil"
+    },
+    {
+      "name": "Lamont Undersuit",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "c8ba6feb-93dc-4247-b4a4-d3c196284abe",
+      "blueprint_file": "bp_craft_hdtc_undersuit_01_01_01.xml",
+      "manufacturer": "Hadtech"
+    },
+    {
+      "name": "Levin Undersuit (Refurbished)",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "25e50bbb-0e97-4c29-95e7-b84f6a416f6b",
+      "blueprint_file": "bp_craft_clda_undersuit_01_01_01.xml",
+      "manufacturer": "Caldera"
+    },
+    {
+      "name": "Markanda Undersuit (Refurbished)",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "036bd7d8-d487-4069-ba7c-873a26afc9a1",
+      "blueprint_file": "bp_craft_clda_undersuit_02_01_01.xml",
+      "manufacturer": "Caldera"
+    },
+    {
+      "name": "Odyssey II Helmet Alpha",
+      "piece_type": "helmet",
+      "total_cscu": 3.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 3.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "0190a637-936f-4834-812b-f945a0413467",
+      "blueprint_file": "bp_craft_rsi_odyssey_undersuit_helmet_01_01_01.xml",
+      "manufacturer": "RSI"
+    },
+    {
+      "name": "Odyssey II Undersuit Alpha",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "f0705a24-2c09-43b0-b90f-ce84d06ec1cd",
+      "blueprint_file": "bp_craft_rsi_odyssey_undersuit_01_01_01.xml",
+      "manufacturer": "RSI"
+    },
+    {
+      "name": "Sabine Undersuit",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "6de8b137-5901-4dfa-b263-a756f70ff8ed",
+      "blueprint_file": "bp_craft_qrt_mantis_undersuit_01_01_01.xml",
+      "manufacturer": "Quirinus Technologies"
+    },
+    {
+      "name": "Scaleweave Undersuit",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "33f8f933-b6d8-4434-bcca-04314012d5a6",
+      "blueprint_file": "bp_craft_ksar_undersuit_01_01_01.xml",
+      "manufacturer": "Kastak Arms"
+    },
+    {
+      "name": "Second Life Undersuit",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "7a985ba3-0647-42a1-803a-d31fea705bfe",
+      "blueprint_file": "bp_craft_srvl_undersuit_01_01_01.xml",
+      "manufacturer": "Survival"
+    },
+    {
+      "name": "TCS-4 Undersuit",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "d4d18f9f-bd28-4b43-a199-9f89223aa3de",
+      "blueprint_file": "bp_craft_cds_undersuit_01_01_01.xml",
+      "manufacturer": "CDS"
+    },
+    {
+      "name": "Venture Undersuit Base",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "c04c08dd-6a92-452e-bf67-3a2d1dcf6e33",
+      "blueprint_file": "bp_craft_rsi_explorer_undersuit_01_01_01.xml",
+      "manufacturer": "RSI"
+    },
+    {
+      "name": "Why Not? Helmet",
+      "piece_type": "helmet",
+      "total_cscu": 3.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 3.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "7edb4266-770c-4e29-8881-36d5b90637aa",
+      "blueprint_file": "bp_craft_srvl_undersuit_helmet_01_01_01.xml",
+      "manufacturer": "Survival"
+    }
+  ],
+  "flightsuits": [
+    {
+      "name": "Mirai Racing Flight Suit",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "a8493a6e-25b6-4b4a-aa72-c2a8d7195d3b",
+      "blueprint_file": "bp_craft_mrai_flightsuit_01_01_01.xml",
+      "manufacturer": "Mirai"
+    },
+    {
+      "name": "Novikov Helmet",
+      "piece_type": "helmet",
+      "total_cscu": 3.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 3.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "924ac206-9122-4584-8682-af7d61f56929",
+      "blueprint_file": "bp_craft_mrai_flightsuit_helmet_01_01_01.xml",
+      "manufacturer": "Mirai"
+    },
+    {
+      "name": "Xanthule Helmet",
+      "piece_type": "helmet",
+      "total_cscu": 3.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 3.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "13a62c08-7324-47ac-be0d-885b6ef8a07d",
+      "blueprint_file": "bp_craft_syfb_flightsuit_helmet_01_01_01.xml",
+      "manufacturer": "Shubin"
+    },
+    {
+      "name": "Xanthule Suit",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "d820fc23-3490-4ef7-90fe-4fa82731c1f8",
+      "blueprint_file": "bp_craft_syfb_flightsuit_suit_01_01_01.xml",
+      "manufacturer": "Shubin"
+    }
+  ],
+  "materials": {
+    "Ouratite": {
+      "resource_guid": "989f9b73-f636-4f35-a81d-579dcbe3f0ab",
+      "raw_ore": "Raw Ouratite",
+      "slots_used_in": "Armored Carapace",
+      "blueprint_count": 54,
+      "total_cscu_demand": 131.75,
+      "mining_type": "roc",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Aluminium": {
+      "resource_guid": "48c7080a-bbef-43d2-901a-698321ed4340",
+      "raw_ore": "Aluminium Ore",
+      "slots_used_in": "Barrel, Frame",
+      "blueprint_count": 27,
+      "total_cscu_demand": 31.1,
+      "mining_type": "ship",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Gold": {
+      "resource_guid": "21825507-7923-4683-9bf3-9cfe316940e3",
+      "raw_ore": "Gold Ore",
+      "slots_used_in": "Cabling",
+      "blueprint_count": 6,
+      "total_cscu_demand": 19.8,
+      "mining_type": "ship",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Tin": {
+      "resource_guid": "1b4c4042-5fdc-4b52-bec4-07085cb3520a",
+      "raw_ore": "Tin Ore",
+      "slots_used_in": "Casing",
+      "blueprint_count": 25,
+      "total_cscu_demand": 47.75,
+      "mining_type": "ship",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Copper": {
+      "resource_guid": "a789f57a-e12b-4bcd-8132-e0c03d84fc89",
+      "raw_ore": "Copper Ore",
+      "slots_used_in": "Conduit, Wiring",
+      "blueprint_count": 11,
+      "total_cscu_demand": 10.9,
+      "mining_type": "ship",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Lindinium": {
+      "resource_guid": "392b4dca-449a-4d4d-8fef-beab024d9ee7",
+      "raw_ore": "Lindinium Ore",
+      "slots_used_in": "Frame (pistol)",
+      "blueprint_count": 7,
+      "total_cscu_demand": 5.25,
+      "mining_type": "ship",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Torite": {
+      "resource_guid": "75b37a54-45c9-4f27-ac09-9830f092dd86",
+      "raw_ore": "Torite Ore",
+      "slots_used_in": "Frame (sniper)",
+      "blueprint_count": 8,
+      "total_cscu_demand": 11.0,
+      "mining_type": "ship",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Hephaestanite": {
+      "resource_guid": "61189578-ed7a-4491-9774-37ae2f82b8b0",
+      "raw_ore": "Raw Hephaestanite",
+      "slots_used_in": "Grip, Stock",
+      "blueprint_count": 19,
+      "total_cscu_demand": 19.1,
+      "mining_type": "roc",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Aslarite": {
+      "resource_guid": "fde0cd65-8827-4b23-804d-cc8845dfa7ac",
+      "raw_ore": "Raw Aslarite",
+      "slots_used_in": "Insulative Liner",
+      "blueprint_count": 138,
+      "total_cscu_demand": 182.0,
+      "mining_type": "roc",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Corundum": {
+      "resource_guid": "4236c16b-c47f-4083-9e26-4313733f2326",
+      "raw_ore": "Raw Corundum",
+      "slots_used_in": "Plating, Frame",
+      "blueprint_count": 13,
+      "total_cscu_demand": 24.5,
+      "mining_type": "roc",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Beradom": {
+      "resource_guid": "c339897c-d682-48ad-a16f-daf145bc0f4d",
+      "raw_ore": "Beradom",
+      "slots_used_in": "Plating (vehicle)",
+      "blueprint_count": 1,
+      "total_cscu_demand": 2.0,
+      "mining_type": "hand",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Tungsten": {
+      "resource_guid": "60f116f4-c02a-45b2-9ded-333747795124",
+      "raw_ore": "Tungsten Ore",
+      "slots_used_in": "Protective Sheathing, Frame",
+      "blueprint_count": 21,
+      "total_cscu_demand": 50.5,
+      "mining_type": "ship",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Taranite": {
+      "resource_guid": "06cafea0-49fe-4dce-b0f0-dc583316c66d",
+      "raw_ore": "Raw Taranite",
+      "slots_used_in": "Segment Panelling, Frame",
+      "blueprint_count": 27,
+      "total_cscu_demand": 52.0,
+      "mining_type": "roc",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Stileron": {
+      "resource_guid": "8cd317a3-df9b-4315-8ac3-0f1fca42dfd4",
+      "raw_ore": "Stileron Ore",
+      "slots_used_in": "Shell",
+      "blueprint_count": 10,
+      "total_cscu_demand": 56.0,
+      "mining_type": "ship",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    },
+    "Silicon": {
+      "resource_guid": "7bbd3197-a6e1-49b3-a495-0b7ef4f8ce40",
+      "raw_ore": "Raw Silicon",
+      "slots_used_in": "Suit Underlay",
+      "blueprint_count": 20,
+      "total_cscu_demand": 102.0,
+      "mining_type": "roc",
+      "location": "",
+      "link_url": "",
+      "link_title": ""
+    }
+  },
+  "slot_types": {
+    "Armored Carapace": {
+      "material": "Ouratite",
+      "raw_ore": "Raw Ouratite",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Insulative Liner": {
+      "material": "Aslarite",
+      "raw_ore": "Raw Aslarite",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Segment Panelling": {
+      "material": "Taranite",
+      "raw_ore": "Raw Taranite",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Casing": {
+      "material": "Tin",
+      "raw_ore": "Tin Ore",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Shell": {
+      "material": "Stileron",
+      "raw_ore": "Stileron Ore",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Suit Underlay": {
+      "material": "Silicon",
+      "raw_ore": "Raw Silicon",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Protective Sheathing": {
+      "material": "Tungsten",
+      "raw_ore": "Tungsten Ore",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Plating": {
+      "material": "Corundum",
+      "raw_ore": "Raw Corundum",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Filter": {
+      "material": "",
+      "raw_ore": "",
+      "is_catalyst": true,
+      "description": ""
+    },
+    "Frame": {
+      "material": "Aluminium",
+      "raw_ore": "Aluminium Ore",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Stock": {
+      "material": "Hephaestanite",
+      "raw_ore": "Raw Hephaestanite",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Barrel": {
+      "material": "Aluminium",
+      "raw_ore": "Aluminium Ore",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Wiring": {
+      "material": "Copper",
+      "raw_ore": "Copper Ore",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Lenses": {
+      "material": "",
+      "raw_ore": "",
+      "is_catalyst": true,
+      "description": ""
+    },
+    "Cabling": {
+      "material": "Gold",
+      "raw_ore": "Gold Ore",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Power Regulator": {
+      "material": "",
+      "raw_ore": "",
+      "is_catalyst": true,
+      "description": ""
+    },
+    "Grip": {
+      "material": "Hephaestanite",
+      "raw_ore": "Raw Hephaestanite",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Conduit": {
+      "material": "Copper",
+      "raw_ore": "Copper Ore",
+      "is_catalyst": false,
+      "description": ""
+    },
+    "Stabilizer": {
+      "material": "",
+      "raw_ore": "",
+      "is_catalyst": true,
+      "description": ""
+    },
+    "Precision Parts": {
+      "material": "",
+      "raw_ore": "",
+      "is_catalyst": true,
+      "description": ""
+    }
+  }
+}

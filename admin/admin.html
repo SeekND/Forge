@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RediMake Admin Panel</title>
+  <style>
+    :root {
+      --bg-deep: #020617;
+      --bg-card: #0f172a;
+      --bg-raised: #1e293b;
+      --border: #1e293b;
+      --border-light: #334155;
+      --text: #e2e8f0;
+      --text-dim: #94a3b8;
+      --text-muted: #64748b;
+      --accent: #38bdf8;
+      --green: #059669;
+      --orange: #f97316;
+      --red: #ef4444;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', -apple-system, system-ui, sans-serif;
+      background: var(--bg-deep);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .card h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .field {
+      margin-bottom: 20px;
+    }
+    .field:last-child {
+      margin-bottom: 0;
+    }
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+    .field .desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .field input[type="number"] {
+      width: 120px;
+      background: var(--bg-raised);
+      border: 1px solid var(--border-light);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      outline: none;
+    }
+    .field input[type="number"]:focus {
+      border-color: var(--accent);
+    }
+    .field .unit {
+      display: inline-block;
+      margin-left: 8px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.15s;
+    }
+    .btn-primary {
+      background: #1d4ed8;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #2563eb;
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border-light);
+      color: var(--text-dim);
+    }
+    .btn-secondary:hover {
+      color: var(--text);
+      border-color: var(--text-muted);
+    }
+    .btn-danger {
+      background: transparent;
+      border: 1px solid var(--red);
+      color: var(--red);
+    }
+    .btn-danger:hover {
+      background: var(--red);
+      color: #fff;
+    }
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 999;
+    }
+    .toast.show {
+      opacity: 1;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 13px;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    .warning {
+      background: #7c2d1220;
+      border: 1px solid #f9731633;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 16px;
+    }
+    .warning-title {
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .warning-text {
+      color: var(--text-dim);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .current-value {
+      display: inline-block;
+      background: var(--bg-raised);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: var(--accent);
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Calculator</a>
+    
+    <h1>⚙️ Admin Panel</h1>
+    <p class="subtitle">Configure crafting calculator settings. Changes are saved to localStorage and apply immediately.</p>
+    
+    <div class="card">
+      <h2>Quality Settings</h2>
+      
+      <div class="field">
+        <label>Disassemble Quality <span class="current-value" id="cv-disassemble">500</span></label>
+        <p class="desc">Quality value of materials obtained from disassembling items. Used in Work Order quality presets.</p>
+        <input type="number" id="disassembleQuality" min="0" max="1000" step="10" value="500">
+        <span class="unit">Q (0-1000)</span>
+      </div>
+      
+      <div class="field">
+        <label>Default Min Quality <span class="current-value" id="cv-minquality">500</span></label>
+        <p class="desc">Fallback minimum quality requirement when a recipe slot doesn't specify one. Used for inventory calculations.</p>
+        <input type="number" id="defaultMinQuality" min="0" max="1000" step="10" value="500">
+        <span class="unit">Q (0-1000)</span>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>Data Management</h2>
+      
+      <div class="field">
+        <label>Clear All Data</label>
+        <p class="desc">Remove all saved inventory, work orders, planner sets, and settings. This cannot be undone.</p>
+        <button class="btn btn-danger" onclick="clearAllData()">Clear All Data</button>
+      </div>
+      
+      <div class="warning">
+        <div class="warning-title">⚠️ Note</div>
+        <div class="warning-text">
+          Settings are stored in your browser's localStorage. They will persist across sessions but are not synced across devices.
+          If you clear your browser data, these settings will be reset to defaults.
+        </div>
+      </div>
+    </div>
+    
+    <div class="actions">
+      <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+      <button class="btn btn-secondary" onclick="resetDefaults()">Reset to Defaults</button>
+    </div>
+  </div>
+  
+  <div class="toast" id="toast"></div>
+  
+  <script>
+    const LS = 'rc9_';
+    const DEFAULTS = {
+      disassembleQuality: 500,
+      defaultMinQuality: 500
+    };
+    
+    // Load current settings on page load
+    function loadSettings() {
+      try {
+        const saved = localStorage.getItem(LS + 'adminConfig');
+        if (saved) {
+          const config = JSON.parse(saved);
+          Object.keys(config).forEach(key => {
+            const input = document.getElementById(key);
+            const cv = document.getElementById('cv-' + key.replace(/([A-Z])/g, '-$1').toLowerCase().replace('quality',''));
+            if (input) {
+              input.value = config[key];
+            }
+            if (cv) {
+              cv.textContent = config[key];
+            }
+          });
+        }
+      } catch (e) {
+        console.error('Failed to load settings:', e);
+      }
+    }
+    
+    // Save settings
+    function saveSettings() {
+      try {
+        const config = {
+          disassembleQuality: parseInt(document.getElementById('disassembleQuality').value) || DEFAULTS.disassembleQuality,
+          defaultMinQuality: parseInt(document.getElementById('defaultMinQuality').value) || DEFAULTS.defaultMinQuality
+        };
+        localStorage.setItem(LS + 'adminConfig', JSON.stringify(config));
+        
+        // Update current value displays
+        document.getElementById('cv-disassemble').textContent = config.disassembleQuality;
+        document.getElementById('cv-minquality').textContent = config.defaultMinQuality;
+        
+        showToast('Settings saved!');
+      } catch (e) {
+        showToast('Failed to save settings');
+        console.error(e);
+      }
+    }
+    
+    // Reset to defaults
+    function resetDefaults() {
+      if (!confirm('Reset all settings to default values?')) return;
+      
+      document.getElementById('disassembleQuality').value = DEFAULTS.disassembleQuality;
+      document.getElementById('defaultMinQuality').value = DEFAULTS.defaultMinQuality;
+      
+      saveSettings();
+      showToast('Reset to defaults');
+    }
+    
+    // Clear all data
+    function clearAllData() {
+      if (!confirm('This will delete ALL your saved data including inventory, work orders, and settings.\n\nAre you sure?')) return;
+      if (!confirm('FINAL WARNING: This cannot be undone. Continue?')) return;
+      
+      try {
+        // Clear all localStorage keys with our prefix
+        Object.keys(localStorage).forEach(key => {
+          if (key.startsWith(LS) || key.startsWith('rc8_') || key.startsWith('rc7_')) {
+            localStorage.removeItem(key);
+          }
+        });
+        showToast('All data cleared');
+        setTimeout(() => location.reload(), 1000);
+      } catch (e) {
+        showToast('Failed to clear data');
+        console.error(e);
+      }
+    }
+    
+    // Toast notification
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+    
+    // Initialize
+    loadSettings();
+  </script>
+</body>
+</html>
