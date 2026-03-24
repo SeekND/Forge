@@ -6,28 +6,6 @@
   <title>RediMake Crafting Calculator — Star Citizen</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
-  <style>
-    /* Sources info icon + popover */
-    .sources-wrap{position:relative;display:inline-flex;align-items:center}
-    .sources-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#1e293b;color:#60a5fa;font-size:11px;font-weight:700;font-style:normal;cursor:pointer;border:1px solid #334155;transition:background .15s,color .15s;line-height:1;user-select:none}
-    .sources-icon:hover,.sources-wrap:focus-within .sources-icon{background:#334155;color:#93c5fd}
-    .sources-pop{display:none;position:absolute;left:0;top:calc(100% + 6px);z-index:100;min-width:200px;max-width:340px;width:max-content;padding:8px 10px;background:#1e293b;border:1px solid #334155;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.4)}
-    .sources-wrap:hover .sources-pop,.sources-wrap:focus-within .sources-pop{display:block}
-    .src-line{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:3px 0;font-size:12px;color:#cbd5e1;border-bottom:1px solid #0f172a}
-    .src-line:last-child{border-bottom:none}
-    .src-default{color:#4ade80;font-weight:600}
-    .src-mission{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .src-prob{color:#60a5fa;font-weight:600;font-size:11px;flex-shrink:0}
-    /* Piece-row sources icon — slightly smaller */
-    .piece-row .sources-icon{width:16px;height:16px;font-size:10px}
-    .piece-row .sources-pop{left:0}
-    /* Ore request group + mode toggle */
-    .ore-req-group{display:flex;flex-direction:column;gap:4px}
-    .ore-mode-toggle{display:flex;border-radius:6px;overflow:hidden;border:1px solid #334155}
-    .ore-mode{flex:1;padding:3px 8px;font-size:11px;font-weight:600;background:#0f172a;color:#64748b;border:none;cursor:pointer;transition:background .15s,color .15s}
-    .ore-mode.active{background:#1e40af;color:#e2e8f0}
-    .ore-mode:hover:not(.active){background:#1e293b;color:#94a3b8}
-  </style>
 </head>
 <body>
   <header id="header">
@@ -37,7 +15,10 @@
           <h1><span class="accent">⬡</span> RediMake Crafting Calculator</h1>
           <div class="subtitle" id="subtitle">Star Citizen · Loading...</div>
         </div>
-        <button class="unit-toggle" id="unit-toggle" onclick="toggleUnit()" title="Switch between cSCU and SCU">cSCU</button>
+        <div style="display:flex;align-items:center;gap:8px">
+          <button class="unit-toggle" id="unit-toggle" onclick="toggleUnit()" title="Switch between cSCU and SCU">cSCU</button>
+          <a href="admin/admin.html" class="unit-toggle" style="text-decoration:none;font-size:14px" title="Admin Settings">⚙️</a>
+        </div>
       </div>
       <nav id="tabs">
         <button class="tab active" data-tab="home" onclick="switchTab('home')">Home</button>

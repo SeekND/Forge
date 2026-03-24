@@ -215,6 +215,39 @@
         <span class="unit">Q (0-1000)</span>
       </div>
     </div>
+
+    <div class="card">
+      <h2>Quality Zones</h2>
+      <p class="desc" style="margin-bottom:16px">These thresholds control when inventory is automatically assigned to work order slots. When a requester asks for "minimum" quality, batches in the min zone are picked. When they ask for "maximum", batches in the max zone are picked.</p>
+      
+      <div class="field">
+        <label>Min Zone — Low <span class="current-value" id="cv-minzonelow">500</span></label>
+        <p class="desc">Lowest quality that counts as "minimum quality" for auto-assignment.</p>
+        <input type="number" id="minZoneLow" min="0" max="1000" step="10" value="500">
+        <span class="unit">Q (0-1000)</span>
+      </div>
+      
+      <div class="field">
+        <label>Min Zone — High <span class="current-value" id="cv-minzonehigh">700</span></label>
+        <p class="desc">Highest quality still considered "minimum". Batches above this are in the max zone.</p>
+        <input type="number" id="minZoneHigh" min="0" max="1000" step="10" value="700">
+        <span class="unit">Q (0-1000)</span>
+      </div>
+      
+      <div class="field">
+        <label>Max Zone — Low <span class="current-value" id="cv-maxzonelow">700</span></label>
+        <p class="desc">Lowest quality that counts as "maximum quality" for auto-assignment.</p>
+        <input type="number" id="maxZoneLow" min="0" max="1000" step="10" value="700">
+        <span class="unit">Q (0-1000)</span>
+      </div>
+      
+      <div class="field">
+        <label>Max Zone — High <span class="current-value" id="cv-maxzonehigh">1000</span></label>
+        <p class="desc">Highest quality cap (normally 1000).</p>
+        <input type="number" id="maxZoneHigh" min="0" max="1000" step="10" value="1000">
+        <span class="unit">Q (0-1000)</span>
+      </div>
+    </div>
     
     <div class="card">
       <h2>Data Management</h2>
@@ -246,7 +279,11 @@
     const LS = 'rc9_';
     const DEFAULTS = {
       disassembleQuality: 500,
-      defaultMinQuality: 500
+      defaultMinQuality: 500,
+      minZoneLow: 500,
+      minZoneHigh: 700,
+      maxZoneLow: 700,
+      maxZoneHigh: 1000
     };
     
     // Load current settings on page load
@@ -255,35 +292,42 @@
         const saved = localStorage.getItem(LS + 'adminConfig');
         if (saved) {
           const config = JSON.parse(saved);
-          Object.keys(config).forEach(key => {
+          Object.keys(DEFAULTS).forEach(key => {
             const input = document.getElementById(key);
-            const cv = document.getElementById('cv-' + key.replace(/([A-Z])/g, '-$1').toLowerCase().replace('quality',''));
-            if (input) {
-              input.value = config[key];
-            }
-            if (cv) {
-              cv.textContent = config[key];
-            }
+            if (input) input.value = config[key] ?? DEFAULTS[key];
           });
+          // Update current value displays
+          updateDisplays(config);
         }
       } catch (e) {
         console.error('Failed to load settings:', e);
       }
     }
     
+    function updateDisplays(config) {
+      const map = {
+        disassembleQuality: 'cv-disassemble',
+        defaultMinQuality: 'cv-minquality',
+        minZoneLow: 'cv-minzonelow',
+        minZoneHigh: 'cv-minzonehigh',
+        maxZoneLow: 'cv-maxzonelow',
+        maxZoneHigh: 'cv-maxzonehigh'
+      };
+      for (const [key, elId] of Object.entries(map)) {
+        const el = document.getElementById(elId);
+        if (el) el.textContent = config[key] ?? DEFAULTS[key];
+      }
+    }
+    
     // Save settings
     function saveSettings() {
       try {
-        const config = {
-          disassembleQuality: parseInt(document.getElementById('disassembleQuality').value) || DEFAULTS.disassembleQuality,
-          defaultMinQuality: parseInt(document.getElementById('defaultMinQuality').value) || DEFAULTS.defaultMinQuality
-        };
+        const config = {};
+        Object.keys(DEFAULTS).forEach(key => {
+          config[key] = parseInt(document.getElementById(key)?.value) || DEFAULTS[key];
+        });
         localStorage.setItem(LS + 'adminConfig', JSON.stringify(config));
-        
-        // Update current value displays
-        document.getElementById('cv-disassemble').textContent = config.disassembleQuality;
-        document.getElementById('cv-minquality').textContent = config.defaultMinQuality;
-        
+        updateDisplays(config);
         showToast('Settings saved!');
       } catch (e) {
         showToast('Failed to save settings');
@@ -294,10 +338,10 @@
     // Reset to defaults
     function resetDefaults() {
       if (!confirm('Reset all settings to default values?')) return;
-      
-      document.getElementById('disassembleQuality').value = DEFAULTS.disassembleQuality;
-      document.getElementById('defaultMinQuality').value = DEFAULTS.defaultMinQuality;
-      
+      Object.keys(DEFAULTS).forEach(key => {
+        const input = document.getElementById(key);
+        if (input) input.value = DEFAULTS[key];
+      });
       saveSettings();
       showToast('Reset to defaults');
     }

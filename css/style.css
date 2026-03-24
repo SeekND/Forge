@@ -320,8 +320,41 @@ nav#tabs{display:flex;gap:1px;overflow-x:auto}
 .item-tag{display:inline-block;background:#7c3aed33;color:#a78bfa;padding:1px 4px;border-radius:3px;font-size:9px;font-weight:600;text-transform:uppercase;margin-left:4px}
 
 /* Work Order Slot Quality Requirements */
-.wo-slot-minq{font-size:10px;font-weight:600;padding:2px 5px;border-radius:3px;background:rgba(0,0,0,0.3)}
 .wo-slot-qwarn{font-size:12px;cursor:help}
+
+/* WO Slot — Request / Inventory labels */
+.wo-slot-reqtag{color:var(--orange);font-size:10px;font-weight:600;white-space:nowrap}
+.wo-slot-reqtag-min{color:var(--orange)}
+.wo-slot-reqtag-warn{color:var(--red)}
+.wo-slot-label{font-size:10px;font-weight:600;white-space:nowrap}
+.wo-slot-label.ok{color:var(--green)}
+.wo-slot-label.no{color:var(--red)}
+.wo-slot.has-inv{border-left:2px solid rgba(5,150,105,0.25);background:rgba(5,150,105,0.04);border-radius:2px;padding-left:6px}
+
+/* ═══════════════════════════════════════════════
+   Sources info icon + popover
+   ═══════════════════════════════════════════════ */
+.sources-wrap{position:relative;display:inline-flex;align-items:center}
+.sources-icon{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--bg-raised);color:#60a5fa;font-size:11px;font-weight:700;font-style:normal;cursor:pointer;border:1px solid var(--border-light);transition:background .15s,color .15s;line-height:1;user-select:none}
+.sources-icon:hover,.sources-wrap:focus-within .sources-icon{background:var(--border-light);color:#93c5fd}
+.sources-pop{display:none;position:absolute;left:0;top:calc(100% + 6px);z-index:100;min-width:200px;max-width:340px;width:max-content;padding:8px 10px;background:var(--bg-raised);border:1px solid var(--border-light);border-radius:var(--radius);box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.sources-wrap:hover .sources-pop,.sources-wrap:focus-within .sources-pop{display:block}
+.src-line{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:3px 0;font-size:12px;color:#cbd5e1;border-bottom:1px solid var(--bg-deep)}
+.src-line:last-child{border-bottom:none}
+.src-default{color:var(--green);font-weight:600}
+.src-mission{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.src-prob{color:#60a5fa;font-weight:600;font-size:11px;flex-shrink:0}
+.piece-row .sources-icon{width:16px;height:16px;font-size:10px}
+.piece-row .sources-pop{left:0}
+
+/* ═══════════════════════════════════════════════
+   Ore request group + mode toggle
+   ═══════════════════════════════════════════════ */
+.ore-req-group{display:flex;flex-direction:column;gap:4px}
+.ore-mode-toggle{display:flex;border-radius:6px;overflow:hidden;border:1px solid var(--border-light)}
+.ore-mode{flex:1;padding:3px 8px;font-size:11px;font-weight:600;background:var(--bg-deep);color:var(--text-muted);border:none;cursor:pointer;transition:background .15s,color .15s}
+.ore-mode.active{background:#1e40af;color:var(--text)}
+.ore-mode:hover:not(.active){background:var(--bg-raised);color:var(--text-dim)}
 
 @media(max-width:768px){
   .planner-layout,.inventory-layout,.wo-layout{flex-direction:column}
@@ -332,5 +365,7 @@ nav#tabs{display:flex;gap:1px;overflow-x:auto}
   .filter-panel{flex-wrap:wrap}.fp-groups{gap:8px}.fp-sep{display:none}
   .pipeline{gap:8px}.pipe-arrow{display:none}.hero-title{font-size:22px}
   .min-q-badge{font-size:8px;padding:1px 3px}
-  .wo-slot-minq{font-size:9px}
+  .wo-slot{flex-wrap:wrap;gap:4px}
+  .wo-slot-name{min-width:80px}
+  .sources-pop{min-width:160px;max-width:260px}
 }

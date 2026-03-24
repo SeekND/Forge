@@ -28,7 +28,37 @@ let DEFAULT_UNLOCKED = [];
 let adminConfig = {
   disassembleQuality: 500,  // Quality from disassembling items
   defaultMinQuality: 500,   // Fallback if recipe doesn't specify min_quality
+  minZoneLow: 500,   // lowest acceptable quality for "minimum" requests
+  minZoneHigh: 700,  // highest quality still considered "minimum"
+  maxZoneLow: 700,   // lowest acceptable quality for "maximum" requests
+  maxZoneHigh: 1000, // highest quality (cap)
 };
+
+// Convenience accessor (reads live from adminConfig)
+function getZones(){return {minZoneLow:adminConfig.minZoneLow,minZoneHigh:adminConfig.minZoneHigh,maxZoneLow:adminConfig.maxZoneLow,maxZoneHigh:adminConfig.maxZoneHigh};}
+
+// Shared quality picker — used by toggleWOItem, addToRequest, importWOFromHash, addPlannerToWO
+// Given a material and a requested quality, pick the best inventory batch in the appropriate zone.
+// Returns the quality value to assign.
+function pickQualityForSlot(mat, requested){
+  const batches=getBatches(mat).filter(b=>b.qty>0).sort((a,b)=>b.quality-a.quality);
+  if(!batches.length)return requested;
+  const Z=getZones();
+  if(requested>=1000){
+    // Maximum request — pick best batch in max zone [maxZoneLow..maxZoneHigh]
+    const match=batches.find(b=>b.quality>=Z.maxZoneLow&&b.quality<=Z.maxZoneHigh);
+    return match?match.quality:requested;
+  }else if(requested<=adminConfig.defaultMinQuality){
+    // Minimum request — pick best batch in min zone [minZoneLow..minZoneHigh] first
+    const inZone=batches.find(b=>b.quality>=Z.minZoneLow&&b.quality<=Z.minZoneHigh);
+    if(inZone)return inZone.quality;
+    // No batch in min zone — pick lowest batch that still meets the requested quality
+    const above=batches.filter(b=>b.quality>=requested).sort((a,b)=>a.quality-b.quality);
+    return above.length?above[0].quality:requested;
+  }
+  // Specific quality — respect it exactly
+  return requested;
+}
 
 const SLOT_STATS={
   'Stock':'Recoil Control','Barrel':'Rate of Fire','Lenses':'Weapon Impact','Frame':'Structural Integrity',
@@ -735,10 +765,10 @@ function toggleWOItem(t,k){
   const idx=o.items.findIndex(w=>w.type===t&&w.key===k);
   if(idx>=0)o.items.splice(idx,1);
   else{const item=findItem(t,k);if(item){
-    // Build slotQ with piece-aware keys for sets
+    // Build slotQ with piece-aware keys — zone-aware inventory picker
     const slotQ={};
-    if(item.pieces){item.pieces.forEach(p=>{(p.recipe||[]).filter(r=>r.material&&r.slot&&r.amount_cscu>0).forEach(r=>{slotQ[p.piece_type+'|'+r.slot]=bestQuality(r.material)||1000;});});}
-    else{getSlottedRec(item).forEach(r=>{slotQ[r.slot]=bestQuality(r.material)||1000;});}
+    if(item.pieces){item.pieces.forEach(p=>{(p.recipe||[]).filter(r=>r.material&&r.slot&&r.amount_cscu>0).forEach(r=>{slotQ[p.piece_type+'|'+r.slot]=pickQualityForSlot(r.material,1000);});});}
+    else{getSlottedRec(item).forEach(r=>{slotQ[r.slot]=pickQualityForSlot(r.material,1000);});}
     o.items.push({type:t,key:k,qty:1,item,crafted:false,deducted:null,slotQ});
   }}
   saveState();updateWOBadge();filterBlueprints();if(currentTab==='workorder')renderWO();if(currentTab==='inventory')updateInventoryResults();
@@ -832,7 +862,6 @@ function renderSlotRow(r,sq,sqKey,needCscu,woIdx){
   const PRESETS=[
     {v:1000,label:'Q1000 (Maximum)'},
   ];
-  // Only show disassembled if it's different from minimum
   if(adminConfig.disassembleQuality>minQ)PRESETS.push({v:adminConfig.disassembleQuality,label:`Q${adminConfig.disassembleQuality} (Disassembled)`});
   PRESETS.push({v:minQ,label:`Q${minQ} (Minimum)`});
   let opts='<optgroup label="Quality Request">';
@@ -843,34 +872,50 @@ function renderSlotRow(r,sq,sqKey,needCscu,woIdx){
     batches.forEach(b=>{opts+=`<option value="i${b.quality}"${isFromInventory&&sq===b.quality?' selected':''}>Q${b.quality} — ${uFmt(b.qty)} available</option>`;});
     opts+='</optgroup>';
   }
-  // If current value doesn't match any option, add it
   const presetVals=PRESETS.map(p=>p.v);
   const batchVals=batches.map(b=>b.quality);
   if(!presetVals.includes(sq)&&!batchVals.includes(sq)){
     opts=`<option value="p${sq}" selected>Q${sq} (custom)</option>`+opts;
   }
   
-  // Have/need display: only for inventory-matched selections
-  let haveStr;
+  const minQBadge=minQ?qBadge(minQ):'';
+  const dropdown=`<select class="wo-slot-qsel" onchange="setWOSlotQ(${woIdx},'${esc(sqKey)}',this.value)" style="border-left:3px solid ${qc}">${opts}</select>`;
+  const qWarn=minQ&&sq<minQ?'<span class="wo-slot-qwarn" title="Quality below minimum requirement">⚠️</span>':'';
+  const statHtml=stat?`<span class="wo-slot-stat">→ ${stat}</span>`:'';
+
   if(!isFromInventory){
-    haveStr=`<span class="wo-slot-have" style="color:var(--orange);font-size:10px">requested</span>`;
+    return `<div class="wo-slot">
+      <span class="wo-slot-name">${esc(r.slot)}</span>
+      ${minQBadge}
+      <span class="wo-slot-mat">${esc(r.material)}${r.cost_type==='item'?' <span class="item-tag">item</span>':''}</span>
+      <span class="wo-slot-need">${r.cost_type==='item'?needCscu+'×':uFmt(needCscu)}</span>
+      <span class="wo-slot-reqtag">Requested:</span>
+      ${dropdown}
+      ${qWarn}
+      ${statHtml}
+    </div>`;
   }else{
     const haveAtQ=availableAtQuality(r.material,sq);
-    haveStr=haveAtQ>=needCscu
-      ?`<span class="wo-slot-have ok">✓ have</span>`
-      :`<span class="wo-slot-have no">need ${uFmt(Math.max(0,needCscu-haveAtQ))}</span>`;
+    const haveOk=haveAtQ>=needCscu;
+    const haveLabel=haveOk
+      ?`<span class="wo-slot-label ok">Have:</span>`
+      :`<span class="wo-slot-label no">Have (need ${uFmt(Math.max(0,needCscu-haveAtQ))} more):</span>`;
+    let reqTag='';
+    if(sq>=adminConfig.maxZoneLow)reqTag=`<span class="wo-slot-reqtag">Max Q Requested</span>`;
+    else if(sq>=adminConfig.minZoneLow)reqTag=`<span class="wo-slot-reqtag wo-slot-reqtag-min">Min Q Requested</span>`;
+    else reqTag=`<span class="wo-slot-reqtag wo-slot-reqtag-warn">Below Min</span>`;
+    return `<div class="wo-slot has-inv">
+      <span class="wo-slot-name">${esc(r.slot)}</span>
+      ${minQBadge}
+      <span class="wo-slot-mat">${esc(r.material)}${r.cost_type==='item'?' <span class="item-tag">item</span>':''}</span>
+      <span class="wo-slot-need">${r.cost_type==='item'?needCscu+'×':uFmt(needCscu)}</span>
+      ${reqTag}
+      ${haveLabel}
+      ${dropdown}
+      ${qWarn}
+      ${statHtml}
+    </div>`;
   }
-  
-  return `<div class="wo-slot">
-    <span class="wo-slot-name">${esc(r.slot)}</span>
-    <span class="wo-slot-mat">${esc(r.material)}${r.cost_type==='item'?' <span class="item-tag">item</span>':''}</span>
-    <span class="wo-slot-need">${r.cost_type==='item'?needCscu+'×':uFmt(needCscu)}</span>
-    ${minQ?`<span class="wo-slot-minq" style="color:${qColor(minQ)}">min Q${minQ}</span>`:''}
-    ${haveStr}
-    <select class="wo-slot-qsel" onchange="setWOSlotQ(${woIdx},'${esc(sqKey)}',this.value)" style="border-left:3px solid ${qc}">${opts}</select>
-    ${minQ&&sq<minQ?'<span class="wo-slot-qwarn" title="Quality below minimum requirement">⚠️</span>':''}
-    ${stat?`<span class="wo-slot-stat">→ ${stat}</span>`:''}
-  </div>`;
 }
 
 function renderWOTotals(){
@@ -1122,27 +1167,9 @@ function importWOFromHash(hash){
       // Parse shared slot qualities
       const sharedQ={};
       if(segs[3]){segs[3].split(',').forEach(sq=>{const[s,q]=sq.split('=');if(s&&q)sharedQ[decodeURIComponent(s)]=parseInt(q)||1000;});}
-      // Auto-assign quality with threshold logic:
-      // - If requester asked for Q1000 (maximum): pick best inventory batch if >= MIN_AUTO_HIGH, else keep Q1000 as request
-      // - If requester asked for minimum or specific: keep the requested quality — don't auto-assign inventory
-      // This preserves the requester's intent: "maximum" means use your best, "minimum/specific" means exactly that
-      const MIN_AUTO_HIGH=300; // minimum inventory quality to auto-assign for maximum requests
+      // Auto-assign quality using shared zone-aware picker
       const slotQ={};
-      const assignSlot=(sqKey,mat)=>{
-        const requested=sharedQ[sqKey]??1000;
-        if(requested>=1000){
-          // Requester wants maximum — auto-assign best inventory if good enough
-          const batches=getBatches(mat).filter(b=>b.qty>0).sort((a,b)=>b.quality-a.quality);
-          if(batches.length&&batches[0].quality>=MIN_AUTO_HIGH){
-            slotQ[sqKey]=batches[0].quality;
-          }else{
-            slotQ[sqKey]=requested;
-          }
-        }else{
-          // Requester specified a quality — respect it exactly
-          slotQ[sqKey]=requested;
-        }
-      };
+      const assignSlot=(sqKey,mat)=>{slotQ[sqKey]=pickQualityForSlot(mat,sharedQ[sqKey]??1000);};
       if(item.pieces){item.pieces.forEach(pp=>{(pp.recipe||[]).filter(rr=>rr.material&&rr.slot&&rr.amount_cscu>0).forEach(rr=>{assignSlot(pp.piece_type+'|'+rr.slot,rr.material);});});}
       else{getSlottedRec(item).forEach(rr=>{assignSlot(rr.slot,rr.material);});}
       imported.push({type,key,qty,item,crafted:false,deducted:null,slotQ});
@@ -1170,7 +1197,7 @@ function buildPlannerSlots(){
 function updPlanner(slot,val){plannerSelections[slot]=val;saveState();const el=document.getElementById(`pr-${slot}`),it=resPI(val);el.innerHTML=it?recipeHtml(it.recipe||[]):'';updPlannerSum();}
 function resPI(v){if(!v)return null;if(v.startsWith('bp:'))return DATA.backpacks.find(b=>b.name===v.slice(3));if(v.startsWith('us:'))return DATA.undersuits.find(u=>u.name===v.slice(3));if(v.startsWith('fs:'))return DATA.flightsuits.find(f=>f.name===v.slice(3));if(v.startsWith('pc:')){const[,sn,pn]=v.split(':');const s=DATA.armor_sets.find(x=>x.set_name===sn);return s?.pieces.find(p=>p.name===pn);}return null;}
 function updPlannerSum(){const m={};let tot=0,any=false;Object.values(plannerSelections).forEach(v=>{const it=resPI(v);if(!it)return;any=true;(it.recipe||[]).forEach(r=>{if(r.material&&r.amount_cscu>0){m[r.material]=(m[r.material]||0)+r.amount_cscu;tot+=r.amount_cscu;}});});const el=document.getElementById('planner-materials'),act=document.getElementById('planner-actions');if(!any){el.innerHTML='<div class="dim">Select pieces to see totals</div>';act.style.display='none';return;}el.innerHTML=Object.entries(m).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div style="display:flex;justify-content:space-between;padding:3px 0"><span style="color:#e2e8f0;font-size:13px">${k}</span><span style="color:#38bdf8;font-size:13px;font-weight:700">${uFmt(v)}</span></div>`).join('')+`<div style="border-top:1px solid #334155;margin-top:8px;padding-top:8px;display:flex;justify-content:space-between"><span style="color:#94a3b8;font-weight:700;font-size:13px">TOTAL</span><span style="color:#f8fafc;font-weight:700;font-size:15px">${uFmt(tot)}</span></div>`;act.style.display='flex';}
-function addPlannerToWO(){let o=getActiveOrder();if(!o){createNewOrder(true);o=getActiveOrder();}Object.entries(plannerSelections).forEach(([slot,val])=>{if(!val)return;const it=resPI(val);if(!it)return;const k=it.name||val;if(!o.items.some(w=>w.key===k)){const slotQ={};(it.recipe||[]).filter(r=>r.material&&r.slot).forEach(r=>{slotQ[r.slot]=bestQuality(r.material)||500;});o.items.push({type:'piece',key:k,qty:1,item:it,crafted:false,deducted:null,slotQ});}});saveState();updateWOBadge();switchTab('workorder');renderWO();}
+function addPlannerToWO(){let o=getActiveOrder();if(!o){createNewOrder(true);o=getActiveOrder();}Object.entries(plannerSelections).forEach(([slot,val])=>{if(!val)return;const it=resPI(val);if(!it)return;const k=it.name||val;if(!o.items.some(w=>w.key===k)){const slotQ={};(it.recipe||[]).filter(r=>r.material&&r.slot).forEach(r=>{slotQ[r.slot]=pickQualityForSlot(r.material,1000);});o.items.push({type:'piece',key:k,qty:1,item:it,crafted:false,deducted:null,slotQ});}});saveState();updateWOBadge();switchTab('workorder');renderWO();}
 function copyPlannerText(){const lines=['═══ RediMake Set ═══'],m={};Object.entries(plannerSelections).forEach(([slot,val])=>{const it=resPI(val);if(!it)return;lines.push(`${PIECE_LABELS[slot]||slot}: ${it.name} (${uFmt(it.total_cscu)})`);(it.recipe||[]).forEach(r=>{if(r.material&&r.amount_cscu>0)m[r.material]=(m[r.material]||0)+r.amount_cscu;});});lines.push('','Materials:');Object.entries(m).sort((a,b)=>b[1]-a[1]).forEach(([k,v])=>lines.push(`  ${uFmt(v)} ${k}`));navigator.clipboard.writeText(lines.join('\n')).then(()=>showToast('Copied to clipboard'));}
 function savePlannerSet(){const n=prompt('Name:');if(!n)return;savedSets.push({name:n,selections:{...plannerSelections}});saveState();renderSavedSets();}
 function loadSavedSet(i){const s=savedSets[i];if(!s)return;plannerSelections={...s.selections};['helmet','core','arms','legs','backpack','undersuit'].forEach(slot=>{const sel=document.getElementById(`ps-${slot}`);if(sel){sel.value=plannerSelections[slot]||'';updPlanner(slot,plannerSelections[slot]||'');}});}
