@@ -238,7 +238,7 @@
           "weight": 1
         },
         {
-          "name": "Zenith Laser Sniper Rifle",
+          "name": "Zenith \"Landslide\" Laser Sniper Rifle",
           "filename": "bp_craft_volt_sniper_energy_01_tint02.xml",
           "probability": 9.1,
           "weight": 1
@@ -2866,11 +2866,6 @@
         "mission": "ASD - Updated Energy Anomaly Data",
         "probability": 9.1,
         "type": "RANDOM"
-      },
-      {
-        "mission": "ASD - Updated Security Data",
-        "probability": 9.1,
-        "type": "RANDOM"
       }
     ],
     "Geist Armor Arms Forest": [
@@ -3058,6 +3053,13 @@
       }
     ],
     "Fresnel \"Rockfall\" Energy LMG": [
+      {
+        "mission": "ASD - Updated Security Data",
+        "probability": 9.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Zenith \"Landslide\" Laser Sniper Rifle": [
       {
         "mission": "ASD - Updated Security Data",
         "probability": 9.1,

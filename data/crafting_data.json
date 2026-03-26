@@ -2,9 +2,9 @@
   "meta": {
     "source": "Datamined from Star Citizen game files",
     "source_url": "",
-    "extracted_date": "2026-03-23",
+    "extracted_date": "2026-03-26",
     "current_patch": "4.7",
-    "data_updated": "2026-03-23",
+    "data_updated": "2026-03-26",
     "news_reel": "",
     "note": "Auto-extracted by SC Hub - Crafting module v4 (4.7 format).",
     "machine_name": "RediMake Item Fabricator",
@@ -89089,6 +89089,71 @@
       ]
     },
     {
+      "name": "Zenith \"Landslide\" Laser Sniper Rifle",
+      "piece_type": "sniper",
+      "total_cscu": 8.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Taranite",
+          "raw_ore": "Raw Taranite",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Cabling",
+          "cost_type": "resource",
+          "material": "Gold",
+          "raw_ore": "Gold Ore",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Power Regulator",
+          "cost_type": "item",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "item_name": "Beradom",
+          "item_quantity": 1,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Precision Parts",
+          "cost_type": "item",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "item_name": "Sadaryx",
+          "item_quantity": 1,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 210,
+      "output_entity_guid": "b1662474-624e-453d-93fa-64638bcf9317",
+      "blueprint_file": "bp_craft_volt_sniper_energy_01_tint02.xml",
+      "is_obtainable": true,
+      "weapon_type": "sniper",
+      "damage_type": "energy",
+      "manufacturer": "Volt",
+      "sources": [
+        {
+          "mission": "ASD - Updated Security Data",
+          "probability": 9.1,
+          "type": "RANDOM"
+        }
+      ]
+    },
+    {
       "name": "Zenith \"Snow Camo\" Laser Sniper Rifle",
       "piece_type": "sniper",
       "total_cscu": 8.0,
@@ -89272,71 +89337,6 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 9.1,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Zenith Laser Sniper Rifle",
-      "piece_type": "sniper",
-      "total_cscu": 8.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Taranite",
-          "raw_ore": "Raw Taranite",
-          "amount_cscu": 6.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Cabling",
-          "cost_type": "resource",
-          "material": "Gold",
-          "raw_ore": "Gold Ore",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Power Regulator",
-          "cost_type": "item",
-          "material": "",
-          "raw_ore": "",
-          "amount_cscu": 0.0,
-          "item_name": "Beradom",
-          "item_quantity": 1,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Precision Parts",
-          "cost_type": "item",
-          "material": "",
-          "raw_ore": "",
-          "amount_cscu": 0.0,
-          "item_name": "Sadaryx",
-          "item_quantity": 1,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 210,
-      "output_entity_guid": "b1662474-624e-453d-93fa-64638bcf9317",
-      "blueprint_file": "bp_craft_volt_sniper_energy_01_tint02.xml",
-      "is_obtainable": true,
-      "weapon_type": "sniper",
-      "damage_type": "energy",
-      "manufacturer": "Volt",
-      "sources": [
-        {
-          "mission": "ASD - Updated Security Data",
           "probability": 9.1,
           "type": "RANDOM"
         }
