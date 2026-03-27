@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RediMake — Availability Manager</title>
+  <style>
+    :root {
+      --bg-deep:#020617;--bg-card:#0f172a;--bg-raised:#1e293b;
+      --border:#1e293b;--border-light:#334155;
+      --text:#e2e8f0;--text-dim:#94a3b8;--text-muted:#64748b;
+      --accent:#38bdf8;--green:#059669;--orange:#f97316;--red:#ef4444;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',-apple-system,system-ui,sans-serif;background:var(--bg-deep);color:var(--text);min-height:100vh;padding:20px}
+    .container{max-width:1100px;margin:0 auto}
+    h1{font-size:22px;font-weight:800;color:#f8fafc;margin-bottom:4px}
+    .subtitle{color:var(--text-muted);font-size:13px;margin-bottom:20px}
+    .back-link{display:inline-block;margin-bottom:16px;color:var(--accent);text-decoration:none;font-size:13px}
+    .back-link:hover{text-decoration:underline}
+    .nav-links{display:flex;gap:12px;margin-bottom:20px}
+    .nav-links a{color:var(--accent);text-decoration:none;font-size:13px}
+    .nav-links a:hover{text-decoration:underline}
+
+    /* Layout */
+    .panels{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:768px){.panels{grid-template-columns:1fr}}
+    .panel{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;display:flex;flex-direction:column;max-height:70vh}
+    .panel-header{padding:14px 16px 10px;border-bottom:1px solid var(--border);flex-shrink:0}
+    .panel-header h2{font-size:15px;font-weight:700;color:#f8fafc;margin-bottom:4px}
+    .panel-header .count{font-size:11px;color:var(--text-muted)}
+    .panel-search{width:100%;background:var(--bg-raised);border:1px solid var(--border-light);color:var(--text);padding:8px 12px;border-radius:6px;font-size:13px;outline:none;margin-top:8px}
+    .panel-search:focus{border-color:var(--accent)}
+    .panel-body{overflow-y:auto;flex:1;padding:4px 0}
+    .panel-footer{padding:10px 16px;border-top:1px solid var(--border);flex-shrink:0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+    /* Rows */
+    .row{display:flex;align-items:center;gap:10px;padding:7px 16px;border-bottom:1px solid var(--bg-deep);cursor:pointer;transition:background .1s;font-size:13px}
+    .row:hover{background:var(--bg-raised)}
+    .row.disabled{opacity:.45}
+    .row.disabled .row-name{text-decoration:line-through}
+    .row-toggle{width:16px;height:16px;border-radius:4px;border:2px solid var(--border-light);background:var(--bg-raised);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .15s}
+    .row.enabled .row-toggle{background:#1d4ed8;border-color:#3b82f6;color:#fff}
+    .row-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)}
+    .row-meta{font-size:11px;color:var(--text-muted);flex-shrink:0;white-space:nowrap}
+    .row-badge{font-size:10px;padding:1px 5px;border-radius:3px;font-weight:600;flex-shrink:0}
+    .badge-default{background:rgba(5,150,105,.15);color:#34d399}
+    .badge-override{background:rgba(234,179,8,.15);color:#facc15}
+    .badge-type{background:rgba(96,165,250,.1);color:#60a5fa}
+
+    /* Group headers inside items panel */
+    .group-header{padding:6px 16px;color:var(--text-muted);font-size:11px;font-weight:700;letter-spacing:.04em;background:var(--bg-deep);position:sticky;top:0;z-index:1}
+
+    /* Actions bar */
+    .actions-bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px;padding:12px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px}
+    .btn{padding:8px 16px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .15s}
+    .btn-primary{background:#1d4ed8;color:#fff}.btn-primary:hover{background:#2563eb}
+    .btn-secondary{background:transparent;border:1px solid var(--border-light);color:var(--text-dim)}.btn-secondary:hover{color:var(--text);border-color:var(--text-muted)}
+    .btn-danger{background:transparent;border:1px solid var(--red);color:var(--red)}.btn-danger:hover{background:var(--red);color:#fff}
+    .btn-sm{padding:5px 10px;font-size:11px}
+    .stat{font-size:12px;color:var(--text-dim)}.stat b{color:#f8fafc}
+
+    /* Toast */
+    .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:600;opacity:0;transition:opacity .3s;z-index:999;pointer-events:none}
+    .toast.show{opacity:1}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="nav-links">
+      <a href="../index.html">← Calculator</a>
+      <a href="admin.html">⚙️ Settings</a>
+    </div>
+
+    <h1>📋 Availability Manager</h1>
+    <p class="subtitle">Enable or disable contracts and individual items. Disabled items will be marked as unobtainable. Export a modified crafting_data.json when done.</p>
+
+    <div class="actions-bar" id="actions-bar">
+      <button class="btn btn-primary" onclick="exportJson()">Export crafting_data.json</button>
+      <button class="btn btn-secondary" onclick="resetAll()">Reset All</button>
+      <span class="stat" id="stat-summary"></span>
+    </div>
+
+    <div class="panels">
+      <!-- Contracts Panel -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Contracts</h2>
+          <span class="count" id="contract-count"></span>
+          <input type="text" class="panel-search" id="contract-search" placeholder="Search contracts..." oninput="renderContracts()">
+        </div>
+        <div class="panel-body" id="contract-list"></div>
+        <div class="panel-footer">
+          <button class="btn btn-sm btn-secondary" onclick="toggleAllContracts(true)">Enable All</button>
+          <button class="btn btn-sm btn-secondary" onclick="toggleAllContracts(false)">Disable All</button>
+        </div>
+      </div>
+
+      <!-- Items Panel -->
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Items</h2>
+          <span class="count" id="item-count"></span>
+          <input type="text" class="panel-search" id="item-search" placeholder="Search items..." oninput="renderItems()">
+        </div>
+        <div class="panel-body" id="item-list"></div>
+        <div class="panel-footer">
+          <button class="btn btn-sm btn-secondary" onclick="toggleAllItems(true)">Enable All</button>
+          <button class="btn btn-sm btn-secondary" onclick="toggleAllItems(false)">Disable All</button>
+          <button class="btn btn-sm btn-secondary" onclick="clearOverrides()">Clear Overrides</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    let DATA = null;
+    let allContracts = [];   // [{name, itemCount, items:[{type,key,name}]}]
+    let allItems = [];       // [{type, key, name, category, sources:[], isDefault, baseObtainable}]
+
+    // State
+    let disabledContracts = new Set();  // contract names
+    let itemOverrides = {};              // {itemKey: true|false} — manual overrides
+
+    const LS = 'rc9_avail_';
+
+    // ── Load ──
+    async function init() {
+      try {
+        const r = await fetch('../data/crafting_data.json');
+        DATA = await r.json();
+      } catch (e) {
+        document.getElementById('contract-list').innerHTML = '<div style="padding:20px;color:var(--red)">Failed to load crafting_data.json</div>';
+        return;
+      }
+
+      buildIndexes();
+      loadState();
+      renderContracts();
+      renderItems();
+      updateStats();
+    }
+
+    function buildIndexes() {
+      // Build item index
+      const itemMap = new Map(); // key -> item entry
+
+      const addItems = (arr, type, category) => {
+        arr.forEach(item => {
+          const name = type === 'set' ? item.set_name : item.name;
+          const key = type + '|' + name;
+          const sources = (item.sources || []).filter(s => s.type !== 'DEFAULT').map(s => s.mission);
+          const isDefault = (item.sources || []).some(s => s.type === 'DEFAULT');
+          const baseObtainable = item.is_obtainable !== false;
+          itemMap.set(key, { type, key, name, category, sources, isDefault, baseObtainable });
+        });
+      };
+
+      addItems(DATA.armor_sets || [], 'set', 'Armor Sets');
+      addItems(DATA.armor_pieces || [], 'piece', 'Armor Pieces');
+      addItems(DATA.weapons || [], 'weapon', 'Weapons');
+      addItems(DATA.backpacks || [], 'backpack', 'Backpacks');
+      addItems(DATA.undersuits || [], 'undersuit', 'Undersuits');
+      addItems(DATA.flightsuits || [], 'flightsuit', 'Flightsuits');
+      // Also include helmet splits
+      const ush = (DATA.undersuits || []).filter(u => u.piece_type === 'helmet');
+      const fsh = (DATA.flightsuits || []).filter(f => f.piece_type === 'helmet');
+
+      allItems = [...itemMap.values()];
+      allItems.sort((a, b) => a.name.localeCompare(b.name));
+
+      // Build contract index
+      const contractMap = new Map(); // mission name -> {name, items: Set}
+      allItems.forEach(item => {
+        item.sources.forEach(mission => {
+          if (!contractMap.has(mission)) contractMap.set(mission, { name: mission, items: new Set() });
+          contractMap.get(mission).items.add(item.key);
+        });
+      });
+
+      allContracts = [...contractMap.values()].map(c => ({
+        name: c.name,
+        itemCount: c.items.size,
+        items: [...c.items],
+      }));
+      allContracts.sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    // ── State ──
+    function loadState() {
+      try {
+        const dc = localStorage.getItem(LS + 'contracts');
+        if (dc) disabledContracts = new Set(JSON.parse(dc));
+        const io = localStorage.getItem(LS + 'overrides');
+        if (io) itemOverrides = JSON.parse(io);
+      } catch (e) {}
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(LS + 'contracts', JSON.stringify([...disabledContracts]));
+        localStorage.setItem(LS + 'overrides', JSON.stringify(itemOverrides));
+      } catch (e) {}
+    }
+
+    // ── Computed obtainability ──
+    function isItemObtainable(item) {
+      // Manual override takes priority
+      if (item.key in itemOverrides) return itemOverrides[item.key];
+      // Default blueprints are always obtainable (unless overridden)
+      if (item.isDefault) return true;
+      // Item is obtainable if it has at least one enabled source
+      if (!item.sources.length) return item.baseObtainable;
+      return item.sources.some(m => !disabledContracts.has(m));
+    }
+
+    function hasOverride(item) {
+      return item.key in itemOverrides;
+    }
+
+    // ── Render Contracts ──
+    function renderContracts() {
+      const q = (document.getElementById('contract-search').value || '').toLowerCase();
+      const filtered = allContracts.filter(c => !q || c.name.toLowerCase().includes(q));
+      const enabled = allContracts.filter(c => !disabledContracts.has(c.name)).length;
+
+      document.getElementById('contract-count').textContent = `${enabled}/${allContracts.length} enabled`;
+      document.getElementById('contract-list').innerHTML = filtered.map(c => {
+        const on = !disabledContracts.has(c.name);
+        return `<div class="row ${on ? 'enabled' : 'disabled'}" onclick="toggleContract('${esc(c.name)}')">
+          <div class="row-toggle">${on ? '✓' : ''}</div>
+          <span class="row-name" title="${esc(c.name)}">${esc(c.name)}</span>
+          <span class="row-meta">${c.itemCount} items</span>
+        </div>`;
+      }).join('');
+    }
+
+    // ── Render Items ──
+    function renderItems() {
+      const q = (document.getElementById('item-search').value || '').toLowerCase();
+      const filtered = allItems.filter(it => !q || it.name.toLowerCase().includes(q) || it.category.toLowerCase().includes(q));
+
+      const obtainable = allItems.filter(it => isItemObtainable(it)).length;
+      document.getElementById('item-count').textContent = `${obtainable}/${allItems.length} obtainable`;
+
+      // Group by category
+      const groups = {};
+      filtered.forEach(it => {
+        if (!groups[it.category]) groups[it.category] = [];
+        groups[it.category].push(it);
+      });
+
+      let html = '';
+      for (const [cat, items] of Object.entries(groups)) {
+        html += `<div class="group-header">${esc(cat)} (${items.length})</div>`;
+        items.forEach(it => {
+          const on = isItemObtainable(it);
+          const overridden = hasOverride(it);
+          const badges = [];
+          if (it.isDefault) badges.push('<span class="row-badge badge-default">DEFAULT</span>');
+          if (overridden) badges.push('<span class="row-badge badge-override">OVERRIDE</span>');
+          const srcCount = it.sources.length;
+          const enabledSrc = it.sources.filter(m => !disabledContracts.has(m)).length;
+          const srcMeta = srcCount ? `${enabledSrc}/${srcCount}` : (it.isDefault ? 'default' : 'none');
+
+          html += `<div class="row ${on ? 'enabled' : 'disabled'}" onclick="toggleItem('${esc(it.key)}')">
+            <div class="row-toggle">${on ? '✓' : ''}</div>
+            <span class="row-name" title="${esc(it.name)}">${esc(it.name)}</span>
+            ${badges.join('')}
+            <span class="row-badge badge-type">${it.type}</span>
+            <span class="row-meta">${srcMeta}</span>
+          </div>`;
+        });
+      }
+
+      document.getElementById('item-list').innerHTML = html || '<div style="padding:20px;color:var(--text-muted)">No items match</div>';
+    }
+
+    // ── Actions ──
+    function toggleContract(name) {
+      if (disabledContracts.has(name)) disabledContracts.delete(name);
+      else disabledContracts.add(name);
+      saveState(); renderContracts(); renderItems(); updateStats();
+    }
+
+    function toggleItem(key) {
+      const item = allItems.find(it => it.key === key);
+      if (!item) return;
+      const current = isItemObtainable(item);
+      // Set override to opposite of current computed state
+      itemOverrides[key] = !current;
+      saveState(); renderItems(); updateStats();
+    }
+
+    function toggleAllContracts(enable) {
+      if (enable) disabledContracts.clear();
+      else allContracts.forEach(c => disabledContracts.add(c.name));
+      saveState(); renderContracts(); renderItems(); updateStats();
+    }
+
+    function toggleAllItems(enable) {
+      allItems.forEach(it => { itemOverrides[it.key] = enable; });
+      saveState(); renderItems(); updateStats();
+    }
+
+    function clearOverrides() {
+      itemOverrides = {};
+      saveState(); renderItems(); updateStats();
+      toast('Overrides cleared');
+    }
+
+    function resetAll() {
+      if (!confirm('Reset all contract and item availability to defaults?')) return;
+      disabledContracts.clear();
+      itemOverrides = {};
+      saveState(); renderContracts(); renderItems(); updateStats();
+      toast('Reset to defaults');
+    }
+
+    function updateStats() {
+      const obtainable = allItems.filter(it => isItemObtainable(it)).length;
+      const disContracts = disabledContracts.size;
+      const overrides = Object.keys(itemOverrides).length;
+      document.getElementById('stat-summary').innerHTML =
+        `<b>${obtainable}</b>/${allItems.length} items obtainable · <b>${disContracts}</b> contracts disabled · <b>${overrides}</b> overrides`;
+    }
+
+    // ── Export ──
+    function exportJson() {
+      if (!DATA) return;
+      // Deep clone
+      const out = JSON.parse(JSON.stringify(DATA));
+
+      // Build item obtainability lookup
+      const obtMap = {};
+      allItems.forEach(it => { obtMap[it.key] = isItemObtainable(it); });
+
+      // Apply to armor_pieces
+      (out.armor_pieces || []).forEach(p => {
+        const k = 'piece|' + p.name;
+        if (k in obtMap) p.is_obtainable = obtMap[k];
+      });
+
+      // Apply to armor_sets: set is obtainable if any piece is
+      (out.armor_sets || []).forEach(s => {
+        const sk = 'set|' + s.set_name;
+        if (sk in obtMap) {
+          s.is_obtainable = obtMap[sk];
+        } else {
+          // Fallback: set obtainable if any piece is
+          const anyPiece = s.pieces.some(p => {
+            const pk = 'piece|' + p.name;
+            return obtMap[pk] !== false;
+          });
+          s.is_obtainable = anyPiece;
+        }
+      });
+
+      // Apply to weapons, backpacks, undersuits, flightsuits
+      const applyToArray = (arr, type) => {
+        (arr || []).forEach(item => {
+          const k = type + '|' + item.name;
+          if (k in obtMap) item.is_obtainable = obtMap[k];
+        });
+      };
+      applyToArray(out.weapons, 'weapon');
+      applyToArray(out.backpacks, 'backpack');
+      applyToArray(out.undersuits, 'undersuit');
+      applyToArray(out.flightsuits, 'flightsuit');
+
+      // Download
+      const blob = new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'crafting_data.json';
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+      toast('Exported crafting_data.json');
+    }
+
+    // ── Helpers ──
+    function esc(s) { return s ? s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;') : ''; }
+
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg; el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 2000);
+    }
+
+    init();
+  </script>
+</body>
+</html>
