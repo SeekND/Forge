@@ -109,6 +109,123 @@ const CHANGELOG=[
 ];
 
 // ════════════════════════════════════════════
+// WIKI IMAGES (starcitizen.tools)
+// ════════════════════════════════════════════
+const WIKI_API='https://starcitizen.tools/api.php';
+const WIKI_THUMB_SIZE=300;
+
+// Normalize item/material names for mining URLs (strip Gem, (Ore) etc.)
+function miningOreName(name){
+  return name.replace(/\s*\(Ore\)\s*$/i,'').replace(/\s+Gem\s*$/i,'').toUpperCase();
+}
+const wikiCache={}; // name -> {thumb:url|null, page:url}
+let wikiFetchQueue=new Set();
+let wikiFetchTimer=null;
+
+function wikiPageUrl(name){
+  return 'https://starcitizen.tools/'+encodeURIComponent(name.replace(/ /g,'_')).replace(/%28/g,'(').replace(/%29/g,')');
+}
+
+// Returns placeholder HTML for a wiki thumbnail + link
+function wikiThumbHtml(name){
+  if(!name)return '';
+  const page=wikiPageUrl(name);
+  return `<div class="wiki-thumb" data-wiki="${esc(name)}"><a href="${page}" target="_blank" rel="noopener" title="View on Star Citizen Wiki"><img class="wiki-img" alt="" loading="lazy"><span class="wiki-link">Wiki ↗</span></a></div>`;
+}
+
+// Returns just the wiki link icon (for inline use in piece rows)
+function wikiImgHtml(name){
+  if(!name)return '';
+  const page=wikiPageUrl(name);
+  return `<span class="wiki-piece-thumb" data-wiki="${esc(name)}"><a href="${page}" target="_blank" rel="noopener" title="View on Star Citizen Wiki"><img class="wiki-piece-img" alt="" loading="lazy"></a></span>`;
+}
+
+// Queue names for batch fetch
+function queueWikiImages(names){
+  names.forEach(n=>{if(n&&!wikiCache[n])wikiFetchQueue.add(n);});
+  if(wikiFetchTimer)clearTimeout(wikiFetchTimer);
+  wikiFetchTimer=setTimeout(flushWikiQueue,50);
+}
+
+async function flushWikiQueue(){
+  if(!wikiFetchQueue.size)return;
+  const batch=[...wikiFetchQueue];wikiFetchQueue.clear();
+  // MediaWiki API supports up to 50 titles per request
+  for(let i=0;i<batch.length;i+=50){
+    const chunk=batch.slice(i,i+50);
+    await fetchWikiBatch(chunk);
+  }
+  applyWikiImages();
+}
+
+async function fetchWikiBatch(names){
+  const titles=names.map(n=>n.replace(/ /g,'_')).join('|');
+  try{
+    const url=`${WIKI_API}?action=query&titles=${encodeURIComponent(titles)}&prop=pageimages&format=json&pithumbsize=${WIKI_THUMB_SIZE}&origin=*`;
+    const resp=await fetch(url);
+    const data=await resp.json();
+    // Build a normalized-title -> original-name map
+    const normMap={};
+    (data.query?.normalized||[]).forEach(n=>{normMap[n.to]=n.from;});
+    // Process pages
+    const pages=data.query?.pages||{};
+    Object.values(pages).forEach(pg=>{
+      // Resolve back to original name (may have been normalized)
+      let origTitle=pg.title;
+      const fromNorm=normMap[pg.title];
+      if(fromNorm)origTitle=fromNorm.replace(/_/g,' ');
+      else origTitle=pg.title;
+      // Find matching name from our batch (case-insensitive match with underscores)
+      const match=names.find(n=>n===origTitle||n.replace(/ /g,'_')===origTitle.replace(/ /g,'_'));
+      const key=match||origTitle;
+      wikiCache[key]={
+        thumb:pg.thumbnail?.source||null,
+        page:wikiPageUrl(key)
+      };
+    });
+    // Mark missing pages (no result returned)
+    names.forEach(n=>{if(!wikiCache[n])wikiCache[n]={thumb:null,page:wikiPageUrl(n)};});
+  }catch(e){
+    // On error, mark all as no-image so we don't retry
+    names.forEach(n=>{if(!wikiCache[n])wikiCache[n]={thumb:null,page:wikiPageUrl(n)};});
+  }
+}
+
+function applyWikiImages(){
+  document.querySelectorAll('[data-wiki]').forEach(el=>{
+    const name=el.dataset.wiki;
+    const cached=wikiCache[name];
+    if(!cached)return;
+    const img=el.querySelector('img');
+    if(img&&cached.thumb){
+      img.src=cached.thumb;
+      el.classList.add('loaded');
+    }else if(!cached.thumb){
+      el.classList.add('no-image');
+    }
+  });
+}
+
+// Scan rendered cards and queue wiki fetches for visible items
+function hydrateWikiImages(){
+  const els=document.querySelectorAll('[data-wiki]');
+  const names=new Set();
+  els.forEach(el=>{
+    const n=el.dataset.wiki;
+    if(n&&!wikiCache[n])names.add(n);
+    else if(wikiCache[n])applyWikiSingle(el,n);
+  });
+  if(names.size)queueWikiImages([...names]);
+}
+
+function applyWikiSingle(el,name){
+  const cached=wikiCache[name];if(!cached)return;
+  const img=el.querySelector('img');
+  if(img&&cached.thumb){img.src=cached.thumb;el.classList.add('loaded');}
+  else if(!cached.thumb)el.classList.add('no-image');
+}
+
+// ════════════════════════════════════════════
 // INIT
 // ════════════════════════════════════════════
 async function init(){
@@ -595,6 +712,7 @@ function filterBlueprints(){
     mkSec('Flightsuit Helmets',DATA.flightsuit_helmets,'flightsuit_helmet');
   }
   grid.innerHTML=html;document.getElementById('bp-results-info').textContent=`${count} items`;
+  hydrateWikiImages();
 }
 
 // ════════════════════════════════════════════
@@ -813,7 +931,7 @@ function renderSetCard(set){
   const id='s-'+set.set_name.replace(/[^a-z0-9]/gi,'_');
   const mats=Object.entries(set.material_totals).map(([m,a])=>chip(m,a)).join('');
   const compat=DATA.backpacks.filter(b=>b.weight===set.weight);
-  let pcs=set.pieces.map(p=>`<div class="piece-row"><div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px"><span class="piece-type">${p.piece_type}</span><span class="piece-name">${esc(p.name)}</span>${sourcesIcon(p.sources)}</div><div class="piece-recipe">${recipeHtml(p.recipe)}</div>${slotStatsHtml(p.recipe)}</div><div class="piece-stats"><div class="cscu">${uFmt(p.total_cscu)}</div><div class="time">${ctime(p.craft_time_seconds)}</div></div></div>`).join('');
+  let pcs=set.pieces.map(p=>`<div class="piece-row">${wikiImgHtml(p.name)}<div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px"><span class="piece-type">${p.piece_type}</span><span class="piece-name">${esc(p.name)}</span>${sourcesIcon(p.sources)}</div><div class="piece-recipe">${recipeHtml(p.recipe)}</div>${slotStatsHtml(p.recipe)}</div><div class="piece-stats"><div class="cscu">${uFmt(p.total_cscu)}</div><div class="time">${ctime(p.craft_time_seconds)}</div></div></div>`).join('');
   let bpP='';
   if(compat.length&&!set.is_environment_suit)bpP=`<div class="bp-picker"><div class="bp-picker-label">+ ${set.weight.toUpperCase()} BACKPACK</div><div class="bp-picker-btns">${compat.map(b=>`<button class="bp-pick-btn" onclick="event.stopPropagation()">${esc(b.name)} (${uFmt(b.total_cscu)})</button>`).join('')}</div></div>`;
   const miss=!set.complete?`<div class="missing-warn">Missing: ${set.missing.join(', ')}</div>`:'';
@@ -822,20 +940,20 @@ function renderSetCard(set){
 }
 function renderBpCard(bp){
   const locked=!isUnlocked('backpack',bp.name);
-  return `<div class="item-card${inWO('backpack',bp.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(bp.name)}</span>${lockBadge('backpack',bp.name)}${sourcesIcon(bp.sources)}${wBadge(bp.weight)}<span class="badge badge-role">Backpack</span></div><span style="color:#94a3b8;font-size:12px">${uFmt(bp.total_cscu)}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(bp.manufacturer||'')}</span>${ctime(bp.craft_time_seconds)}</div>${recipeHtml(bp.recipe)}${slotStatsHtml(bp.recipe)}${woBtn('backpack',bp.name)}</div>`;
+  return `<div class="item-card has-wiki-thumb${inWO('backpack',bp.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(bp.name)}<div class="card-content"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(bp.name)}</span>${lockBadge('backpack',bp.name)}${sourcesIcon(bp.sources)}${wBadge(bp.weight)}<span class="badge badge-role">Backpack</span></div><span style="color:#94a3b8;font-size:12px">${uFmt(bp.total_cscu)}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(bp.manufacturer||'')}</span>${ctime(bp.craft_time_seconds)}</div>${recipeHtml(bp.recipe)}${slotStatsHtml(bp.recipe)}${woBtn('backpack',bp.name)}</div></div>`;
 }
 function renderWepCard(w){
   const locked=!isUnlocked('weapon',w.name);
-  return `<div class="item-card${inWO('weapon',w.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(w.name)}</span>${lockBadge('weapon',w.name)}${sourcesIcon(w.sources)}<span class="badge badge-wtype">${WTYPE_LABELS[w.weapon_type]||w.weapon_type}</span><span class="badge badge-${w.damage_type}">${w.damage_type}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(w.manufacturer)}</span><span style="color:#94a3b8;font-size:12px">${uFmt(w.total_cscu)}</span>${ctime(w.craft_time_seconds)}</div>${recipeHtml(w.recipe)}${slotStatsHtml(w.recipe)}${woBtn('weapon',w.name)}</div>`;
+  return `<div class="item-card has-wiki-thumb${inWO('weapon',w.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(w.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(w.name)}</span>${lockBadge('weapon',w.name)}${sourcesIcon(w.sources)}<span class="badge badge-wtype">${WTYPE_LABELS[w.weapon_type]||w.weapon_type}</span><span class="badge badge-${w.damage_type}">${w.damage_type}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(w.manufacturer)}</span><span style="color:#94a3b8;font-size:12px">${uFmt(w.total_cscu)}</span>${ctime(w.craft_time_seconds)}</div>${recipeHtml(w.recipe)}${slotStatsHtml(w.recipe)}${woBtn('weapon',w.name)}</div></div>`;
 }
 function renderSuitCard(s,type){
   const locked=!isUnlocked(type,s.name);
-  return `<div class="item-card${inWO(type,s.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(s.name)}</span>${lockBadge(type,s.name)}${sourcesIcon(s.sources)}</div><span style="color:#94a3b8;font-size:12px">${uFmt(s.total_cscu)}</span></div><div style="display:flex;gap:6px;margin-bottom:6px">${s.manufacturer?`<span style="color:#64748b;font-size:12px">${esc(s.manufacturer)}</span>`:''}${ctime(s.craft_time_seconds)}</div>${recipeHtml(s.recipe)}${slotStatsHtml(s.recipe)}${woBtn(type,s.name)}</div>`;
+  return `<div class="item-card has-wiki-thumb${inWO(type,s.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(s.name)}<div class="card-content"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(s.name)}</span>${lockBadge(type,s.name)}${sourcesIcon(s.sources)}</div><span style="color:#94a3b8;font-size:12px">${uFmt(s.total_cscu)}</span></div><div style="display:flex;gap:6px;margin-bottom:6px">${s.manufacturer?`<span style="color:#64748b;font-size:12px">${esc(s.manufacturer)}</span>`:''}${ctime(s.craft_time_seconds)}</div>${recipeHtml(s.recipe)}${slotStatsHtml(s.recipe)}${woBtn(type,s.name)}</div></div>`;
 }
 function renderPieceCard(p){
   const pLabel=PIECE_LABELS[p.piece_type]||p.piece_type;
   const locked=!isUnlocked('piece',p.name);
-  return `<div class="item-card${inWO('piece',p.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(p.name)}</span>${lockBadge('piece',p.name)}${sourcesIcon(p.sources)}${wBadge(p.weight)} ${rBadge(p.role)} <span class="badge badge-set">${pLabel}</span></div><span style="color:#94a3b8;font-size:12px">${uFmt(p.total_cscu)}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(p.manufacturer||'')}</span><span style="color:#475569;font-size:12px">·</span><span style="color:#64748b;font-size:12px">${esc(p.set_name)}</span>${ctime(p.craft_time_seconds)}</div>${recipeHtml(p.recipe)}${slotStatsHtml(p.recipe)}${woBtn('piece',p.name)}</div>`;
+  return `<div class="item-card has-wiki-thumb${inWO('piece',p.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(p.name)}<div class="card-content"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(p.name)}</span>${lockBadge('piece',p.name)}${sourcesIcon(p.sources)}${wBadge(p.weight)} ${rBadge(p.role)} <span class="badge badge-set">${pLabel}</span></div><span style="color:#94a3b8;font-size:12px">${uFmt(p.total_cscu)}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(p.manufacturer||'')}</span><span style="color:#475569;font-size:12px">·</span><span style="color:#64748b;font-size:12px">${esc(p.set_name)}</span>${ctime(p.craft_time_seconds)}</div>${recipeHtml(p.recipe)}${slotStatsHtml(p.recipe)}${woBtn('piece',p.name)}</div></div>`;
 }
 function toggleCard(id){document.getElementById(id)?.classList.toggle('expanded');}
 
@@ -1319,7 +1437,7 @@ function copyOreRequest(){
   Object.entries(grouped).sort((a,b)=>b[1].total-a[1].total).forEach(([mat,info])=>{
     if(info.total<=0)return; // Skip fully covered materials
     anyMaterial=true;
-    oreNames.push(mat.toUpperCase());
+    oreNames.push(miningOreName(mat));
     const qs=Object.values(info.qualities).filter(q=>q.cscu>0).sort((a,b)=>b.quality-a.quality);
     // Determine effective min quality for this material from recipes
     const matMinQ=info.minQuality||adminConfig.defaultMinQuality;
@@ -1336,7 +1454,7 @@ function copyOreRequest(){
   });
   if(!anyMaterial){showToast('Inventory covers all materials!');return;}
   // Mining site link
-  const miningUrl=`https://seeknd.github.io/Strata/?ores=${oreNames.join(',')}`;
+  const miningUrl=`https://seeknd.github.io/Strata/?ores=${[...new Set(oreNames)].join(',')}`;
   lines.push('',`Miner link: ${miningUrl}`);
   navigator.clipboard.writeText(lines.join('\n')).then(()=>showToast(isRemaining?'Remaining ore request copied':'Ore request copied to clipboard'));
 }
@@ -1353,8 +1471,8 @@ function extractOreNamesFromHash(hash){
       const type=TYPE_LONG[tc]||tc;const item=findItem(type,key);
       if(!item)return;
       getRec(item).forEach(r=>{
-        if(r.material&&r.amount_cscu>0)oreSet.add(r.material.toUpperCase());
-        if(r.cost_type==='item'&&r.item_quantity>0)oreSet.add(r.item_name.toUpperCase());
+        if(r.material&&r.amount_cscu>0)oreSet.add(miningOreName(r.material));
+        if(r.cost_type==='item'&&r.item_quantity>0)oreSet.add(miningOreName(r.item_name));
       });
     });
     return[...oreSet];
