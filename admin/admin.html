@@ -202,49 +202,59 @@
       <h2>Quality Settings</h2>
       
       <div class="field">
-        <label>Disassemble Quality <span class="current-value" id="cv-disassemble">500</span></label>
-        <p class="desc">Quality value of materials obtained from disassembling items. Used in Work Order quality presets.</p>
+        <label>Disassemble Quality <span class="current-value" id="cv-disassembleQuality">500</span></label>
+        <p class="desc">Quality value of materials obtained from disassembling items.</p>
         <input type="number" id="disassembleQuality" min="0" max="1000" step="10" value="500">
         <span class="unit">Q (0-1000)</span>
       </div>
       
       <div class="field">
-        <label>Default Min Quality <span class="current-value" id="cv-minquality">500</span></label>
-        <p class="desc">Fallback minimum quality requirement when a recipe slot doesn't specify one. Used for inventory calculations.</p>
+        <label>Default Min Quality <span class="current-value" id="cv-defaultMinQuality">500</span></label>
+        <p class="desc">Fallback minimum quality when a recipe slot doesn't specify one.</p>
         <input type="number" id="defaultMinQuality" min="0" max="1000" step="10" value="500">
         <span class="unit">Q (0-1000)</span>
       </div>
     </div>
 
     <div class="card">
-      <h2>Quality Zones</h2>
-      <p class="desc" style="margin-bottom:16px">These thresholds control when inventory is automatically assigned to work order slots. When a requester asks for "minimum" quality, batches in the min zone are picked. When they ask for "maximum", batches in the max zone are picked.</p>
+      <h2>Quality Grades</h2>
+      <p class="desc" style="margin-bottom:16px">Three quality tiers that control work order quality presets, auto-assignment from inventory, and clipboard export labels. Boundaries should be contiguous (Grade C high = Grade B low, etc).</p>
       
-      <div class="field">
-        <label>Min Zone — Low <span class="current-value" id="cv-minzonelow">500</span></label>
-        <p class="desc">Lowest quality that counts as "minimum quality" for auto-assignment.</p>
-        <input type="number" id="minZoneLow" min="0" max="1000" step="10" value="500">
-        <span class="unit">Q (0-1000)</span>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="field">
+          <label>Grade C — Low <span class="current-value" id="cv-gradeCLow">500</span></label>
+          <input type="number" id="gradeCLow" min="0" max="1000" step="10" value="500">
+        </div>
+        <div class="field">
+          <label>Grade C — High <span class="current-value" id="cv-gradeCHigh">700</span></label>
+          <input type="number" id="gradeCHigh" min="0" max="1000" step="10" value="700">
+        </div>
+        <div class="field">
+          <label>Grade B — Low <span class="current-value" id="cv-gradeBLow">700</span></label>
+          <input type="number" id="gradeBLow" min="0" max="1000" step="10" value="700">
+        </div>
+        <div class="field">
+          <label>Grade B — High <span class="current-value" id="cv-gradeBHigh">850</span></label>
+          <input type="number" id="gradeBHigh" min="0" max="1000" step="10" value="850">
+        </div>
+        <div class="field">
+          <label>Grade A — Low <span class="current-value" id="cv-gradeALow">850</span></label>
+          <input type="number" id="gradeALow" min="0" max="1000" step="10" value="850">
+        </div>
+        <div class="field">
+          <label>Grade A — High <span class="current-value" id="cv-gradeAHigh">1000</span></label>
+          <input type="number" id="gradeAHigh" min="0" max="1000" step="10" value="1000">
+        </div>
       </div>
+    </div>
+
+    <div class="card">
+      <h2>Vault Inventory</h2>
       
       <div class="field">
-        <label>Min Zone — High <span class="current-value" id="cv-minzonehigh">700</span></label>
-        <p class="desc">Highest quality still considered "minimum". Batches above this are in the max zone.</p>
-        <input type="number" id="minZoneHigh" min="0" max="1000" step="10" value="700">
-        <span class="unit">Q (0-1000)</span>
-      </div>
-      
-      <div class="field">
-        <label>Max Zone — Low <span class="current-value" id="cv-maxzonelow">700</span></label>
-        <p class="desc">Lowest quality that counts as "maximum quality" for auto-assignment.</p>
-        <input type="number" id="maxZoneLow" min="0" max="1000" step="10" value="700">
-        <span class="unit">Q (0-1000)</span>
-      </div>
-      
-      <div class="field">
-        <label>Max Zone — High <span class="current-value" id="cv-maxzonehigh">1000</span></label>
-        <p class="desc">Highest quality cap (normally 1000).</p>
-        <input type="number" id="maxZoneHigh" min="0" max="1000" step="10" value="1000">
+        <label>Vault Threshold <span class="current-value" id="cv-vaultThreshold">850</span></label>
+        <p class="desc">Minimum quality to track in the vault. Only materials at or above this quality appear in the inventory tab. Typically matches Grade A low boundary.</p>
+        <input type="number" id="vaultThreshold" min="0" max="1000" step="10" value="850">
         <span class="unit">Q (0-1000)</span>
       </div>
     </div>
@@ -280,11 +290,16 @@
     const DEFAULTS = {
       disassembleQuality: 500,
       defaultMinQuality: 500,
-      minZoneLow: 500,
-      minZoneHigh: 700,
-      maxZoneLow: 700,
-      maxZoneHigh: 1000
+      gradeCLow: 500,
+      gradeCHigh: 700,
+      gradeBLow: 700,
+      gradeBHigh: 850,
+      gradeALow: 850,
+      gradeAHigh: 1000,
+      vaultThreshold: 850
     };
+    
+    const ALL_KEYS = Object.keys(DEFAULTS);
     
     // Load current settings on page load
     function loadSettings() {
@@ -292,11 +307,10 @@
         const saved = localStorage.getItem(LS + 'adminConfig');
         if (saved) {
           const config = JSON.parse(saved);
-          Object.keys(DEFAULTS).forEach(key => {
+          ALL_KEYS.forEach(key => {
             const input = document.getElementById(key);
             if (input) input.value = config[key] ?? DEFAULTS[key];
           });
-          // Update current value displays
           updateDisplays(config);
         }
       } catch (e) {
@@ -305,25 +319,17 @@
     }
     
     function updateDisplays(config) {
-      const map = {
-        disassembleQuality: 'cv-disassemble',
-        defaultMinQuality: 'cv-minquality',
-        minZoneLow: 'cv-minzonelow',
-        minZoneHigh: 'cv-minzonehigh',
-        maxZoneLow: 'cv-maxzonelow',
-        maxZoneHigh: 'cv-maxzonehigh'
-      };
-      for (const [key, elId] of Object.entries(map)) {
-        const el = document.getElementById(elId);
+      ALL_KEYS.forEach(key => {
+        const el = document.getElementById('cv-' + key);
         if (el) el.textContent = config[key] ?? DEFAULTS[key];
-      }
+      });
     }
     
     // Save settings
     function saveSettings() {
       try {
         const config = {};
-        Object.keys(DEFAULTS).forEach(key => {
+        ALL_KEYS.forEach(key => {
           config[key] = parseInt(document.getElementById(key)?.value) || DEFAULTS[key];
         });
         localStorage.setItem(LS + 'adminConfig', JSON.stringify(config));
@@ -338,7 +344,7 @@
     // Reset to defaults
     function resetDefaults() {
       if (!confirm('Reset all settings to default values?')) return;
-      Object.keys(DEFAULTS).forEach(key => {
+      ALL_KEYS.forEach(key => {
         const input = document.getElementById(key);
         if (input) input.value = DEFAULTS[key];
       });

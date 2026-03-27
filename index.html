@@ -24,7 +24,7 @@
         <button class="tab active" data-tab="home" onclick="switchTab('home')">Home</button>
         <button class="tab" data-tab="blueprints" onclick="switchTab('blueprints')">Blueprints</button>
         <button class="tab" data-tab="sets" onclick="switchTab('sets')">Set Planner</button>
-        <button class="tab" data-tab="inventory" onclick="switchTab('inventory')">Inventory</button>
+        <button class="tab" data-tab="inventory" onclick="switchTab('inventory')">Vault</button>
         <button class="tab" data-tab="workorder" onclick="switchTab('workorder')">Work Orders <span id="wo-badge" class="tab-badge"></span></button>
         <button class="tab" data-tab="materials" onclick="switchTab('materials')">Materials</button>
       </nav>
@@ -48,7 +48,7 @@
       <div class="home-cards">
         <div class="home-card" onclick="switchTab('blueprints')"><h3>Blueprints</h3><p>Browse all craftable armor, weapons, undersuits, and backpacks with full recipe details.</p><span class="home-card-stat" id="hc-bp"></span></div>
         <div class="home-card" onclick="switchTab('sets')"><h3>Set Planner</h3><p>Build a complete armor loadout — pick each piece and see total material costs.</p><span class="home-card-stat" id="hc-sets"></span></div>
-        <div class="home-card" onclick="switchTab('inventory')"><h3>Inventory</h3><p>Enter your materials and see what you can craft right now.</p><span class="home-card-stat" id="hc-inv"></span></div>
+        <div class="home-card" onclick="switchTab('inventory')"><h3>Vault</h3><p>Track premium Grade A materials and see what high-quality items you can craft.</p><span class="home-card-stat" id="hc-inv"></span></div>
         <div class="home-card" onclick="switchTab('workorder')"><h3>Work Orders</h3><p>Queue items with quantities, share orders with your org via link or clipboard.</p><span class="home-card-stat" id="hc-wo"></span></div>
         <div class="home-card" onclick="switchTab('materials')"><h3>Materials</h3><p>All crafting materials — ore sources, crafting slots, and which categories use them.</p><span class="home-card-stat" id="hc-mat"></span></div>
       </div>
@@ -106,25 +106,13 @@
       </div>
     </section>
 
-    <!-- ═══ INVENTORY ═══ -->
+    <!-- ═══ VAULT ═══ -->
     <section id="tab-inventory" class="tab-content">
-      <div class="section-intro"><h2>Inventory — What Can I Craft?</h2><p class="dim">Enter your materials below. We'll show what you can build.</p></div>
-      <div class="inventory-layout">
-        <div class="inventory-inputs" id="inventory-inputs"></div>
-        <div class="inventory-results">
-          <div class="filter-panel">
-            <div class="fp-groups">
-              <div class="fp-group"><span class="fp-label">Status</span>
-                <div class="fp-chips">
-                  <button class="fp-chip active" data-ig="status" data-iv="all" onclick="setInvFilter('status','all')">All</button>
-                  <button class="fp-chip" data-ig="status" data-iv="craftable" onclick="setInvFilter('status','craftable')">Craftable</button>
-                  <button class="fp-chip" data-ig="status" data-iv="partial" onclick="setInvFilter('status','partial')">Partial</button>
-                </div>
-              </div><div class="fp-sep"></div>
-              <div class="fp-group"><span class="fp-label">Type</span><div class="fp-chips" id="inv-type-filters"></div></div><div class="fp-sep"></div>
-              <div class="fp-group"><span class="fp-label">Weight</span><div class="fp-chips" id="inv-weight-filters"></div></div>
-            </div>
-          </div>
+      <div class="section-intro"><h2>Material Vault</h2><p class="dim">Track premium materials and discrete items. Common materials don't need tracking — request them from miners as needed.</p></div>
+      <div class="vault-layout">
+        <div class="vault-inputs" id="inventory-inputs"></div>
+        <div class="vault-results">
+          <h3 style="font-size:14px;color:#f8fafc;margin-bottom:8px">Craftable with Vault Materials</h3>
           <div id="inv-grid" class="card-grid"></div>
         </div>
       </div>
@@ -169,6 +157,9 @@
       <div id="materials-grid" class="materials-grid"></div>
     </section>
   </main>
+
+  <!-- Request Build Modal -->
+  <div id="request-modal" class="rqm-container" style="display:none"></div>
 
   <footer class="site-footer">
     <p>This site is not endorsed by or affiliated with the Cloud Imperium or Roberts Space Industries group of companies. All game content and materials are copyright Cloud Imperium Rights LLC and Cloud Imperium Rights Ltd.. Star Citizen®, Squadron 42®, Roberts Space Industries®, and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC. All rights reserved.</p>

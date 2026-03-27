@@ -9,6 +9,8 @@ let invFilters={status:'all',type:[],weight:[]};
 
 // Inventory: {materialName: [{qty (in cscu), quality}]}
 let inventory = {};
+// Item inventory (discrete items like gems): {itemName: quantity}
+let itemInventory = {};
 // Orders: [{id, name, author, items:[{type,key,qty,crafted,deducted, slotQ:{slotName:quality}}]}]
 let orders=[], activeOrderId=null;
 let plannerSelections={}, savedSets=[], materialUsage={};
@@ -28,35 +30,50 @@ let DEFAULT_UNLOCKED = [];
 let adminConfig = {
   disassembleQuality: 500,  // Quality from disassembling items
   defaultMinQuality: 500,   // Fallback if recipe doesn't specify min_quality
-  minZoneLow: 500,   // lowest acceptable quality for "minimum" requests
-  minZoneHigh: 700,  // highest quality still considered "minimum"
-  maxZoneLow: 700,   // lowest acceptable quality for "maximum" requests
-  maxZoneHigh: 1000, // highest quality (cap)
+  // Quality tiers (Grade C / B / A) — boundaries must be contiguous
+  gradeCLow: 500,    // Grade C: Standard quality (easy to obtain)
+  gradeCHigh: 700,
+  gradeBLow: 700,    // Grade B: Good quality (some effort)
+  gradeBHigh: 850,
+  gradeALow: 850,    // Grade A: Premium quality (rare, vault-worthy)
+  gradeAHigh: 1000,
+  vaultThreshold: 850, // Minimum quality to track in vault inventory
 };
 
-// Convenience accessor (reads live from adminConfig)
-function getZones(){return {minZoneLow:adminConfig.minZoneLow,minZoneHigh:adminConfig.minZoneHigh,maxZoneLow:adminConfig.maxZoneLow,maxZoneHigh:adminConfig.maxZoneHigh};}
+// Grade helpers
+function getGrade(q){
+  if(q>=adminConfig.gradeALow)return {name:'Grade A',color:'#22c55e',cls:'grade-a'};
+  if(q>=adminConfig.gradeBLow)return {name:'Grade B',color:'#60a5fa',cls:'grade-b'};
+  if(q>=adminConfig.gradeCLow)return {name:'Grade C',color:'#facc15',cls:'grade-c'};
+  return {name:'Below Min',color:'#ef4444',cls:'grade-x'};
+}
+function gradeLabel(q){return getGrade(q).name;}
+function gradeRange(q){
+  if(q>=adminConfig.gradeALow)return `Q${adminConfig.gradeALow}-${adminConfig.gradeAHigh}`;
+  if(q>=adminConfig.gradeBLow)return `Q${adminConfig.gradeBLow}-${adminConfig.gradeBHigh}`;
+  if(q>=adminConfig.gradeCLow)return `Q${adminConfig.gradeCLow}-${adminConfig.gradeCHigh}`;
+  return `Below Q${adminConfig.gradeCLow}`;
+}
 
 // Shared quality picker — used by toggleWOItem, addToRequest, importWOFromHash, addPlannerToWO
-// Given a material and a requested quality, pick the best inventory batch in the appropriate zone.
-// Returns the quality value to assign.
 function pickQualityForSlot(mat, requested){
   const batches=getBatches(mat).filter(b=>b.qty>0).sort((a,b)=>b.quality-a.quality);
   if(!batches.length)return requested;
-  const Z=getZones();
-  if(requested>=1000){
-    // Maximum request — pick best batch in max zone [maxZoneLow..maxZoneHigh]
-    const match=batches.find(b=>b.quality>=Z.maxZoneLow&&b.quality<=Z.maxZoneHigh);
+  if(requested>=adminConfig.gradeALow){
+    // Grade A request — pick best batch in Grade A range
+    const match=batches.find(b=>b.quality>=adminConfig.gradeALow&&b.quality<=adminConfig.gradeAHigh);
+    return match?match.quality:requested;
+  }else if(requested>=adminConfig.gradeBLow){
+    // Grade B request — pick best batch in Grade B range
+    const match=batches.find(b=>b.quality>=adminConfig.gradeBLow&&b.quality<=adminConfig.gradeBHigh);
     return match?match.quality:requested;
   }else if(requested<=adminConfig.defaultMinQuality){
-    // Minimum request — pick best batch in min zone [minZoneLow..minZoneHigh] first
-    const inZone=batches.find(b=>b.quality>=Z.minZoneLow&&b.quality<=Z.minZoneHigh);
+    // Grade C request — pick best batch in Grade C range, fallback to lowest above requested
+    const inZone=batches.find(b=>b.quality>=adminConfig.gradeCLow&&b.quality<=adminConfig.gradeCHigh);
     if(inZone)return inZone.quality;
-    // No batch in min zone — pick lowest batch that still meets the requested quality
     const above=batches.filter(b=>b.quality>=requested).sort((a,b)=>a.quality-b.quality);
     return above.length?above[0].quality:requested;
   }
-  // Specific quality — respect it exactly
   return requested;
 }
 
@@ -128,7 +145,19 @@ async function init(){
   // Sync set unlocks - if all pieces of a set are unlocked, unlock the set too
   syncSetUnlocks();
 
-  if(window.location.hash.startsWith('#wo=')){importWOFromHash(window.location.hash.slice(4));history.replaceState(null,'',window.location.pathname);currentTab='workorder';}
+  if(window.location.hash.startsWith('#wo=')){
+    const hashData=window.location.hash.slice(4);
+    // Check for OREREQUEST flag — redirect to mining site with ore list
+    if(hashData.includes('~OREREQUEST')||hashData.includes('&OREREQUEST')){
+      const cleanHash=hashData.replace(/[~&]OREREQUEST$/,'');
+      const oreNames=extractOreNamesFromHash(cleanHash);
+      if(oreNames.length){
+        window.location.href=`https://seeknd.github.io/Strata/?ores=${oreNames.join(',')}`;
+        return; // Redirect — don't load the app
+      }
+    }
+    importWOFromHash(hashData);history.replaceState(null,'',window.location.pathname);currentTab='workorder';
+  }
 
   updateCategoryCounts();
 
@@ -231,6 +260,7 @@ const LS='rc9_';
 function saveState(){
   try{
     localStorage.setItem(LS+'inv',JSON.stringify(inventory));
+    localStorage.setItem(LS+'itemInv',JSON.stringify(itemInventory));
     localStorage.setItem(LS+'orders',JSON.stringify(orders.map(o=>({id:o.id,name:o.name,author:o.author,
       items:o.items.map(w=>({type:w.type,key:w.key,qty:w.qty,crafted:!!w.crafted,deducted:w.deducted||null,slotQ:w.slotQ||{}}))
     }))));
@@ -260,6 +290,7 @@ function loadState(){
       }
     }
     const ss=localStorage.getItem(LS+'sets');if(ss)savedSets=JSON.parse(ss);
+    const ii=localStorage.getItem(LS+'itemInv');if(ii)itemInventory=JSON.parse(ii)||{};
     const pl=localStorage.getItem(LS+'planner');if(pl)plannerSelections=JSON.parse(pl);
     const um=localStorage.getItem(LS+'unit');if(um)unitMode=um;
     const od=localStorage.getItem(LS+'orders');
@@ -310,6 +341,10 @@ function restoreBatches(mat,deductedArr){
   // Sort descending by quality
   inventory[mat]=(inventory[mat]||[]).sort((a,b)=>b.quality-a.quality);
 }
+
+// ── Item Inventory (discrete items) ──
+function getItemStock(name){return itemInventory[name]||0;}
+function setItemStock(name,qty){itemInventory[name]=Math.max(0,Math.round(qty));saveState();}
 
 // ════════════════════════════════════════════
 // TABS
@@ -642,7 +677,7 @@ function sourcesIcon(sources){
   return `<span class="sources-wrap" onclick="event.stopPropagation()"><span class="sources-icon" tabindex="0">ℹ</span><div class="sources-pop">${lines}</div></span>`;
 }
 
-// Add to request order (creates one if needed)
+// Add to request order — opens modal for quality selection
 function addToRequest(t,k){
   let reqOrder=orders.find(o=>o.isRequest);
   if(!reqOrder){
@@ -653,17 +688,125 @@ function addToRequest(t,k){
   if(exists){
     // Remove if already in request
     reqOrder.items=reqOrder.items.filter(w=>!(w.type===t&&w.key===k));
-  }else{
-    const item=findItem(t,k);
-    if(item){
-      // Build slotQ — requesters default to Q1000 (maximum quality request)
-      const slotQ={};
-      if(item.pieces){item.pieces.forEach(p=>{(p.recipe||[]).filter(r=>r.material&&r.slot&&r.amount_cscu>0).forEach(r=>{slotQ[p.piece_type+'|'+r.slot]=1000;});});}
-      else{getSlottedRec(item).forEach(r=>{slotQ[r.slot]=1000;});}
-      reqOrder.items.push({type:t,key:k,qty:1,crafted:false,deducted:null,slotQ,item});
-    }
+    saveState();filterBlueprints();updateWOBadge();
+    return;
   }
+  const item=findItem(t,k);
+  if(!item)return;
+  
+  // Collect all material slots for this item
+  const slots=[];
+  if(item.pieces){
+    item.pieces.forEach(p=>{
+      (p.recipe||[]).filter(r=>r.slot&&((r.material&&r.amount_cscu>0)||(r.cost_type==='item'&&r.item_quantity>0))).forEach(r=>{
+        const mName=r.cost_type==='item'?r.item_name:r.material;
+        const amt=r.cost_type==='item'?r.item_quantity+'×':uFmt(r.amount_cscu);
+        slots.push({sqKey:p.piece_type+'|'+r.slot, slot:r.slot, material:mName, piece:PIECE_LABELS[p.piece_type]||p.piece_type, amountLabel:amt});
+      });
+    });
+  }else{
+    getSlottedRec(item).forEach(r=>{
+      const mName=r.cost_type==='item'?r.item_name:r.material;
+      const amt=r.cost_type==='item'?r.item_quantity+'×':uFmt(r.amount_cscu);
+      slots.push({sqKey:r.slot, slot:r.slot, material:mName, piece:null, amountLabel:amt});
+    });
+  }
+  
+  if(!slots.length){
+    // No material slots — just add with empty slotQ
+    reqOrder.items.push({type:t,key:k,qty:1,crafted:false,deducted:null,slotQ:{},item});
+    saveState();filterBlueprints();updateWOBadge();return;
+  }
+  
+  // Show modal
+  showRequestModal(t, k, item, slots, reqOrder);
+}
+
+function showRequestModal(t, k, item, slots, reqOrder){
+  const name=t==='set'?item.set_name:item.name;
+  // Group slots by piece for armor sets
+  let slotRows='';
+  let currentPiece='';
+  slots.forEach((s,i)=>{
+    if(s.piece&&s.piece!==currentPiece){
+      currentPiece=s.piece;
+      slotRows+=`<div class="rqm-piece-header">${esc(currentPiece)}</div>`;
+    }
+    const stat=SLOT_STATS[s.slot]||'';
+    slotRows+=`<div class="rqm-slot">
+      <div class="rqm-slot-info">
+        <span class="rqm-slot-name">${esc(s.slot)}</span>
+        <span class="rqm-slot-mat">${esc(s.material)} · ${s.amountLabel}</span>
+        ${stat?`<span class="rqm-slot-stat">→ ${stat}</span>`:''}
+      </div>
+      <select class="rqm-grade-sel" id="rqm-slot-${i}">
+        <option value="${adminConfig.gradeALow}" selected>Grade A (Q${adminConfig.gradeALow}-${adminConfig.gradeAHigh})</option>
+        <option value="${adminConfig.gradeBLow}">Grade B (Q${adminConfig.gradeBLow}-${adminConfig.gradeBHigh})</option>
+        <option value="${adminConfig.gradeCLow}">Grade C (Q${adminConfig.gradeCLow}-${adminConfig.gradeCHigh})</option>
+      </select>
+    </div>`;
+  });
+  
+  // Set All dropdown
+  const setAllHtml=`<div class="rqm-set-all">
+    <span class="rqm-set-all-label">Set all to:</span>
+    <select class="rqm-grade-sel" onchange="rqmSetAll(this.value)">
+      <option value="${adminConfig.gradeALow}">Grade A</option>
+      <option value="${adminConfig.gradeBLow}">Grade B</option>
+      <option value="${adminConfig.gradeCLow}">Grade C</option>
+    </select>
+  </div>`;
+  
+  const modal=document.getElementById('request-modal');
+  modal.innerHTML=`<div class="rqm-overlay" onclick="closeRequestModal()"></div>
+    <div class="rqm-dialog">
+      <div class="rqm-header">
+        <h3>Request Build: ${esc(name)}</h3>
+        <button class="rqm-close" onclick="closeRequestModal()">×</button>
+      </div>
+      <div class="rqm-body">
+        <p class="rqm-desc">Select quality grade for each material slot. Higher grades take longer to source.</p>
+        ${setAllHtml}
+        <div class="rqm-slots">${slotRows}</div>
+      </div>
+      <div class="rqm-footer">
+        <button class="btn-secondary" onclick="closeRequestModal()">Cancel</button>
+        <button class="btn-primary" onclick="confirmRequestModal()">Add Request</button>
+      </div>
+    </div>`;
+  modal.style.display='flex';
+  
+  // Store context for confirm
+  modal._ctx={t,k,item,slots,reqOrder};
+}
+
+function rqmSetAll(val){
+  const modal=document.getElementById('request-modal');
+  if(!modal._ctx)return;
+  modal._ctx.slots.forEach((_,i)=>{
+    const sel=document.getElementById('rqm-slot-'+i);
+    if(sel)sel.value=val;
+  });
+}
+
+function confirmRequestModal(){
+  const modal=document.getElementById('request-modal');
+  const ctx=modal._ctx;if(!ctx)return;
+  
+  const slotQ={};
+  ctx.slots.forEach((s,i)=>{
+    const sel=document.getElementById('rqm-slot-'+i);
+    slotQ[s.sqKey]=parseInt(sel?.value)||adminConfig.gradeALow;
+  });
+  
+  ctx.reqOrder.items.push({type:ctx.t,key:ctx.k,qty:1,crafted:false,deducted:null,slotQ,item:ctx.item});
   saveState();filterBlueprints();updateWOBadge();
+  closeRequestModal();
+}
+
+function closeRequestModal(){
+  const modal=document.getElementById('request-modal');
+  modal.style.display='none';modal.innerHTML='';modal._ctx=null;
 }
 
 function renderSetCard(set){
@@ -765,10 +908,10 @@ function toggleWOItem(t,k){
   const idx=o.items.findIndex(w=>w.type===t&&w.key===k);
   if(idx>=0)o.items.splice(idx,1);
   else{const item=findItem(t,k);if(item){
-    // Build slotQ with piece-aware keys — zone-aware inventory picker
+    // Build slotQ — crafter picks quality themselves, start unset (0)
     const slotQ={};
-    if(item.pieces){item.pieces.forEach(p=>{(p.recipe||[]).filter(r=>r.material&&r.slot&&r.amount_cscu>0).forEach(r=>{slotQ[p.piece_type+'|'+r.slot]=pickQualityForSlot(r.material,1000);});});}
-    else{getSlottedRec(item).forEach(r=>{slotQ[r.slot]=pickQualityForSlot(r.material,1000);});}
+    if(item.pieces){item.pieces.forEach(p=>{(p.recipe||[]).filter(r=>r.slot&&((r.material&&r.amount_cscu>0)||(r.cost_type==='item'&&r.item_quantity>0))).forEach(r=>{slotQ[p.piece_type+'|'+r.slot]=0;});});}
+    else{getSlottedRec(item).forEach(r=>{slotQ[r.slot]=0;});}
     o.items.push({type:t,key:k,qty:1,item,crafted:false,deducted:null,slotQ});
   }}
   saveState();updateWOBadge();filterBlueprints();if(currentTab==='workorder')renderWO();if(currentTab==='inventory')updateInventoryResults();
@@ -818,14 +961,14 @@ function renderWO(){
     if(item.pieces){
       // Armor set — group by piece
       slotsHtml='<div class="wo-pieces">'+item.pieces.map(p=>{
-        const pSlots=(p.recipe||[]).filter(r=>r.material&&r.slot&&r.amount_cscu>0);
+        const pSlots=(p.recipe||[]).filter(r=>r.slot&&((r.material&&r.amount_cscu>0)||(r.cost_type==='item'&&r.item_quantity>0)));
         if(!pSlots.length)return '';
         const pTime=ctime(p.craft_time_seconds);
         const rows=pSlots.map(r=>{
           const sqKey=p.piece_type+'|'+r.slot;
           const sq=wo.slotQ?.[sqKey]??500;
-          const needCscu=round(r.amount_cscu*wo.qty);
-          return renderSlotRow(r,sq,sqKey,needCscu,i);
+          const need=r.cost_type==='item'?r.item_quantity*wo.qty:round(r.amount_cscu*wo.qty);
+          return renderSlotRow(r,sq,sqKey,need,i);
         }).join('');
         return `<div class="wo-piece"><div class="wo-piece-header"><span class="wo-piece-name">${PIECE_LABELS[p.piece_type]||p.piece_type}</span><span class="wo-piece-meta">${uFmt(p.total_cscu*wo.qty)} · ${pTime}</span></div>${rows}</div>`;
       }).join('')+'</div>';
@@ -834,7 +977,8 @@ function renderWO(){
       const slots=getSlottedRec(item);
       if(slots.length)slotsHtml='<div class="wo-slots">'+slots.map(r=>{
         const sq=wo.slotQ?.[r.slot]??500;
-        return renderSlotRow(r,sq,r.slot,round(r.amount_cscu*wo.qty),i);
+        const need=r.cost_type==='item'?r.item_quantity*wo.qty:round(r.amount_cscu*wo.qty);
+        return renderSlotRow(r,sq,r.slot,need,i);
       }).join('')+'</div>';
     }
 
@@ -848,67 +992,89 @@ function renderWO(){
 }
 
 function renderSlotRow(r,sq,sqKey,needCscu,woIdx){
-  const haveTotal=totalQty(r.material);
+  // Unify: item costs use item_name as the effective material name
+  const isItemCost=r.cost_type==='item';
+  const matName=isItemCost?r.item_name:r.material;
+  const needLabel=isItemCost?needCscu+'×':uFmt(needCscu);
+
+  const haveTotal=totalQty(matName);
   const stat=SLOT_STATS[r.slot]||'';
-  const qc=qColor(sq);
-  const batches=getBatches(r.material).filter(b=>b.qty>0).sort((a,b)=>b.quality-a.quality);
+  const isUnset=sq===0||sq===undefined||sq===null;
+  const qc=isUnset?'#475569':qColor(sq);
+  const batches=getBatches(matName).filter(b=>b.qty>0).sort((a,b)=>b.quality-a.quality);
   
   // Check if selected quality matches an actual inventory batch
-  const matchedBatch=batches.find(b=>b.quality===sq);
+  const matchedBatch=!isUnset&&batches.find(b=>b.quality===sq);
   const isFromInventory=!!matchedBatch;
   
-  // Build dropdown: presets (requests) + inventory batches
+  // Build dropdown: grade presets + inventory batches
   const minQ=r.min_quality||adminConfig.defaultMinQuality;
   const PRESETS=[
-    {v:1000,label:'Q1000 (Maximum)'},
+    {v:adminConfig.gradeALow,label:`Grade A (Q${adminConfig.gradeALow}-${adminConfig.gradeAHigh})`},
+    {v:adminConfig.gradeBLow,label:`Grade B (Q${adminConfig.gradeBLow}-${adminConfig.gradeBHigh})`},
+    {v:adminConfig.gradeCLow,label:`Grade C (Q${adminConfig.gradeCLow}-${adminConfig.gradeCHigh})`},
   ];
-  if(adminConfig.disassembleQuality>minQ)PRESETS.push({v:adminConfig.disassembleQuality,label:`Q${adminConfig.disassembleQuality} (Disassembled)`});
-  PRESETS.push({v:minQ,label:`Q${minQ} (Minimum)`});
-  let opts='<optgroup label="Quality Request">';
-  PRESETS.forEach(p=>{opts+=`<option value="p${p.v}"${!isFromInventory&&sq===p.v?' selected':''}>${p.label}</option>`;});
+  let opts='';
+  if(isUnset){
+    opts+=`<option value="p0" selected>— Select quality —</option>`;
+  }
+  opts+='<optgroup label="Quality Request">';
+  PRESETS.forEach(p=>{opts+=`<option value="p${p.v}"${!isUnset&&!isFromInventory&&sq===p.v?' selected':''}>${p.label}</option>`;});
   opts+='</optgroup>';
   if(batches.length){
     opts+='<optgroup label="Your Inventory">';
     batches.forEach(b=>{opts+=`<option value="i${b.quality}"${isFromInventory&&sq===b.quality?' selected':''}>Q${b.quality} — ${uFmt(b.qty)} available</option>`;});
     opts+='</optgroup>';
   }
-  const presetVals=PRESETS.map(p=>p.v);
-  const batchVals=batches.map(b=>b.quality);
-  if(!presetVals.includes(sq)&&!batchVals.includes(sq)){
-    opts=`<option value="p${sq}" selected>Q${sq} (custom)</option>`+opts;
+  if(!isUnset){
+    const presetVals=PRESETS.map(p=>p.v);
+    const batchVals=batches.map(b=>b.quality);
+    if(!presetVals.includes(sq)&&!batchVals.includes(sq)){
+      opts=`<option value="p${sq}" selected>Q${sq} (custom)</option>`+opts;
+    }
   }
   
+  const itemTag=isItemCost?' <span class="item-tag">item</span>':'';
   const minQBadge=minQ?qBadge(minQ):'';
   const dropdown=`<select class="wo-slot-qsel" onchange="setWOSlotQ(${woIdx},'${esc(sqKey)}',this.value)" style="border-left:3px solid ${qc}">${opts}</select>`;
-  const qWarn=minQ&&sq<minQ?'<span class="wo-slot-qwarn" title="Quality below minimum requirement">⚠️</span>':'';
+  const qWarn=!isUnset&&minQ&&sq<minQ?'<span class="wo-slot-qwarn" title="Quality below minimum requirement">⚠️</span>':'';
   const statHtml=stat?`<span class="wo-slot-stat">→ ${stat}</span>`:'';
 
-  if(!isFromInventory){
+  if(isUnset){
+    return `<div class="wo-slot unset">
+      <span class="wo-slot-name">${esc(r.slot)}</span>
+      ${minQBadge}
+      <span class="wo-slot-mat">${esc(matName)}${itemTag}</span>
+      <span class="wo-slot-need">${needLabel}</span>
+      <span class="wo-slot-reqtag" style="color:#64748b">Select:</span>
+      ${dropdown}
+      ${statHtml}
+    </div>`;
+  }else if(!isFromInventory){
     return `<div class="wo-slot">
       <span class="wo-slot-name">${esc(r.slot)}</span>
       ${minQBadge}
-      <span class="wo-slot-mat">${esc(r.material)}${r.cost_type==='item'?' <span class="item-tag">item</span>':''}</span>
-      <span class="wo-slot-need">${r.cost_type==='item'?needCscu+'×':uFmt(needCscu)}</span>
+      <span class="wo-slot-mat">${esc(matName)}${itemTag}</span>
+      <span class="wo-slot-need">${needLabel}</span>
       <span class="wo-slot-reqtag">Requested:</span>
       ${dropdown}
       ${qWarn}
       ${statHtml}
     </div>`;
   }else{
-    const haveAtQ=availableAtQuality(r.material,sq);
+    const haveAtQ=availableAtQuality(matName,sq);
     const haveOk=haveAtQ>=needCscu;
     const haveLabel=haveOk
       ?`<span class="wo-slot-label ok">Have:</span>`
-      :`<span class="wo-slot-label no">Have (need ${uFmt(Math.max(0,needCscu-haveAtQ))} more):</span>`;
+      :`<span class="wo-slot-label no">Have (need ${isItemCost?(needCscu-haveAtQ)+'×':uFmt(Math.max(0,needCscu-haveAtQ))} more):</span>`;
     let reqTag='';
-    if(sq>=adminConfig.maxZoneLow)reqTag=`<span class="wo-slot-reqtag">Max Q Requested</span>`;
-    else if(sq>=adminConfig.minZoneLow)reqTag=`<span class="wo-slot-reqtag wo-slot-reqtag-min">Min Q Requested</span>`;
-    else reqTag=`<span class="wo-slot-reqtag wo-slot-reqtag-warn">Below Min</span>`;
+    const g=getGrade(sq);
+    reqTag=`<span class="wo-slot-reqtag ${g.cls}" style="color:${g.color}">${g.name} Requested</span>`;
     return `<div class="wo-slot has-inv">
       <span class="wo-slot-name">${esc(r.slot)}</span>
       ${minQBadge}
-      <span class="wo-slot-mat">${esc(r.material)}${r.cost_type==='item'?' <span class="item-tag">item</span>':''}</span>
-      <span class="wo-slot-need">${r.cost_type==='item'?needCscu+'×':uFmt(needCscu)}</span>
+      <span class="wo-slot-mat">${esc(matName)}${itemTag}</span>
+      <span class="wo-slot-need">${needLabel}</span>
       ${reqTag}
       ${haveLabel}
       ${dropdown}
@@ -931,7 +1097,10 @@ function renderWOTotals(){
   }).join('');
   if(Object.keys(items).length){
     html+=`<div style="margin-top:8px;padding-top:6px;border-top:1px solid #1e293b;color:#94a3b8;font-size:11px;font-weight:600">ITEMS</div>`;
-    html+=Object.entries(items).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div style="display:flex;justify-content:space-between;padding:3px 0;gap:8px"><span style="color:#c4b5fd;font-size:13px;flex:1">${k}</span><span style="color:#a78bfa;font-size:13px;font-weight:700">${v}×</span></div>`).join('');
+    html+=Object.entries(items).sort((a,b)=>b[1]-a[1]).map(([k,v])=>{
+      const have=getItemStock(k);
+      return `<div style="display:flex;justify-content:space-between;padding:3px 0;gap:8px"><span style="color:#c4b5fd;font-size:13px;flex:1">${k}</span><span style="font-size:12px;color:${have>=v?'#059669':'#64748b'}">${have}× inv</span><span style="color:#a78bfa;font-size:13px;font-weight:700">${v}×</span></div>`;
+    }).join('');
   }
   document.getElementById('wo-materials').innerHTML=html||'<div class="dim">All items crafted!</div>';
 }
@@ -995,41 +1164,70 @@ function getExportItems(){const o=getActiveOrder();if(!o)return[];if(woSelected.
 
 // Helper: quality note for clipboard export
 function qNote(q){
-  if(q>=1000)return ' (maximum)';
-  if(q<=adminConfig.defaultMinQuality)return ' (minimum)';
-  return '';
+  if(!q||q===0)return ' (No grade set)';
+  return ` (${gradeLabel(q)} · ${gradeRange(q)})`;
 }
 
 // ── Export ──
 function copyWOText(){
-  const o=getActiveOrder();if(!o)return;const items=getExportItems(),m={};
-  items.forEach(wo=>{getRec(wo.item).forEach(r=>{if(r.material&&r.amount_cscu>0)m[r.material]=(m[r.material]||0)+r.amount_cscu*wo.qty;});});
+  const o=getActiveOrder();if(!o)return;
+  // Prompt for requester/order name
+  const defaultName=o.author?`${o.name} — ${o.author}`:o.name;
+  const hdr=prompt('Order / Requester name for this request:',defaultName);
+  if(hdr===null)return; // Cancelled
+  const finalHdr=hdr.trim()||defaultName;
+  
+  // Update the order name to match
+  if(finalHdr!==defaultName){
+    // Parse "Name — Author" format
+    const dashIdx=finalHdr.indexOf(' — ');
+    if(dashIdx>=0){o.name=finalHdr.slice(0,dashIdx);o.author=finalHdr.slice(dashIdx+3);}
+    else{o.name=finalHdr;o.author='';}
+    saveState();renderWO();
+  }
+  
+  const items=getExportItems(),m={},itemCosts={};
+  items.forEach(wo=>{getRec(wo.item).forEach(r=>{
+    if(r.cost_type==='item'&&r.item_quantity>0)itemCosts[r.item_name]=(itemCosts[r.item_name]||0)+r.item_quantity*wo.qty;
+    else if(r.material&&r.amount_cscu>0)m[r.material]=(m[r.material]||0)+r.amount_cscu*wo.qty;
+  });});
   const totalTime=items.reduce((s,wo)=>s+itemTime(wo.item)*wo.qty,0);
-  const hdr=o.author?`${o.name} — ${o.author}`:o.name;
   const selNote=woSelected.size?` (${woSelected.size} selected)`:'';
-  const lines=[`═══ ${hdr}${selNote} ═══`,''];
+  const lines=[`═══ ${finalHdr}${selNote} ═══`,''];
   items.forEach(wo=>{
     lines.push(`  ${wo.qty}x ${itemName(wo.type,wo.item)} (${uFmt(itemCscu(wo.item)*wo.qty)})`);
     if(wo.item.pieces){
       wo.item.pieces.forEach(p=>{
-        const pSlots=(p.recipe||[]).filter(r=>r.material&&r.slot&&r.amount_cscu>0);
+        const pSlots=(p.recipe||[]).filter(r=>r.slot&&((r.material&&r.amount_cscu>0)||(r.cost_type==='item'&&r.item_quantity>0)));
         if(!pSlots.length)return;
         lines.push(`    ${(PIECE_LABELS[p.piece_type]||p.piece_type).toUpperCase()}`);
         pSlots.forEach(r=>{
           const sqKey=p.piece_type+'|'+r.slot;
           const sq=wo.slotQ?.[sqKey]??500;
-          lines.push(`      ${r.slot}: ${uFmt(r.amount_cscu*wo.qty)} ${r.material} @ Q${sq}${qNote(sq)}`);
+          if(r.cost_type==='item'){
+            lines.push(`      ${r.slot}: ${r.item_quantity*wo.qty}× ${r.item_name}`);
+          }else{
+            lines.push(`      ${r.slot}: ${uFmt(r.amount_cscu*wo.qty)} ${r.material} @ Q${sq}${qNote(sq)}`);
+          }
         });
       });
     }else{
       getSlottedRec(wo.item).forEach(r=>{
         const sq=wo.slotQ?.[r.slot]??500;
-        lines.push(`    ${r.slot}: ${uFmt(r.amount_cscu*wo.qty)} ${r.material} @ Q${sq}${qNote(sq)}`);
+        if(r.cost_type==='item'){
+          lines.push(`    ${r.slot}: ${r.item_quantity*wo.qty}× ${r.item_name}`);
+        }else{
+          lines.push(`    ${r.slot}: ${uFmt(r.amount_cscu*wo.qty)} ${r.material} @ Q${sq}${qNote(sq)}`);
+        }
       });
     }
   });
   lines.push('','─── Materials ───');
   Object.entries(m).sort((a,b)=>b[1]-a[1]).forEach(([k,v])=>{if(v>0)lines.push(`  ${uFmt(v)} ${k}`);});
+  if(Object.keys(itemCosts).length){
+    lines.push('','─── Items ───');
+    Object.entries(itemCosts).sort((a,b)=>b[1]-a[1]).forEach(([k,v])=>{if(v>0)lines.push(`  ${v}× ${k}`);});
+  }
   lines.push('',`Craft time: ${ctimeFull(totalTime)}`);
   // Append share link
   const enc=encodeWO();
@@ -1049,15 +1247,18 @@ function copyOreRequest(){
   const o=getActiveOrder();if(!o)return;const items=getExportItems();
   if(!items.length){showToast('No items in order');return;}
   // Gather materials grouped by material name, then by quality
-  // Each entry: {material, cscu, quality, fromInventory, minQuality}
+  // Each entry: {material, cscu, quality, fromInventory, minQuality, isItem}
   const entries=[];
   items.forEach(wo=>{
     const addSlots=(recipe,keyPrefix)=>{
-      recipe.filter(r=>r.material&&r.slot&&r.amount_cscu>0).forEach(r=>{
+      recipe.filter(r=>r.slot&&((r.material&&r.amount_cscu>0)||(r.cost_type==='item'&&r.item_quantity>0))).forEach(r=>{
         const sqKey=keyPrefix?keyPrefix+'|'+r.slot:r.slot;
         const sq=wo.slotQ?.[sqKey]??500;
-        const fromInv=!!getBatches(r.material).find(b=>b.quality===sq);
-        entries.push({material:r.material,cscu:r.amount_cscu*wo.qty,quality:sq,fromInventory:fromInv,minQuality:r.min_quality||0});
+        const isItem=r.cost_type==='item';
+        const matName=isItem?r.item_name:r.material;
+        const qty=isItem?r.item_quantity*wo.qty:r.amount_cscu*wo.qty;
+        const fromInv=!!getBatches(matName).find(b=>b.quality===sq);
+        entries.push({material:matName,cscu:qty,quality:sq,fromInventory:fromInv,minQuality:r.min_quality||0,isItem});
       });
     };
     if(wo.item.pieces){
@@ -1072,7 +1273,7 @@ function copyOreRequest(){
   // Group by material -> quality -> {cscu, fromInventory}
   const grouped={};
   entries.forEach(e=>{
-    if(!grouped[e.material])grouped[e.material]={total:0,qualities:{},minQuality:0};
+    if(!grouped[e.material])grouped[e.material]={total:0,qualities:{},minQuality:0,isItem:e.isItem};
     grouped[e.material].total+=e.cscu;
     // Track highest min_quality seen for this material
     if(e.minQuality>grouped[e.material].minQuality)grouped[e.material].minQuality=e.minQuality;
@@ -1108,10 +1309,11 @@ function copyOreRequest(){
   const oreNames=[];
   // Helper: describe quality for miners
   const qLabel=(quality,fromInventory,minQ)=>{
+    if(!quality||quality===0)return '@ any quality';
     if(fromInventory)return `@ Q${quality} or above`;
-    if(quality>=1000)return '@ Q1000 or as high as possible';
-    if(quality<=minQ)return `@ Q${quality} (minimum quality)`;
-    return `@ Q${quality}`;
+    const g=gradeLabel(quality);
+    const r=gradeRange(quality);
+    return `@ ${g} (${r})`;
   };
   let anyMaterial=false;
   Object.entries(grouped).sort((a,b)=>b[1].total-a[1].total).forEach(([mat,info])=>{
@@ -1121,13 +1323,14 @@ function copyOreRequest(){
     const qs=Object.values(info.qualities).filter(q=>q.cscu>0).sort((a,b)=>b.quality-a.quality);
     // Determine effective min quality for this material from recipes
     const matMinQ=info.minQuality||adminConfig.defaultMinQuality;
+    const fmtQty=v=>info.isItem?`${v}×`:`${roundScu(v/100)} SCU`;
     if(qs.length===1){
       const q=qs[0];
-      lines.push(`  ${round(info.total/100)} SCU ${mat} ${qLabel(q.quality,q.fromInventory,matMinQ)}`);
+      lines.push(`  ${fmtQty(info.total)} ${mat} ${qLabel(q.quality,q.fromInventory,matMinQ)}`);
     }else if(qs.length>1){
-      lines.push(`  ${round(info.total/100)} SCU ${mat}`);
+      lines.push(`  ${fmtQty(info.total)} ${mat}`);
       qs.forEach(q=>{
-        lines.push(`    ${round(q.cscu/100)} SCU ${qLabel(q.quality,q.fromInventory,matMinQ)}`);
+        lines.push(`    ${fmtQty(q.cscu)} ${qLabel(q.quality,q.fromInventory,matMinQ)}`);
       });
     }
   });
@@ -1136,6 +1339,26 @@ function copyOreRequest(){
   const miningUrl=`https://seeknd.github.io/Strata/?ores=${oreNames.join(',')}`;
   lines.push('',`Miner link: ${miningUrl}`);
   navigator.clipboard.writeText(lines.join('\n')).then(()=>showToast(isRemaining?'Remaining ore request copied':'Ore request copied to clipboard'));
+}
+
+// Extract ore names from a WO hash for OREREQUEST redirect (before full data load)
+function extractOreNamesFromHash(hash){
+  try{
+    const parts=hash.split('~');if(parts.length<3)return[];
+    const itemStr=parts.slice(2).join('~');
+    const oreSet=new Set();
+    itemStr.split('|').forEach(p=>{
+      const segs=p.split(':');if(segs.length<3)return;
+      const tc=segs[0],key=decodeURIComponent(segs[1]);
+      const type=TYPE_LONG[tc]||tc;const item=findItem(type,key);
+      if(!item)return;
+      getRec(item).forEach(r=>{
+        if(r.material&&r.amount_cscu>0)oreSet.add(r.material.toUpperCase());
+        if(r.cost_type==='item'&&r.item_quantity>0)oreSet.add(r.item_name.toUpperCase());
+      });
+    });
+    return[...oreSet];
+  }catch(e){return[];}
 }
 
 // ── URL Sharing ──
@@ -1197,7 +1420,7 @@ function buildPlannerSlots(){
 function updPlanner(slot,val){plannerSelections[slot]=val;saveState();const el=document.getElementById(`pr-${slot}`),it=resPI(val);el.innerHTML=it?recipeHtml(it.recipe||[]):'';updPlannerSum();}
 function resPI(v){if(!v)return null;if(v.startsWith('bp:'))return DATA.backpacks.find(b=>b.name===v.slice(3));if(v.startsWith('us:'))return DATA.undersuits.find(u=>u.name===v.slice(3));if(v.startsWith('fs:'))return DATA.flightsuits.find(f=>f.name===v.slice(3));if(v.startsWith('pc:')){const[,sn,pn]=v.split(':');const s=DATA.armor_sets.find(x=>x.set_name===sn);return s?.pieces.find(p=>p.name===pn);}return null;}
 function updPlannerSum(){const m={};let tot=0,any=false;Object.values(plannerSelections).forEach(v=>{const it=resPI(v);if(!it)return;any=true;(it.recipe||[]).forEach(r=>{if(r.material&&r.amount_cscu>0){m[r.material]=(m[r.material]||0)+r.amount_cscu;tot+=r.amount_cscu;}});});const el=document.getElementById('planner-materials'),act=document.getElementById('planner-actions');if(!any){el.innerHTML='<div class="dim">Select pieces to see totals</div>';act.style.display='none';return;}el.innerHTML=Object.entries(m).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div style="display:flex;justify-content:space-between;padding:3px 0"><span style="color:#e2e8f0;font-size:13px">${k}</span><span style="color:#38bdf8;font-size:13px;font-weight:700">${uFmt(v)}</span></div>`).join('')+`<div style="border-top:1px solid #334155;margin-top:8px;padding-top:8px;display:flex;justify-content:space-between"><span style="color:#94a3b8;font-weight:700;font-size:13px">TOTAL</span><span style="color:#f8fafc;font-weight:700;font-size:15px">${uFmt(tot)}</span></div>`;act.style.display='flex';}
-function addPlannerToWO(){let o=getActiveOrder();if(!o){createNewOrder(true);o=getActiveOrder();}Object.entries(plannerSelections).forEach(([slot,val])=>{if(!val)return;const it=resPI(val);if(!it)return;const k=it.name||val;if(!o.items.some(w=>w.key===k)){const slotQ={};(it.recipe||[]).filter(r=>r.material&&r.slot).forEach(r=>{slotQ[r.slot]=pickQualityForSlot(r.material,1000);});o.items.push({type:'piece',key:k,qty:1,item:it,crafted:false,deducted:null,slotQ});}});saveState();updateWOBadge();switchTab('workorder');renderWO();}
+function addPlannerToWO(){let o=getActiveOrder();if(!o){createNewOrder(true);o=getActiveOrder();}Object.entries(plannerSelections).forEach(([slot,val])=>{if(!val)return;const it=resPI(val);if(!it)return;const k=it.name||val;if(!o.items.some(w=>w.key===k)){const slotQ={};(it.recipe||[]).filter(r=>r.material&&r.slot).forEach(r=>{slotQ[r.slot]=0;});o.items.push({type:'piece',key:k,qty:1,item:it,crafted:false,deducted:null,slotQ});}});saveState();updateWOBadge();switchTab('workorder');renderWO();}
 function copyPlannerText(){const lines=['═══ RediMake Set ═══'],m={};Object.entries(plannerSelections).forEach(([slot,val])=>{const it=resPI(val);if(!it)return;lines.push(`${PIECE_LABELS[slot]||slot}: ${it.name} (${uFmt(it.total_cscu)})`);(it.recipe||[]).forEach(r=>{if(r.material&&r.amount_cscu>0)m[r.material]=(m[r.material]||0)+r.amount_cscu;});});lines.push('','Materials:');Object.entries(m).sort((a,b)=>b[1]-a[1]).forEach(([k,v])=>lines.push(`  ${uFmt(v)} ${k}`));navigator.clipboard.writeText(lines.join('\n')).then(()=>showToast('Copied to clipboard'));}
 function savePlannerSet(){const n=prompt('Name:');if(!n)return;savedSets.push({name:n,selections:{...plannerSelections}});saveState();renderSavedSets();}
 function loadSavedSet(i){const s=savedSets[i];if(!s)return;plannerSelections={...s.selections};['helmet','core','arms','legs','backpack','undersuit'].forEach(slot=>{const sel=document.getElementById(`ps-${slot}`);if(sel){sel.value=plannerSelections[slot]||'';updPlanner(slot,plannerSelections[slot]||'');}});}
@@ -1208,48 +1431,74 @@ function renderSavedSets(){const el=document.getElementById('saved-sets');if(!sa
 // INVENTORY — Batch System
 // ════════════════════════════════════════════
 function buildInventoryInputs(){
-  const u=uLabel();
-  const mats=Object.entries(DATA.materials).sort((a,b)=>b[1].total_cscu_demand-a[1].total_cscu_demand);
-  document.getElementById('inventory-inputs').innerHTML=mats.map(([name])=>{
-    const batches=getBatches(name);
-    const tot=totalQty(name);
-    const batchRows=batches.map((b,bi)=>{
-      const qc=qColor(b.quality);
-      return `<div class="inv-batch">
-        <input type="number" min="0" step="${unitMode==='scu'?'0.0025':'0.25'}" value="${uVal(b.qty)}" onchange="setInvBatch('${name}',${bi},'qty',this.value)" title="Amount">
-        <span class="unit-label">${u}</span>
-        <span class="inv-batch-q"><span class="inv-batch-q-label">Q</span><input type="number" min="0" max="1000" step="10" value="${b.quality}" onchange="setInvBatch('${name}',${bi},'quality',this.value)" title="Quality (0-1000)"></span>
-        <span class="q-bar-sm"><span class="q-fill" style="width:${b.quality/10}%;background:${qc}"></span></span>
-        <button class="inv-rm-batch" onclick="rmInvBatch('${name}',${bi})">×</button>
+  const mats=Object.entries(DATA.materials).sort((a,b)=>a[0].localeCompare(b[0]));
+  const vt=adminConfig.vaultThreshold;
+  
+  // Build items section (discrete items like gems)
+  const items=DATA.items?Object.entries(DATA.items).sort((a,b)=>a[0].localeCompare(b[0])):[];
+  let itemsHtml='';
+  if(items.length){
+    itemsHtml=`<div class="vault-section-header">Discrete Items</div>`+items.map(([name,info])=>{
+      const stock=getItemStock(name);
+      const mType=info.mining_type?` <span class="vault-mining-type">${MINING_LABELS[info.mining_type]||info.mining_type}</span>`:'';
+      return `<div class="inv-mat-group${stock>0?' has-vault':''}">
+        <div class="inv-mat-header"><span class="inv-mat-name">${name}${mType}</span>${stock>0?`<span class="inv-mat-total">${stock}×</span>`:''}</div>
+        <div class="inv-batch item-batch">
+          <input type="number" min="0" step="1" value="${stock}" onchange="setItemStock('${esc(name)}',parseInt(this.value)||0);buildInventoryInputs();if(currentTab==='inventory')updateInventoryResults();" title="Quantity on hand">
+          <span class="unit-label">qty</span>
+        </div>
       </div>`;
     }).join('');
-    return `<div class="inv-mat-group">
-      <div class="inv-mat-header"><span class="inv-mat-name">${name}</span><span class="inv-mat-total">${tot>0?uFmt(tot):''}</span></div>
-      ${batchRows||'<div class="dim" style="font-size:11px;padding:4px 0">No batches</div>'}
-      <button class="inv-add-batch" onclick="addInvBatch('${name}')">+ batch</button>
+  }
+  
+  document.getElementById('inventory-inputs').innerHTML=`
+    <div class="vault-header">
+      <span class="vault-title">Grade A Materials (>${'Q'}${vt})</span>
+      <span class="vault-hint dim">Add rare materials here. Common materials don't need tracking.</span>
+    </div>
+  `+mats.map(([name])=>{
+    const batches=getBatches(name);
+    const tot=totalQty(name);
+    // Only show batches that meet vault threshold
+    const vaultBatches=batches.filter(b=>b.quality>=vt);
+    const vaultTotal=vaultBatches.reduce((s,b)=>s+b.qty,0);
+    const batchRows=vaultBatches.map((b,bi)=>{
+      // Find actual index in full batches array for editing
+      const realIdx=batches.indexOf(b);
+      const qc=qColor(b.quality);
+      return `<div class="inv-batch">
+        <input type="number" min="0" step="0.0001" value="${roundScu(b.qty/100)}" onchange="setVaultBatch('${name}',${realIdx},this.value)" title="Amount in SCU">
+        <span class="unit-label">SCU</span>
+        <span style="color:${qc};font-size:11px;font-weight:600">Q${b.quality}</span>
+        <span class="q-bar-sm"><span class="q-fill" style="width:${b.quality/10}%;background:${qc}"></span></span>
+        <button class="inv-rm-batch" onclick="rmInvBatch('${name}',${realIdx})">×</button>
+      </div>`;
+    }).join('');
+    const hasVault=vaultBatches.length>0;
+    return `<div class="inv-mat-group${hasVault?' has-vault':''}">
+      <div class="inv-mat-header"><span class="inv-mat-name">${name}</span>${vaultTotal>0?`<span class="inv-mat-total">${scuFmt(vaultTotal)}</span>`:''}</div>
+      ${batchRows}
+      <button class="inv-add-batch" onclick="addVaultBatch('${name}')">+ add</button>
     </div>`;
-  }).join('');
+  }).join('')+itemsHtml;
 }
 
-function setInvBatch(mat,bi,field,val){
+function setVaultBatch(mat,bi,val){
   const batches=getBatches(mat);if(!batches[bi])return;
-  if(field==='qty'){const raw=parseFloat(val)||0;batches[bi].qty=unitMode==='scu'?round(raw*100):raw;}
-  else if(field==='quality'){batches[bi].quality=Math.max(0,Math.min(1000,parseInt(val)||0));}
+  const scu=parseFloat(val)||0;
+  batches[bi].qty=Math.round(scu*10000)/100; // SCU to cSCU with precision
   saveState();
-  // Update total display
-  const group=document.querySelectorAll('.inv-mat-group');
-  // Lightweight: just update totals and WO if visible
   if(currentTab==='inventory')updateInventoryResults();
 }
-function addInvBatch(mat){getBatches(mat).push({qty:0,quality:500});saveState();buildInventoryInputs();}
+function addVaultBatch(mat){
+  getBatches(mat).push({qty:0,quality:adminConfig.vaultThreshold});
+  saveState();buildInventoryInputs();
+}
 function rmInvBatch(mat,bi){const b=getBatches(mat);b.splice(bi,1);saveState();buildInventoryInputs();}
 
-function buildInventoryFilters(){
-  document.getElementById('inv-type-filters').innerHTML=['armor','weapon'].map(v=>`<button class="fp-chip" data-ig="type" data-fv="${v}" onclick="togInvF('type','${v}')">${v.charAt(0).toUpperCase()+v.slice(1)}</button>`).join('');
-  document.getElementById('inv-weight-filters').innerHTML=['light','medium','heavy'].map(v=>`<button class="fp-chip" data-ig="weight" data-fv="${v}" onclick="togInvF('weight','${v}')">${v.charAt(0).toUpperCase()+v.slice(1)}</button>`).join('');
-}
-function setInvFilter(g,v){if(g==='status'){invFilters.status=v;document.querySelectorAll('[data-ig="status"]').forEach(b=>b.classList.toggle('active',b.dataset.iv===v));}updateInventoryResults();}
-function togInvF(k,v){const a=invFilters[k],i=a.indexOf(v);i>=0?a.splice(i,1):a.push(v);document.querySelectorAll(`[data-ig="${k}"]`).forEach(b=>b.classList.toggle('active',invFilters[k].includes(b.dataset.fv)));updateInventoryResults();}
+function buildInventoryFilters(){}
+function setInvFilter(g,v){updateInventoryResults();}
+function togInvF(k,v){updateInventoryResults();}
 
 // Calculate completion % respecting minQuality requirements
 function calcComp(item){
@@ -1259,9 +1508,9 @@ function calcComp(item){
   ms.forEach(r=>{
     const minQ=r.min_quality||adminConfig.defaultMinQuality;
     if(r.cost_type==='item'){
-      // Item costs - not tracked in inventory yet, count as 0
+      // Item costs - check itemInventory
       n+=r.item_quantity;
-      // h+=0
+      h+=Math.min(getItemStock(r.item_name),r.item_quantity);
     }else{
       n+=r.amount_cscu;
       // Only count batches at or above minQuality
@@ -1300,8 +1549,10 @@ function updateInventoryResults(){
     const chipHtml=mats.map(r=>{
       const minQ=r.min_quality||adminConfig.defaultMinQuality;
       if(r.cost_type==='item'){
-        // Item costs - show as purple chips, not tracked yet
-        return `<span class="chip item-cost" style="border-color:#7c3aed66"><span class="qty">${r.item_quantity}×</span> ${esc(r.item_name)} (0)</span>`;
+        // Item costs - check itemInventory
+        const have=getItemStock(r.item_name);
+        const ok=have>=r.item_quantity;
+        return `<span class="chip item-cost${ok?' green':''}" style="border-color:${ok?'':'#7c3aed66'}"><span class="qty">${r.item_quantity}×</span> ${esc(r.item_name)} (${have})</span>`;
       }
       // Only count inventory at or above minQuality
       const validQty=getBatches(r.material).filter(b=>b.quality>=minQ).reduce((s,b)=>s+b.qty,0);
@@ -1343,12 +1594,14 @@ function buildMaterialsRef(){
 function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'):'';}
 function escAttr(s){return esc(s).replace(/'/g,'\\&#39;');}
 function round(n){return Math.round(n*100)/100;}
-function uVal(cscu){return unitMode==='scu'?round(cscu/100):round(cscu);}
+function roundScu(n){return Math.round(n*10000)/10000;}
+function uVal(cscu){return unitMode==='scu'?roundScu(cscu/100):round(cscu);}
 function uLabel(){return unitMode==='scu'?'SCU':'cSCU';}
 function uFmt(cscu){return `${uVal(cscu)} ${uLabel()}`;}
+function scuFmt(cscu){return `${roundScu(cscu/100)} SCU`;}
 function toggleUnit(){unitMode=unitMode==='cscu'?'scu':'cscu';try{localStorage.setItem(LS+'unit',unitMode);}catch(e){}updUnitBtn();refreshAll();}
 function updUnitBtn(){const el=document.getElementById('unit-toggle');if(el){el.textContent=unitMode==='scu'?'SCU':'cSCU';el.classList.toggle('active',unitMode==='scu');}}
 function refreshAll(){filterBlueprints();if(currentTab==='workorder')renderWO();if(currentTab==='inventory'){buildInventoryInputs();updateInventoryResults();}if(currentTab==='sets'){buildPlannerSlots();updPlannerSum();}buildMaterialsRef();}
-function qColor(q){if(q>=800)return '#22c55e';if(q>=600)return '#84cc16';if(q>=400)return '#facc15';if(q>=200)return '#f97316';return '#ef4444';}
+function qColor(q){if(q>=adminConfig.gradeALow)return '#22c55e';if(q>=adminConfig.gradeBLow)return '#60a5fa';if(q>=adminConfig.gradeCLow)return '#facc15';return '#ef4444';}
 
 document.addEventListener('DOMContentLoaded',init);
