@@ -602,7 +602,7 @@ function filterBlueprints(){
         if(!fM(filters.weight,s.weight))return false;
         if(!fM(filters.role,s.role))return false;
         if(!passesUnlockFilter('set',s.set_name))return false;
-        if(q){const h=`${s.set_name} ${s.manufacturer} ${s.weight} ${s.role} ${s.pieces.map(p=>p.name).join(' ')} ${Object.keys(s.material_totals).join(' ')}`.toLowerCase();if(!h.includes(q))return false;}
+        if(q){const itemNames=s.pieces.flatMap(p=>(p.recipe||[]).filter(r=>r.cost_type==='item').map(r=>r.item_name)).join(' ');const h=`${s.set_name} ${s.manufacturer} ${s.weight} ${s.role} ${s.pieces.map(p=>p.name).join(' ')} ${Object.keys(s.material_totals).join(' ')} ${itemNames}`.toLowerCase();if(!h.includes(q))return false;}
         return true;
       });
       // Track which pieces are shown via sets
@@ -616,7 +616,7 @@ function filterBlueprints(){
         if(!fM(filters.weight,p.weight))return false;
         if(!fM(filters.role,p.role))return false;
         if(!passesUnlockFilter('piece',p.name))return false;
-        if(q){const h=`${p.name} ${p.set_name} ${p.manufacturer||''} ${p.weight} ${p.role} ${(p.recipe||[]).map(r=>r.material).join(' ')}`.toLowerCase();if(!h.includes(q))return false;}
+        if(q){const h=`${p.name} ${p.set_name} ${p.manufacturer||''} ${p.weight} ${p.role} ${(p.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase();if(!h.includes(q))return false;}
         return true;
       });
     }else if(unlockMode&&showSet){
@@ -626,7 +626,7 @@ function filterBlueprints(){
         if(!isUnlocked('piece',p.name))return false;
         if(!fM(filters.weight,p.weight))return false;
         if(!fM(filters.role,p.role))return false;
-        if(q){const h=`${p.name} ${p.set_name} ${p.manufacturer||''} ${p.weight} ${p.role} ${(p.recipe||[]).map(r=>r.material).join(' ')}`.toLowerCase();if(!h.includes(q))return false;}
+        if(q){const h=`${p.name} ${p.set_name} ${p.manufacturer||''} ${p.weight} ${p.role} ${(p.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase();if(!h.includes(q))return false;}
         return true;
       });
     }
@@ -664,7 +664,7 @@ function filterBlueprints(){
       const bps=DATA.backpacks.filter(b=>{
         if(!fM(filters.weight,b.weight))return false;
         if(!passesUnlockFilter('backpack',b.name))return false;
-        if(q&&!`${b.name} ${b.manufacturer}`.toLowerCase().includes(q))return false;
+        if(q&&!`${b.name} ${b.manufacturer} ${(b.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
         return true;
       });
       bps.sort((a,b)=>{
@@ -680,7 +680,7 @@ function filterBlueprints(){
       if(!fM(filters.dmg,w.damage_type))return false;
       if(filters.wkind.length){const isMag=/magazine|battery/i.test(w.name);const kind=isMag?'ammo':'gun';if(!filters.wkind.includes(kind))return false;}
       if(!passesUnlockFilter('weapon',w.name))return false;
-      if(q&&!`${w.name} ${w.manufacturer} ${w.weapon_type} ${w.damage_type}`.toLowerCase().includes(q))return false;
+      if(q&&!`${w.name} ${w.manufacturer} ${w.weapon_type} ${w.damage_type} ${(w.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
       return true;
     });
     // Sort: unlocked first
@@ -694,7 +694,7 @@ function filterBlueprints(){
     const mkSec=(title,items,type)=>{
       const f=items.filter(s=>{
         if(!passesUnlockFilter(type,s.name))return false;
-        if(q&&!s.name.toLowerCase().includes(q))return false;
+        if(q&&!`${s.name} ${s.manufacturer||''} ${(s.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
         return true;
       });
       if(!f.length)return;
