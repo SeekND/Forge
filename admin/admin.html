@@ -268,6 +268,41 @@
     </div>
     
     <div class="card">
+      <h2>Discord Integration</h2>
+      <p class="desc" style="margin-bottom:16px">Connect to Discord to send work orders directly to a channel. Create a webhook in your Discord channel settings (Integrations → Webhooks). Your Discord User ID can be found by enabling Developer Mode and right-clicking your name.</p>
+      
+      <div class="field">
+        <label>Discord User ID</label>
+        <p class="desc">Your numeric Discord user ID (e.g. 123456789012345678). Used to tag you in order messages.</p>
+        <input type="text" id="discordUserId" value="" placeholder="123456789012345678" style="width:280px;background:var(--bg-raised);border:1px solid var(--border-light);color:var(--text);padding:10px 14px;border-radius:6px;font-size:14px;font-family:monospace">
+      </div>
+      
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="field">
+          <label>Webhook ID</label>
+          <p class="desc">Numeric ID from the webhook URL</p>
+          <input type="text" id="discordWebhookId" value="" placeholder="1234567890123456789" style="width:100%;background:var(--bg-raised);border:1px solid var(--border-light);color:var(--text);padding:10px 14px;border-radius:6px;font-size:14px;font-family:monospace">
+        </div>
+        <div class="field">
+          <label>Webhook Token</label>
+          <p class="desc">Token string from the webhook URL</p>
+          <input type="text" id="discordWebhookToken" value="" placeholder="aBcDeFg..." style="width:100%;background:var(--bg-raised);border:1px solid var(--border-light);color:var(--text);padding:10px 14px;border-radius:6px;font-size:14px;font-family:monospace">
+        </div>
+      </div>
+      
+      <div class="field">
+        <label>Default Delivery Location</label>
+        <p class="desc">Pre-fills the delivery location when sending orders to Discord (can be changed per order).</p>
+        <input type="text" id="discordDefaultLocation" value="" placeholder="e.g. Arccorp, Seraphim Station" style="width:280px;background:var(--bg-raised);border:1px solid var(--border-light);color:var(--text);padding:10px 14px;border-radius:6px;font-size:14px">
+      </div>
+      
+      <div style="margin-top:12px">
+        <button class="btn btn-secondary" onclick="testWebhook()" style="font-size:12px">Test Webhook</button>
+        <span id="webhook-status" style="margin-left:8px;font-size:12px;color:var(--text-muted)"></span>
+      </div>
+    </div>
+
+    <div class="card">
       <h2>Data Management</h2>
       
       <div class="field">
@@ -309,6 +344,9 @@
     
     const ALL_KEYS = Object.keys(DEFAULTS);
     
+    // Discord fields (stored as strings, separate from numeric config)
+    const DISCORD_KEYS = ['discordUserId', 'discordWebhookId', 'discordWebhookToken', 'discordDefaultLocation'];
+    
     // Load current settings on page load
     function loadSettings() {
       try {
@@ -318,6 +356,11 @@
           ALL_KEYS.forEach(key => {
             const input = document.getElementById(key);
             if (input) input.value = config[key] ?? DEFAULTS[key];
+          });
+          // Load Discord string fields
+          DISCORD_KEYS.forEach(key => {
+            const input = document.getElementById(key);
+            if (input) input.value = config[key] || '';
           });
           updateDisplays(config);
         }
@@ -340,6 +383,10 @@
         ALL_KEYS.forEach(key => {
           config[key] = parseInt(document.getElementById(key)?.value) || DEFAULTS[key];
         });
+        // Save Discord string fields
+        DISCORD_KEYS.forEach(key => {
+          config[key] = (document.getElementById(key)?.value || '').trim();
+        });
         localStorage.setItem(LS + 'adminConfig', JSON.stringify(config));
         updateDisplays(config);
         showToast('Settings saved!');
@@ -356,8 +403,47 @@
         const input = document.getElementById(key);
         if (input) input.value = DEFAULTS[key];
       });
+      // Don't clear Discord fields on reset — they're not "defaults"
       saveSettings();
       showToast('Reset to defaults');
+    }
+    
+    // Test Discord webhook
+    async function testWebhook() {
+      const whId = (document.getElementById('discordWebhookId')?.value || '').trim();
+      const whToken = (document.getElementById('discordWebhookToken')?.value || '').trim();
+      const statusEl = document.getElementById('webhook-status');
+      
+      if (!whId || !whToken) {
+        statusEl.textContent = '⚠️ Enter Webhook ID and Token first';
+        statusEl.style.color = '#f97316';
+        return;
+      }
+      
+      statusEl.textContent = 'Testing...';
+      statusEl.style.color = 'var(--text-muted)';
+      
+      try {
+        const url = `https://discord.com/api/webhooks/${whId}/${whToken}`;
+        const resp = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            content: '✅ **RediMake webhook test** — connection successful!',
+          }),
+        });
+        if (resp.ok || resp.status === 204) {
+          statusEl.textContent = '✅ Sent! Check your Discord channel.';
+          statusEl.style.color = '#059669';
+        } else {
+          const err = await resp.text();
+          statusEl.textContent = `❌ Error ${resp.status}: ${err.slice(0, 80)}`;
+          statusEl.style.color = '#ef4444';
+        }
+      } catch (e) {
+        statusEl.textContent = `❌ Failed: ${e.message}`;
+        statusEl.style.color = '#ef4444';
+      }
     }
     
     // Clear all data

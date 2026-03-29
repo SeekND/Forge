@@ -145,6 +145,7 @@
                 <button class="ore-mode" data-mode="remaining" onclick="setOreMode('remaining')">Remaining</button>
               </div>
             </div>
+            <button class="btn-discord" id="btn-discord" onclick="showDiscordModal()" style="display:none">Send to Discord</button>
             <button class="btn-danger" onclick="deleteCurrentOrder()">Delete Order</button>
           </div>
         </div>
@@ -160,6 +161,9 @@
 
   <!-- Request Build Modal -->
   <div id="request-modal" class="rqm-container" style="display:none"></div>
+  
+  <!-- Discord Order Modal -->
+  <div id="discord-modal" class="rqm-container" style="display:none"></div>
 
   <footer class="site-footer">
     <p>This site is not endorsed by or affiliated with the Cloud Imperium or Roberts Space Industries group of companies. All game content and materials are copyright Cloud Imperium Rights LLC and Cloud Imperium Rights Ltd.. Star Citizen®, Squadron 42®, Roberts Space Industries®, and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC. All rights reserved.</p>

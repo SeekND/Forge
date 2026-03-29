@@ -428,6 +428,28 @@ nav#tabs{display:flex;gap:1px;overflow-x:auto}
 .wiki-piece-img{width:100%;height:100%;object-fit:cover;border-radius:3px}
 .wiki-piece-thumb a{display:block;width:100%;height:100%;text-decoration:none}
 
+/* ═══════════════════════════════════════════════
+   Discord Integration
+   ═══════════════════════════════════════════════ */
+.btn-discord{background:#5865F2;color:#fff;border:none;padding:8px 14px;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;transition:background .15s}
+.btn-discord:hover{background:#4752C4}
+
+/* Discord type toggle */
+.dc-type-toggle{display:flex;border-radius:6px;overflow:hidden;border:1px solid var(--border-light);margin-bottom:10px}
+.dc-type{flex:1;padding:8px 12px;font-size:12px;font-weight:700;background:var(--bg-deep);color:var(--text-muted);border:none;cursor:pointer;transition:background .15s,color .15s}
+.dc-type.active[data-type="crafting"]{background:#1d4ed8;color:#fff}
+.dc-type.active[data-type="mining"]{background:#c2410c;color:#fff}
+.dc-type:hover:not(.active){background:var(--bg-raised);color:var(--text-dim)}
+.dc-type-hint{font-size:11px;color:var(--text-muted);margin-bottom:12px;font-style:italic}
+
+/* Modal form fields */
+.rqm-field{margin-bottom:12px}
+.rqm-field-label{display:block;font-size:12px;font-weight:600;color:var(--text-dim);margin-bottom:4px}
+.rqm-input{width:100%;background:var(--bg-raised);border:1px solid var(--border-light);color:var(--text);padding:8px 12px;border-radius:6px;font-size:13px;outline:none}
+.rqm-input:focus{border-color:var(--accent)}
+.rqm-preview{margin-top:12px;padding:10px 12px;background:var(--bg-deep);border-radius:6px;border:1px solid var(--border)}
+.rqm-preview-label{font-size:10px;font-weight:700;color:var(--text-muted);letter-spacing:.04em;margin-bottom:6px}
+
 @media(max-width:768px){
   .planner-layout,.inventory-layout,.wo-layout,.vault-layout{flex-direction:column}
   .planner-summary,.wo-sidebar{width:100%;position:static}

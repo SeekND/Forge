@@ -1062,6 +1062,7 @@ function renderWO(){
     btns.style.display='none';document.getElementById('wo-time-panel').style.display='none';document.getElementById('wo-materials').innerHTML='';return;
   }
   btns.style.display='flex';
+  updateDiscordBtn();
 
   const selBar=`<div class="wo-sel-bar"><label class="toggle-label"><input type="checkbox" id="wo-sel-all" onchange="toggleWOSelectAll(this.checked)"> Select for export</label><span class="wo-sel-count" id="wo-sel-count"></span></div>`;
 
@@ -1517,6 +1518,285 @@ function importWOFromHash(hash){
     });
     if(imported.length){const id=genId();orders.push({id,name,author,items:imported});activeOrderId=id;saveState();}
   }catch(e){console.error('Import failed:',e);}
+}
+
+// ════════════════════════════════════════════
+// DISCORD INTEGRATION
+// ════════════════════════════════════════════
+function hasDiscordConfig(){
+  return !!(adminConfig.discordWebhookId&&adminConfig.discordWebhookToken);
+}
+
+function updateDiscordBtn(){
+  const btn=document.getElementById('btn-discord');
+  if(btn)btn.style.display=hasDiscordConfig()?'':'none';
+}
+
+let dcType='crafting'; // 'crafting' or 'mining'
+
+function showDiscordModal(){
+  const o=getActiveOrder();if(!o)return;
+  const items=getExportItems();if(!items.length){showToast('No items in order');return;}
+  dcType='crafting';
+  
+  const defaultLoc=adminConfig.discordDefaultLocation||'';
+  const modal=document.getElementById('discord-modal');
+  modal.innerHTML=`<div class="rqm-overlay" onclick="closeDiscordModal()"></div>
+    <div class="rqm-dialog">
+      <div class="rqm-header">
+        <h3>Send to Discord</h3>
+        <button class="rqm-close" onclick="closeDiscordModal()">×</button>
+      </div>
+      <div class="rqm-body">
+        <p class="rqm-desc">Post this order to your Discord channel. Choose the request type based on what you need.</p>
+        <div class="dc-type-toggle">
+          <button class="dc-type active" data-type="crafting" onclick="setDcType('crafting')">⬡ Crafting Request</button>
+          <button class="dc-type" data-type="mining" onclick="setDcType('mining')">⛏ Mining Request</button>
+        </div>
+        <div class="dc-type-hint" id="dc-type-hint">Someone crafts the items for you — full blueprint + materials breakdown.</div>
+        <div class="rqm-field">
+          <label class="rqm-field-label">Delivery Location *</label>
+          <input type="text" id="dc-location" class="rqm-input" value="${esc(defaultLoc)}" placeholder="e.g. Arccorp, Seraphim Station">
+        </div>
+        <div class="rqm-field">
+          <label class="rqm-field-label">Payment (aUEC) *</label>
+          <input type="text" id="dc-payment" class="rqm-input" value="" placeholder="e.g. 500K, 1M">
+        </div>
+        <div class="rqm-field">
+          <label class="rqm-field-label">Additional Notes</label>
+          <input type="text" id="dc-notes" class="rqm-input" value="" placeholder="Optional">
+        </div>
+        <div class="rqm-preview">
+          <div class="rqm-preview-label">Preview</div>
+          <div class="rqm-preview-body" id="dc-preview"></div>
+        </div>
+      </div>
+      <div class="rqm-footer">
+        <span id="dc-status" style="flex:1;font-size:12px;color:var(--text-muted)"></span>
+        <button class="btn-secondary" onclick="closeDiscordModal()">Cancel</button>
+        <button class="btn-discord" id="dc-send-btn" onclick="sendToDiscord()">Send to Discord</button>
+      </div>
+    </div>`;
+  modal.style.display='flex';
+  updateDiscordPreview();
+  ['dc-location','dc-payment','dc-notes'].forEach(id=>{
+    document.getElementById(id)?.addEventListener('input',updateDiscordPreview);
+  });
+}
+
+function setDcType(type){
+  dcType=type;
+  document.querySelectorAll('.dc-type').forEach(b=>b.classList.toggle('active',b.dataset.type===type));
+  const hint=document.getElementById('dc-type-hint');
+  if(hint)hint.textContent=type==='crafting'
+    ?'Someone crafts the items for you — full blueprint + materials breakdown.'
+    :'You have the blueprint — just need the raw ores and items delivered.';
+  updateDiscordPreview();
+}
+
+function updateDiscordPreview(){
+  const prev=document.getElementById('dc-preview');if(!prev)return;
+  const o=getActiveOrder();if(!o)return;
+  const items=getExportItems();
+  const loc=document.getElementById('dc-location')?.value||'?';
+  const pay=document.getElementById('dc-payment')?.value||'?';
+  const notes=document.getElementById('dc-notes')?.value||'';
+  
+  const isMining=dcType==='mining';
+  const typeLabel=isMining?'Mining':'Crafting';
+  const icon=isMining?'⛏':'⬡';
+  
+  let summary='';
+  if(isMining){
+    const mats=buildMaterialSummary(items);
+    summary=`${mats.lines.length} material${mats.lines.length!==1?'s':''}`;
+  }else{
+    summary=`${items.length} item${items.length!==1?'s':''}`;
+  }
+  
+  prev.innerHTML=`<div style="color:#94a3b8;font-size:11px">${icon} Type: <b style="color:#e2e8f0">${typeLabel}</b></div>
+    <div style="color:#94a3b8;font-size:11px">Location: <b style="color:#e2e8f0">${esc(loc)}</b></div>
+    <div style="color:#94a3b8;font-size:11px">Order: <b style="color:#e2e8f0">${summary}</b></div>
+    <div style="color:#94a3b8;font-size:11px">Payment: <b style="color:#e2e8f0">${esc(pay)} aUEC</b></div>
+    ${notes?`<div style="color:#94a3b8;font-size:11px">Notes: <b style="color:#e2e8f0">${esc(notes)}</b></div>`:''}`;
+}
+
+// Shared helper: gather materials + item costs from work order items
+function buildMaterialSummary(items){
+  const m={},ic={};
+  items.forEach(wo=>{
+    const addSlots=(recipe,keyPrefix)=>{
+      recipe.filter(r=>r.slot&&((r.material&&r.amount_cscu>0)||(r.cost_type==='item'&&r.item_quantity>0))).forEach(r=>{
+        const sqKey=keyPrefix?keyPrefix+'|'+r.slot:r.slot;
+        const sq=wo.slotQ?.[sqKey]??0;
+        const isItem=r.cost_type==='item';
+        const matName=isItem?r.item_name:r.material;
+        const qty=isItem?r.item_quantity*wo.qty:r.amount_cscu*wo.qty;
+        if(!m[matName])m[matName]={total:0,isItem,qualities:{}};
+        m[matName].total+=qty;
+        const qk=sq||'unset';
+        m[matName].qualities[qk]=(m[matName].qualities[qk]||0)+qty;
+      });
+    };
+    if(wo.item.pieces){
+      wo.item.pieces.forEach(p=>addSlots(p.recipe||[],p.piece_type));
+    }else{
+      addSlots(getSlottedRec(wo.item),'');
+    }
+  });
+  
+  const lines=[];
+  const oreNames=[];
+  Object.entries(m).sort((a,b)=>b[1].total-a[1].total).forEach(([mat,info])=>{
+    if(info.total<=0)return;
+    oreNames.push(miningOreName(mat));
+    const fmtQty=v=>info.isItem?`${v}×`:`${roundScu(v/100)} SCU`;
+    // Quality breakdown
+    const qs=Object.entries(info.qualities).filter(([_,v])=>v>0).sort((a,b)=>parseInt(b[0])||0-parseInt(a[0])||0);
+    if(qs.length===1){
+      const[qVal]=qs[0];
+      const qStr=qVal==='unset'?'':(parseInt(qVal)?` @ ${gradeLabel(parseInt(qVal))} (${gradeRange(parseInt(qVal))})`:'');
+      lines.push(`${fmtQty(info.total)} ${mat}${qStr}`);
+    }else{
+      lines.push(`${fmtQty(info.total)} ${mat}`);
+      qs.forEach(([qVal,qty])=>{
+        const qStr=qVal==='unset'?'@ any quality':`@ ${gradeLabel(parseInt(qVal))} (${gradeRange(parseInt(qVal))})`;
+        lines.push(`  ${fmtQty(qty)} ${qStr}`);
+      });
+    }
+  });
+  return {lines,oreNames:[...new Set(oreNames)],matMap:m};
+}
+
+async function sendToDiscord(){
+  const o=getActiveOrder();if(!o)return;
+  const items=getExportItems();
+  const loc=(document.getElementById('dc-location')?.value||'').trim();
+  const pay=(document.getElementById('dc-payment')?.value||'').trim();
+  const notes=(document.getElementById('dc-notes')?.value||'').trim();
+  const statusEl=document.getElementById('dc-status');
+  const sendBtn=document.getElementById('dc-send-btn');
+  
+  if(!loc){statusEl.textContent='⚠️ Delivery location is required';statusEl.style.color='#f97316';return;}
+  if(!pay){statusEl.textContent='⚠️ Payment amount is required';statusEl.style.color='#f97316';return;}
+  
+  sendBtn.disabled=true;sendBtn.textContent='Sending...';
+  statusEl.textContent='';
+  
+  const isMining=dcType==='mining';
+  const userId=adminConfig.discordUserId||'';
+  const mention=userId?`<@${userId}>`:'Unknown';
+  const typeTag=isMining?'REDIMAKE-MINING':'REDIMAKE-CRAFTING';
+  const typeLabel=isMining?'Mining':'Crafting';
+  const icon=isMining?'⛏':'⬡';
+  const embedColor=isMining?0xf97316:0x1d4ed8;
+  
+  // Content line with parseable prefix + user ID
+  const content=`[${typeTag}] ${mention} has created a new contract.`;
+  
+  let embed;
+  
+  if(isMining){
+    // MINING REQUEST — materials + qualities + mining link
+    const matData=buildMaterialSummary(items);
+    const matText=matData.lines.join('\n');
+    const miningUrl=matData.oreNames.length
+      ?`https://seeknd.github.io/Strata/?ores=${matData.oreNames.join(',')}`:'';
+    const itemList=items.map(wo=>`${wo.qty}x ${itemName(wo.type,wo.item)}`).join(', ');
+    
+    embed={
+      title:`${icon} Mining Request: ${o.name}`,
+      color:embedColor,
+      fields:[
+        {name:'Type of Contract',value:'Mining',inline:true},
+        {name:'Origin/Destination',value:loc,inline:true},
+        {name:'Crafting For',value:itemList},
+        {name:'Amount (scu/items/etc...)',value:matText||'No materials'},
+        {name:'Payment in aUEC',value:pay,inline:true},
+      ],
+      footer:{text:`RediMake · Requester ID: ${userId||'unknown'}`},
+      timestamp:new Date().toISOString(),
+    };
+    if(miningUrl)embed.fields.push({name:'Mining Site Link',value:miningUrl});
+  }else{
+    // CRAFTING REQUEST — full item + slot breakdown
+    const totalTime=items.reduce((s,wo)=>s+itemTime(wo.item)*wo.qty,0);
+    let itemText='';
+    items.forEach(wo=>{
+      const name=itemName(wo.type,wo.item);
+      itemText+=`\n${wo.qty}x ${name} (${uFmt(itemCscu(wo.item)*wo.qty)})`;
+      if(wo.item.pieces){
+        wo.item.pieces.forEach(p=>{
+          const pSlots=(p.recipe||[]).filter(r=>r.slot&&((r.material&&r.amount_cscu>0)||(r.cost_type==='item'&&r.item_quantity>0)));
+          pSlots.forEach(r=>{
+            const sqKey=p.piece_type+'|'+r.slot;
+            const sq=wo.slotQ?.[sqKey]??0;
+            const isIt=r.cost_type==='item';
+            const mN=isIt?r.item_name:r.material;
+            const amt=isIt?(r.item_quantity*wo.qty)+'×':uFmt(r.amount_cscu*wo.qty);
+            itemText+=`\n  ${r.slot}: ${amt} ${mN}${sq?` @ Q${sq}${qNote(sq)}`:''}`;
+          });
+        });
+      }else{
+        getSlottedRec(wo.item).forEach(r=>{
+          const sq=wo.slotQ?.[r.slot]??0;
+          const isIt=r.cost_type==='item';
+          const mN=isIt?r.item_name:r.material;
+          const amt=isIt?(r.item_quantity*wo.qty)+'×':uFmt(r.amount_cscu*wo.qty);
+          itemText+=`\n  ${r.slot}: ${amt} ${mN}${sq?` @ Q${sq}${qNote(sq)}`:''}`;
+        });
+      }
+    });
+    
+    const matData=buildMaterialSummary(items);
+    const matText=matData.lines.join('\n');
+    
+    embed={
+      title:`${icon} Crafting Order: ${o.name}`,
+      color:embedColor,
+      fields:[
+        {name:'Type of Contract',value:'Crafting',inline:true},
+        {name:'Origin/Destination',value:loc,inline:true},
+        {name:'Amount (scu/items/etc...)',value:itemText+`\n\n── Materials ──\n${matText}\n\nCraft time: ${ctimeFull(totalTime)}`},
+        {name:'Payment in aUEC',value:pay,inline:true},
+      ],
+      footer:{text:`RediMake · Requester ID: ${userId||'unknown'}`},
+      timestamp:new Date().toISOString(),
+    };
+  }
+  
+  // Common fields
+  if(notes)embed.fields.push({name:'Additional Notes',value:notes});
+  const enc=encodeWO();
+  if(enc){
+    const shareUrl=window.location.origin+window.location.pathname+'#wo='+enc;
+    embed.fields.push({name:'Order Link',value:shareUrl});
+  }
+  
+  try{
+    const url=`https://discord.com/api/webhooks/${adminConfig.discordWebhookId}/${adminConfig.discordWebhookToken}`;
+    const resp=await fetch(url,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({content,embeds:[embed]}),
+    });
+    if(resp.ok||resp.status===204){
+      statusEl.textContent='✅ Sent!';statusEl.style.color='#059669';
+      setTimeout(closeDiscordModal,1500);
+    }else{
+      const err=await resp.text();
+      statusEl.textContent=`❌ Error ${resp.status}`;statusEl.style.color='#ef4444';
+      console.error('Discord webhook error:',err);
+    }
+  }catch(e){
+    statusEl.textContent=`❌ ${e.message}`;statusEl.style.color='#ef4444';
+  }
+  sendBtn.disabled=false;sendBtn.textContent='Send to Discord';
+}
+
+function closeDiscordModal(){
+  const modal=document.getElementById('discord-modal');
+  modal.style.display='none';modal.innerHTML='';
 }
 
 function showToast(msg){const el=document.createElement('div');el.textContent=msg;el.style.cssText='position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1d4ed8;color:#fff;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:700;z-index:999;opacity:0;transition:opacity .3s';document.body.appendChild(el);requestAnimationFrame(()=>{el.style.opacity='1';});setTimeout(()=>{el.style.opacity='0';setTimeout(()=>el.remove(),300);},2000);}
