@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RediMake Admin Panel</title>
+  <title>Forge Admin Panel</title>
   <style>
     :root {
       --bg-deep: #020617;
@@ -269,7 +269,7 @@
     
     <div class="card">
       <h2>Discord Integration</h2>
-      <p class="desc" style="margin-bottom:16px">Connect to Discord to send work orders directly to a channel. Create a webhook in your Discord channel settings (Integrations → Webhooks). Your Discord User ID can be found by enabling Developer Mode and right-clicking your name.</p>
+      <p class="desc" style="margin-bottom:16px">Connect to Discord to send work orders directly to a channel. Create a webhook in your Discord channel settings (Integrations → Webhooks). Your Discord User ID can be found by clicking on your name (bottom left in Discord) and selecting Copy User ID.</p>
       
       <div class="field">
         <label>Discord User ID</label>
@@ -424,12 +424,14 @@
       statusEl.style.color = 'var(--text-muted)';
       
       try {
+        const uid = (document.getElementById('discordUserId')?.value || '').trim();
+        const mention = uid ? `<@${uid}>` : 'A user';
         const url = `https://discord.com/api/webhooks/${whId}/${whToken}`;
         const resp = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            content: '✅ **RediMake webhook test** — connection successful!',
+            content: `✅ ${mention} has connected **Forge** to Discord!`,
           }),
         });
         if (resp.ok || resp.status === 204) {

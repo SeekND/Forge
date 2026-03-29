@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   RediMake Crafting Calculator v10
+   Forge Crafting Calculator v10
    Obtain Filter + Blueprint Unlock System
    ═══════════════════════════════════════════════ */
 :root{--bg-deep:#020617;--bg-card:#0f172a;--bg-raised:#1e293b;--bg-input:#0f172a;--border:#1e293b;--border-light:#334155;--text:#e2e8f0;--text-dim:#94a3b8;--text-muted:#64748b;--text-faint:#475569;--accent:#38bdf8;--accent-dim:#38bdf833;--green:#059669;--green-dim:#05966933;--orange:#f97316;--orange-dim:#f9731622;--red:#ef4444;--red-dim:#ef444422;--purple:#a855f7;--purple-dim:#a855f722;--radius:8px;--radius-sm:5px}
@@ -247,7 +247,9 @@ nav#tabs{display:flex;gap:1px;overflow-x:auto}
 .btn-craft.done{background:var(--bg-raised);color:var(--green);border:1px solid var(--green)}
 .toggle-label{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-dim);cursor:pointer}
 .toggle-label input{accent-color:var(--accent)}
-.wo-btns{display:flex;gap:6px;flex-wrap:wrap}
+.wo-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start}
+.wo-btn-group{display:flex;flex-direction:column;gap:6px}
+.wo-btn-label{font-size:10px;font-weight:700;color:var(--text-muted);letter-spacing:.03em;padding-left:2px}
 .wo-sel-bar{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:8px}
 .wo-sel-bar .toggle-label{margin:0}
 .wo-sel-count{color:var(--accent);font-size:12px;font-weight:700}

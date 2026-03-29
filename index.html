@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RediMake Crafting Calculator — Star Citizen</title>
+  <title>Forge Crafting Calculator — Star Citizen</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
 </head>
@@ -12,7 +12,7 @@
     <div class="header-inner">
       <div class="header-top">
         <div class="brand">
-          <h1><span class="accent">⬡</span> RediMake Crafting Calculator</h1>
+          <h1><span class="accent">⬡</span> Forge Crafting Calculator</h1>
           <div class="subtitle" id="subtitle">Star Citizen · Loading...</div>
         </div>
         <div style="display:flex;align-items:center;gap:8px">
@@ -137,16 +137,24 @@
             <div id="wo-time"></div>
           </div>
           <div class="wo-btns" id="wo-btns" style="display:none">
-            <button class="btn-primary" onclick="copyWOText()">Order Request</button>
-            <div class="ore-req-group">
-              <button class="btn-secondary" onclick="copyOreRequest()">Ore Request</button>
-              <div class="ore-mode-toggle" id="ore-mode-toggle">
-                <button class="ore-mode active" data-mode="all" onclick="setOreMode('all')">All</button>
-                <button class="ore-mode" data-mode="remaining" onclick="setOreMode('remaining')">Remaining</button>
+            <div class="wo-btn-group">
+              <span class="wo-btn-label">📋 Copy to clipboard</span>
+              <button class="btn-primary" onclick="copyWOText()">Crafting Order</button>
+              <div class="ore-req-group">
+                <button class="btn-secondary" onclick="copyOreRequest()">Ore Request</button>
+                <div class="ore-mode-toggle" id="ore-mode-toggle">
+                  <button class="ore-mode active" data-mode="all" onclick="setOreMode('all')">All</button>
+                  <button class="ore-mode" data-mode="remaining" onclick="setOreMode('remaining')">Remaining</button>
+                </div>
               </div>
             </div>
-            <button class="btn-discord" id="btn-discord" onclick="showDiscordModal()" style="display:none">Send to Discord</button>
-            <button class="btn-danger" onclick="deleteCurrentOrder()">Delete Order</button>
+            <div class="wo-btn-group" id="wo-discord-group" style="display:none">
+              <span class="wo-btn-label">📤 Send to Discord</span>
+              <button class="btn-discord" id="btn-discord" onclick="showDiscordModal()">Post Contract</button>
+            </div>
+            <div class="wo-btn-group">
+              <button class="btn-danger btn-sm" onclick="deleteCurrentOrder()">Delete Order</button>
+            </div>
           </div>
         </div>
       </div>

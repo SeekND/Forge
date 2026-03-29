@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   RediMake Crafting Calculator — app.js v10.3
+   Forge Crafting Calculator — app.js v10.3
    Patch 4.7: Unlock System + Obtainable Only
    ═══════════════════════════════════════════════ */
 
@@ -1528,8 +1528,8 @@ function hasDiscordConfig(){
 }
 
 function updateDiscordBtn(){
-  const btn=document.getElementById('btn-discord');
-  if(btn)btn.style.display=hasDiscordConfig()?'':'none';
+  const grp=document.getElementById('wo-discord-group');
+  if(grp)grp.style.display=hasDiscordConfig()?'':'none';
 }
 
 let dcType='crafting'; // 'crafting' or 'mining'
@@ -1777,7 +1777,7 @@ async function sendToDiscord(){
     title:`${embedIcon} ${typeLabel.toUpperCase()} CONTRACT — Action Required`,
     description:`\n👇 **React with any emoji to accept this contract**\n\n> This message will be deleted automatically.\n> A contract thread will be created with the details above.\n`,
     color:embedColor,
-    footer:{text:`RediMake · ${typeLabel} Request · Awaiting confirmation`},
+    footer:{text:`Forge · ${typeLabel} Request · Awaiting confirmation`},
   };
   
   try{
@@ -1827,7 +1827,7 @@ function updPlanner(slot,val){plannerSelections[slot]=val;saveState();const el=d
 function resPI(v){if(!v)return null;if(v.startsWith('bp:'))return DATA.backpacks.find(b=>b.name===v.slice(3));if(v.startsWith('us:'))return DATA.undersuits.find(u=>u.name===v.slice(3));if(v.startsWith('fs:'))return DATA.flightsuits.find(f=>f.name===v.slice(3));if(v.startsWith('pc:')){const[,sn,pn]=v.split(':');const s=DATA.armor_sets.find(x=>x.set_name===sn);return s?.pieces.find(p=>p.name===pn);}return null;}
 function updPlannerSum(){const m={};let tot=0,any=false;Object.values(plannerSelections).forEach(v=>{const it=resPI(v);if(!it)return;any=true;(it.recipe||[]).forEach(r=>{if(r.material&&r.amount_cscu>0){m[r.material]=(m[r.material]||0)+r.amount_cscu;tot+=r.amount_cscu;}});});const el=document.getElementById('planner-materials'),act=document.getElementById('planner-actions');if(!any){el.innerHTML='<div class="dim">Select pieces to see totals</div>';act.style.display='none';return;}el.innerHTML=Object.entries(m).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div style="display:flex;justify-content:space-between;padding:3px 0"><span style="color:#e2e8f0;font-size:13px">${k}</span><span style="color:#38bdf8;font-size:13px;font-weight:700">${uFmt(v)}</span></div>`).join('')+`<div style="border-top:1px solid #334155;margin-top:8px;padding-top:8px;display:flex;justify-content:space-between"><span style="color:#94a3b8;font-weight:700;font-size:13px">TOTAL</span><span style="color:#f8fafc;font-weight:700;font-size:15px">${uFmt(tot)}</span></div>`;act.style.display='flex';}
 function addPlannerToWO(){let o=getActiveOrder();if(!o){createNewOrder(true);o=getActiveOrder();}Object.entries(plannerSelections).forEach(([slot,val])=>{if(!val)return;const it=resPI(val);if(!it)return;const k=it.name||val;if(!o.items.some(w=>w.key===k)){const slotQ={};(it.recipe||[]).filter(r=>r.material&&r.slot).forEach(r=>{slotQ[r.slot]=0;});o.items.push({type:'piece',key:k,qty:1,item:it,crafted:false,deducted:null,slotQ});}});saveState();updateWOBadge();switchTab('workorder');renderWO();}
-function copyPlannerText(){const lines=['═══ RediMake Set ═══'],m={};Object.entries(plannerSelections).forEach(([slot,val])=>{const it=resPI(val);if(!it)return;lines.push(`${PIECE_LABELS[slot]||slot}: ${it.name} (${uFmt(it.total_cscu)})`);(it.recipe||[]).forEach(r=>{if(r.material&&r.amount_cscu>0)m[r.material]=(m[r.material]||0)+r.amount_cscu;});});lines.push('','Materials:');Object.entries(m).sort((a,b)=>b[1]-a[1]).forEach(([k,v])=>lines.push(`  ${uFmt(v)} ${k}`));navigator.clipboard.writeText(lines.join('\n')).then(()=>showToast('Copied to clipboard'));}
+function copyPlannerText(){const lines=['═══ Forge Set ═══'],m={};Object.entries(plannerSelections).forEach(([slot,val])=>{const it=resPI(val);if(!it)return;lines.push(`${PIECE_LABELS[slot]||slot}: ${it.name} (${uFmt(it.total_cscu)})`);(it.recipe||[]).forEach(r=>{if(r.material&&r.amount_cscu>0)m[r.material]=(m[r.material]||0)+r.amount_cscu;});});lines.push('','Materials:');Object.entries(m).sort((a,b)=>b[1]-a[1]).forEach(([k,v])=>lines.push(`  ${uFmt(v)} ${k}`));navigator.clipboard.writeText(lines.join('\n')).then(()=>showToast('Copied to clipboard'));}
 function savePlannerSet(){const n=prompt('Name:');if(!n)return;savedSets.push({name:n,selections:{...plannerSelections}});saveState();renderSavedSets();}
 function loadSavedSet(i){const s=savedSets[i];if(!s)return;plannerSelections={...s.selections};['helmet','core','arms','legs','backpack','undersuit'].forEach(slot=>{const sel=document.getElementById(`ps-${slot}`);if(sel){sel.value=plannerSelections[slot]||'';updPlanner(slot,plannerSelections[slot]||'');}});}
 function deleteSavedSet(i){savedSets.splice(i,1);saveState();renderSavedSets();}
