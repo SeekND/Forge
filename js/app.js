@@ -1772,10 +1772,12 @@ async function sendToDiscord(){
   const content=cl.join('\n');
   
   // ── Build EMBED (instructions only — deleted when reacted) ──
+  const embedIcon=isMining?'⛏️':'🔨';
   const embed={
-    description:`React with any emoji to create this contract.\nThis message will be deleted and a contract thread will be created automatically.`,
+    title:`${embedIcon} ${typeLabel.toUpperCase()} CONTRACT — Action Required`,
+    description:`\n👇 **React with any emoji to accept this contract**\n\n> This message will be deleted automatically.\n> A contract thread will be created with the details above.\n`,
     color:embedColor,
-    footer:{text:`RediMake \u00b7 ${typeLabel} Request`},
+    footer:{text:`RediMake · ${typeLabel} Request · Awaiting confirmation`},
   };
   
   try{
