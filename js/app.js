@@ -1105,7 +1105,13 @@ function renderWO(){
     const otherOrders=orders.filter(x=>x.id!==o.id);
     const moveSel=otherOrders.length?`<select class="wo-move-sel" onchange="if(this.value)moveWOItem(${i},this.value);this.value=''"><option value="">Move to...</option>${otherOrders.map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join('')}</select>`:'';
 
-    return `<div class="wo-item${craftedCls}"><div class="wo-item-top"><div class="wo-item-info"><div style="display:flex;align-items:center;gap:6px">${chk}<span class="wo-item-name">${esc(name)}</span></div><div class="wo-item-badges">${badges}</div></div><div class="wo-item-right"><div class="wo-item-cost">${totalCost}</div><div class="wo-item-time">${totalTime}</div></div></div>${slotsHtml}<div class="wo-item-bottom"><div class="wo-qty"><button onclick="setWOQty(${i},-1)">−</button><div class="wo-qty-val">${wo.qty}x</div><button onclick="setWOQty(${i},1)">+</button></div><div class="wo-item-actions">${craftBtn}${moveSel}<button class="btn-remove" onclick="removeWOItem(${i})">Remove</button></div></div></div>`;
+    // Blueprint unlock status
+    const unlocked=isUnlocked(wo.type,wo.key);
+    const bpStatus=unlocked
+      ?'<span class="wo-bp-status unlocked" title="Blueprint unlocked">✓ BP</span>'
+      :`<span class="wo-bp-status locked">${sourcesIcon(item.sources||[])}🔒 BP</span>`;
+
+    return `<div class="wo-item${craftedCls}"><div class="wo-item-top"><div class="wo-item-info"><div style="display:flex;align-items:center;gap:6px">${chk}<span class="wo-item-name">${esc(name)}</span>${bpStatus}</div><div class="wo-item-badges">${badges}</div></div><div class="wo-item-right"><div class="wo-item-cost">${totalCost}</div><div class="wo-item-time">${totalTime}</div></div></div>${slotsHtml}<div class="wo-item-bottom"><div class="wo-qty"><button onclick="setWOQty(${i},-1)">−</button><div class="wo-qty-val">${wo.qty}x</div><button onclick="setWOQty(${i},1)">+</button></div><div class="wo-item-actions">${craftBtn}${moveSel}<button class="btn-remove" onclick="removeWOItem(${i})">Remove</button></div></div></div>`;
   }).join('');
   renderWOTotals();renderWOTime();
 }
@@ -1463,12 +1469,13 @@ function copyOreRequest(){
 // Extract ore names from a WO hash for OREREQUEST redirect (before full data load)
 function extractOreNamesFromHash(hash){
   try{
+    hash=decodeURIComponent(hash);
     const parts=hash.split('~');if(parts.length<3)return[];
     const itemStr=parts.slice(2).join('~');
     const oreSet=new Set();
     itemStr.split('|').forEach(p=>{
       const segs=p.split(':');if(segs.length<3)return;
-      const tc=segs[0],key=decodeURIComponent(segs[1]);
+      const tc=segs[0],key=segs[1];
       const type=TYPE_LONG[tc]||tc;const item=findItem(type,key);
       if(!item)return;
       getRec(item).forEach(r=>{
@@ -1496,24 +1503,26 @@ function encodeWO(){
 
 function importWOFromHash(hash){
   try{
+    // Decode the hash first — some browsers encode | as %7C
+    hash=decodeURIComponent(hash);
     const parts=hash.split('~');if(parts.length<3)return;
-    const name=decodeURIComponent(parts[0])||'Shared Order';
-    const author=decodeURIComponent(parts[1])||'';
+    const name=parts[0]||'Shared Order';
+    const author=parts[1]||'';
     const itemStr=parts.slice(2).join('~');
     const imported=[];
     itemStr.split('|').forEach(p=>{
       const segs=p.split(':');if(segs.length<3)return;
-      const tc=segs[0],key=decodeURIComponent(segs[1]),qty=parseInt(segs[2])||1;
+      const tc=segs[0],key=segs[1],qty=parseInt(segs[2])||1;
       const type=TYPE_LONG[tc]||tc;const item=findItem(type,key);
       if(!item)return;
       // Parse shared slot qualities
       const sharedQ={};
-      if(segs[3]){segs[3].split(',').forEach(sq=>{const[s,q]=sq.split('=');if(s&&q)sharedQ[decodeURIComponent(s)]=parseInt(q)||1000;});}
+      if(segs[3]){segs[3].split(',').forEach(sq=>{const[s,q]=sq.split('=');if(s&&q)sharedQ[s]=parseInt(q)||1000;});}
       // Auto-assign quality using shared zone-aware picker
       const slotQ={};
       const assignSlot=(sqKey,mat)=>{slotQ[sqKey]=pickQualityForSlot(mat,sharedQ[sqKey]??1000);};
-      if(item.pieces){item.pieces.forEach(pp=>{(pp.recipe||[]).filter(rr=>rr.material&&rr.slot&&rr.amount_cscu>0).forEach(rr=>{assignSlot(pp.piece_type+'|'+rr.slot,rr.material);});});}
-      else{getSlottedRec(item).forEach(rr=>{assignSlot(rr.slot,rr.material);});}
+      if(item.pieces){item.pieces.forEach(pp=>{(pp.recipe||[]).filter(rr=>rr.slot&&((rr.material&&rr.amount_cscu>0)||(rr.cost_type==='item'&&rr.item_quantity>0))).forEach(rr=>{const mN=rr.cost_type==='item'?rr.item_name:rr.material;assignSlot(pp.piece_type+'|'+rr.slot,mN);});});}
+      else{getSlottedRec(item).forEach(rr=>{const mN=rr.cost_type==='item'?rr.item_name:rr.material;assignSlot(rr.slot,mN);});}
       imported.push({type,key,qty,item,crafted:false,deducted:null,slotQ});
     });
     if(imported.length){const id=genId();orders.push({id,name,author,items:imported});activeOrderId=id;saveState();}
@@ -1540,6 +1549,7 @@ function showDiscordModal(){
   dcType='crafting';
   
   const defaultLoc=adminConfig.discordDefaultLocation||'';
+  const defaultName=o.author?`${o.name} — ${o.author}`:o.name;
   const modal=document.getElementById('discord-modal');
   modal.innerHTML=`<div class="rqm-overlay" onclick="closeDiscordModal()"></div>
     <div class="rqm-dialog">
@@ -1554,6 +1564,10 @@ function showDiscordModal(){
           <button class="dc-type" data-type="mining" onclick="setDcType('mining')">⛏ Mining Request</button>
         </div>
         <div class="dc-type-hint" id="dc-type-hint">Someone crafts the items for you — full blueprint + materials breakdown.</div>
+        <div class="rqm-field">
+          <label class="rqm-field-label">Order / Requester Name *</label>
+          <input type="text" id="dc-ordername" class="rqm-input" value="${esc(defaultName)}" placeholder="e.g. Carlito's Guns">
+        </div>
         <div class="rqm-field">
           <label class="rqm-field-label">Delivery Location *</label>
           <input type="text" id="dc-location" class="rqm-input" value="${esc(defaultLoc)}" placeholder="e.g. Arccorp, Seraphim Station">
@@ -1579,7 +1593,7 @@ function showDiscordModal(){
     </div>`;
   modal.style.display='flex';
   updateDiscordPreview();
-  ['dc-location','dc-payment','dc-notes'].forEach(id=>{
+  ['dc-ordername','dc-location','dc-payment','dc-notes'].forEach(id=>{
     document.getElementById(id)?.addEventListener('input',updateDiscordPreview);
   });
 }
@@ -1598,6 +1612,7 @@ function updateDiscordPreview(){
   const prev=document.getElementById('dc-preview');if(!prev)return;
   const o=getActiveOrder();if(!o)return;
   const items=getExportItems();
+  const orderName=document.getElementById('dc-ordername')?.value||o.name;
   const loc=document.getElementById('dc-location')?.value||'?';
   const pay=document.getElementById('dc-payment')?.value||'?';
   const notes=document.getElementById('dc-notes')?.value||'';
@@ -1615,8 +1630,8 @@ function updateDiscordPreview(){
   }
   
   prev.innerHTML=`<div style="color:#94a3b8;font-size:11px">${icon} Type: <b style="color:#e2e8f0">${typeLabel}</b></div>
+    <div style="color:#94a3b8;font-size:11px">Order: <b style="color:#e2e8f0">${esc(orderName)}</b> — ${summary}</div>
     <div style="color:#94a3b8;font-size:11px">Location: <b style="color:#e2e8f0">${esc(loc)}</b></div>
-    <div style="color:#94a3b8;font-size:11px">Order: <b style="color:#e2e8f0">${summary}</b></div>
     <div style="color:#94a3b8;font-size:11px">Payment: <b style="color:#e2e8f0">${esc(pay)} aUEC</b></div>
     ${notes?`<div style="color:#94a3b8;font-size:11px">Notes: <b style="color:#e2e8f0">${esc(notes)}</b></div>`:''}`;
 }
@@ -1671,14 +1686,25 @@ function buildMaterialSummary(items){
 async function sendToDiscord(){
   const o=getActiveOrder();if(!o)return;
   const items=getExportItems();
+  const orderNameInput=(document.getElementById('dc-ordername')?.value||'').trim();
   const loc=(document.getElementById('dc-location')?.value||'').trim();
   const pay=(document.getElementById('dc-payment')?.value||'').trim();
   const notes=(document.getElementById('dc-notes')?.value||'').trim();
   const statusEl=document.getElementById('dc-status');
   const sendBtn=document.getElementById('dc-send-btn');
   
+  if(!orderNameInput){statusEl.textContent='⚠️ Order name is required';statusEl.style.color='#f97316';return;}
   if(!loc){statusEl.textContent='⚠️ Delivery location is required';statusEl.style.color='#f97316';return;}
   if(!pay){statusEl.textContent='⚠️ Payment amount is required';statusEl.style.color='#f97316';return;}
+  
+  // Update order name if changed
+  const defaultName=o.author?`${o.name} — ${o.author}`:o.name;
+  if(orderNameInput!==defaultName){
+    const dashIdx=orderNameInput.indexOf(' — ');
+    if(dashIdx>=0){o.name=orderNameInput.slice(0,dashIdx);o.author=orderNameInput.slice(dashIdx+3);}
+    else{o.name=orderNameInput;o.author='';}
+    saveState();renderWO();
+  }
   
   sendBtn.disabled=true;sendBtn.textContent='Sending...';
   statusEl.textContent='';
@@ -1718,8 +1744,7 @@ async function sendToDiscord(){
     }
   }else{
     const totalTime=items.reduce((s,wo)=>s+itemTime(wo.item)*wo.qty,0);
-    const hdr=o.author?`${o.name} \u2014 ${o.author}`:o.name;
-    cl.push(`\u2550\u2550\u2550 ${hdr} \u2550\u2550\u2550`);
+    cl.push(`\u2550\u2550\u2550 ${orderNameInput} \u2550\u2550\u2550`);
     cl.push('');
     items.forEach(wo=>{
       const name=itemName(wo.type,wo.item);
