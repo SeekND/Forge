@@ -1686,55 +1686,55 @@ async function sendToDiscord(){
   const isMining=dcType==='mining';
   const userId=adminConfig.discordUserId||'';
   const mention=userId?`<@${userId}>`:'Unknown';
-  const typeTag=isMining?'REDIMAKE-MINING':'REDIMAKE-CRAFTING';
+  const typeTag=isMining?'MINING':'CRAFTING';
   const typeLabel=isMining?'Mining':'Crafting';
-  const icon=isMining?'⛏':'⬡';
   const embedColor=isMining?0xf97316:0x1d4ed8;
   
-  // Content line with parseable prefix + user ID
-  const content=`[${typeTag}] ${mention} has created a new contract.`;
+  // Share link
+  const enc=encodeWO();
+  const shareUrl=enc?window.location.origin+window.location.pathname+'#wo='+enc:'';
   
-  let embed;
+  // ── Build CONTENT (plain text — what BotGhost sees and reposts) ──
+  const cl=[];
+  cl.push(`[${typeTag}] ${mention} has created a new contract.`);
+  cl.push('');
+  cl.push(`**Type of contract**`);
+  cl.push(typeLabel);
+  cl.push('');
+  cl.push(`**Origin/Destination**`);
+  cl.push(loc);
+  cl.push('');
+  cl.push(`**Amount ( scu/items/etc... )**`);
   
   if(isMining){
-    // MINING REQUEST — materials + qualities + mining link
     const matData=buildMaterialSummary(items);
-    const matText=matData.lines.join('\n');
-    const miningUrl=matData.oreNames.length
-      ?`https://seeknd.github.io/Strata/?ores=${matData.oreNames.join(',')}`:'';
     const itemList=items.map(wo=>`${wo.qty}x ${itemName(wo.type,wo.item)}`).join(', ');
-    
-    embed={
-      title:`${icon} Mining Request: ${o.name}`,
-      color:embedColor,
-      fields:[
-        {name:'Type of Contract',value:'Mining',inline:true},
-        {name:'Origin/Destination',value:loc,inline:true},
-        {name:'Crafting For',value:itemList},
-        {name:'Amount (scu/items/etc...)',value:matText||'No materials'},
-        {name:'Payment in aUEC',value:pay,inline:true},
-      ],
-      footer:{text:`RediMake · Requester ID: ${userId||'unknown'}`},
-      timestamp:new Date().toISOString(),
-    };
-    if(miningUrl)embed.fields.push({name:'Mining Site Link',value:miningUrl});
+    cl.push(`Ores for: ${itemList}`);
+    cl.push('');
+    matData.lines.forEach(l=>cl.push(l));
+    if(matData.oreNames.length){
+      cl.push('');
+      cl.push(`Mining link: https://seeknd.github.io/Strata/?ores=${matData.oreNames.join(',')}`);
+    }
   }else{
-    // CRAFTING REQUEST — full item + slot breakdown
     const totalTime=items.reduce((s,wo)=>s+itemTime(wo.item)*wo.qty,0);
-    let itemText='';
+    const hdr=o.author?`${o.name} \u2014 ${o.author}`:o.name;
+    cl.push(`\u2550\u2550\u2550 ${hdr} \u2550\u2550\u2550`);
+    cl.push('');
     items.forEach(wo=>{
       const name=itemName(wo.type,wo.item);
-      itemText+=`\n${wo.qty}x ${name} (${uFmt(itemCscu(wo.item)*wo.qty)})`;
+      cl.push(`${wo.qty}x ${name} (${uFmt(itemCscu(wo.item)*wo.qty)})`);
       if(wo.item.pieces){
         wo.item.pieces.forEach(p=>{
           const pSlots=(p.recipe||[]).filter(r=>r.slot&&((r.material&&r.amount_cscu>0)||(r.cost_type==='item'&&r.item_quantity>0)));
+          if(!pSlots.length)return;
           pSlots.forEach(r=>{
             const sqKey=p.piece_type+'|'+r.slot;
             const sq=wo.slotQ?.[sqKey]??0;
             const isIt=r.cost_type==='item';
             const mN=isIt?r.item_name:r.material;
-            const amt=isIt?(r.item_quantity*wo.qty)+'×':uFmt(r.amount_cscu*wo.qty);
-            itemText+=`\n  ${r.slot}: ${amt} ${mN}${sq?` @ Q${sq}${qNote(sq)}`:''}`;
+            const amt=isIt?(r.item_quantity*wo.qty)+'\u00d7':uFmt(r.amount_cscu*wo.qty);
+            cl.push(`${r.slot}: ${amt} ${mN}${sq?` @ Q${sq} (${gradeLabel(sq)} \u00b7 ${gradeRange(sq)})`:''}`);
           });
         });
       }else{
@@ -1742,36 +1742,41 @@ async function sendToDiscord(){
           const sq=wo.slotQ?.[r.slot]??0;
           const isIt=r.cost_type==='item';
           const mN=isIt?r.item_name:r.material;
-          const amt=isIt?(r.item_quantity*wo.qty)+'×':uFmt(r.amount_cscu*wo.qty);
-          itemText+=`\n  ${r.slot}: ${amt} ${mN}${sq?` @ Q${sq}${qNote(sq)}`:''}`;
+          const amt=isIt?(r.item_quantity*wo.qty)+'\u00d7':uFmt(r.amount_cscu*wo.qty);
+          cl.push(`${r.slot}: ${amt} ${mN}${sq?` @ Q${sq} (${gradeLabel(sq)} \u00b7 ${gradeRange(sq)})`:''}`);
         });
       }
     });
-    
     const matData=buildMaterialSummary(items);
-    const matText=matData.lines.join('\n');
-    
-    embed={
-      title:`${icon} Crafting Order: ${o.name}`,
-      color:embedColor,
-      fields:[
-        {name:'Type of Contract',value:'Crafting',inline:true},
-        {name:'Origin/Destination',value:loc,inline:true},
-        {name:'Amount (scu/items/etc...)',value:itemText+`\n\n── Materials ──\n${matText}\n\nCraft time: ${ctimeFull(totalTime)}`},
-        {name:'Payment in aUEC',value:pay,inline:true},
-      ],
-      footer:{text:`RediMake · Requester ID: ${userId||'unknown'}`},
-      timestamp:new Date().toISOString(),
-    };
+    cl.push('');
+    cl.push('\u2500\u2500\u2500 Materials \u2500\u2500\u2500');
+    matData.lines.forEach(l=>cl.push(l));
+    cl.push('');
+    cl.push(`Craft time: ${ctimeFull(totalTime)}`);
   }
   
-  // Common fields
-  if(notes)embed.fields.push({name:'Additional Notes',value:notes});
-  const enc=encodeWO();
-  if(enc){
-    const shareUrl=window.location.origin+window.location.pathname+'#wo='+enc;
-    embed.fields.push({name:'Order Link',value:shareUrl});
+  cl.push('');
+  if(notes&&notes.toLowerCase()!=='none'){
+    cl.push(`**Additional notes**`);
+    cl.push(notes);
+    cl.push('');
   }
+  if(shareUrl){
+    cl.push(`**Order link**`);
+    cl.push(shareUrl);
+    cl.push('');
+  }
+  cl.push(`**Payment in aUEC**`);
+  cl.push(pay);
+  
+  const content=cl.join('\n');
+  
+  // ── Build EMBED (instructions only — deleted when reacted) ──
+  const embed={
+    description:`React with any emoji to create this contract.\nThis message will be deleted and a contract thread will be created automatically.`,
+    color:embedColor,
+    footer:{text:`RediMake \u00b7 ${typeLabel} Request`},
+  };
   
   try{
     const url=`https://discord.com/api/webhooks/${adminConfig.discordWebhookId}/${adminConfig.discordWebhookToken}`;
@@ -1781,18 +1786,19 @@ async function sendToDiscord(){
       body:JSON.stringify({content,embeds:[embed]}),
     });
     if(resp.ok||resp.status===204){
-      statusEl.textContent='✅ Sent!';statusEl.style.color='#059669';
+      statusEl.textContent='\u2705 Sent!';statusEl.style.color='#059669';
       setTimeout(closeDiscordModal,1500);
     }else{
       const err=await resp.text();
-      statusEl.textContent=`❌ Error ${resp.status}`;statusEl.style.color='#ef4444';
+      statusEl.textContent=`\u274c Error ${resp.status}`;statusEl.style.color='#ef4444';
       console.error('Discord webhook error:',err);
     }
   }catch(e){
-    statusEl.textContent=`❌ ${e.message}`;statusEl.style.color='#ef4444';
+    statusEl.textContent=`\u274c ${e.message}`;statusEl.style.color='#ef4444';
   }
   sendBtn.disabled=false;sendBtn.textContent='Send to Discord';
 }
+
 
 function closeDiscordModal(){
   const modal=document.getElementById('discord-modal');
