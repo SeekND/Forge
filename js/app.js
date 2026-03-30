@@ -713,6 +713,7 @@ function filterBlueprints(){
   }
   grid.innerHTML=html;document.getElementById('bp-results-info').textContent=`${count} items`;
   hydrateWikiImages();
+  updateShareBar();
 }
 
 // ════════════════════════════════════════════
@@ -1107,9 +1108,15 @@ function renderWO(){
 
     // Blueprint unlock status
     const unlocked=isUnlocked(wo.type,wo.key);
-    const bpStatus=unlocked
-      ?'<span class="wo-bp-status unlocked" title="Blueprint unlocked">✓ BP</span>'
-      :`<span class="wo-bp-status locked">${sourcesIcon(item.sources||[])}🔒 BP</span>`;
+    const isRequest=o.isRequest;
+    let bpStatus;
+    if(unlocked){
+      bpStatus='<span class="wo-bp-status unlocked" title="Blueprint unlocked">✓ BP</span>';
+    }else if(isRequest){
+      bpStatus=`<span class="wo-bp-status locked">${sourcesIcon(item.sources||[])}🔒 BP</span>`;
+    }else{
+      bpStatus=`<span class="wo-bp-status locked clickable" onclick="event.stopPropagation();unlockFromWO('${esc(wo.type)}','${escAttr(wo.key)}')" title="Click to unlock this blueprint">${sourcesIcon(item.sources||[])}🔒 Unlock BP</span>`;
+    }
 
     return `<div class="wo-item${craftedCls}"><div class="wo-item-top"><div class="wo-item-info"><div style="display:flex;align-items:center;gap:6px">${chk}<span class="wo-item-name">${esc(name)}</span>${bpStatus}</div><div class="wo-item-badges">${badges}</div></div><div class="wo-item-right"><div class="wo-item-cost">${totalCost}</div><div class="wo-item-time">${totalTime}</div></div></div>${slotsHtml}<div class="wo-item-bottom"><div class="wo-qty"><button onclick="setWOQty(${i},-1)">−</button><div class="wo-qty-val">${wo.qty}x</div><button onclick="setWOQty(${i},1)">+</button></div><div class="wo-item-actions">${craftBtn}${moveSel}<button class="btn-remove" onclick="removeWOItem(${i})">Remove</button></div></div></div>`;
   }).join('');
@@ -1280,6 +1287,11 @@ function uncraftWO(i){
 }
 
 function removeWOItem(i){const o=getActiveOrder();if(!o)return;o.items.splice(i,1);saveState();renderWO();updateWOBadge();filterBlueprints();}
+
+function unlockFromWO(type,key){
+  toggleUnlock(type,key);
+  renderWO();
+}
 
 // ── Selection ──
 function toggleWOSelect(i,c){if(c)woSelected.add(i);else woSelected.delete(i);updSelCount();}
@@ -1790,6 +1802,9 @@ async function sendToDiscord(){
     cl.push(`**Order link**`);
     cl.push(shareUrl);
     cl.push('');
+    cl.push(`**Ore request link**`);
+    cl.push(shareUrl+'&OREREQUEST');
+    cl.push('');
   }
   cl.push(`**Payment in aUEC**`);
   cl.push(pay);
@@ -1830,6 +1845,144 @@ async function sendToDiscord(){
 function closeDiscordModal(){
   const modal=document.getElementById('discord-modal');
   modal.style.display='none';modal.innerHTML='';
+}
+
+// ── Share Unlocked to Discord ──
+function updateShareBar(){
+  const bar=document.getElementById('bp-share-bar');if(!bar)return;
+  const show=hasDiscordConfig();
+  bar.style.display=show?'flex':'none';
+  if(show){
+    const cnt=countUnlocked();
+    document.getElementById('bp-share-count').textContent=`${cnt.total} unlocked blueprints`;
+  }
+}
+
+function countUnlocked(){
+  let sets=0,pieces=0,weapons=0,weaponAmmo=0,backpacks=0,suits=0;
+  DATA.armor_sets.forEach(s=>{if(isUnlocked('set',s.set_name))sets++;});
+  (DATA.armor_pieces||[]).forEach(p=>{if(isUnlocked('piece',p.name))pieces++;});
+  DATA.weapons.forEach(w=>{if(isUnlocked('weapon',w.name)){if(/magazine|battery/i.test(w.name))weaponAmmo++;else weapons++;}});
+  DATA.backpacks.forEach(b=>{if(isUnlocked('backpack',b.name))backpacks++;});
+  [...DATA.undersuits,...(DATA.undersuit_helmets||[]),...DATA.flightsuits,...(DATA.flightsuit_helmets||[])].forEach(s=>{
+    const t=DATA.undersuits.includes(s)?'undersuit':(DATA.undersuit_helmets||[]).includes(s)?'undersuit_helmet':DATA.flightsuits.includes(s)?'flightsuit':'flightsuit_helmet';
+    if(isUnlocked(t,s.name))suits++;
+  });
+  return{sets,pieces,weapons,weaponAmmo,backpacks,suits,total:sets+pieces+weapons+weaponAmmo+backpacks+suits};
+}
+
+function buildUnlockedSummary(){
+  // Armor: group by set, show (Set) if all pieces unlocked, else abbreviate pieces
+  const PIECE_ABBR={arms:'A',core:'C',helmet:'H',legs:'L'};
+  const armorLines=[];
+  DATA.armor_sets.forEach(set=>{
+    if(isUnlocked('set',set.set_name)){
+      armorLines.push(`${set.set_name} (Set)`);
+    }else{
+      // Check for individual pieces
+      const unlocked=set.pieces.filter(p=>isUnlocked('piece',p.name));
+      if(unlocked.length){
+        const abbrs=unlocked.map(p=>PIECE_ABBR[p.piece_type]||p.piece_type.charAt(0).toUpperCase()).join(',');
+        armorLines.push(`${set.set_name} (${abbrs})`);
+      }
+    }
+  });
+  // Backpacks
+  const bpLines=DATA.backpacks.filter(b=>isUnlocked('backpack',b.name)).map(b=>b.name);
+  
+  // Weapons: group guns with their ammo
+  const gunNames=new Set();const ammoFor={};
+  DATA.weapons.forEach(w=>{
+    if(!isUnlocked('weapon',w.name))return;
+    if(/magazine|battery/i.test(w.name)){
+      // Try to find parent gun name
+      const base=w.name.replace(/\s*(Magazine|Battery)\s*\(.*\)/i,'').trim();
+      ammoFor[base]=true;
+    }else{
+      gunNames.add(w.name);
+    }
+  });
+  const weaponLines=[...gunNames].map(n=>{
+    return ammoFor[n]?`${n} (w/ammo)`:n;
+  });
+  
+  // Suits
+  const suitLines=[];
+  DATA.undersuits.filter(s=>isUnlocked('undersuit',s.name)).forEach(s=>suitLines.push(s.name));
+  (DATA.undersuit_helmets||[]).filter(s=>isUnlocked('undersuit_helmet',s.name)).forEach(s=>suitLines.push(s.name));
+  DATA.flightsuits.filter(s=>isUnlocked('flightsuit',s.name)).forEach(s=>suitLines.push(s.name));
+  (DATA.flightsuit_helmets||[]).filter(s=>isUnlocked('flightsuit_helmet',s.name)).forEach(s=>suitLines.push(s.name));
+  
+  return{armorLines,bpLines,weaponLines,suitLines};
+}
+
+async function shareUnlockedToDiscord(){
+  if(!hasDiscordConfig()){showToast('Configure Discord in Admin first');return;}
+  
+  const userId=adminConfig.discordUserId||'';
+  const mention=userId?`<@${userId}>`:'Someone';
+  const summary=buildUnlockedSummary();
+  const counts=countUnlocked();
+  
+  // Message 1: Armor + Backpacks
+  const armorText=summary.armorLines.join(', ')||'None';
+  const bpText=summary.bpLines.join(', ')||'None';
+  const embed1={
+    title:`📦 Unlocked Blueprints — Armor`,
+    description:`${mention}'s blueprint collection`,
+    color:0x1d4ed8,
+    fields:[
+      {name:`Armor Sets & Pieces (${summary.armorLines.length})`,value:armorText.slice(0,1024)||'None'},
+      {name:`Backpacks (${summary.bpLines.length})`,value:bpText.slice(0,1024)||'None'},
+    ],
+    footer:{text:`Forge · Blueprint Collection`},
+    timestamp:new Date().toISOString(),
+  };
+  // If armor text is very long, split into field chunks
+  if(armorText.length>1024){
+    embed1.fields[0].value=armorText.slice(0,1024);
+    embed1.fields.splice(1,0,{name:'Armor (continued)',value:armorText.slice(1024,2048)});
+  }
+  
+  // Message 2: Weapons + Suits
+  const weaponText=summary.weaponLines.join(', ')||'None';
+  const suitText=summary.suitLines.join(', ')||'None';
+  const embed2={
+    title:`📦 Unlocked Blueprints — Weapons & Suits`,
+    description:`${mention}'s blueprint collection`,
+    color:0x1d4ed8,
+    fields:[
+      {name:`Weapons (${summary.weaponLines.length})`,value:weaponText.slice(0,1024)||'None'},
+      {name:`Undersuits & Flightsuits (${summary.suitLines.length})`,value:suitText.slice(0,1024)||'None'},
+    ],
+    footer:{text:`Forge · ${counts.total} total unlocked`},
+    timestamp:new Date().toISOString(),
+  };
+  if(weaponText.length>1024){
+    embed2.fields[0].value=weaponText.slice(0,1024);
+    embed2.fields.splice(1,0,{name:'Weapons (continued)',value:weaponText.slice(1024,2048)});
+  }
+  
+  const url=`https://discord.com/api/webhooks/${adminConfig.discordWebhookId}/${adminConfig.discordWebhookToken}`;
+  
+  try{
+    // Send message 1
+    const r1=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({content:`[BLUEPRINTS] ${mention}'s unlocked blueprints:`,embeds:[embed1]})});
+    if(!r1.ok&&r1.status!==204){showToast('Failed to send (msg 1)');return;}
+    
+    // Small delay to maintain order
+    await new Promise(r=>setTimeout(r,500));
+    
+    // Send message 2
+    const r2=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({embeds:[embed2]})});
+    if(!r2.ok&&r2.status!==204){showToast('Failed to send (msg 2)');return;}
+    
+    showToast(`Shared ${counts.total} unlocked blueprints to Discord!`);
+  }catch(e){
+    showToast('Discord error: '+e.message);
+  }
 }
 
 function showToast(msg){const el=document.createElement('div');el.textContent=msg;el.style.cssText='position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1d4ed8;color:#fff;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:700;z-index:999;opacity:0;transition:opacity .3s';document.body.appendChild(el);requestAnimationFrame(()=>{el.style.opacity='1';});setTimeout(()=>{el.style.opacity='0';setTimeout(()=>el.remove(),300);},2000);}

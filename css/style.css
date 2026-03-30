@@ -255,6 +255,11 @@ nav#tabs{display:flex;gap:1px;overflow-x:auto}
 .wo-bp-status{font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;white-space:nowrap;display:inline-flex;align-items:center;gap:3px}
 .wo-bp-status.unlocked{color:#34d399;background:rgba(5,150,105,.12)}
 .wo-bp-status.locked{color:#f97316;background:rgba(249,115,22,.12)}
+.wo-bp-status.locked.clickable{cursor:pointer;transition:background .15s}
+.wo-bp-status.locked.clickable:hover{background:rgba(249,115,22,.25)}
+
+/* Blueprint share bar */
+.bp-share-bar{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px}
 .wo-sel-bar{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:8px}
 .wo-sel-bar .toggle-label{margin:0}
 .wo-sel-count{color:var(--accent);font-size:12px;font-weight:700}
