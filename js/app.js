@@ -1850,25 +1850,24 @@ function closeDiscordModal(){
 // ── Share Unlocked to Discord ──
 function updateShareBar(){
   const bar=document.getElementById('bp-share-bar');if(!bar)return;
-  const show=hasDiscordConfig();
-  bar.style.display=show?'flex':'none';
-  if(show){
-    const cnt=countUnlocked();
-    document.getElementById('bp-share-count').textContent=`${cnt.total} unlocked blueprints`;
+  if(!hasDiscordConfig()){bar.style.display='none';return;}
+  
+  const cat=bpCategory;
+  const summary=buildUnlockedSummary();
+  let count=0,label='';
+  if(cat==='armor'){
+    count=summary.armorLines.length+summary.bpLines.length;
+    label=`${count} unlocked armor/backpack blueprints`;
+  }else if(cat==='weapons'){
+    count=summary.weaponLines.length;
+    label=`${count} unlocked weapon blueprints`;
+  }else{
+    count=summary.suitLines.length;
+    label=`${count} unlocked suit blueprints`;
   }
-}
-
-function countUnlocked(){
-  let sets=0,pieces=0,weapons=0,weaponAmmo=0,backpacks=0,suits=0;
-  DATA.armor_sets.forEach(s=>{if(isUnlocked('set',s.set_name))sets++;});
-  (DATA.armor_pieces||[]).forEach(p=>{if(isUnlocked('piece',p.name))pieces++;});
-  DATA.weapons.forEach(w=>{if(isUnlocked('weapon',w.name)){if(/magazine|battery/i.test(w.name))weaponAmmo++;else weapons++;}});
-  DATA.backpacks.forEach(b=>{if(isUnlocked('backpack',b.name))backpacks++;});
-  [...DATA.undersuits,...(DATA.undersuit_helmets||[]),...DATA.flightsuits,...(DATA.flightsuit_helmets||[])].forEach(s=>{
-    const t=DATA.undersuits.includes(s)?'undersuit':(DATA.undersuit_helmets||[]).includes(s)?'undersuit_helmet':DATA.flightsuits.includes(s)?'flightsuit':'flightsuit_helmet';
-    if(isUnlocked(t,s.name))suits++;
-  });
-  return{sets,pieces,weapons,weaponAmmo,backpacks,suits,total:sets+pieces+weapons+weaponAmmo+backpacks+suits};
+  
+  bar.style.display=count>0?'flex':'none';
+  document.getElementById('bp-share-count').textContent=label;
 }
 
 function buildUnlockedSummary(){
@@ -1879,7 +1878,6 @@ function buildUnlockedSummary(){
     if(isUnlocked('set',set.set_name)){
       armorLines.push(`${set.set_name} (Set)`);
     }else{
-      // Check for individual pieces
       const unlocked=set.pieces.filter(p=>isUnlocked('piece',p.name));
       if(unlocked.length){
         const abbrs=unlocked.map(p=>PIECE_ABBR[p.piece_type]||p.piece_type.charAt(0).toUpperCase()).join(',');
@@ -1895,16 +1893,13 @@ function buildUnlockedSummary(){
   DATA.weapons.forEach(w=>{
     if(!isUnlocked('weapon',w.name))return;
     if(/magazine|battery/i.test(w.name)){
-      // Try to find parent gun name
       const base=w.name.replace(/\s*(Magazine|Battery)\s*\(.*\)/i,'').trim();
       ammoFor[base]=true;
     }else{
       gunNames.add(w.name);
     }
   });
-  const weaponLines=[...gunNames].map(n=>{
-    return ammoFor[n]?`${n} (w/ammo)`:n;
-  });
+  const weaponLines=[...gunNames].map(n=>ammoFor[n]?`${n} (w/ammo)`:n);
   
   // Suits
   const suitLines=[];
@@ -1922,66 +1917,60 @@ async function shareUnlockedToDiscord(){
   const userId=adminConfig.discordUserId||'';
   const mention=userId?`<@${userId}>`:'Someone';
   const summary=buildUnlockedSummary();
-  const counts=countUnlocked();
-  
-  // Message 1: Armor + Backpacks
-  const armorText=summary.armorLines.join(', ')||'None';
-  const bpText=summary.bpLines.join(', ')||'None';
-  const embed1={
-    title:`📦 Unlocked Blueprints — Armor`,
-    description:`${mention}'s blueprint collection`,
-    color:0x1d4ed8,
-    fields:[
-      {name:`Armor Sets & Pieces (${summary.armorLines.length})`,value:armorText.slice(0,1024)||'None'},
-      {name:`Backpacks (${summary.bpLines.length})`,value:bpText.slice(0,1024)||'None'},
-    ],
-    footer:{text:`Forge · Blueprint Collection`},
-    timestamp:new Date().toISOString(),
-  };
-  // If armor text is very long, split into field chunks
-  if(armorText.length>1024){
-    embed1.fields[0].value=armorText.slice(0,1024);
-    embed1.fields.splice(1,0,{name:'Armor (continued)',value:armorText.slice(1024,2048)});
-  }
-  
-  // Message 2: Weapons + Suits
-  const weaponText=summary.weaponLines.join(', ')||'None';
-  const suitText=summary.suitLines.join(', ')||'None';
-  const embed2={
-    title:`📦 Unlocked Blueprints — Weapons & Suits`,
-    description:`${mention}'s blueprint collection`,
-    color:0x1d4ed8,
-    fields:[
-      {name:`Weapons (${summary.weaponLines.length})`,value:weaponText.slice(0,1024)||'None'},
-      {name:`Undersuits & Flightsuits (${summary.suitLines.length})`,value:suitText.slice(0,1024)||'None'},
-    ],
-    footer:{text:`Forge · ${counts.total} total unlocked`},
-    timestamp:new Date().toISOString(),
-  };
-  if(weaponText.length>1024){
-    embed2.fields[0].value=weaponText.slice(0,1024);
-    embed2.fields.splice(1,0,{name:'Weapons (continued)',value:weaponText.slice(1024,2048)});
-  }
-  
+  const cat=bpCategory;
   const url=`https://discord.com/api/webhooks/${adminConfig.discordWebhookId}/${adminConfig.discordWebhookToken}`;
   
-  try{
-    // Send message 1
-    const r1=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({content:`[BLUEPRINTS] ${mention}'s unlocked blueprints:`,embeds:[embed1]})});
-    if(!r1.ok&&r1.status!==204){showToast('Failed to send (msg 1)');return;}
+  if(cat==='armor'){
+    // Armor + Backpacks
+    const fields=[];
+    if(summary.armorLines.length){
+      const text=summary.armorLines.join(', ');
+      fields.push({name:`Armor (${summary.armorLines.length})`,value:text.slice(0,1024)});
+      if(text.length>1024)fields.push({name:'Armor (continued)',value:text.slice(1024,2048)});
+    }
+    if(summary.bpLines.length){
+      fields.push({name:`Backpacks (${summary.bpLines.length})`,value:summary.bpLines.join(', ').slice(0,1024)});
+    }
+    if(!fields.length){showToast('No unlocked armor');return;}
+    const total=summary.armorLines.length+summary.bpLines.length;
+    try{
+      const resp=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({content:`[BLUEPRINTS] ${mention}'s unlocked armor blueprints:`,embeds:[{
+          title:'📦 Unlocked Armor Blueprints',description:`${mention}'s collection`,color:0x1d4ed8,fields,
+          footer:{text:`Forge · ${total} unlocked`},timestamp:new Date().toISOString()}]})});
+      if(resp.ok||resp.status===204)showToast(`Shared ${total} armor blueprints to Discord!`);
+      else showToast('Failed to send');
+    }catch(e){showToast('Discord error: '+e.message);}
     
-    // Small delay to maintain order
-    await new Promise(r=>setTimeout(r,500));
+  }else if(cat==='weapons'){
+    // Weapons only
+    if(!summary.weaponLines.length){showToast('No unlocked weapons');return;}
+    const text=summary.weaponLines.join(', ');
+    const fields=[{name:`Weapons (${summary.weaponLines.length})`,value:text.slice(0,1024)}];
+    if(text.length>1024)fields.push({name:'Weapons (continued)',value:text.slice(1024,2048)});
+    try{
+      const resp=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({content:`[BLUEPRINTS] ${mention}'s unlocked weapon blueprints:`,embeds:[{
+          title:'📦 Unlocked Weapon Blueprints',description:`${mention}'s collection`,color:0x1d4ed8,fields,
+          footer:{text:`Forge · ${summary.weaponLines.length} unlocked`},timestamp:new Date().toISOString()}]})});
+      if(resp.ok||resp.status===204)showToast(`Shared ${summary.weaponLines.length} weapon blueprints to Discord!`);
+      else showToast('Failed to send');
+    }catch(e){showToast('Discord error: '+e.message);}
     
-    // Send message 2
-    const r2=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({embeds:[embed2]})});
-    if(!r2.ok&&r2.status!==204){showToast('Failed to send (msg 2)');return;}
-    
-    showToast(`Shared ${counts.total} unlocked blueprints to Discord!`);
-  }catch(e){
-    showToast('Discord error: '+e.message);
+  }else{
+    // Undersuits / Flightsuits
+    if(!summary.suitLines.length){showToast('No unlocked suits');return;}
+    const text=summary.suitLines.join(', ');
+    const fields=[{name:`Suits (${summary.suitLines.length})`,value:text.slice(0,1024)}];
+    if(text.length>1024)fields.push({name:'Suits (continued)',value:text.slice(1024,2048)});
+    try{
+      const resp=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({content:`[BLUEPRINTS] ${mention}'s unlocked suit blueprints:`,embeds:[{
+          title:'📦 Unlocked Suit Blueprints',description:`${mention}'s collection`,color:0x1d4ed8,fields,
+          footer:{text:`Forge · ${summary.suitLines.length} unlocked`},timestamp:new Date().toISOString()}]})});
+      if(resp.ok||resp.status===204)showToast(`Shared ${summary.suitLines.length} suit blueprints to Discord!`);
+      else showToast('Failed to send');
+    }catch(e){showToast('Discord error: '+e.message);}
   }
 }
 
