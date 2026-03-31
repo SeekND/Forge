@@ -1732,21 +1732,31 @@ async function sendToDiscord(){
   // Header (always included)
   const header=`[${typeTag}] ${mention} has created a new contract.\n\n**Type of contract**\n${typeLabel}\n\n**Origin/Destination**\n${loc}\n\n**Amount ( scu/items/etc... )**`;
   
-  // Footer (always included)
-  const footerParts=[];
-  if(notes&&notes.toLowerCase()!=='none')footerParts.push(`**Additional notes**\n${notes}`);
-  if(shareUrl){footerParts.push(`**Order link**\n${shareUrl}`);footerParts.push(`**Ore request link**\n${shareUrl}&OREREQUEST`);}
-  footerParts.push(`**Payment in aUEC**\n${pay}`);
-  const footer=footerParts.join('\n\n');
+  // Footer builder (ore link optional)
+  function buildFooter(includeOreLink){
+    const fp=[];
+    if(notes&&notes.toLowerCase()!=='none')fp.push(`**Additional notes**\n${notes}`);
+    if(shareUrl){
+      if(isMining){
+        // Mining: ore link IS the main link
+        fp.push(`**Ore request link**\n${shareUrl}&OREREQUEST`);
+      }else{
+        fp.push(`**Order link**\n${shareUrl}`);
+        if(includeOreLink)fp.push(`**Ore request link**\n${shareUrl}&OREREQUEST`);
+      }
+    }
+    fp.push(`**Payment in aUEC**\n${pay}`);
+    return fp.join('\n\n');
+  }
   
-  // Level 1: Full detail — items with slot breakdowns + materials
+  // Level 1: Full detail — items with slot breakdowns + materials (no SCU per item)
   function buildFull(){
     const lines=[];
     lines.push(`\u2550\u2550\u2550 ${orderNameInput} \u2550\u2550\u2550`);
     lines.push('');
     items.forEach(wo=>{
       const name=itemName(wo.type,wo.item);
-      lines.push(`${wo.qty}x ${name} (${uFmt(itemCscu(wo.item)*wo.qty)})`);
+      lines.push(`${wo.qty}x ${name}`);
       const addSlots=(recipe,keyPrefix)=>{
         recipe.filter(r=>r.slot&&((r.material&&r.amount_cscu>0)||(r.cost_type==='item'&&r.item_quantity>0))).forEach(r=>{
           const sqKey=keyPrefix?keyPrefix+'|'+r.slot:r.slot;
@@ -1774,7 +1784,7 @@ async function sendToDiscord(){
     lines.push(`\u2550\u2550\u2550 ${orderNameInput} \u2550\u2550\u2550`);
     lines.push('');
     items.forEach(wo=>{
-      lines.push(`${wo.qty}x ${itemName(wo.type,wo.item)} (${uFmt(itemCscu(wo.item)*wo.qty)})`);
+      lines.push(`${wo.qty}x ${itemName(wo.type,wo.item)}`);
     });
     lines.push('');
     lines.push('\u2500\u2500\u2500 Materials \u2500\u2500\u2500');
@@ -1784,15 +1794,13 @@ async function sendToDiscord(){
     return lines.join('\n');
   }
   
-  // Level 3: Materials only
+  // Level 3: Materials + link only
   function buildMinimal(){
     const lines=[];
-    lines.push(`\u2550\u2550\u2550 ${orderNameInput} (${items.length} items) \u2550\u2550\u2550`);
+    lines.push(`${orderNameInput} (${items.length} items)`);
     lines.push('');
     lines.push('\u2500\u2500\u2500 Materials \u2500\u2500\u2500');
     matData.lines.forEach(l=>lines.push(l));
-    lines.push('');
-    lines.push(`Craft time: ${ctimeFull(totalTime)}`);
     return lines.join('\n');
   }
   
@@ -1808,16 +1816,18 @@ async function sendToDiscord(){
   }
   
   // Assemble with progressive fallback
-  let body;
-  if(isMining){
-    body=buildMiningContent();
-  }else{
-    body=buildFull();
-    if((header+'\n'+body+'\n\n'+footer).length>2000)body=buildCompact();
-    if((header+'\n'+body+'\n\n'+footer).length>2000)body=buildMinimal();
-  }
+  const assemble=(body,oreLink)=>header+'\n'+body+'\n\n'+buildFooter(oreLink);
   
-  const finalContent=header+'\n'+body+'\n\n'+footer;
+  let finalContent;
+  if(isMining){
+    finalContent=assemble(buildMiningContent(),false);
+  }else{
+    // Try levels in order, progressively stripping detail
+    finalContent=assemble(buildFull(),true);                          // L1: full + ore link
+    if(finalContent.length>2000)finalContent=assemble(buildCompact(),true);   // L2: no slots + ore link
+    if(finalContent.length>2000)finalContent=assemble(buildCompact(),false);  // L2.5: no slots, no ore link
+    if(finalContent.length>2000)finalContent=assemble(buildMinimal(),false);  // L3: materials + link only
+  }
   
   if(finalContent.length>2000){
     statusEl.textContent='\u26a0\ufe0f Order too large for Discord (2000 char limit). Try fewer items or shorter notes.';
