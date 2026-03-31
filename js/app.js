@@ -1705,21 +1705,17 @@ async function sendToDiscord(){
   const statusEl=document.getElementById('dc-status');
   const sendBtn=document.getElementById('dc-send-btn');
   
-  if(!orderNameInput){statusEl.textContent='⚠️ Order name is required';statusEl.style.color='#f97316';return;}
-  if(!loc){statusEl.textContent='⚠️ Delivery location is required';statusEl.style.color='#f97316';return;}
-  if(!pay){statusEl.textContent='⚠️ Payment amount is required';statusEl.style.color='#f97316';return;}
+  if(!orderNameInput){statusEl.textContent='\u26a0\ufe0f Order name is required';statusEl.style.color='#f97316';return;}
+  if(!loc){statusEl.textContent='\u26a0\ufe0f Delivery location is required';statusEl.style.color='#f97316';return;}
+  if(!pay){statusEl.textContent='\u26a0\ufe0f Payment amount is required';statusEl.style.color='#f97316';return;}
   
-  // Update order name if changed
-  const defaultName=o.author?`${o.name} — ${o.author}`:o.name;
+  const defaultName=o.author?`${o.name} \u2014 ${o.author}`:o.name;
   if(orderNameInput!==defaultName){
-    const dashIdx=orderNameInput.indexOf(' — ');
+    const dashIdx=orderNameInput.indexOf(' \u2014 ');
     if(dashIdx>=0){o.name=orderNameInput.slice(0,dashIdx);o.author=orderNameInput.slice(dashIdx+3);}
     else{o.name=orderNameInput;o.author='';}
     saveState();renderWO();
   }
-  
-  sendBtn.disabled=true;sendBtn.textContent='Sending...';
-  statusEl.textContent='';
   
   const isMining=dcType==='mining';
   const userId=adminConfig.discordUserId||'';
@@ -1727,105 +1723,126 @@ async function sendToDiscord(){
   const typeTag=isMining?'MINING':'CRAFTING';
   const typeLabel=isMining?'Mining':'Crafting';
   const embedColor=isMining?0xf97316:0x1d4ed8;
-  
-  // Share link
   const enc=encodeWO();
   const shareUrl=enc?window.location.origin+window.location.pathname+'#wo='+enc:'';
+  const matData=buildMaterialSummary(items);
+  const totalTime=items.reduce((s,wo)=>s+itemTime(wo.item)*wo.qty,0);
   
-  // ── Build CONTENT (plain text — what BotGhost sees and reposts) ──
-  const cl=[];
-  cl.push(`[${typeTag}] ${mention} has created a new contract.`);
-  cl.push('');
-  cl.push(`**Type of contract**`);
-  cl.push(typeLabel);
-  cl.push('');
-  cl.push(`**Origin/Destination**`);
-  cl.push(loc);
-  cl.push('');
-  cl.push(`**Amount ( scu/items/etc... )**`);
+  // ── Build content parts ──
+  // Header (always included)
+  const header=`[${typeTag}] ${mention} has created a new contract.\n\n**Type of contract**\n${typeLabel}\n\n**Origin/Destination**\n${loc}\n\n**Amount ( scu/items/etc... )**`;
   
-  if(isMining){
-    const matData=buildMaterialSummary(items);
-    const itemList=items.map(wo=>`${wo.qty}x ${itemName(wo.type,wo.item)}`).join(', ');
-    cl.push(`Ores for: ${itemList}`);
-    cl.push('');
-    matData.lines.forEach(l=>cl.push(l));
-    if(matData.oreNames.length){
-      cl.push('');
-      cl.push(`Mining link: https://seeknd.github.io/Strata/?ores=${matData.oreNames.join(',')}`);
-    }
-  }else{
-    const totalTime=items.reduce((s,wo)=>s+itemTime(wo.item)*wo.qty,0);
-    cl.push(`\u2550\u2550\u2550 ${orderNameInput} \u2550\u2550\u2550`);
-    cl.push('');
+  // Footer (always included)
+  const footerParts=[];
+  if(notes&&notes.toLowerCase()!=='none')footerParts.push(`**Additional notes**\n${notes}`);
+  if(shareUrl){footerParts.push(`**Order link**\n${shareUrl}`);footerParts.push(`**Ore request link**\n${shareUrl}&OREREQUEST`);}
+  footerParts.push(`**Payment in aUEC**\n${pay}`);
+  const footer=footerParts.join('\n\n');
+  
+  // Level 1: Full detail — items with slot breakdowns + materials
+  function buildFull(){
+    const lines=[];
+    lines.push(`\u2550\u2550\u2550 ${orderNameInput} \u2550\u2550\u2550`);
+    lines.push('');
     items.forEach(wo=>{
       const name=itemName(wo.type,wo.item);
-      cl.push(`${wo.qty}x ${name} (${uFmt(itemCscu(wo.item)*wo.qty)})`);
-      if(wo.item.pieces){
-        wo.item.pieces.forEach(p=>{
-          const pSlots=(p.recipe||[]).filter(r=>r.slot&&((r.material&&r.amount_cscu>0)||(r.cost_type==='item'&&r.item_quantity>0)));
-          if(!pSlots.length)return;
-          pSlots.forEach(r=>{
-            const sqKey=p.piece_type+'|'+r.slot;
-            const sq=wo.slotQ?.[sqKey]??0;
-            const isIt=r.cost_type==='item';
-            const mN=isIt?r.item_name:r.material;
-            const amt=isIt?(r.item_quantity*wo.qty)+'\u00d7':uFmt(r.amount_cscu*wo.qty);
-            cl.push(`${r.slot}: ${amt} ${mN}${sq?` @ Q${sq} (${gradeLabel(sq)} \u00b7 ${gradeRange(sq)})`:''}`);
-          });
-        });
-      }else{
-        getSlottedRec(wo.item).forEach(r=>{
-          const sq=wo.slotQ?.[r.slot]??0;
+      lines.push(`${wo.qty}x ${name} (${uFmt(itemCscu(wo.item)*wo.qty)})`);
+      const addSlots=(recipe,keyPrefix)=>{
+        recipe.filter(r=>r.slot&&((r.material&&r.amount_cscu>0)||(r.cost_type==='item'&&r.item_quantity>0))).forEach(r=>{
+          const sqKey=keyPrefix?keyPrefix+'|'+r.slot:r.slot;
+          const sq=wo.slotQ?.[sqKey]??0;
           const isIt=r.cost_type==='item';
           const mN=isIt?r.item_name:r.material;
           const amt=isIt?(r.item_quantity*wo.qty)+'\u00d7':uFmt(r.amount_cscu*wo.qty);
-          cl.push(`${r.slot}: ${amt} ${mN}${sq?` @ Q${sq} (${gradeLabel(sq)} \u00b7 ${gradeRange(sq)})`:''}`);
+          lines.push(`${r.slot}: ${amt} ${mN}${sq?` @ Q${sq} (${gradeLabel(sq)} \u00b7 ${gradeRange(sq)})`:''}`);
         });
-      }
+      };
+      if(wo.item.pieces)wo.item.pieces.forEach(p=>addSlots(p.recipe||[],p.piece_type));
+      else addSlots(getSlottedRec(wo.item),'');
     });
-    const matData=buildMaterialSummary(items);
-    cl.push('');
-    cl.push('\u2500\u2500\u2500 Materials \u2500\u2500\u2500');
-    matData.lines.forEach(l=>cl.push(l));
-    cl.push('');
-    cl.push(`Craft time: ${ctimeFull(totalTime)}`);
+    lines.push('');
+    lines.push('\u2500\u2500\u2500 Materials \u2500\u2500\u2500');
+    matData.lines.forEach(l=>lines.push(l));
+    lines.push('');
+    lines.push(`Craft time: ${ctimeFull(totalTime)}`);
+    return lines.join('\n');
   }
   
-  cl.push('');
-  if(notes&&notes.toLowerCase()!=='none'){
-    cl.push(`**Additional notes**`);
-    cl.push(notes);
-    cl.push('');
+  // Level 2: Items without slot detail + materials
+  function buildCompact(){
+    const lines=[];
+    lines.push(`\u2550\u2550\u2550 ${orderNameInput} \u2550\u2550\u2550`);
+    lines.push('');
+    items.forEach(wo=>{
+      lines.push(`${wo.qty}x ${itemName(wo.type,wo.item)} (${uFmt(itemCscu(wo.item)*wo.qty)})`);
+    });
+    lines.push('');
+    lines.push('\u2500\u2500\u2500 Materials \u2500\u2500\u2500');
+    matData.lines.forEach(l=>lines.push(l));
+    lines.push('');
+    lines.push(`Craft time: ${ctimeFull(totalTime)}`);
+    return lines.join('\n');
   }
-  if(shareUrl){
-    cl.push(`**Order link**`);
-    cl.push(shareUrl);
-    cl.push('');
-    cl.push(`**Ore request link**`);
-    cl.push(shareUrl+'&OREREQUEST');
-    cl.push('');
+  
+  // Level 3: Materials only
+  function buildMinimal(){
+    const lines=[];
+    lines.push(`\u2550\u2550\u2550 ${orderNameInput} (${items.length} items) \u2550\u2550\u2550`);
+    lines.push('');
+    lines.push('\u2500\u2500\u2500 Materials \u2500\u2500\u2500');
+    matData.lines.forEach(l=>lines.push(l));
+    lines.push('');
+    lines.push(`Craft time: ${ctimeFull(totalTime)}`);
+    return lines.join('\n');
   }
-  cl.push(`**Payment in aUEC**`);
-  cl.push(pay);
   
-  const content=cl.join('\n');
+  // Mining uses its own format
+  function buildMiningContent(){
+    const lines=[];
+    const itemList=items.map(wo=>`${wo.qty}x ${itemName(wo.type,wo.item)}`).join(', ');
+    lines.push(`Ores for: ${itemList}`);
+    lines.push('');
+    matData.lines.forEach(l=>lines.push(l));
+    if(matData.oreNames.length)lines.push(`\nMining link: https://seeknd.github.io/Strata/?ores=${matData.oreNames.join(',')}`);
+    return lines.join('\n');
+  }
   
-  // ── Build EMBED (instructions only — deleted when reacted) ──
-  const embedIcon=isMining?'⛏️':'🔨';
+  // Assemble with progressive fallback
+  let body;
+  if(isMining){
+    body=buildMiningContent();
+  }else{
+    body=buildFull();
+    if((header+'\n'+body+'\n\n'+footer).length>2000)body=buildCompact();
+    if((header+'\n'+body+'\n\n'+footer).length>2000)body=buildMinimal();
+  }
+  
+  const finalContent=header+'\n'+body+'\n\n'+footer;
+  
+  if(finalContent.length>2000){
+    statusEl.textContent='\u26a0\ufe0f Order too large for Discord (2000 char limit). Try fewer items or shorter notes.';
+    statusEl.style.color='#f97316';
+    sendBtn.disabled=false;sendBtn.textContent='Send to Discord';
+    return;
+  }
+  
+  // Embed: instructions only (gets deleted on reaction)
+  const embedIcon=isMining?'\u26cf\ufe0f':'\ud83d\udd28';
   const embed={
-    title:`${embedIcon} ${typeLabel.toUpperCase()} CONTRACT — Action Required`,
-    description:`\n👇 **React with any emoji to accept this contract**\n\n> This message will be deleted automatically.\n> A contract thread will be created with the details above.\n`,
+    description:`\n\ud83d\udc47 **React with any emoji to accept this contract**\n\n> This message will be deleted automatically.\n> A contract thread will be created with the details above.\n`,
     color:embedColor,
-    footer:{text:`Forge · ${typeLabel} Request · Awaiting confirmation`},
+    footer:{text:`Forge \u00b7 ${typeLabel} Request \u00b7 Awaiting confirmation`},
   };
+  
+  sendBtn.disabled=true;sendBtn.textContent='Sending...';
+  statusEl.textContent='';
   
   try{
     const url=`https://discord.com/api/webhooks/${adminConfig.discordWebhookId}/${adminConfig.discordWebhookToken}`;
     const resp=await fetch(url,{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({content,embeds:[embed]}),
+      body:JSON.stringify({content:finalContent,embeds:[embed]}),
     });
     if(resp.ok||resp.status===204){
       statusEl.textContent='\u2705 Sent!';statusEl.style.color='#059669';
@@ -1840,7 +1857,6 @@ async function sendToDiscord(){
   }
   sendBtn.disabled=false;sendBtn.textContent='Send to Discord';
 }
-
 
 function closeDiscordModal(){
   const modal=document.getElementById('discord-modal');
