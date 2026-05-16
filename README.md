@@ -1,4 +1,4 @@
-# ⬡ FORGE
+# DISCONTINUED
 
 A crafting companion for **Star Citizen's RediMake Item Fabricator** system. Browse blueprints, plan builds, manage work orders, and coordinate material requests with your org.
 
