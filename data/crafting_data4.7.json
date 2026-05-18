@@ -2,9 +2,9 @@
   "meta": {
     "source": "Datamined from Star Citizen game files",
     "source_url": "",
-    "extracted_date": "2026-05-18",
-    "current_patch": "4.8",
-    "data_updated": "2026-05-18",
+    "extracted_date": "2026-03-28",
+    "current_patch": "4.7",
+    "data_updated": "2026-03-28",
     "news_reel": "",
     "note": "Auto-extracted by SC Hub - Crafting module v4 (4.7 format).",
     "machine_name": "RediMake Item Fabricator",
@@ -7700,7 +7700,7 @@
           "sources": []
         },
         {
-          "name": "PAB-1 Legs White",
+          "name": "PAB-1 Legs Violet",
           "piece_type": "legs",
           "total_cscu": 8.0,
           "recipe": [
@@ -7739,7 +7739,7 @@
             }
           ],
           "craft_time_seconds": 130,
-          "output_entity_guid": "3c33ac15-c543-4462-86ce-75a2e965bfd0",
+          "output_entity_guid": "e76d0e26-cd03-4b93-8abd-e94813ccec43",
           "blueprint_file": "bp_craft_cds_legacy_armor_light_legs_01_01_10.xml",
           "is_obtainable": false,
           "sources": []
@@ -16444,7 +16444,7 @@
           ]
         },
         {
-          "name": "Monde Helmet Hemlock Camo",
+          "name": "Monde Helmet Daimyo",
           "piece_type": "helmet",
           "total_cscu": 7.0,
           "recipe": [
@@ -16483,7 +16483,7 @@
             }
           ],
           "craft_time_seconds": 270,
-          "output_entity_guid": "6c740727-7f6a-44d4-81d0-e7a1717382f3",
+          "output_entity_guid": "a97f17aa-dc11-4415-aea5-7de6f530d296",
           "blueprint_file": "bp_craft_kap_combat_heavy_helmet_02_04_01.xml",
           "is_obtainable": true,
           "sources": [
@@ -17480,252 +17480,6 @@
       ]
     },
     {
-      "set_key": "kap_combat_heavy|02_09_01",
-      "set_name": "Monde Purgatory Camo",
-      "weight": "heavy",
-      "role": "combat",
-      "manufacturer": "Kessler & Pollard",
-      "is_environment_suit": false,
-      "complete": true,
-      "missing": [],
-      "piece_count": 4,
-      "total_cscu": 37.0,
-      "material_totals": {
-        "Aslarite": 7.0,
-        "Ouratite": 15.0,
-        "Savrilium": 15.0
-      },
-      "pieces": [
-        {
-          "name": "Monde Arms Purgatory Camo",
-          "piece_type": "arms",
-          "total_cscu": 10.0,
-          "recipe": [
-            {
-              "slot": "Armored Carapace",
-              "cost_type": "resource",
-              "material": "Ouratite",
-              "raw_ore": "Raw Ouratite",
-              "amount_cscu": 4.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Insulative Liner",
-              "cost_type": "resource",
-              "material": "Aslarite",
-              "raw_ore": "Raw Aslarite",
-              "amount_cscu": 2.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Support Structure",
-              "cost_type": "resource",
-              "material": "Savrilium",
-              "raw_ore": "Savrilium Ore",
-              "amount_cscu": 4.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            }
-          ],
-          "craft_time_seconds": 270,
-          "output_entity_guid": "f2bb659a-2f68-494a-b28f-328b76513dc5",
-          "blueprint_file": "bp_craft_kap_combat_heavy_arms_02_09_01.xml",
-          "is_obtainable": true,
-          "sources": [
-            {
-              "mission": "Bp Rewards Xenothreat2 50 02",
-              "probability": 100.0,
-              "type": "GUARANTEED"
-            }
-          ]
-        },
-        {
-          "name": "Monde Core Purgatory Camo",
-          "piece_type": "core",
-          "total_cscu": 10.0,
-          "recipe": [
-            {
-              "slot": "Armored Carapace",
-              "cost_type": "resource",
-              "material": "Ouratite",
-              "raw_ore": "Raw Ouratite",
-              "amount_cscu": 4.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Insulative Liner",
-              "cost_type": "resource",
-              "material": "Aslarite",
-              "raw_ore": "Raw Aslarite",
-              "amount_cscu": 2.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Support Structure",
-              "cost_type": "resource",
-              "material": "Savrilium",
-              "raw_ore": "Savrilium Ore",
-              "amount_cscu": 4.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            }
-          ],
-          "craft_time_seconds": 270,
-          "output_entity_guid": "cc40d00a-15f4-437d-b0ba-1ba88289dd07",
-          "blueprint_file": "bp_craft_kap_combat_heavy_core_02_09_01.xml",
-          "is_obtainable": true,
-          "sources": [
-            {
-              "mission": "Bp Rewards Xenothreat2 50 03",
-              "probability": 100.0,
-              "type": "GUARANTEED"
-            }
-          ]
-        },
-        {
-          "name": "Monde Helmet Purgatory Camo",
-          "piece_type": "helmet",
-          "total_cscu": 7.0,
-          "recipe": [
-            {
-              "slot": "Armored Carapace",
-              "cost_type": "resource",
-              "material": "Ouratite",
-              "raw_ore": "Raw Ouratite",
-              "amount_cscu": 3.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Insulative Liner",
-              "cost_type": "resource",
-              "material": "Aslarite",
-              "raw_ore": "Raw Aslarite",
-              "amount_cscu": 1.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Support Structure",
-              "cost_type": "resource",
-              "material": "Savrilium",
-              "raw_ore": "Savrilium Ore",
-              "amount_cscu": 3.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            }
-          ],
-          "craft_time_seconds": 270,
-          "output_entity_guid": "aa369676-fd5d-48cf-b8fc-f20dd89faec0",
-          "blueprint_file": "bp_craft_kap_combat_heavy_helmet_02_09_01.xml",
-          "is_obtainable": true,
-          "sources": [
-            {
-              "mission": "Bp Rewards Xenothreat2 50 05",
-              "probability": 100.0,
-              "type": "GUARANTEED"
-            }
-          ]
-        },
-        {
-          "name": "Monde Legs Purgatory Camo",
-          "piece_type": "legs",
-          "total_cscu": 10.0,
-          "recipe": [
-            {
-              "slot": "Armored Carapace",
-              "cost_type": "resource",
-              "material": "Ouratite",
-              "raw_ore": "Raw Ouratite",
-              "amount_cscu": 4.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Insulative Liner",
-              "cost_type": "resource",
-              "material": "Aslarite",
-              "raw_ore": "Raw Aslarite",
-              "amount_cscu": 2.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Support Structure",
-              "cost_type": "resource",
-              "material": "Savrilium",
-              "raw_ore": "Savrilium Ore",
-              "amount_cscu": 4.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            }
-          ],
-          "craft_time_seconds": 270,
-          "output_entity_guid": "7f6f828f-1508-4e01-bbad-a60b59b7c24d",
-          "blueprint_file": "bp_craft_kap_combat_heavy_legs_02_09_01.xml",
-          "is_obtainable": true,
-          "sources": [
-            {
-              "mission": "Bp Rewards Xenothreat2 50 04",
-              "probability": 100.0,
-              "type": "GUARANTEED"
-            }
-          ]
-        }
-      ],
-      "is_obtainable": true,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 50 02",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        },
-        {
-          "mission": "Bp Rewards Xenothreat2 50 03",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        },
-        {
-          "mission": "Bp Rewards Xenothreat2 50 05",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        },
-        {
-          "mission": "Bp Rewards Xenothreat2 50 04",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
       "set_key": "kap_combat_light|01_01_01",
       "set_name": "Geist",
       "weight": "light",
@@ -17788,7 +17542,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Security Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -17839,7 +17593,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Security Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -17890,7 +17644,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Security Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -17941,7 +17695,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Security Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -17951,7 +17705,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -18019,7 +17773,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Power Usage Data",
-              "probability": 6.7,
+              "probability": 7.1,
               "type": "RANDOM"
             }
           ]
@@ -18070,7 +17824,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Power Usage Data",
-              "probability": 6.7,
+              "probability": 7.1,
               "type": "RANDOM"
             }
           ]
@@ -18121,7 +17875,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Power Usage Data",
-              "probability": 6.7,
+              "probability": 7.1,
               "type": "RANDOM"
             }
           ]
@@ -18172,7 +17926,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Power Usage Data",
-              "probability": 6.7,
+              "probability": 7.1,
               "type": "RANDOM"
             }
           ]
@@ -18182,7 +17936,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         }
       ]
@@ -18250,7 +18004,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Power Usage Data",
-              "probability": 6.7,
+              "probability": 7.1,
               "type": "RANDOM"
             },
             {
@@ -18306,7 +18060,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Power Usage Data",
-              "probability": 6.7,
+              "probability": 7.1,
               "type": "RANDOM"
             },
             {
@@ -18362,7 +18116,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Power Usage Data",
-              "probability": 6.7,
+              "probability": 7.1,
               "type": "RANDOM"
             },
             {
@@ -18418,7 +18172,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Power Usage Data",
-              "probability": 6.7,
+              "probability": 7.1,
               "type": "RANDOM"
             },
             {
@@ -18433,7 +18187,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         },
         {
@@ -18737,7 +18491,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Energy Anomaly Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -18788,7 +18542,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Energy Anomaly Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -18839,7 +18593,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Energy Anomaly Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -18890,7 +18644,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Energy Anomaly Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -18900,7 +18654,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -19556,7 +19310,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Power Usage Data",
-              "probability": 6.7,
+              "probability": 7.1,
               "type": "RANDOM"
             }
           ]
@@ -19607,7 +19361,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Power Usage Data",
-              "probability": 6.7,
+              "probability": 7.1,
               "type": "RANDOM"
             }
           ]
@@ -19658,7 +19412,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Power Usage Data",
-              "probability": 6.7,
+              "probability": 7.1,
               "type": "RANDOM"
             }
           ]
@@ -19709,7 +19463,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Power Usage Data",
-              "probability": 6.7,
+              "probability": 7.1,
               "type": "RANDOM"
             }
           ]
@@ -19719,7 +19473,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         }
       ]
@@ -20018,7 +19772,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Energy Anomaly Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -20069,7 +19823,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Energy Anomaly Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -20120,7 +19874,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Energy Anomaly Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -20171,7 +19925,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Energy Anomaly Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -20181,7 +19935,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -20249,7 +20003,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Security Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -20300,7 +20054,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Security Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -20351,7 +20105,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Security Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -20402,7 +20156,7 @@
           "sources": [
             {
               "mission": "ASD - Updated Security Data",
-              "probability": 8.3,
+              "probability": 9.1,
               "type": "RANDOM"
             }
           ]
@@ -20412,7 +20166,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -24961,7 +24715,7 @@
           "sources": [
             {
               "mission": "InterSec - Retrieve Additional Smuggler Intel",
-              "probability": 7.1,
+              "probability": 7.7,
               "type": "RANDOM"
             }
           ]
@@ -25012,7 +24766,7 @@
           "sources": [
             {
               "mission": "InterSec - Retrieve Additional Smuggler Intel",
-              "probability": 7.1,
+              "probability": 7.7,
               "type": "RANDOM"
             }
           ]
@@ -25063,7 +24817,7 @@
           "sources": [
             {
               "mission": "InterSec - Retrieve Additional Smuggler Intel",
-              "probability": 7.1,
+              "probability": 7.7,
               "type": "RANDOM"
             }
           ]
@@ -25114,7 +24868,7 @@
           "sources": [
             {
               "mission": "InterSec - Retrieve Additional Smuggler Intel",
-              "probability": 7.1,
+              "probability": 7.7,
               "type": "RANDOM"
             }
           ]
@@ -25124,7 +24878,7 @@
       "sources": [
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         }
       ]
@@ -25192,7 +24946,7 @@
           "sources": [
             {
               "mission": "InterSec - Defend Ship",
-              "probability": 14.3,
+              "probability": 16.7,
               "type": "RANDOM"
             }
           ]
@@ -25243,7 +24997,7 @@
           "sources": [
             {
               "mission": "InterSec - Defend Ship",
-              "probability": 14.3,
+              "probability": 16.7,
               "type": "RANDOM"
             }
           ]
@@ -25294,7 +25048,7 @@
           "sources": [
             {
               "mission": "InterSec - Defend Ship",
-              "probability": 14.3,
+              "probability": 16.7,
               "type": "RANDOM"
             }
           ]
@@ -25345,7 +25099,7 @@
           "sources": [
             {
               "mission": "InterSec - Defend Ship",
-              "probability": 14.3,
+              "probability": 16.7,
               "type": "RANDOM"
             }
           ]
@@ -25355,7 +25109,7 @@
       "sources": [
         {
           "mission": "InterSec - Defend Ship",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         }
       ]
@@ -25423,7 +25177,7 @@
           "sources": [
             {
               "mission": "InterSec - Patrol",
-              "probability": 7.7,
+              "probability": 8.3,
               "type": "RANDOM"
             }
           ]
@@ -25474,7 +25228,7 @@
           "sources": [
             {
               "mission": "InterSec - Patrol",
-              "probability": 7.7,
+              "probability": 8.3,
               "type": "RANDOM"
             }
           ]
@@ -25525,7 +25279,7 @@
           "sources": [
             {
               "mission": "InterSec - Patrol",
-              "probability": 7.7,
+              "probability": 8.3,
               "type": "RANDOM"
             }
           ]
@@ -25576,7 +25330,7 @@
           "sources": [
             {
               "mission": "InterSec - Patrol",
-              "probability": 7.7,
+              "probability": 8.3,
               "type": "RANDOM"
             }
           ]
@@ -25586,7 +25340,7 @@
       "sources": [
         {
           "mission": "InterSec - Patrol",
-          "probability": 7.7,
+          "probability": 8.3,
           "type": "RANDOM"
         }
       ]
@@ -25654,7 +25408,7 @@
           "sources": [
             {
               "mission": "InterSec - Resource Gathering",
-              "probability": 14.3,
+              "probability": 16.7,
               "type": "RANDOM"
             }
           ]
@@ -25705,7 +25459,7 @@
           "sources": [
             {
               "mission": "InterSec - Resource Gathering",
-              "probability": 14.3,
+              "probability": 16.7,
               "type": "RANDOM"
             }
           ]
@@ -25756,7 +25510,7 @@
           "sources": [
             {
               "mission": "InterSec - Resource Gathering",
-              "probability": 14.3,
+              "probability": 16.7,
               "type": "RANDOM"
             }
           ]
@@ -25807,7 +25561,7 @@
           "sources": [
             {
               "mission": "InterSec - Resource Gathering",
-              "probability": 14.3,
+              "probability": 16.7,
               "type": "RANDOM"
             }
           ]
@@ -25817,7 +25571,7 @@
       "sources": [
         {
           "mission": "InterSec - Resource Gathering",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         }
       ]
@@ -25885,7 +25639,7 @@
           "sources": [
             {
               "mission": "InterSec - Patrol",
-              "probability": 7.7,
+              "probability": 8.3,
               "type": "RANDOM"
             }
           ]
@@ -25936,7 +25690,7 @@
           "sources": [
             {
               "mission": "InterSec - Patrol",
-              "probability": 7.7,
+              "probability": 8.3,
               "type": "RANDOM"
             }
           ]
@@ -25987,7 +25741,7 @@
           "sources": [
             {
               "mission": "InterSec - Patrol",
-              "probability": 7.7,
+              "probability": 8.3,
               "type": "RANDOM"
             }
           ]
@@ -26038,7 +25792,7 @@
           "sources": [
             {
               "mission": "InterSec - Patrol",
-              "probability": 7.7,
+              "probability": 8.3,
               "type": "RANDOM"
             }
           ]
@@ -26048,254 +25802,8 @@
       "sources": [
         {
           "mission": "InterSec - Patrol",
-          "probability": 7.7,
+          "probability": 8.3,
           "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "set_key": "qrt_combat_medium|01_02_01",
-      "set_name": "Testudo Purgatory Camo",
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "is_environment_suit": false,
-      "complete": true,
-      "missing": [],
-      "piece_count": 4,
-      "total_cscu": 39.0,
-      "material_totals": {
-        "Aslarite": 7.0,
-        "Ouratite": 16.0,
-        "Stileron": 16.0
-      },
-      "pieces": [
-        {
-          "name": "Testudo Arms Purgatory Camo",
-          "piece_type": "arms",
-          "total_cscu": 10.0,
-          "recipe": [
-            {
-              "slot": "Armored Carapace",
-              "cost_type": "resource",
-              "material": "Ouratite",
-              "raw_ore": "Raw Ouratite",
-              "amount_cscu": 4.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Insulative Liner",
-              "cost_type": "resource",
-              "material": "Aslarite",
-              "raw_ore": "Raw Aslarite",
-              "amount_cscu": 2.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Support Structure",
-              "cost_type": "resource",
-              "material": "Stileron",
-              "raw_ore": "Stileron Ore",
-              "amount_cscu": 4.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            }
-          ],
-          "craft_time_seconds": 210,
-          "output_entity_guid": "8b26ce90-6d22-4d50-8828-b2b37a0491d4",
-          "blueprint_file": "bp_craft_qrt_combat_medium_arms_01_02_01.xml",
-          "is_obtainable": true,
-          "sources": [
-            {
-              "mission": "Bp Rewards Xenothreat2 25 01",
-              "probability": 100.0,
-              "type": "GUARANTEED"
-            }
-          ]
-        },
-        {
-          "name": "Testudo Core Purgatory Camo",
-          "piece_type": "core",
-          "total_cscu": 12.0,
-          "recipe": [
-            {
-              "slot": "Armored Carapace",
-              "cost_type": "resource",
-              "material": "Ouratite",
-              "raw_ore": "Raw Ouratite",
-              "amount_cscu": 5.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Insulative Liner",
-              "cost_type": "resource",
-              "material": "Aslarite",
-              "raw_ore": "Raw Aslarite",
-              "amount_cscu": 2.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Support Structure",
-              "cost_type": "resource",
-              "material": "Stileron",
-              "raw_ore": "Stileron Ore",
-              "amount_cscu": 5.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            }
-          ],
-          "craft_time_seconds": 210,
-          "output_entity_guid": "8ba85453-091a-4471-8be5-6bbc75487a33",
-          "blueprint_file": "bp_craft_qrt_combat_medium_core_01_02_01.xml",
-          "is_obtainable": true,
-          "sources": [
-            {
-              "mission": "Bp Rewards Xenothreat2 25 03",
-              "probability": 100.0,
-              "type": "GUARANTEED"
-            }
-          ]
-        },
-        {
-          "name": "Testudo Helmet Purgatory Camo",
-          "piece_type": "helmet",
-          "total_cscu": 7.0,
-          "recipe": [
-            {
-              "slot": "Armored Carapace",
-              "cost_type": "resource",
-              "material": "Ouratite",
-              "raw_ore": "Raw Ouratite",
-              "amount_cscu": 3.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Insulative Liner",
-              "cost_type": "resource",
-              "material": "Aslarite",
-              "raw_ore": "Raw Aslarite",
-              "amount_cscu": 1.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Support Structure",
-              "cost_type": "resource",
-              "material": "Stileron",
-              "raw_ore": "Stileron Ore",
-              "amount_cscu": 3.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            }
-          ],
-          "craft_time_seconds": 210,
-          "output_entity_guid": "bc29c9de-ceda-43da-a03d-d14f0e2cc113",
-          "blueprint_file": "bp_craft_qrt_combat_medium_helmet_01_02_01.xml",
-          "is_obtainable": true,
-          "sources": [
-            {
-              "mission": "Bp Rewards Xenothreat2 25 05",
-              "probability": 100.0,
-              "type": "GUARANTEED"
-            }
-          ]
-        },
-        {
-          "name": "Testudo Legs Purgatory Camo",
-          "piece_type": "legs",
-          "total_cscu": 10.0,
-          "recipe": [
-            {
-              "slot": "Armored Carapace",
-              "cost_type": "resource",
-              "material": "Ouratite",
-              "raw_ore": "Raw Ouratite",
-              "amount_cscu": 4.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Insulative Liner",
-              "cost_type": "resource",
-              "material": "Aslarite",
-              "raw_ore": "Raw Aslarite",
-              "amount_cscu": 2.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Support Structure",
-              "cost_type": "resource",
-              "material": "Stileron",
-              "raw_ore": "Stileron Ore",
-              "amount_cscu": 4.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            }
-          ],
-          "craft_time_seconds": 210,
-          "output_entity_guid": "93f14d45-b05f-4163-bb90-8a5f1f80043b",
-          "blueprint_file": "bp_craft_qrt_combat_medium_legs_01_02_01.xml",
-          "is_obtainable": true,
-          "sources": [
-            {
-              "mission": "Bp Rewards Xenothreat2 25 04",
-              "probability": 100.0,
-              "type": "GUARANTEED"
-            }
-          ]
-        }
-      ],
-      "is_obtainable": true,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 25 01",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        },
-        {
-          "mission": "Bp Rewards Xenothreat2 25 03",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        },
-        {
-          "mission": "Bp Rewards Xenothreat2 25 05",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        },
-        {
-          "mission": "Bp Rewards Xenothreat2 25 04",
-          "probability": 100.0,
-          "type": "GUARANTEED"
         }
       ]
     },
@@ -26362,7 +25870,7 @@
           "sources": [
             {
               "mission": "InterSec - Retrieve Additional Smuggler Intel",
-              "probability": 7.1,
+              "probability": 7.7,
               "type": "RANDOM"
             }
           ]
@@ -26413,7 +25921,7 @@
           "sources": [
             {
               "mission": "InterSec - Retrieve Additional Smuggler Intel",
-              "probability": 7.1,
+              "probability": 7.7,
               "type": "RANDOM"
             }
           ]
@@ -26464,7 +25972,7 @@
           "sources": [
             {
               "mission": "InterSec - Retrieve Additional Smuggler Intel",
-              "probability": 7.1,
+              "probability": 7.7,
               "type": "RANDOM"
             }
           ]
@@ -26515,7 +26023,7 @@
           "sources": [
             {
               "mission": "InterSec - Retrieve Additional Smuggler Intel",
-              "probability": 7.1,
+              "probability": 7.7,
               "type": "RANDOM"
             }
           ]
@@ -26525,7 +26033,7 @@
       "sources": [
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         }
       ]
@@ -27112,7 +26620,7 @@
           ]
         },
         {
-          "name": "Antium Core Jet",
+          "name": "Antium Helmet Jet",
           "piece_type": "helmet",
           "total_cscu": 11.0,
           "recipe": [
@@ -27241,7 +26749,7 @@
       },
       "pieces": [
         {
-          "name": "Antium Helmet Jet",
+          "name": "Antium Arms Maroon",
           "piece_type": "arms",
           "total_cscu": 14.0,
           "recipe": [
@@ -28347,6 +27855,207 @@
           "type": "RANDOM"
         }
       ]
+    },
+    {
+      "set_key": "qrt_specialist_medium|01_01_04",
+      "set_name": "Artimex Chairman's Club",
+      "weight": "medium",
+      "role": "stealth",
+      "manufacturer": "Quirinus Technologies",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 39.0,
+      "material_totals": {
+        "Aslarite": 7.0,
+        "Lindinium": 16.0,
+        "Taranite": 16.0
+      },
+      "pieces": [
+        {
+          "name": "Artimex Arms Chairman's Club",
+          "piece_type": "arms",
+          "total_cscu": 10.0,
+          "recipe": [
+            {
+              "slot": "Segment Paneling",
+              "cost_type": "resource",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 4.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Panel Covering",
+              "cost_type": "resource",
+              "material": "Lindinium",
+              "raw_ore": "Lindinium Ore",
+              "amount_cscu": 4.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 200,
+          "output_entity_guid": "b81baf63-09bd-445b-9f4f-6ba781ee818f",
+          "blueprint_file": "bp_craft_qrt_specialist_medium_arms_01_01_04.xml",
+          "is_obtainable": false,
+          "sources": []
+        },
+        {
+          "name": "Artimex Core Chairman's Club",
+          "piece_type": "core",
+          "total_cscu": 12.0,
+          "recipe": [
+            {
+              "slot": "Segment Paneling",
+              "cost_type": "resource",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 5.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Panel Covering",
+              "cost_type": "resource",
+              "material": "Lindinium",
+              "raw_ore": "Lindinium Ore",
+              "amount_cscu": 5.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 200,
+          "output_entity_guid": "60865948-2c95-4cd9-b7e0-c6974b1eed01",
+          "blueprint_file": "bp_craft_qrt_specialist_medium_core_01_01_04.xml",
+          "is_obtainable": false,
+          "sources": []
+        },
+        {
+          "name": "Artimex Helmet Chairman's Club",
+          "piece_type": "helmet",
+          "total_cscu": 7.0,
+          "recipe": [
+            {
+              "slot": "Segment Paneling",
+              "cost_type": "resource",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 3.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Panel Covering",
+              "cost_type": "resource",
+              "material": "Lindinium",
+              "raw_ore": "Lindinium Ore",
+              "amount_cscu": 3.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 200,
+          "output_entity_guid": "11b32878-7b39-4854-8598-ec5120c1e570",
+          "blueprint_file": "bp_craft_qrt_specialist_medium_helmet_01_01_04.xml",
+          "is_obtainable": false,
+          "sources": []
+        },
+        {
+          "name": "Artimex Legs Chairman's Club",
+          "piece_type": "legs",
+          "total_cscu": 10.0,
+          "recipe": [
+            {
+              "slot": "Segment Paneling",
+              "cost_type": "resource",
+              "material": "Taranite",
+              "raw_ore": "Raw Taranite",
+              "amount_cscu": 4.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Panel Covering",
+              "cost_type": "resource",
+              "material": "Lindinium",
+              "raw_ore": "Lindinium Ore",
+              "amount_cscu": 4.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 200,
+          "output_entity_guid": "7656c45c-d301-4503-b404-fc4126ac7139",
+          "blueprint_file": "bp_craft_qrt_specialist_medium_legs_01_01_04.xml",
+          "is_obtainable": false,
+          "sources": []
+        }
+      ],
+      "is_obtainable": false,
+      "sources": []
     },
     {
       "set_key": "qrt_specialist_medium|01_01_10",
@@ -30610,7 +30319,7 @@
           ]
         },
         {
-          "name": "Palatino Legs Daystar",
+          "name": "Palatino Legs Sunstone",
           "piece_type": "legs",
           "total_cscu": 14.0,
           "recipe": [
@@ -30649,7 +30358,7 @@
             }
           ],
           "craft_time_seconds": 270,
-          "output_entity_guid": "c7fb0fc2-20b5-4c23-9a22-de9c7d5052d9",
+          "output_entity_guid": "5d00db0e-c92b-4379-ab41-79708c02d7dd",
           "blueprint_file": "bp_craft_qrt_utility_heavy_legs_01_01_04.xml",
           "is_obtainable": true,
           "sources": [
@@ -33253,88 +32962,6 @@
         {
           "mission": "Shubin Mining - Ship (Pyro/Nyx)",
           "probability": 14.3,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "set_key": "shld_seco_s03_armor_scitem|01",
-      "set_name": "6CA 'Bila'",
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "shld",
-      "is_environment_suit": false,
-      "complete": false,
-      "missing": [
-        "arms",
-        "core",
-        "helmet",
-        "legs"
-      ],
-      "piece_count": 1,
-      "total_cscu": 310.0,
-      "material_totals": {
-        "Laranite": 190.0,
-        "Torite": 120.0
-      },
-      "pieces": [
-        {
-          "name": "6CA 'Bila'",
-          "piece_type": "",
-          "total_cscu": 310.0,
-          "recipe": [
-            {
-              "slot": "Shell",
-              "cost_type": "resource",
-              "material": "Torite",
-              "raw_ore": "Torite Ore",
-              "amount_cscu": 120.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 1,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Field Array",
-              "cost_type": "resource",
-              "material": "Laranite",
-              "raw_ore": "Raw Laranite",
-              "amount_cscu": 190.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 1,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Frequency Controller",
-              "cost_type": "item",
-              "material": "",
-              "raw_ore": "",
-              "amount_cscu": 0.0,
-              "item_name": "Glacosite",
-              "item_quantity": 170,
-              "min_quality": 1,
-              "is_catalyst": false
-            }
-          ],
-          "craft_time_seconds": 810,
-          "output_entity_guid": "6534d6d3-85dc-4c29-aa3d-80cab37c4fa5",
-          "blueprint_file": "bp_craft_shld_seco_s03_armor_scitem.xml",
-          "is_obtainable": true,
-          "sources": [
-            {
-              "mission": "Bp Rewards Stantonheadhunterseasy",
-              "probability": 7.7,
-              "type": "RANDOM"
-            }
-          ]
-        }
-      ],
-      "is_obtainable": true,
-      "sources": [
-        {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
-          "probability": 7.7,
           "type": "RANDOM"
         }
       ]
@@ -40014,280 +39641,6 @@
       ],
       "is_obtainable": false,
       "sources": []
-    },
-    {
-      "set_key": "vgl_utility_light|01_04_01",
-      "set_name": "Chiron",
-      "weight": "light",
-      "role": "combat",
-      "manufacturer": "Virgil",
-      "is_environment_suit": false,
-      "complete": false,
-      "missing": [
-        "helmet"
-      ],
-      "piece_count": 3,
-      "total_cscu": 26.0,
-      "material_totals": {
-        "Aslarite": 6.0,
-        "Laranite": 10.0,
-        "Stileron": 10.0
-      },
-      "pieces": [
-        {
-          "name": "Chiron Arms",
-          "piece_type": "arms",
-          "total_cscu": 8.0,
-          "recipe": [
-            {
-              "slot": "Casing",
-              "cost_type": "resource",
-              "material": "Laranite",
-              "raw_ore": "Raw Laranite",
-              "amount_cscu": 3.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Insulative Liner",
-              "cost_type": "resource",
-              "material": "Aslarite",
-              "raw_ore": "Raw Aslarite",
-              "amount_cscu": 2.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Casing Weave",
-              "cost_type": "resource",
-              "material": "Stileron",
-              "raw_ore": "Stileron Ore",
-              "amount_cscu": 3.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            }
-          ],
-          "craft_time_seconds": 150,
-          "output_entity_guid": "ac73e9b7-9bca-4537-9456-71700ee2fa70",
-          "blueprint_file": "bp_craft_vgl_utility_light_arms_01_04_01.xml",
-          "is_obtainable": true,
-          "sources": [
-            {
-              "mission": "Bp Rewards Xenothreat2 15 01",
-              "probability": 100.0,
-              "type": "GUARANTEED"
-            }
-          ]
-        },
-        {
-          "name": "Chiron Core",
-          "piece_type": "core",
-          "total_cscu": 10.0,
-          "recipe": [
-            {
-              "slot": "Casing",
-              "cost_type": "resource",
-              "material": "Laranite",
-              "raw_ore": "Raw Laranite",
-              "amount_cscu": 4.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Insulative Liner",
-              "cost_type": "resource",
-              "material": "Aslarite",
-              "raw_ore": "Raw Aslarite",
-              "amount_cscu": 2.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Casing Weave",
-              "cost_type": "resource",
-              "material": "Stileron",
-              "raw_ore": "Stileron Ore",
-              "amount_cscu": 4.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            }
-          ],
-          "craft_time_seconds": 150,
-          "output_entity_guid": "32efc648-0489-4293-ba06-57b715e18714",
-          "blueprint_file": "bp_craft_vgl_utility_light_core_01_04_01.xml",
-          "is_obtainable": true,
-          "sources": [
-            {
-              "mission": "Bp Rewards Xenothreat2 15 03",
-              "probability": 100.0,
-              "type": "GUARANTEED"
-            }
-          ]
-        },
-        {
-          "name": "Chiron Legs",
-          "piece_type": "legs",
-          "total_cscu": 8.0,
-          "recipe": [
-            {
-              "slot": "Casing",
-              "cost_type": "resource",
-              "material": "Laranite",
-              "raw_ore": "Raw Laranite",
-              "amount_cscu": 3.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Insulative Liner",
-              "cost_type": "resource",
-              "material": "Aslarite",
-              "raw_ore": "Raw Aslarite",
-              "amount_cscu": 2.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Casing Weave",
-              "cost_type": "resource",
-              "material": "Stileron",
-              "raw_ore": "Stileron Ore",
-              "amount_cscu": 3.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            }
-          ],
-          "craft_time_seconds": 150,
-          "output_entity_guid": "6379240a-3e25-4ce5-ae4b-047d26097038",
-          "blueprint_file": "bp_craft_vgl_utility_light_legs_01_04_01.xml",
-          "is_obtainable": true,
-          "sources": [
-            {
-              "mission": "Bp Rewards Xenothreat2 15 04",
-              "probability": 100.0,
-              "type": "GUARANTEED"
-            }
-          ]
-        }
-      ],
-      "is_obtainable": true,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 15 01",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        },
-        {
-          "mission": "Bp Rewards Xenothreat2 15 03",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        },
-        {
-          "mission": "Bp Rewards Xenothreat2 15 04",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "set_key": "vgl_utility_light|01_05_01",
-      "set_name": "Chiron",
-      "weight": "light",
-      "role": "combat",
-      "manufacturer": "Virgil",
-      "is_environment_suit": false,
-      "complete": false,
-      "missing": [
-        "arms",
-        "core",
-        "legs"
-      ],
-      "piece_count": 1,
-      "total_cscu": 5.0,
-      "material_totals": {
-        "Aslarite": 1.0,
-        "Laranite": 2.0,
-        "Stileron": 2.0
-      },
-      "pieces": [
-        {
-          "name": "Chiron Helmet",
-          "piece_type": "helmet",
-          "total_cscu": 5.0,
-          "recipe": [
-            {
-              "slot": "Casing",
-              "cost_type": "resource",
-              "material": "Laranite",
-              "raw_ore": "Raw Laranite",
-              "amount_cscu": 2.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Insulative Liner",
-              "cost_type": "resource",
-              "material": "Aslarite",
-              "raw_ore": "Raw Aslarite",
-              "amount_cscu": 1.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            },
-            {
-              "slot": "Casing Weave",
-              "cost_type": "resource",
-              "material": "Stileron",
-              "raw_ore": "Stileron Ore",
-              "amount_cscu": 2.0,
-              "item_name": "",
-              "item_quantity": 0,
-              "min_quality": 0,
-              "is_catalyst": false
-            }
-          ],
-          "craft_time_seconds": 150,
-          "output_entity_guid": "9226de19-21c4-4d22-a9b9-04e8ab2d7d1a",
-          "blueprint_file": "bp_craft_vgl_utility_light_helmet_01_05_01.xml",
-          "is_obtainable": true,
-          "sources": [
-            {
-              "mission": "Bp Rewards Xenothreat2 15 05",
-              "probability": 100.0,
-              "type": "GUARANTEED"
-            }
-          ]
-        }
-      ],
-      "is_obtainable": true,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 15 05",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
     }
   ],
   "armor_pieces": [
@@ -48048,7 +47401,7 @@
       "sources": []
     },
     {
-      "name": "PAB-1 Legs White",
+      "name": "PAB-1 Legs Violet",
       "piece_type": "legs",
       "total_cscu": 8.0,
       "recipe": [
@@ -48087,7 +47440,7 @@
         }
       ],
       "craft_time_seconds": 130,
-      "output_entity_guid": "3c33ac15-c543-4462-86ce-75a2e965bfd0",
+      "output_entity_guid": "e76d0e26-cd03-4b93-8abd-e94813ccec43",
       "blueprint_file": "bp_craft_cds_legacy_armor_light_legs_01_01_10.xml",
       "is_obtainable": false,
       "set_name": "PAB-1 White",
@@ -56531,7 +55884,7 @@
       ]
     },
     {
-      "name": "Monde Helmet Hemlock Camo",
+      "name": "Monde Helmet Daimyo",
       "piece_type": "helmet",
       "total_cscu": 7.0,
       "recipe": [
@@ -56570,7 +55923,7 @@
         }
       ],
       "craft_time_seconds": 270,
-      "output_entity_guid": "6c740727-7f6a-44d4-81d0-e7a1717382f3",
+      "output_entity_guid": "a97f17aa-dc11-4415-aea5-7de6f530d296",
       "blueprint_file": "bp_craft_kap_combat_heavy_helmet_02_04_01.xml",
       "is_obtainable": true,
       "set_name": "Monde Hemlock Camo",
@@ -57557,234 +56910,6 @@
       ]
     },
     {
-      "name": "Monde Arms Purgatory Camo",
-      "piece_type": "arms",
-      "total_cscu": 10.0,
-      "recipe": [
-        {
-          "slot": "Armored Carapace",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Insulative Liner",
-          "cost_type": "resource",
-          "material": "Aslarite",
-          "raw_ore": "Raw Aslarite",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Support Structure",
-          "cost_type": "resource",
-          "material": "Savrilium",
-          "raw_ore": "Savrilium Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 270,
-      "output_entity_guid": "f2bb659a-2f68-494a-b28f-328b76513dc5",
-      "blueprint_file": "bp_craft_kap_combat_heavy_arms_02_09_01.xml",
-      "is_obtainable": true,
-      "set_name": "Monde Purgatory Camo",
-      "set_key": "kap_combat_heavy|02_09_01",
-      "weight": "heavy",
-      "role": "combat",
-      "manufacturer": "Kessler & Pollard",
-      "is_environment_suit": false,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 50 02",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "Monde Core Purgatory Camo",
-      "piece_type": "core",
-      "total_cscu": 10.0,
-      "recipe": [
-        {
-          "slot": "Armored Carapace",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Insulative Liner",
-          "cost_type": "resource",
-          "material": "Aslarite",
-          "raw_ore": "Raw Aslarite",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Support Structure",
-          "cost_type": "resource",
-          "material": "Savrilium",
-          "raw_ore": "Savrilium Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 270,
-      "output_entity_guid": "cc40d00a-15f4-437d-b0ba-1ba88289dd07",
-      "blueprint_file": "bp_craft_kap_combat_heavy_core_02_09_01.xml",
-      "is_obtainable": true,
-      "set_name": "Monde Purgatory Camo",
-      "set_key": "kap_combat_heavy|02_09_01",
-      "weight": "heavy",
-      "role": "combat",
-      "manufacturer": "Kessler & Pollard",
-      "is_environment_suit": false,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 50 03",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "Monde Helmet Purgatory Camo",
-      "piece_type": "helmet",
-      "total_cscu": 7.0,
-      "recipe": [
-        {
-          "slot": "Armored Carapace",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Insulative Liner",
-          "cost_type": "resource",
-          "material": "Aslarite",
-          "raw_ore": "Raw Aslarite",
-          "amount_cscu": 1.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Support Structure",
-          "cost_type": "resource",
-          "material": "Savrilium",
-          "raw_ore": "Savrilium Ore",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 270,
-      "output_entity_guid": "aa369676-fd5d-48cf-b8fc-f20dd89faec0",
-      "blueprint_file": "bp_craft_kap_combat_heavy_helmet_02_09_01.xml",
-      "is_obtainable": true,
-      "set_name": "Monde Purgatory Camo",
-      "set_key": "kap_combat_heavy|02_09_01",
-      "weight": "heavy",
-      "role": "combat",
-      "manufacturer": "Kessler & Pollard",
-      "is_environment_suit": false,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 50 05",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "Monde Legs Purgatory Camo",
-      "piece_type": "legs",
-      "total_cscu": 10.0,
-      "recipe": [
-        {
-          "slot": "Armored Carapace",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Insulative Liner",
-          "cost_type": "resource",
-          "material": "Aslarite",
-          "raw_ore": "Raw Aslarite",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Support Structure",
-          "cost_type": "resource",
-          "material": "Savrilium",
-          "raw_ore": "Savrilium Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 270,
-      "output_entity_guid": "7f6f828f-1508-4e01-bbad-a60b59b7c24d",
-      "blueprint_file": "bp_craft_kap_combat_heavy_legs_02_09_01.xml",
-      "is_obtainable": true,
-      "set_name": "Monde Purgatory Camo",
-      "set_key": "kap_combat_heavy|02_09_01",
-      "weight": "heavy",
-      "role": "combat",
-      "manufacturer": "Kessler & Pollard",
-      "is_environment_suit": false,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 50 04",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
       "name": "Geist Armor Arms",
       "piece_type": "arms",
       "total_cscu": 8.0,
@@ -57836,7 +56961,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -57893,7 +57018,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -57950,7 +57075,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -58007,7 +57132,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -58064,7 +57189,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         }
       ]
@@ -58121,7 +57246,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         }
       ]
@@ -58178,7 +57303,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         }
       ]
@@ -58235,7 +57360,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         }
       ]
@@ -58292,7 +57417,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         },
         {
@@ -58354,7 +57479,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         },
         {
@@ -58416,7 +57541,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         },
         {
@@ -58478,7 +57603,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         },
         {
@@ -58768,7 +57893,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -58825,7 +57950,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -58882,7 +58007,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -58939,7 +58064,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -59588,7 +58713,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         }
       ]
@@ -59645,7 +58770,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         }
       ]
@@ -59702,7 +58827,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         }
       ]
@@ -59759,7 +58884,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         }
       ]
@@ -60044,7 +59169,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -60101,7 +59226,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -60158,7 +59283,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -60215,7 +59340,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -60272,7 +59397,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -60329,7 +59454,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -60386,7 +59511,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -60443,7 +59568,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -64826,7 +63951,7 @@
       "sources": [
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         }
       ]
@@ -64883,7 +64008,7 @@
       "sources": [
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         }
       ]
@@ -64940,7 +64065,7 @@
       "sources": [
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         }
       ]
@@ -64997,7 +64122,7 @@
       "sources": [
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         }
       ]
@@ -65054,7 +64179,7 @@
       "sources": [
         {
           "mission": "InterSec - Defend Ship",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         }
       ]
@@ -65111,7 +64236,7 @@
       "sources": [
         {
           "mission": "InterSec - Defend Ship",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         }
       ]
@@ -65168,7 +64293,7 @@
       "sources": [
         {
           "mission": "InterSec - Defend Ship",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         }
       ]
@@ -65225,7 +64350,7 @@
       "sources": [
         {
           "mission": "InterSec - Defend Ship",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         }
       ]
@@ -65282,7 +64407,7 @@
       "sources": [
         {
           "mission": "InterSec - Patrol",
-          "probability": 7.7,
+          "probability": 8.3,
           "type": "RANDOM"
         }
       ]
@@ -65339,7 +64464,7 @@
       "sources": [
         {
           "mission": "InterSec - Patrol",
-          "probability": 7.7,
+          "probability": 8.3,
           "type": "RANDOM"
         }
       ]
@@ -65396,7 +64521,7 @@
       "sources": [
         {
           "mission": "InterSec - Patrol",
-          "probability": 7.7,
+          "probability": 8.3,
           "type": "RANDOM"
         }
       ]
@@ -65453,7 +64578,7 @@
       "sources": [
         {
           "mission": "InterSec - Patrol",
-          "probability": 7.7,
+          "probability": 8.3,
           "type": "RANDOM"
         }
       ]
@@ -65510,7 +64635,7 @@
       "sources": [
         {
           "mission": "InterSec - Resource Gathering",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         }
       ]
@@ -65567,7 +64692,7 @@
       "sources": [
         {
           "mission": "InterSec - Resource Gathering",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         }
       ]
@@ -65624,7 +64749,7 @@
       "sources": [
         {
           "mission": "InterSec - Resource Gathering",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         }
       ]
@@ -65681,7 +64806,7 @@
       "sources": [
         {
           "mission": "InterSec - Resource Gathering",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         }
       ]
@@ -65738,7 +64863,7 @@
       "sources": [
         {
           "mission": "InterSec - Patrol",
-          "probability": 7.7,
+          "probability": 8.3,
           "type": "RANDOM"
         }
       ]
@@ -65795,7 +64920,7 @@
       "sources": [
         {
           "mission": "InterSec - Patrol",
-          "probability": 7.7,
+          "probability": 8.3,
           "type": "RANDOM"
         }
       ]
@@ -65852,7 +64977,7 @@
       "sources": [
         {
           "mission": "InterSec - Patrol",
-          "probability": 7.7,
+          "probability": 8.3,
           "type": "RANDOM"
         }
       ]
@@ -65909,236 +65034,8 @@
       "sources": [
         {
           "mission": "InterSec - Patrol",
-          "probability": 7.7,
+          "probability": 8.3,
           "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Testudo Arms Purgatory Camo",
-      "piece_type": "arms",
-      "total_cscu": 10.0,
-      "recipe": [
-        {
-          "slot": "Armored Carapace",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Insulative Liner",
-          "cost_type": "resource",
-          "material": "Aslarite",
-          "raw_ore": "Raw Aslarite",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Support Structure",
-          "cost_type": "resource",
-          "material": "Stileron",
-          "raw_ore": "Stileron Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 210,
-      "output_entity_guid": "8b26ce90-6d22-4d50-8828-b2b37a0491d4",
-      "blueprint_file": "bp_craft_qrt_combat_medium_arms_01_02_01.xml",
-      "is_obtainable": true,
-      "set_name": "Testudo Purgatory Camo",
-      "set_key": "qrt_combat_medium|01_02_01",
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "is_environment_suit": false,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 25 01",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "Testudo Core Purgatory Camo",
-      "piece_type": "core",
-      "total_cscu": 12.0,
-      "recipe": [
-        {
-          "slot": "Armored Carapace",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 5.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Insulative Liner",
-          "cost_type": "resource",
-          "material": "Aslarite",
-          "raw_ore": "Raw Aslarite",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Support Structure",
-          "cost_type": "resource",
-          "material": "Stileron",
-          "raw_ore": "Stileron Ore",
-          "amount_cscu": 5.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 210,
-      "output_entity_guid": "8ba85453-091a-4471-8be5-6bbc75487a33",
-      "blueprint_file": "bp_craft_qrt_combat_medium_core_01_02_01.xml",
-      "is_obtainable": true,
-      "set_name": "Testudo Purgatory Camo",
-      "set_key": "qrt_combat_medium|01_02_01",
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "is_environment_suit": false,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 25 03",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "Testudo Helmet Purgatory Camo",
-      "piece_type": "helmet",
-      "total_cscu": 7.0,
-      "recipe": [
-        {
-          "slot": "Armored Carapace",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Insulative Liner",
-          "cost_type": "resource",
-          "material": "Aslarite",
-          "raw_ore": "Raw Aslarite",
-          "amount_cscu": 1.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Support Structure",
-          "cost_type": "resource",
-          "material": "Stileron",
-          "raw_ore": "Stileron Ore",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 210,
-      "output_entity_guid": "bc29c9de-ceda-43da-a03d-d14f0e2cc113",
-      "blueprint_file": "bp_craft_qrt_combat_medium_helmet_01_02_01.xml",
-      "is_obtainable": true,
-      "set_name": "Testudo Purgatory Camo",
-      "set_key": "qrt_combat_medium|01_02_01",
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "is_environment_suit": false,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 25 05",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "Testudo Legs Purgatory Camo",
-      "piece_type": "legs",
-      "total_cscu": 10.0,
-      "recipe": [
-        {
-          "slot": "Armored Carapace",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Insulative Liner",
-          "cost_type": "resource",
-          "material": "Aslarite",
-          "raw_ore": "Raw Aslarite",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Support Structure",
-          "cost_type": "resource",
-          "material": "Stileron",
-          "raw_ore": "Stileron Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 210,
-      "output_entity_guid": "93f14d45-b05f-4163-bb90-8a5f1f80043b",
-      "blueprint_file": "bp_craft_qrt_combat_medium_legs_01_02_01.xml",
-      "is_obtainable": true,
-      "set_name": "Testudo Purgatory Camo",
-      "set_key": "qrt_combat_medium|01_02_01",
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "is_environment_suit": false,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 25 04",
-          "probability": 100.0,
-          "type": "GUARANTEED"
         }
       ]
     },
@@ -66194,7 +65091,7 @@
       "sources": [
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         }
       ]
@@ -66251,7 +65148,7 @@
       "sources": [
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         }
       ]
@@ -66308,7 +65205,7 @@
       "sources": [
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         }
       ]
@@ -66365,7 +65262,7 @@
       "sources": [
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         }
       ]
@@ -66941,7 +65838,7 @@
       ]
     },
     {
-      "name": "Antium Core Jet",
+      "name": "Antium Helmet Jet",
       "piece_type": "helmet",
       "total_cscu": 11.0,
       "recipe": [
@@ -67055,7 +65952,7 @@
       ]
     },
     {
-      "name": "Antium Helmet Jet",
+      "name": "Antium Arms Maroon",
       "piece_type": "arms",
       "total_cscu": 14.0,
       "recipe": [
@@ -68169,6 +67066,210 @@
           "type": "RANDOM"
         }
       ]
+    },
+    {
+      "name": "Artimex Arms Chairman's Club",
+      "piece_type": "arms",
+      "total_cscu": 10.0,
+      "recipe": [
+        {
+          "slot": "Segment Paneling",
+          "cost_type": "resource",
+          "material": "Taranite",
+          "raw_ore": "Raw Taranite",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Panel Covering",
+          "cost_type": "resource",
+          "material": "Lindinium",
+          "raw_ore": "Lindinium Ore",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 200,
+      "output_entity_guid": "b81baf63-09bd-445b-9f4f-6ba781ee818f",
+      "blueprint_file": "bp_craft_qrt_specialist_medium_arms_01_01_04.xml",
+      "is_obtainable": false,
+      "set_name": "Artimex Chairman's Club",
+      "set_key": "qrt_specialist_medium|01_01_04",
+      "weight": "medium",
+      "role": "stealth",
+      "manufacturer": "Quirinus Technologies",
+      "is_environment_suit": false,
+      "sources": []
+    },
+    {
+      "name": "Artimex Core Chairman's Club",
+      "piece_type": "core",
+      "total_cscu": 12.0,
+      "recipe": [
+        {
+          "slot": "Segment Paneling",
+          "cost_type": "resource",
+          "material": "Taranite",
+          "raw_ore": "Raw Taranite",
+          "amount_cscu": 5.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Panel Covering",
+          "cost_type": "resource",
+          "material": "Lindinium",
+          "raw_ore": "Lindinium Ore",
+          "amount_cscu": 5.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 200,
+      "output_entity_guid": "60865948-2c95-4cd9-b7e0-c6974b1eed01",
+      "blueprint_file": "bp_craft_qrt_specialist_medium_core_01_01_04.xml",
+      "is_obtainable": false,
+      "set_name": "Artimex Chairman's Club",
+      "set_key": "qrt_specialist_medium|01_01_04",
+      "weight": "medium",
+      "role": "stealth",
+      "manufacturer": "Quirinus Technologies",
+      "is_environment_suit": false,
+      "sources": []
+    },
+    {
+      "name": "Artimex Helmet Chairman's Club",
+      "piece_type": "helmet",
+      "total_cscu": 7.0,
+      "recipe": [
+        {
+          "slot": "Segment Paneling",
+          "cost_type": "resource",
+          "material": "Taranite",
+          "raw_ore": "Raw Taranite",
+          "amount_cscu": 3.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Panel Covering",
+          "cost_type": "resource",
+          "material": "Lindinium",
+          "raw_ore": "Lindinium Ore",
+          "amount_cscu": 3.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 200,
+      "output_entity_guid": "11b32878-7b39-4854-8598-ec5120c1e570",
+      "blueprint_file": "bp_craft_qrt_specialist_medium_helmet_01_01_04.xml",
+      "is_obtainable": false,
+      "set_name": "Artimex Chairman's Club",
+      "set_key": "qrt_specialist_medium|01_01_04",
+      "weight": "medium",
+      "role": "stealth",
+      "manufacturer": "Quirinus Technologies",
+      "is_environment_suit": false,
+      "sources": []
+    },
+    {
+      "name": "Artimex Legs Chairman's Club",
+      "piece_type": "legs",
+      "total_cscu": 10.0,
+      "recipe": [
+        {
+          "slot": "Segment Paneling",
+          "cost_type": "resource",
+          "material": "Taranite",
+          "raw_ore": "Raw Taranite",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Panel Covering",
+          "cost_type": "resource",
+          "material": "Lindinium",
+          "raw_ore": "Lindinium Ore",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 200,
+      "output_entity_guid": "7656c45c-d301-4503-b404-fc4126ac7139",
+      "blueprint_file": "bp_craft_qrt_specialist_medium_legs_01_01_04.xml",
+      "is_obtainable": false,
+      "set_name": "Artimex Chairman's Club",
+      "set_key": "qrt_specialist_medium|01_01_04",
+      "weight": "medium",
+      "role": "stealth",
+      "manufacturer": "Quirinus Technologies",
+      "is_environment_suit": false,
+      "sources": []
     },
     {
       "name": "Artimex Arms Canuto",
@@ -70412,7 +69513,7 @@
       ]
     },
     {
-      "name": "Palatino Legs Daystar",
+      "name": "Palatino Legs Sunstone",
       "piece_type": "legs",
       "total_cscu": 14.0,
       "recipe": [
@@ -70451,7 +69552,7 @@
         }
       ],
       "craft_time_seconds": 270,
-      "output_entity_guid": "c7fb0fc2-20b5-4c23-9a22-de9c7d5052d9",
+      "output_entity_guid": "5d00db0e-c92b-4379-ab41-79708c02d7dd",
       "blueprint_file": "bp_craft_qrt_utility_heavy_legs_01_01_04.xml",
       "is_obtainable": true,
       "set_name": "Palatino Daystar",
@@ -72975,63 +72076,6 @@
         {
           "mission": "Shubin Mining - Ship (Pyro/Nyx)",
           "probability": 14.3,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "6CA 'Bila'",
-      "piece_type": "",
-      "total_cscu": 310.0,
-      "recipe": [
-        {
-          "slot": "Shell",
-          "cost_type": "resource",
-          "material": "Torite",
-          "raw_ore": "Torite Ore",
-          "amount_cscu": 120.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 1,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Field Array",
-          "cost_type": "resource",
-          "material": "Laranite",
-          "raw_ore": "Raw Laranite",
-          "amount_cscu": 190.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 1,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Frequency Controller",
-          "cost_type": "item",
-          "material": "",
-          "raw_ore": "",
-          "amount_cscu": 0.0,
-          "item_name": "Glacosite",
-          "item_quantity": 170,
-          "min_quality": 1,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 810,
-      "output_entity_guid": "6534d6d3-85dc-4c29-aa3d-80cab37c4fa5",
-      "blueprint_file": "bp_craft_shld_seco_s03_armor_scitem.xml",
-      "is_obtainable": true,
-      "set_name": "6CA 'Bila'",
-      "set_key": "shld_seco_s03_armor_scitem|01",
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "shld",
-      "is_environment_suit": false,
-      "sources": [
-        {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
-          "probability": 7.7,
           "type": "RANDOM"
         }
       ]
@@ -79734,248 +78778,31 @@
       "manufacturer": "Virgil",
       "is_environment_suit": false,
       "sources": []
-    },
-    {
-      "name": "Chiron Arms",
-      "piece_type": "arms",
-      "total_cscu": 8.0,
-      "recipe": [
-        {
-          "slot": "Casing",
-          "cost_type": "resource",
-          "material": "Laranite",
-          "raw_ore": "Raw Laranite",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Insulative Liner",
-          "cost_type": "resource",
-          "material": "Aslarite",
-          "raw_ore": "Raw Aslarite",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Casing Weave",
-          "cost_type": "resource",
-          "material": "Stileron",
-          "raw_ore": "Stileron Ore",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 150,
-      "output_entity_guid": "ac73e9b7-9bca-4537-9456-71700ee2fa70",
-      "blueprint_file": "bp_craft_vgl_utility_light_arms_01_04_01.xml",
-      "is_obtainable": true,
-      "set_name": "Chiron",
-      "set_key": "vgl_utility_light|01_04_01",
-      "weight": "light",
-      "role": "combat",
-      "manufacturer": "Virgil",
-      "is_environment_suit": false,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 15 01",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "Chiron Core",
-      "piece_type": "core",
-      "total_cscu": 10.0,
-      "recipe": [
-        {
-          "slot": "Casing",
-          "cost_type": "resource",
-          "material": "Laranite",
-          "raw_ore": "Raw Laranite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Insulative Liner",
-          "cost_type": "resource",
-          "material": "Aslarite",
-          "raw_ore": "Raw Aslarite",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Casing Weave",
-          "cost_type": "resource",
-          "material": "Stileron",
-          "raw_ore": "Stileron Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 150,
-      "output_entity_guid": "32efc648-0489-4293-ba06-57b715e18714",
-      "blueprint_file": "bp_craft_vgl_utility_light_core_01_04_01.xml",
-      "is_obtainable": true,
-      "set_name": "Chiron",
-      "set_key": "vgl_utility_light|01_04_01",
-      "weight": "light",
-      "role": "combat",
-      "manufacturer": "Virgil",
-      "is_environment_suit": false,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 15 03",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "Chiron Legs",
-      "piece_type": "legs",
-      "total_cscu": 8.0,
-      "recipe": [
-        {
-          "slot": "Casing",
-          "cost_type": "resource",
-          "material": "Laranite",
-          "raw_ore": "Raw Laranite",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Insulative Liner",
-          "cost_type": "resource",
-          "material": "Aslarite",
-          "raw_ore": "Raw Aslarite",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Casing Weave",
-          "cost_type": "resource",
-          "material": "Stileron",
-          "raw_ore": "Stileron Ore",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 150,
-      "output_entity_guid": "6379240a-3e25-4ce5-ae4b-047d26097038",
-      "blueprint_file": "bp_craft_vgl_utility_light_legs_01_04_01.xml",
-      "is_obtainable": true,
-      "set_name": "Chiron",
-      "set_key": "vgl_utility_light|01_04_01",
-      "weight": "light",
-      "role": "combat",
-      "manufacturer": "Virgil",
-      "is_environment_suit": false,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 15 04",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "Chiron Helmet",
-      "piece_type": "helmet",
-      "total_cscu": 5.0,
-      "recipe": [
-        {
-          "slot": "Casing",
-          "cost_type": "resource",
-          "material": "Laranite",
-          "raw_ore": "Raw Laranite",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Insulative Liner",
-          "cost_type": "resource",
-          "material": "Aslarite",
-          "raw_ore": "Raw Aslarite",
-          "amount_cscu": 1.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Casing Weave",
-          "cost_type": "resource",
-          "material": "Stileron",
-          "raw_ore": "Stileron Ore",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 150,
-      "output_entity_guid": "9226de19-21c4-4d22-a9b9-04e8ab2d7d1a",
-      "blueprint_file": "bp_craft_vgl_utility_light_helmet_01_05_01.xml",
-      "is_obtainable": true,
-      "set_name": "Chiron",
-      "set_key": "vgl_utility_light|01_05_01",
-      "weight": "light",
-      "role": "combat",
-      "manufacturer": "Virgil",
-      "is_environment_suit": false,
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 15 05",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
     }
   ],
   "backpacks": [
     {
       "name": "CSP-68H Backpack",
       "piece_type": "backpack",
-      "total_cscu": 6.0,
+      "total_cscu": 8.0,
       "recipe": [
         {
-          "slot": "Frame",
+          "slot": "Armored Carapace",
           "cost_type": "resource",
           "material": "Ouratite",
           "raw_ore": "Raw Ouratite",
           "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
           "item_name": "",
           "item_quantity": 0,
           "min_quality": 0,
@@ -80027,38 +78854,6 @@
       "role": "combat",
       "manufacturer": "R&R Systems",
       "sources": []
-    },
-    {
-      "name": "Warden Backpack Purgatory Camo",
-      "piece_type": "backpack",
-      "total_cscu": 6.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 6.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 105,
-      "output_entity_guid": "5ca7d59d-99a5-4b49-8c32-60d8368e6181",
-      "blueprint_file": "bp_craft_vgl_combat_heavy_backpack_01_12_01.xml",
-      "is_obtainable": true,
-      "weight": "heavy",
-      "role": "combat",
-      "manufacturer": "Virgil",
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 50 01",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
     },
     {
       "name": "Arden-CL Backpack",
@@ -80135,48 +78930,27 @@
       "sources": []
     },
     {
-      "name": "Chiron Backpack Purgatory Camo",
-      "piece_type": "backpack",
-      "total_cscu": 3.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Aluminium",
-          "raw_ore": "Aluminium Ore",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 60,
-      "output_entity_guid": "649b433d-93ef-4fa2-85c2-c54eb5b44595",
-      "blueprint_file": "bp_craft_vgl_utility_light_backpack_01_05_01.xml",
-      "is_obtainable": true,
-      "weight": "light",
-      "role": "combat",
-      "manufacturer": "Virgil",
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 15 02",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
       "name": "@PH-item_Name_qrt_combat_medium_backpack_01_01_01",
       "piece_type": "backpack",
-      "total_cscu": 4.0,
+      "total_cscu": 6.0,
       "recipe": [
         {
-          "slot": "Frame",
+          "slot": "Armored Carapace",
           "cost_type": "resource",
           "material": "Ouratite",
           "raw_ore": "Raw Ouratite",
           "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
           "item_name": "",
           "item_quantity": 0,
           "min_quality": 0,
@@ -80186,157 +78960,34 @@
       "craft_time_seconds": 90,
       "output_entity_guid": "7176bf25-ae7d-45d7-b99b-7974d3e8b599",
       "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_01_01.xml",
-      "is_obtainable": true,
+      "is_obtainable": false,
       "weight": "medium",
       "role": "combat",
       "manufacturer": "Quirinus Technologies",
-      "sources": [
-        {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "@PH-item_Name_qrt_combat_medium_backpack_01_01_01",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "91d97a2d-2b19-48a9-9246-b64567fe0e88",
-      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_02_01.xml",
-      "is_obtainable": true,
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 25 02",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "@PH-item_Name_qrt_combat_medium_backpack_01_01_02",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "d463ff3b-ada2-4fd3-8155-6e8c5ecc6bbc",
-      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_01_02.xml",
-      "is_obtainable": true,
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "sources": [
-        {
-          "mission": "InterSec - Defend Ship",
-          "probability": 14.3,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "@PH-item_Name_qrt_combat_medium_backpack_01_01_10",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "a22612b1-4479-43fb-9bfb-7c054a0f1de1",
-      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_01_10.xml",
-      "is_obtainable": true,
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "sources": [
-        {
-          "mission": "InterSec - Patrol",
-          "probability": 7.7,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "@PH-item_Name_qrt_combat_medium_backpack_01_01_15",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "17d9c6b5-8a2c-4900-9639-2026707570b6",
-      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_01_15.xml",
-      "is_obtainable": true,
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "sources": [
-        {
-          "mission": "InterSec - Resource Gathering",
-          "probability": 14.3,
-          "type": "RANDOM"
-        }
-      ]
+      "sources": []
     },
     {
       "name": "CSP-68M Backpack",
       "piece_type": "backpack",
-      "total_cscu": 4.0,
+      "total_cscu": 6.0,
       "recipe": [
         {
-          "slot": "Frame",
+          "slot": "Armored Carapace",
           "cost_type": "resource",
           "material": "Ouratite",
           "raw_ore": "Raw Ouratite",
           "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
           "item_name": "",
           "item_quantity": 0,
           "min_quality": 0,
@@ -80355,14 +79006,25 @@
     {
       "name": "Sinkhole Backpack",
       "piece_type": "backpack",
-      "total_cscu": 4.0,
+      "total_cscu": 6.0,
       "recipe": [
         {
-          "slot": "Frame",
+          "slot": "Armored Carapace",
           "cost_type": "resource",
           "material": "Ouratite",
           "raw_ore": "Raw Ouratite",
           "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
           "item_name": "",
           "item_quantity": 0,
           "min_quality": 0,
@@ -80416,38 +79078,6 @@
       "sources": []
     },
     {
-      "name": "Testudo Backpack Turfwar",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "5f7161bc-36a1-443e-aace-59ff91ab8a06",
-      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_01_16.xml",
-      "is_obtainable": true,
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "sources": [
-        {
-          "mission": "InterSec - Patrol",
-          "probability": 7.7,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
       "name": "MacFlex \"Rucksack\" Backpack",
       "piece_type": "backpack",
       "total_cscu": 5.0,
@@ -80485,105 +79115,9 @@
       "sources": []
     },
     {
-      "name": "Novikov Backpack Halcyon",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Shell",
-          "cost_type": "resource",
-          "material": "Stileron",
-          "raw_ore": "Stileron Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "26f34f18-206a-485e-bf5e-ddda6852a8c5",
-      "blueprint_file": "bp_craft_clda_env_heavy_backpack_01_02_04.xml",
-      "is_obtainable": true,
-      "weight": "heavy",
-      "role": "environment",
-      "manufacturer": "Caldera",
-      "sources": [
-        {
-          "mission": "ASD - Updated Seismic Data",
-          "probability": 6.7,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Novikov Backpack Mire",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Shell",
-          "cost_type": "resource",
-          "material": "Stileron",
-          "raw_ore": "Stileron Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "0bcd0305-b5a4-4ddc-b69c-861886a6b3ee",
-      "blueprint_file": "bp_craft_clda_env_heavy_backpack_01_02_16.xml",
-      "is_obtainable": true,
-      "weight": "heavy",
-      "role": "environment",
-      "manufacturer": "Caldera",
-      "sources": [
-        {
-          "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Novikov Backpack Patina",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Shell",
-          "cost_type": "resource",
-          "material": "Stileron",
-          "raw_ore": "Stileron Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "278f244d-4dff-411e-bf23-c795135a6852",
-      "blueprint_file": "bp_craft_clda_env_heavy_backpack_01_02_17.xml",
-      "is_obtainable": true,
-      "weight": "heavy",
-      "role": "environment",
-      "manufacturer": "Caldera",
-      "sources": [
-        {
-          "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
       "name": "Novikov Backpack Smolder",
       "piece_type": "backpack",
-      "total_cscu": 4.0,
+      "total_cscu": 12.0,
       "recipe": [
         {
           "slot": "Shell",
@@ -80591,6 +79125,17 @@
           "material": "Stileron",
           "raw_ore": "Stileron Ore",
           "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 8.0,
           "item_name": "",
           "item_quantity": 0,
           "min_quality": 0,
@@ -80600,22 +79145,16 @@
       "craft_time_seconds": 90,
       "output_entity_guid": "855aabae-2c59-4a79-9e81-0376f9ddc7f6",
       "blueprint_file": "bp_craft_clda_env_heavy_backpack_01_02_01.xml",
-      "is_obtainable": true,
+      "is_obtainable": false,
       "weight": "heavy",
       "role": "environment",
       "manufacturer": "Caldera",
-      "sources": [
-        {
-          "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
-          "type": "RANDOM"
-        }
-      ]
+      "sources": []
     },
     {
       "name": "Pembroke Backpack",
       "piece_type": "backpack",
-      "total_cscu": 4.0,
+      "total_cscu": 12.0,
       "recipe": [
         {
           "slot": "Shell",
@@ -80623,6 +79162,17 @@
           "material": "Stileron",
           "raw_ore": "Stileron Ore",
           "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 8.0,
           "item_name": "",
           "item_quantity": 0,
           "min_quality": 0,
@@ -80725,60 +79275,6 @@
     }
   ],
   "weapons": [
-    {
-      "name": "Demeco \"Purgatory Camo\" LMG",
-      "piece_type": "lmg",
-      "total_cscu": 8.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Corundum",
-          "raw_ore": "Raw Corundum",
-          "amount_cscu": 6.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Wiring",
-          "cost_type": "resource",
-          "material": "Copper",
-          "raw_ore": "Copper Ore",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Lenses",
-          "cost_type": "item",
-          "material": "",
-          "raw_ore": "",
-          "amount_cscu": 0.0,
-          "item_name": "Janalite",
-          "item_quantity": 1,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 240,
-      "output_entity_guid": "656afe86-dc53-4b83-8121-4084992d13df",
-      "blueprint_file": "bp_craft_klwe_lmg_energy_01_mr01.xml",
-      "is_obtainable": true,
-      "weapon_type": "lmg",
-      "damage_type": "energy",
-      "manufacturer": "Klaus & Werner",
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 50 06",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
     {
       "name": "Demeco LMG",
       "piece_type": "lmg",
@@ -81400,7 +79896,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         }
       ]
@@ -81508,7 +80004,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -81562,7 +80058,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -81605,17 +80101,17 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         },
         {
           "mission": "ASD - Updated Power Usage Data",
-          "probability": 6.7,
+          "probability": 7.1,
           "type": "RANDOM"
         },
         {
           "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -83074,7 +81570,7 @@
       "sources": [
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         },
         {
@@ -83133,7 +81629,7 @@
       "sources": [
         {
           "mission": "InterSec - Defend Ship",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         },
         {
@@ -83192,7 +81688,7 @@
       "sources": [
         {
           "mission": "InterSec - Resource Gathering",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         },
         {
@@ -83240,17 +81736,17 @@
       "sources": [
         {
           "mission": "InterSec - Defend Ship",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         },
         {
           "mission": "InterSec - Resource Gathering",
-          "probability": 14.3,
+          "probability": 16.7,
           "type": "RANDOM"
         },
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         },
         {
@@ -84610,60 +83106,6 @@
       ]
     },
     {
-      "name": "Killshot \"Dominion Camo\" Rifle",
-      "piece_type": "rifle",
-      "total_cscu": 8.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Iron",
-          "raw_ore": "Iron Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Stock",
-          "cost_type": "resource",
-          "material": "Hephaestanite",
-          "raw_ore": "Raw Hephaestanite",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Barrel",
-          "cost_type": "resource",
-          "material": "Iron",
-          "raw_ore": "Iron Ore",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 150,
-      "output_entity_guid": "0eec337e-d8e4-402c-98dd-c7c16bea2e1d",
-      "blueprint_file": "bp_craft_none_rifle_multi_01_collector01.xml",
-      "is_obtainable": true,
-      "weapon_type": "rifle",
-      "damage_type": "ballistic",
-      "manufacturer": "",
-      "sources": [
-        {
-          "mission": "Bp Reward None Rifle Multi 01 Collector01",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
       "name": "Killshot Rifle",
       "piece_type": "rifle",
       "total_cscu": 8.0,
@@ -85515,60 +83957,6 @@
       "sources": []
     },
     {
-      "name": "S71 \"Purgatory Camo\" Rifle",
-      "piece_type": "rifle",
-      "total_cscu": 8.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Aluminium",
-          "raw_ore": "Aluminium Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Stock",
-          "cost_type": "resource",
-          "material": "Hephaestanite",
-          "raw_ore": "Raw Hephaestanite",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Barrel",
-          "cost_type": "resource",
-          "material": "Iron",
-          "raw_ore": "Iron Ore",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "4f40a177-91d9-4a93-b2bb-c076938c6f0b",
-      "blueprint_file": "bp_craft_gmni_rifle_ballistic_01_mr01.xml",
-      "is_obtainable": true,
-      "weapon_type": "rifle",
-      "damage_type": "ballistic",
-      "manufacturer": "Gemini",
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 25 06",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
       "name": "S71 Rifle",
       "piece_type": "rifle",
       "total_cscu": 8.0,
@@ -85712,60 +84100,6 @@
       "damage_type": "ballistic",
       "manufacturer": "Behring",
       "sources": []
-    },
-    {
-      "name": "BR-2 \"Purgatory Camo\" Shotgun",
-      "piece_type": "shotgun",
-      "total_cscu": 8.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Torite",
-          "raw_ore": "Torite Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Stock",
-          "cost_type": "resource",
-          "material": "Hephaestanite",
-          "raw_ore": "Raw Hephaestanite",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Barrel",
-          "cost_type": "resource",
-          "material": "Iron",
-          "raw_ore": "Iron Ore",
-          "amount_cscu": 2.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 150,
-      "output_entity_guid": "342413af-8554-4c32-af63-1690dc948883",
-      "blueprint_file": "bp_craft_behr_shotgun_ballistic_01_mr01.xml",
-      "is_obtainable": true,
-      "weapon_type": "shotgun",
-      "damage_type": "ballistic",
-      "manufacturer": "Behring",
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 15 06",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
     },
     {
       "name": "BR-2 Shotgun",
@@ -88604,7 +86938,7 @@
       "sources": [
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         },
         {
@@ -88663,7 +86997,7 @@
       "sources": [
         {
           "mission": "InterSec - Patrol",
-          "probability": 7.7,
+          "probability": 8.3,
           "type": "RANDOM"
         },
         {
@@ -88722,7 +87056,7 @@
       "sources": [
         {
           "mission": "InterSec - Patrol",
-          "probability": 7.7,
+          "probability": 8.3,
           "type": "RANDOM"
         },
         {
@@ -88781,7 +87115,7 @@
       "sources": [
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         },
         {
@@ -88829,12 +87163,12 @@
       "sources": [
         {
           "mission": "InterSec - Patrol",
-          "probability": 7.7,
+          "probability": 8.3,
           "type": "RANDOM"
         },
         {
           "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
+          "probability": 7.7,
           "type": "RANDOM"
         },
         {
@@ -90814,7 +89148,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Security Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -91003,7 +89337,7 @@
       "sources": [
         {
           "mission": "ASD - Updated Energy Anomaly Data",
-          "probability": 8.3,
+          "probability": 9.1,
           "type": "RANDOM"
         }
       ]
@@ -91059,7 +89393,7 @@
   ],
   "undersuits": [
     {
-      "name": "A23 Flight Helmet Woodland",
+      "name": "A23 Helmet Woodland",
       "piece_type": "helmet",
       "total_cscu": 3.0,
       "recipe": [
@@ -91107,7 +89441,7 @@
       "sources": []
     },
     {
-      "name": "Calva Racing Helmet",
+      "name": "Calva Helmet",
       "piece_type": "helmet",
       "total_cscu": 3.0,
       "recipe": [
@@ -91251,7 +89585,7 @@
       "sources": []
     },
     {
-      "name": "Odyssey II Racing Helmet Alpha",
+      "name": "Odyssey II Helmet Alpha",
       "piece_type": "helmet",
       "total_cscu": 3.0,
       "recipe": [
@@ -91419,7 +89753,7 @@
       "sources": []
     },
     {
-      "name": "Why Not? Flight Helmet",
+      "name": "Why Not? Helmet",
       "piece_type": "helmet",
       "total_cscu": 3.0,
       "recipe": [
@@ -91444,126 +89778,6 @@
     }
   ],
   "flightsuits": [
-    {
-      "name": "BlackFire Racing Flight Suit",
-      "piece_type": "suit",
-      "total_cscu": 6.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 6.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "da759ccf-9532-421a-b728-cb89d2050688",
-      "blueprint_file": "bp_craft_mrai_flightsuit_01_07_12.xml",
-      "is_obtainable": true,
-      "manufacturer": "Mirai",
-      "sources": [
-        {
-          "mission": "Bp Rewards Fullstrikeonstationa",
-          "probability": 7.1,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "BlackFire Racing Helmet",
-      "piece_type": "helmet",
-      "total_cscu": 3.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "d175c150-9207-42b2-9d0d-c340cc81dcdb",
-      "blueprint_file": "bp_craft_mrai_flightsuit_helmet_01_07_12.xml",
-      "is_obtainable": true,
-      "manufacturer": "Mirai",
-      "sources": [
-        {
-          "mission": "Bp Rewards Fullstrikeonstationa",
-          "probability": 7.1,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "BlueFlame Racing Flight Suit",
-      "piece_type": "suit",
-      "total_cscu": 6.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 6.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "5ed3e5f5-2fe5-480b-8018-03e3cb2f3605",
-      "blueprint_file": "bp_craft_mrai_flightsuit_01_07_18.xml",
-      "is_obtainable": true,
-      "manufacturer": "Mirai",
-      "sources": [
-        {
-          "mission": "Bp Rewards Fullstrikeonstationa",
-          "probability": 7.1,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "BlueFlame Racing Helmet",
-      "piece_type": "helmet",
-      "total_cscu": 3.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "7850121e-2968-44c7-82b3-65c51e20d34e",
-      "blueprint_file": "bp_craft_mrai_flightsuit_helmet_01_07_18.xml",
-      "is_obtainable": true,
-      "manufacturer": "Mirai",
-      "sources": [
-        {
-          "mission": "Bp Rewards Fullstrikeonstationa",
-          "probability": 7.1,
-          "type": "RANDOM"
-        }
-      ]
-    },
     {
       "name": "Mirai Racing Flight Suit",
       "piece_type": "suit",
@@ -91613,402 +89827,7 @@
       "sources": []
     },
     {
-      "name": "Tailwind Flight Helmet Adrenaline",
-      "piece_type": "helmet",
-      "total_cscu": 3.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "52c8d15c-d5da-4fd6-8b70-97f897c66d79",
-      "blueprint_file": "bp_craft_vgl_flightsuit_helmet_01_06_01.xml",
-      "is_obtainable": true,
-      "manufacturer": "Virgil",
-      "sources": [
-        {
-          "mission": "Bp Rewards Bombingrunb",
-          "probability": 33.3,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Tailwind Flight Helmet Airwolf",
-      "piece_type": "helmet",
-      "total_cscu": 3.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "17065bb4-fbc3-497d-8900-508a03a9b692",
-      "blueprint_file": "bp_craft_vgl_flightsuit_helmet_01_10_01.xml",
-      "is_obtainable": true,
-      "manufacturer": "Virgil",
-      "sources": [
-        {
-          "mission": "Bp Rewards Fullstrikeonstationa",
-          "probability": 7.1,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Tailwind Flight Helmet Big Bite",
-      "piece_type": "helmet",
-      "total_cscu": 3.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "0723a3ce-0452-44ff-9b4c-8aa281002590",
-      "blueprint_file": "bp_craft_vgl_flightsuit_helmet_01_03_01.xml",
-      "is_obtainable": true,
-      "manufacturer": "Virgil",
-      "sources": [
-        {
-          "mission": "Bp Rewards Bombingrunb",
-          "probability": 33.3,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Tailwind Flight Helmet Blackbolt",
-      "piece_type": "helmet",
-      "total_cscu": 3.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "718b049c-3c47-432d-8b68-d1dcf3d8371f",
-      "blueprint_file": "bp_craft_vgl_flightsuit_helmet_01_04_01.xml",
-      "is_obtainable": true,
-      "manufacturer": "Virgil",
-      "sources": [
-        {
-          "mission": "Bp Rewards Assistshipincombatb",
-          "probability": 33.3,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Tailwind Flight Helmet Blue Skies",
-      "piece_type": "helmet",
-      "total_cscu": 3.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "911b5684-5b43-41ce-83d4-7e464d1cf226",
-      "blueprint_file": "bp_craft_vgl_flightsuit_helmet_01_07_01.xml",
-      "is_obtainable": true,
-      "manufacturer": "Virgil",
-      "sources": [
-        {
-          "mission": "Bp Rewards Fullstrikeonstationa",
-          "probability": 7.1,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Tailwind Flight Helmet Dominion Camo",
-      "piece_type": "helmet",
-      "total_cscu": 3.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "42176077-e614-4bdf-8cce-24383458f875",
-      "blueprint_file": "bp_craft_vgl_flightsuit_helmet_01_02_01.xml",
-      "is_obtainable": true,
-      "manufacturer": "Virgil",
-      "sources": [
-        {
-          "mission": "Bp Reward Vgl Flightsuit Helmet 01 02 01",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "Tailwind Flight Helmet Frostshock",
-      "piece_type": "helmet",
-      "total_cscu": 3.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "5ddf7fa8-522f-4091-889a-de760e9834b0",
-      "blueprint_file": "bp_craft_vgl_flightsuit_helmet_01_08_01.xml",
-      "is_obtainable": true,
-      "manufacturer": "Virgil",
-      "sources": [
-        {
-          "mission": "Bp Rewards Fullstrikeonstationa",
-          "probability": 7.1,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Tailwind Flight Helmet Green Streak",
-      "piece_type": "helmet",
-      "total_cscu": 3.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "69ac7a79-6546-450f-9a02-b35180030e05",
-      "blueprint_file": "bp_craft_vgl_flightsuit_helmet_01_09_01.xml",
-      "is_obtainable": true,
-      "manufacturer": "Virgil",
-      "sources": [
-        {
-          "mission": "Bp Rewards Assistshipincombatb",
-          "probability": 33.3,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Tailwind Flight Helmet Thunderstruck",
-      "piece_type": "helmet",
-      "total_cscu": 3.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "4a114179-8aa5-4048-819c-7579e7097d00",
-      "blueprint_file": "bp_craft_vgl_flightsuit_helmet_01_05_01.xml",
-      "is_obtainable": true,
-      "manufacturer": "Virgil",
-      "sources": [
-        {
-          "mission": "Bp Rewards Fullstrikeonstationa",
-          "probability": 7.1,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Tailwind Flight Suit",
-      "piece_type": "suit",
-      "total_cscu": 6.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 6.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "e7ba6337-2972-46db-b122-df73c4176027",
-      "blueprint_file": "bp_craft_vgl_flightsuit_01_01_01.xml",
-      "is_obtainable": true,
-      "manufacturer": "Virgil",
-      "sources": [
-        {
-          "mission": "Bp Rewards Assistshipincombatb",
-          "probability": 33.3,
-          "type": "RANDOM"
-        },
-        {
-          "mission": "Bp Rewards Bombingrunb",
-          "probability": 33.3,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Tailwind Flight Suit Dominion Camo",
-      "piece_type": "suit",
-      "total_cscu": 6.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 6.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "af097f7a-9c3c-4ba9-8155-54f71cd49d73",
-      "blueprint_file": "bp_craft_vgl_flightsuit_01_02_01.xml",
-      "is_obtainable": true,
-      "manufacturer": "Virgil",
-      "sources": [
-        {
-          "mission": "Bp Reward Vgl Flightsuit 01 02 01",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "WhiteHot Racing Flight Suit",
-      "piece_type": "suit",
-      "total_cscu": 6.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 6.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "3cdddf2e-f467-4ef9-9860-bf573a2c5e58",
-      "blueprint_file": "bp_craft_mrai_flightsuit_01_07_02.xml",
-      "is_obtainable": true,
-      "manufacturer": "Mirai",
-      "sources": [
-        {
-          "mission": "Bp Rewards Fullstrikeonstationa",
-          "probability": 7.1,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "WhiteHot Racing Helmet",
-      "piece_type": "helmet",
-      "total_cscu": 3.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "73bec6ec-6618-42f7-bbb5-805f5052b6e9",
-      "blueprint_file": "bp_craft_mrai_flightsuit_helmet_01_07_02.xml",
-      "is_obtainable": true,
-      "manufacturer": "Mirai",
-      "sources": [
-        {
-          "mission": "Bp Rewards Fullstrikeonstationa",
-          "probability": 7.1,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Xanthule Flight Helmet",
+      "name": "Xanthule Helmet",
       "piece_type": "helmet",
       "total_cscu": 3.0,
       "recipe": [
@@ -92032,7 +89851,7 @@
       "sources": []
     },
     {
-      "name": "Xanthule Flight Suit",
+      "name": "Xanthule Suit",
       "piece_type": "suit",
       "total_cscu": 6.0,
       "recipe": [
@@ -92061,8 +89880,8 @@
       "resource_guid": "48c7080a-bbef-43d2-901a-698321ed4340",
       "raw_ore": "Aluminium Ore",
       "slots_used_in": "Barrel, Frame",
-      "blueprint_count": 34,
-      "total_cscu_demand": 109.0,
+      "blueprint_count": 31,
+      "total_cscu_demand": 82.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -92072,8 +89891,8 @@
       "resource_guid": "fde0cd65-8827-4b23-804d-cc8845dfa7ac",
       "raw_ore": "Raw Aslarite",
       "slots_used_in": "Insulative Liner",
-      "blueprint_count": 830,
-      "total_cscu_demand": 1523.5,
+      "blueprint_count": 828,
+      "total_cscu_demand": 1533.5,
       "mining_type": "roc",
       "location": "",
       "link_url": "",
@@ -92083,8 +89902,8 @@
       "resource_guid": "61189578-ed7a-4491-9774-37ae2f82b8b0",
       "raw_ore": "Raw Hephaestanite",
       "slots_used_in": "Grip, Stock",
-      "blueprint_count": 119,
-      "total_cscu_demand": 914.0,
+      "blueprint_count": 107,
+      "total_cscu_demand": 200.0,
       "mining_type": "roc",
       "location": "",
       "link_url": "",
@@ -92094,8 +89913,8 @@
       "resource_guid": "989f9b73-f636-4f35-a81d-579dcbe3f0ab",
       "raw_ore": "Raw Ouratite",
       "slots_used_in": "Armored Carapace",
-      "blueprint_count": 473,
-      "total_cscu_demand": 3466.0,
+      "blueprint_count": 430,
+      "total_cscu_demand": 1880.0,
       "mining_type": "roc",
       "location": "",
       "link_url": "",
@@ -92105,8 +89924,8 @@
       "resource_guid": "f386a33c-ac9a-400a-a7b8-fe1fc7c8d270",
       "raw_ore": "Iron Ore",
       "slots_used_in": "Barrel",
-      "blueprint_count": 245,
-      "total_cscu_demand": 15129.0,
+      "blueprint_count": 78,
+      "total_cscu_demand": 151.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -92116,8 +89935,8 @@
       "resource_guid": "7f4599b0-a2b2-4178-8c7e-13292054ab20",
       "raw_ore": "Raw Laranite",
       "slots_used_in": "Casing",
-      "blueprint_count": 353,
-      "total_cscu_demand": 11252.0,
+      "blueprint_count": 223,
+      "total_cscu_demand": 957.0,
       "mining_type": "roc",
       "location": "",
       "link_url": "",
@@ -92127,8 +89946,8 @@
       "resource_guid": "4a47cad8-0271-4048-b19b-d9b52521fc20",
       "raw_ore": "Savrilium Ore",
       "slots_used_in": "Casing Weave",
-      "blueprint_count": 89,
-      "total_cscu_demand": 2731.0,
+      "blueprint_count": 59,
+      "total_cscu_demand": 269.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -92259,8 +90078,8 @@
       "resource_guid": "07570c9f-fdf6-4bca-a56b-c42809ec0e01",
       "raw_ore": "Titanium Ore",
       "slots_used_in": "",
-      "blueprint_count": 94,
-      "total_cscu_demand": 6248.0,
+      "blueprint_count": 30,
+      "total_cscu_demand": 181.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -92270,8 +90089,8 @@
       "resource_guid": "35121003-f1af-481a-b16f-7f48d8af0efb",
       "raw_ore": "Quartz",
       "slots_used_in": "",
-      "blueprint_count": 28,
-      "total_cscu_demand": 591.0,
+      "blueprint_count": 9,
+      "total_cscu_demand": 19.0,
       "mining_type": "unknown",
       "location": "",
       "link_url": "",
@@ -92281,8 +90100,8 @@
       "resource_guid": "93c8b7df-d6ac-4b4f-a115-b0e3afc238b8",
       "raw_ore": "Raw Beryl",
       "slots_used_in": "",
-      "blueprint_count": 33,
-      "total_cscu_demand": 2285.0,
+      "blueprint_count": 6,
+      "total_cscu_demand": 12.0,
       "mining_type": "roc",
       "location": "",
       "link_url": "",
@@ -92292,8 +90111,8 @@
       "resource_guid": "dc6fbcbb-5990-4ed5-82ee-93152dab7845",
       "raw_ore": "Agricium Ore",
       "slots_used_in": "",
-      "blueprint_count": 190,
-      "total_cscu_demand": 11854.0,
+      "blueprint_count": 87,
+      "total_cscu_demand": 240.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -92303,8 +90122,8 @@
       "resource_guid": "86d00bd8-08f7-4231-b375-a609803fc46d",
       "raw_ore": "Hadanite",
       "slots_used_in": "Precision Parts",
-      "blueprint_count": 89,
-      "total_cscu_demand": 8754.0,
+      "blueprint_count": 35,
+      "total_cscu_demand": 141.0,
       "mining_type": "hand",
       "location": "",
       "link_url": "",
@@ -92315,14 +90134,14 @@
     "Hadanite Gem": {
       "item_guid": "20094ded-ad04-46a3-b734-9e37aa3154b3",
       "mining_type": "hand",
-      "blueprint_count": 71,
-      "total_quantity_demand": 1232
+      "blueprint_count": 35,
+      "total_quantity_demand": 86
     },
     "Hadanite": {
       "item_guid": "38d7d7e9-819b-4351-a40e-7b764cb304e6",
       "mining_type": "hand",
-      "blueprint_count": 34,
-      "total_quantity_demand": 3232
+      "blueprint_count": 6,
+      "total_quantity_demand": 18
     },
     "Janalite": {
       "item_guid": "e954d75e-fb1e-487e-90a8-170f0284b502",
@@ -92333,14 +90152,14 @@
     "Aphorite": {
       "item_guid": "3f137385-dd8f-410b-b5f3-7b4d283c09cd",
       "mining_type": "hand",
-      "blueprint_count": 31,
-      "total_quantity_demand": 186
+      "blueprint_count": 23,
+      "total_quantity_demand": 46
     },
     "Saldynium (Ore)": {
       "item_guid": "ee704f52-8794-434d-bcd7-47fec365ffbd",
       "mining_type": "fps_mission",
-      "blueprint_count": 7,
-      "total_quantity_demand": 111
+      "blueprint_count": 3,
+      "total_quantity_demand": 15
     },
     "Carinite": {
       "item_guid": "0b83f4b2-1d15-4843-aa94-29f2b40a5cbe",
@@ -92351,26 +90170,8 @@
     "Sadaryx": {
       "item_guid": "51b456cd-e73e-42a8-b36e-0bf6fbe29ce6",
       "mining_type": "unknown",
-      "blueprint_count": 37,
-      "total_quantity_demand": 178
-    },
-    "Yormandi Eye": {
-      "item_guid": "124da32f-de8f-45f6-a2f1-81fd47752b2d",
-      "mining_type": "unknown",
-      "blueprint_count": 1,
-      "total_quantity_demand": 4
-    },
-    "Glacosite": {
-      "item_guid": "ae6d8d74-04fa-4d21-9991-4232f8eb2cfe",
-      "mining_type": "unknown",
-      "blueprint_count": 25,
-      "total_quantity_demand": 1729
-    },
-    "Feynmaline": {
-      "item_guid": "d7a21cac-3c2b-4695-95b7-2042d8f5755e",
-      "mining_type": "unknown",
-      "blueprint_count": 9,
-      "total_quantity_demand": 1069
+      "blueprint_count": 15,
+      "total_quantity_demand": 15
     }
   },
   "slot_types": {
@@ -92407,12 +90208,6 @@
     "Shot": {
       "material": "Taranite",
       "raw_ore": "Raw Taranite",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Frame": {
-      "material": "Aluminium",
-      "raw_ore": "Aluminium Ore",
       "is_catalyst": false,
       "description": ""
     },
@@ -92500,9 +90295,9 @@
       "is_catalyst": false,
       "description": ""
     },
-    "Tensive Fibre": {
-      "material": "Ouratite",
-      "raw_ore": "Raw Ouratite",
+    "Frame": {
+      "material": "Lindinium",
+      "raw_ore": "Lindinium Ore",
       "is_catalyst": false,
       "description": ""
     },
@@ -92563,204 +90358,6 @@
     "Precision Parts": {
       "material": "",
       "raw_ore": "",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Substrate": {
-      "material": "Titanium",
-      "raw_ore": "Titanium Ore",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Lattice": {
-      "material": "Hadanite",
-      "raw_ore": "Hadanite",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Filament Coating": {
-      "material": "",
-      "raw_ore": "",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Electronics": {
-      "material": "Silicon",
-      "raw_ore": "Raw Silicon",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Coolant": {
-      "material": "",
-      "raw_ore": "",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Pump Impeller": {
-      "material": "Tin",
-      "raw_ore": "Tin Ore",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Emitter": {
-      "material": "",
-      "raw_ore": "",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Bus Bars": {
-      "material": "Copper",
-      "raw_ore": "Copper Ore",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Voltage Regulator": {
-      "material": "Laranite",
-      "raw_ore": "Raw Laranite",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Stator Cores": {
-      "material": "Beryl",
-      "raw_ore": "Raw Beryl",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Case": {
-      "material": "Torite",
-      "raw_ore": "Torite Ore",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Injector Nozzles": {
-      "material": "Tungsten",
-      "raw_ore": "Tungsten Ore",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Containment Matrix": {
-      "material": "Beryl",
-      "raw_ore": "Raw Beryl",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Transmitter": {
-      "material": "Laranite",
-      "raw_ore": "Raw Laranite",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Signal Provessor": {
-      "material": "Lindinium",
-      "raw_ore": "Lindinium Ore",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Main Valve": {
-      "material": "Agricium",
-      "raw_ore": "Agricium Ore",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Ocular Enhancer": {
-      "material": "",
-      "raw_ore": "",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Field Array": {
-      "material": "Hadanite",
-      "raw_ore": "Hadanite",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Frequency Controller": {
-      "material": "",
-      "raw_ore": "",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "<= PLACEHOLDER =>": {
-      "material": "Iron",
-      "raw_ore": "Iron Ore",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Focus Zone Plate": {
-      "material": "Agricium",
-      "raw_ore": "Agricium Ore",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Aperture Iris": {
-      "material": "",
-      "raw_ore": "",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Acceleration Unit": {
-      "material": "",
-      "raw_ore": "",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Radiator": {
-      "material": "Lindinium",
-      "raw_ore": "Lindinium Ore",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Reinforced Frame": {
-      "material": "Titanium",
-      "raw_ore": "Titanium Ore",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Drive Motor": {
-      "material": "Ouratite",
-      "raw_ore": "Raw Ouratite",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Cycler": {
-      "material": "Hadanite",
-      "raw_ore": "Hadanite",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Barrels": {
-      "material": "Tungsten",
-      "raw_ore": "Tungsten Ore",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Magnetizer": {
-      "material": "",
-      "raw_ore": "",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Anchor Pins": {
-      "material": "Stileron",
-      "raw_ore": "Stileron Ore",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Distorter Unit": {
-      "material": "",
-      "raw_ore": "",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Thermal Sink": {
-      "material": "",
-      "raw_ore": "",
-      "is_catalyst": false,
-      "description": ""
-    },
-    "Torque Junction": {
-      "material": "Savrilium",
-      "raw_ore": "Savrilium Ore",
       "is_catalyst": false,
       "description": ""
     }
