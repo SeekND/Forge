@@ -4,7 +4,7 @@
    ═══════════════════════════════════════════════ */
 
 let DATA=null, currentTab='home', bpCategory='armor';
-let filters={weight:[],role:[],piece:[],wtype:[],dmg:[],wkind:[],unlock:'all'};
+let filters={weight:[],role:[],piece:[],wtype:[],dmg:[],wkind:[],shipwtype:[],shipdmg:[],comptype:[],unlock:'all'};
 let invFilters={status:'all',type:[],weight:[]};
 
 // Inventory: {materialName: [{qty (in cscu), quality}]}
@@ -92,6 +92,8 @@ const MINING_LABELS={hand:'Hand',roc:'ROC',ship:'Ship',fps_mission:'Mission',unk
 
 const ROLE_LABELS={combat:'Combat',cosmonaut:'Cosmonaut',engineer:'Engineer',environment:'Environment',salvager:'Salvager',stealth:'Stealth'};
 const WTYPE_LABELS={lmg:'LMG',pistol:'Pistol',rifle:'Rifle',shotgun:'Shotgun',smg:'SMG',sniper:'Sniper'};
+const SHIP_WTYPE_LABELS={cannon:'Cannon',repeater:'Repeater',gatling:'Gatling',scatter:'Scatter',massdriver:'Mass Driver',weapon:'Other'};
+const COMP_LABELS={cooler:'Cooler',powerplant:'Power Plant',shield:'Shield',radar:'Radar',quantumdrive:'Quantum Drive',tractorbeam:'Tractor Beam',mininglaser:'Mining Laser',salvage:'Salvage',refuelling:'Refuelling'};
 const PIECE_LABELS={set:'Set',arms:'Arms',core:'Core',helmet:'Helmet',legs:'Legs',backpack:'Backpack',suit:'Suit'};
 const WEIGHT_ORDER={light:0,medium:1,heavy:2};
 
@@ -237,8 +239,11 @@ async function init(){
   DATA.undersuits=DATA.undersuits.filter(u=>!u.name.includes('[Unknown'));
   DATA.flightsuits=DATA.flightsuits.filter(f=>!f.name.includes('[Unknown'));
   DATA.backpacks=DATA.backpacks.filter(b=>!b.name.includes('[Unknown'));
+  // Ship items (4.8): default to empty so older data files still load
+  DATA.ship_weapons=(DATA.ship_weapons||[]).filter(w=>!w.name.includes('[Unknown'));
+  DATA.ship_components=(DATA.ship_components||[]).filter(c=>!c.name.includes('[Unknown')&&!c.name.includes('PLACEHOLDER'));
   const cR=arr=>arr.forEach(item=>{item.pieces?item.pieces.forEach(p=>{p.recipe=p.recipe.filter(r=>!String(r.material||'').includes('[Unknown'));}):item.recipe=(item.recipe||[]).filter(r=>!String(r.material||'').includes('[Unknown'));});
-  cR(DATA.armor_sets);cR(DATA.armor_pieces||[]);cR(DATA.weapons);cR(DATA.undersuits);cR(DATA.flightsuits);cR(DATA.backpacks);
+  cR(DATA.armor_sets);cR(DATA.armor_pieces||[]);cR(DATA.weapons);cR(DATA.undersuits);cR(DATA.flightsuits);cR(DATA.backpacks);cR(DATA.ship_weapons);cR(DATA.ship_components);
   DATA.undersuit_helmets=DATA.undersuits.filter(u=>u.piece_type==='helmet');
   DATA.undersuits=DATA.undersuits.filter(u=>u.piece_type!=='helmet');
   DATA.flightsuit_helmets=DATA.flightsuits.filter(f=>f.piece_type==='helmet');
@@ -254,6 +259,8 @@ async function init(){
     DATA.backpacks=DATA.backpacks.filter(b=>b.is_obtainable!==false);
     DATA.undersuit_helmets=(DATA.undersuit_helmets||[]).filter(h=>h.is_obtainable!==false);
     DATA.flightsuit_helmets=(DATA.flightsuit_helmets||[]).filter(h=>h.is_obtainable!==false);
+    DATA.ship_weapons=DATA.ship_weapons.filter(w=>w.is_obtainable!==false);
+    DATA.ship_components=DATA.ship_components.filter(c=>c.is_obtainable!==false);
   }
 
   buildDefaultUnlocked();
@@ -305,6 +312,8 @@ function buildDefaultUnlocked(){
   DATA.flightsuits.forEach(f=>{if(files.has((f.blueprint_file||'').toLowerCase()))DEFAULT_UNLOCKED.push('flightsuit|'+f.name);});
   (DATA.undersuit_helmets||[]).forEach(h=>{if(files.has((h.blueprint_file||'').toLowerCase()))DEFAULT_UNLOCKED.push('undersuit|'+h.name);});
   (DATA.flightsuit_helmets||[]).forEach(h=>{if(files.has((h.blueprint_file||'').toLowerCase()))DEFAULT_UNLOCKED.push('flightsuit|'+h.name);});
+  (DATA.ship_weapons||[]).forEach(w=>{if(files.has((w.blueprint_file||'').toLowerCase()))DEFAULT_UNLOCKED.push('ship_weapon|'+w.name);});
+  (DATA.ship_components||[]).forEach(c=>{if(files.has((c.blueprint_file||'').toLowerCase()))DEFAULT_UNLOCKED.push('ship_component|'+c.name);});
 }
 
 // Sync set unlocks - if all pieces of a set are unlocked, mark the set as unlocked too
@@ -334,7 +343,12 @@ function updateCategoryCounts(){
     return isUnlocked(type,s.name);
   }).length;
   document.getElementById('cc-undersuits').innerHTML=`${st} items<br><span class="cc-unlocked">${suitUnlocked} unlocked</span>`;
-  const hcBp=document.getElementById('hc-bp');if(hcBp)hcBp.textContent=`${DATA.armor_sets.length} armor sets · ${DATA.weapons.length} weapons · ${st} suits`;
+  const sw=DATA.ship_weapons||[],sc=DATA.ship_components||[];
+  const swUnlocked=sw.filter(w=>isUnlocked('ship_weapon',w.name)).length;
+  const scUnlocked=sc.filter(c=>isUnlocked('ship_component',c.name)).length;
+  const ccSw=document.getElementById('cc-ship-weapons');if(ccSw)ccSw.innerHTML=`${sw.length} weapons<br><span class="cc-unlocked">${swUnlocked} unlocked</span>`;
+  const ccSc=document.getElementById('cc-ship-components');if(ccSc)ccSc.innerHTML=`${sc.length} components<br><span class="cc-unlocked">${scUnlocked} unlocked</span>`;
+  const hcBp=document.getElementById('hc-bp');if(hcBp)hcBp.textContent=`${DATA.armor_sets.length} armor sets · ${DATA.weapons.length} weapons · ${st} suits${sw.length||sc.length?` · ${sw.length} ship weapons · ${sc.length} ship components`:''}`;
   
   // Set Planner stat
   const savedSetsData=JSON.parse(localStorage.getItem(LS+'sets')||'[]');
@@ -367,6 +381,8 @@ function buildMaterialUsage(){
   scan(DATA.armor_sets,'armor');scan(DATA.weapons,'weapons');
   scan(DATA.undersuits.concat(DATA.undersuit_helmets||[],DATA.flightsuits||[],DATA.flightsuit_helmets||[]),'undersuits');
   scan(DATA.backpacks,'backpacks');
+  scan(DATA.ship_weapons||[],'ship_weapons');
+  scan(DATA.ship_components||[],'ship_components');
   Object.keys(materialUsage).forEach(m=>{materialUsage[m]=[...materialUsage[m]];});
 }
 
@@ -481,16 +497,22 @@ function buildChangelog(){const el=document.getElementById('cl-entries');if(!el)
 // ════════════════════════════════════════════
 // BLUEPRINTS
 // ════════════════════════════════════════════
-function setBpCategory(cat){bpCategory=cat;document.querySelectorAll('.cat-btn').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));document.getElementById('armor-filters').style.display=cat==='armor'?'':'none';document.getElementById('weapon-filters').style.display=cat==='weapons'?'':'none';filterBlueprints();}
+function setBpCategory(cat){bpCategory=cat;document.querySelectorAll('.cat-btn').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));document.getElementById('armor-filters').style.display=cat==='armor'?'':'none';document.getElementById('weapon-filters').style.display=cat==='weapons'?'':'none';document.getElementById('ship-weapon-filters').style.display=cat==='ship_weapons'?'':'none';document.getElementById('ship-component-filters').style.display=cat==='ship_components'?'':'none';filterBlueprints();}
 function buildFilters(){
   const roles=[...new Set(DATA.armor_sets.map(s=>s.role))].sort();
   const wtypes=[...new Set(DATA.weapons.map(w=>w.weapon_type))].sort();
+  const shipWtypes=[...new Set((DATA.ship_weapons||[]).map(w=>w.weapon_type))].sort();
+  const shipDmg=[...new Set((DATA.ship_weapons||[]).map(w=>w.damage_type).filter(Boolean))].sort();
+  const compTypes=[...new Set((DATA.ship_components||[]).map(c=>c.component_type))].sort();
   bldChips('f-weight',['light','medium','heavy'],v=>v.charAt(0).toUpperCase()+v.slice(1),'weight');
   bldChips('f-role',roles,v=>ROLE_LABELS[v]||v,'role');
   bldChips('f-piece',['set','arms','core','helmet','legs','backpack'],v=>PIECE_LABELS[v]||v,'piece');
   bldChips('f-wtype',wtypes,v=>WTYPE_LABELS[v]||v,'wtype');
   bldChips('f-dmg',['ballistic','energy'],v=>v.charAt(0).toUpperCase()+v.slice(1),'dmg');
   bldChips('f-wkind',['gun','ammo'],v=>v==='gun'?'Guns':'Ammo','wkind');
+  bldChips('f-shipwtype',shipWtypes,v=>SHIP_WTYPE_LABELS[v]||v,'shipwtype');
+  bldChips('f-shipdmg',shipDmg,v=>v.charAt(0).toUpperCase()+v.slice(1),'shipdmg');
+  bldChips('f-comptype',compTypes,v=>COMP_LABELS[v]||v,'comptype');
   buildUnlockFilter();
 }
 function buildUnlockFilter(){
@@ -573,8 +595,8 @@ function passesUnlockFilter(type, key){
 
 function bldChips(id,vals,lbl,key){document.getElementById(id).innerHTML=vals.map(v=>`<button class="fp-chip" data-fk="${key}" data-fv="${v}" onclick="toggleFilter('${key}','${v}')">${lbl(v)}</button>`).join('');}
 function toggleFilter(k,v){const a=filters[k],i=a.indexOf(v);i>=0?a.splice(i,1):a.push(v);document.querySelectorAll(`[data-fk="${k}"]`).forEach(b=>b.classList.toggle('active',filters[k].includes(b.dataset.fv)));updClear();filterBlueprints();}
-function clearFilters(p){(p==='armor'?['weight','role','piece']:['wtype','dmg','wkind']).forEach(k=>{filters[k]=[];document.querySelectorAll(`[data-fk="${k}"]`).forEach(b=>b.classList.remove('active'));});updClear();filterBlueprints();}
-function updClear(){document.getElementById('armor-clear').style.display=(filters.weight.length+filters.role.length+filters.piece.length)?'':'none';document.getElementById('weapon-clear').style.display=(filters.wtype.length+filters.dmg.length+filters.wkind.length)?'':'none';}
+function clearFilters(p){const keys=p==='armor'?['weight','role','piece']:p==='weapons'?['wtype','dmg','wkind']:p==='ship_weapons'?['shipwtype','shipdmg']:p==='ship_components'?['comptype']:[];keys.forEach(k=>{filters[k]=[];document.querySelectorAll(`[data-fk="${k}"]`).forEach(b=>b.classList.remove('active'));});updClear();filterBlueprints();}
+function updClear(){document.getElementById('armor-clear').style.display=(filters.weight.length+filters.role.length+filters.piece.length)?'':'none';document.getElementById('weapon-clear').style.display=(filters.wtype.length+filters.dmg.length+filters.wkind.length)?'':'none';const swc=document.getElementById('ship-weapon-clear');if(swc)swc.style.display=(filters.shipwtype.length+filters.shipdmg.length)?'':'none';const scc=document.getElementById('ship-component-clear');if(scc)scc.style.display=filters.comptype.length?'':'none';}
 function fM(a,v){return a.length===0||a.includes(v);}
 
 function filterBlueprints(){
@@ -689,6 +711,35 @@ function filterBlueprints(){
       return ua-ub||a.name.localeCompare(b.name);
     });
     weapons.forEach(w=>{html+=renderWepCard(w);count++;});
+  }else if(bpCategory==='ship_weapons'){
+    grid.classList.add('two-col');
+    const items=(DATA.ship_weapons||[]).filter(w=>{
+      if(!fM(filters.shipwtype,w.weapon_type))return false;
+      if(!fM(filters.shipdmg,w.damage_type))return false;
+      if(!passesUnlockFilter('ship_weapon',w.name))return false;
+      if(q&&!`${w.name} ${w.manufacturer||''} ${w.weapon_type||''} ${w.damage_type||''} ${(w.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
+      return true;
+    });
+    items.sort((a,b)=>{const ua=isUnlocked('ship_weapon',a.name)?0:1,ub=isUnlocked('ship_weapon',b.name)?0:1;return ua-ub||a.name.localeCompare(b.name);});
+    items.forEach(w=>{html+=renderShipWepCard(w);count++;});
+  }else if(bpCategory==='ship_components'){
+    grid.classList.add('two-col');
+    const mkSec=(title,type,items)=>{
+      const f=items.filter(c=>{
+        if(!passesUnlockFilter('ship_component',c.name))return false;
+        if(q&&!`${c.name} ${c.manufacturer||''} ${c.component_type||''} ${(c.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
+        return true;
+      });
+      if(!f.length)return;
+      f.sort((a,b)=>{const ua=isUnlocked('ship_component',a.name)?0:1,ub=isUnlocked('ship_component',b.name)?0:1;return ua-ub||a.name.localeCompare(b.name);});
+      html+=`<div style="grid-column:1/-1;color:#f8fafc;font-weight:700;font-size:15px;margin-top:${count?'12':'0'}px">${title} (${f.length})</div>`;
+      f.forEach(c=>{html+=renderShipCompCard(c);count++;});
+    };
+    // Group by component_type so users can browse by category
+    const byType={};
+    (DATA.ship_components||[]).forEach(c=>{(byType[c.component_type]=byType[c.component_type]||[]).push(c);});
+    const showTypes=filters.comptype.length?filters.comptype:Object.keys(byType).sort();
+    showTypes.forEach(t=>{if(byType[t])mkSec(COMP_LABELS[t]||t,t,byType[t]);});
   }else{
     grid.classList.add('two-col');
     const mkSec=(title,items,type)=>{
@@ -947,6 +998,14 @@ function renderWepCard(w){
   const locked=!isUnlocked('weapon',w.name);
   return `<div class="item-card has-wiki-thumb${inWO('weapon',w.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(w.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(w.name)}</span>${lockBadge('weapon',w.name)}${sourcesIcon(w.sources)}<span class="badge badge-wtype">${WTYPE_LABELS[w.weapon_type]||w.weapon_type}</span><span class="badge badge-${w.damage_type}">${w.damage_type}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(w.manufacturer)}</span><span style="color:#94a3b8;font-size:12px">${uFmt(w.total_cscu)}</span>${ctime(w.craft_time_seconds)}</div>${recipeHtml(w.recipe)}${slotStatsHtml(w.recipe)}${woBtn('weapon',w.name)}</div></div>`;
 }
+function renderShipWepCard(w){
+  const locked=!isUnlocked('ship_weapon',w.name);
+  return `<div class="item-card has-wiki-thumb${inWO('ship_weapon',w.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(w.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(w.name)}</span>${lockBadge('ship_weapon',w.name)}${sourcesIcon(w.sources)}<span class="badge badge-wtype">${SHIP_WTYPE_LABELS[w.weapon_type]||w.weapon_type}</span><span class="badge badge-${w.damage_type}">${w.damage_type}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(w.manufacturer||'')}</span><span style="color:#94a3b8;font-size:12px">${uFmt(w.total_cscu)}</span>${ctime(w.craft_time_seconds)}</div>${recipeHtml(w.recipe)}${slotStatsHtml(w.recipe)}${woBtn('ship_weapon',w.name)}</div></div>`;
+}
+function renderShipCompCard(c){
+  const locked=!isUnlocked('ship_component',c.name);
+  return `<div class="item-card has-wiki-thumb${inWO('ship_component',c.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(c.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(c.name)}</span>${lockBadge('ship_component',c.name)}${sourcesIcon(c.sources)}<span class="badge badge-component">${COMP_LABELS[c.component_type]||c.component_type}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(c.manufacturer||'')}</span><span style="color:#94a3b8;font-size:12px">${uFmt(c.total_cscu)}</span>${ctime(c.craft_time_seconds)}</div>${recipeHtml(c.recipe)}${slotStatsHtml(c.recipe)}${woBtn('ship_component',c.name)}</div></div>`;
+}
 function renderSuitCard(s,type){
   const locked=!isUnlocked(type,s.name);
   return `<div class="item-card has-wiki-thumb${inWO(type,s.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(s.name)}<div class="card-content"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(s.name)}</span>${lockBadge(type,s.name)}${sourcesIcon(s.sources)}</div><span style="color:#94a3b8;font-size:12px">${uFmt(s.total_cscu)}</span></div><div style="display:flex;gap:6px;margin-bottom:6px">${s.manufacturer?`<span style="color:#64748b;font-size:12px">${esc(s.manufacturer)}</span>`:''}${ctime(s.craft_time_seconds)}</div>${recipeHtml(s.recipe)}${slotStatsHtml(s.recipe)}${woBtn(type,s.name)}</div></div>`;
@@ -970,6 +1029,8 @@ function findItem(t,k){
   if(t==='undersuit_helmet')return(DATA.undersuit_helmets||[]).find(s=>s.name===k);
   if(t==='flightsuit')return DATA.flightsuits.find(s=>s.name===k);
   if(t==='flightsuit_helmet')return(DATA.flightsuit_helmets||[]).find(s=>s.name===k);
+  if(t==='ship_weapon')return(DATA.ship_weapons||[]).find(w=>w.name===k);
+  if(t==='ship_component')return(DATA.ship_components||[]).find(c=>c.name===k);
   return null;
 }
 function getRec(item){return item?(item.pieces?item.pieces.flatMap(p=>p.recipe):item.recipe||[]):[];}
@@ -985,6 +1046,8 @@ function itemBadges(type,item){
   if(type==='undersuit_helmet')return '<span class="badge badge-set">Undersuit Helmet</span>';
   if(type==='flightsuit')return '<span class="badge badge-set">Flightsuit</span>';
   if(type==='flightsuit_helmet')return '<span class="badge badge-set">Flightsuit Helmet</span>';
+  if(type==='ship_weapon')return `<span class="badge badge-wtype">${SHIP_WTYPE_LABELS[item.weapon_type]||item.weapon_type}</span> <span class="badge badge-${item.damage_type}">${item.damage_type}</span>`;
+  if(type==='ship_component')return `<span class="badge badge-component">${COMP_LABELS[item.component_type]||item.component_type}</span>`;
   return '';
 }
 function itemName(type,item){return type==='set'?item.set_name:item.name;}
@@ -1500,8 +1563,8 @@ function extractOreNamesFromHash(hash){
 }
 
 // ── URL Sharing ──
-const TYPE_SHORT={set:'s',backpack:'b',weapon:'w',undersuit:'u',undersuit_helmet:'uh',flightsuit:'f',flightsuit_helmet:'fh',piece:'p'};
-const TYPE_LONG={s:'set',b:'backpack',w:'weapon',u:'undersuit',uh:'undersuit_helmet',f:'flightsuit',fh:'flightsuit_helmet',p:'piece'};
+const TYPE_SHORT={set:'s',backpack:'b',weapon:'w',undersuit:'u',undersuit_helmet:'uh',flightsuit:'f',flightsuit_helmet:'fh',piece:'p',ship_weapon:'sw',ship_component:'sc'};
+const TYPE_LONG={s:'set',b:'backpack',w:'weapon',u:'undersuit',uh:'undersuit_helmet',f:'flightsuit',fh:'flightsuit_helmet',p:'piece',sw:'ship_weapon',sc:'ship_component'};
 
 function encodeWO(){
   const o=getActiveOrder();if(!o)return '';const items=getExportItems();

@@ -61,6 +61,8 @@
         <button class="cat-btn active" data-cat="armor" onclick="setBpCategory('armor')"><span class="cat-label">Armor</span><span class="cat-count" id="cc-armor"></span></button>
         <button class="cat-btn" data-cat="weapons" onclick="setBpCategory('weapons')"><span class="cat-label">Weapons</span><span class="cat-count" id="cc-weapons"></span></button>
         <button class="cat-btn" data-cat="undersuits" onclick="setBpCategory('undersuits')"><span class="cat-label">Undersuits</span><span class="cat-count" id="cc-undersuits"></span></button>
+        <button class="cat-btn" data-cat="ship_weapons" onclick="setBpCategory('ship_weapons')"><span class="cat-label">Ship Weapons</span><span class="cat-count" id="cc-ship-weapons"></span></button>
+        <button class="cat-btn" data-cat="ship_components" onclick="setBpCategory('ship_components')"><span class="cat-label">Ship Components</span><span class="cat-count" id="cc-ship-components"></span></button>
       </div>
       <input type="text" id="bp-search" class="search-input" placeholder="Search names, materials, manufacturers..." oninput="filterBlueprints()">
       <div id="global-filters" class="filter-panel">
@@ -83,6 +85,19 @@
           <div class="fp-group"><span class="fp-label">Damage</span><div class="fp-chips" id="f-dmg"></div></div>
         </div>
         <button class="fp-clear" id="weapon-clear" onclick="clearFilters('weapons')" style="display:none">✕ Clear</button>
+      </div>
+      <div id="ship-weapon-filters" class="filter-panel" style="display:none">
+        <div class="fp-groups">
+          <div class="fp-group"><span class="fp-label">Type</span><div class="fp-chips" id="f-shipwtype"></div></div><div class="fp-sep"></div>
+          <div class="fp-group"><span class="fp-label">Damage</span><div class="fp-chips" id="f-shipdmg"></div></div>
+        </div>
+        <button class="fp-clear" id="ship-weapon-clear" onclick="clearFilters('ship_weapons')" style="display:none">✕ Clear</button>
+      </div>
+      <div id="ship-component-filters" class="filter-panel" style="display:none">
+        <div class="fp-groups">
+          <div class="fp-group"><span class="fp-label">Component</span><div class="fp-chips" id="f-comptype"></div></div>
+        </div>
+        <button class="fp-clear" id="ship-component-clear" onclick="clearFilters('ship_components')" style="display:none">✕ Clear</button>
       </div>
       <div class="results-info" id="bp-results-info"></div>
       <div id="bp-grid" class="card-grid"></div>
