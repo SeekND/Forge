@@ -201,6 +201,17 @@
     <div class="card" style="margin-bottom:24px;background:#1e293b">
       <a href="availability.html" style="color:#38bdf8;font-weight:700;font-size:15px;text-decoration:none;display:flex;align-items:center;gap:8px">📋 Availability Manager <span style="color:#64748b;font-weight:400;font-size:12px">— Enable/disable contracts and items, export modified data</span></a>
     </div>
+
+    <div class="card">
+      <h2>Player Identity</h2>
+      <p class="desc" style="margin-bottom:16px">Set the display name that shows up on blueprint cards you've unlocked. Friends importing your share will see this name attached to the blueprints you own. Used by the <strong>🔗 Share</strong> button in the main app header.</p>
+
+      <div class="field">
+        <label>Your Name</label>
+        <p class="desc">Short handle (no pipes <code>|</code>). Example: Seek, Korba, Maya</p>
+        <input type="text" id="playerName" value="" placeholder="e.g. Seek" maxlength="40" style="width:280px;background:var(--bg-raised);border:1px solid var(--border-light);color:var(--text);padding:10px 14px;border-radius:6px;font-size:14px">
+      </div>
+    </div>
     
     <div class="card" style="margin-bottom:24px;background:#1e293b">
       <a href="../blueprint_rewards_viewer.html" target="_blank" style="color:#38bdf8;font-weight:700;font-size:15px;text-decoration:none;display:flex;align-items:center;gap:8px">🎁 Blueprint Rewards Viewer <span style="color:#64748b;font-weight:400;font-size:12px">— Browse mission reward pools and drop rates</span></a>
@@ -346,6 +357,8 @@
     
     // Discord fields (stored as strings, separate from numeric config)
     const DISCORD_KEYS = ['discordUserId', 'discordWebhookId', 'discordWebhookToken', 'discordDefaultLocation'];
+    // Other string-valued admin fields
+    const STRING_KEYS = ['playerName'];
     
     // Load current settings on page load
     function loadSettings() {
@@ -359,6 +372,11 @@
           });
           // Load Discord string fields
           DISCORD_KEYS.forEach(key => {
+            const input = document.getElementById(key);
+            if (input) input.value = config[key] || '';
+          });
+          // Load other string fields
+          STRING_KEYS.forEach(key => {
             const input = document.getElementById(key);
             if (input) input.value = config[key] || '';
           });
@@ -386,6 +404,12 @@
         // Save Discord string fields
         DISCORD_KEYS.forEach(key => {
           config[key] = (document.getElementById(key)?.value || '').trim();
+        });
+        // Save other string fields
+        STRING_KEYS.forEach(key => {
+          const v = (document.getElementById(key)?.value || '').trim();
+          // playerName can't contain '|' (delimiter in share payloads)
+          config[key] = key === 'playerName' ? v.replace(/\|/g, '') : v;
         });
         localStorage.setItem(LS + 'adminConfig', JSON.stringify(config));
         updateDisplays(config);

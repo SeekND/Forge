@@ -17,6 +17,7 @@
         </div>
         <div style="display:flex;align-items:center;gap:8px">
           <button class="unit-toggle" id="unit-toggle" onclick="toggleUnit()" title="Switch between cSCU and SCU">cSCU</button>
+          <button class="unit-toggle" onclick="openShareModal()" title="Share or import blueprint collections">🔗 Share</button>
           <a href="admin/admin.html" class="unit-toggle" style="text-decoration:none;font-size:14px" title="Admin Settings">⚙️</a>
         </div>
       </div>
@@ -68,6 +69,8 @@
       <div id="global-filters" class="filter-panel">
         <div class="fp-groups">
           <div class="fp-group"><span class="fp-label">Status</span><div class="fp-chips" id="f-unlock"></div></div>
+          <div class="fp-sep" id="f-owner-sep" style="display:none"></div>
+          <div class="fp-group" id="f-owner-group" style="display:none"><span class="fp-label">Owner</span><div class="fp-chips" id="f-owner"></div></div>
         </div>
       </div>
       <div id="armor-filters" class="filter-panel">
@@ -192,9 +195,12 @@
 
   <!-- Request Build Modal -->
   <div id="request-modal" class="rqm-container" style="display:none"></div>
-  
+
   <!-- Discord Order Modal -->
   <div id="discord-modal" class="rqm-container" style="display:none"></div>
+
+  <!-- Share/Import Modal -->
+  <div id="share-modal" class="rqm-container" style="display:none"></div>
 
   <footer class="site-footer">
     <p>This site is not endorsed by or affiliated with the Cloud Imperium or Roberts Space Industries group of companies. All game content and materials are copyright Cloud Imperium Rights LLC and Cloud Imperium Rights Ltd.. Star Citizen®, Squadron 42®, Roberts Space Industries®, and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC. All rights reserved.</p>

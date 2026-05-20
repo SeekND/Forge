@@ -3,8 +3,12 @@
    Patch 4.7: Unlock System + Obtainable Only
    ═══════════════════════════════════════════════ */
 
+// LZ-string (v1.4.4) — MIT licensed, (c) 2013 Pieroxy. Inlined for offline use.
+// Only compressToEncodedURIComponent / decompressFromEncodedURIComponent used.
+var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",n="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-$",e={};function t(r,o){if(!e[r]){e[r]={};for(var n=0;n<r.length;n++)e[r][r.charAt(n)]=n}return e[r][o]}var i={compressToEncodedURIComponent:function(r){return null==r?"":i._compress(r,6,function(r){return n.charAt(r)})},decompressFromEncodedURIComponent:function(r){return null==r?"":""==r?null:(r=r.replace(/ /g,"+"),i._decompress(r.length,32,function(o){return t(n,r.charAt(o))}))},_compress:function(o,n,e){if(null==o)return"";var t,i,s,u={},c={},a="",p="",f="",l=2,h=3,d=2,m=[],v=0,g=0;for(s=0;s<o.length;s+=1)if(a=o.charAt(s),Object.prototype.hasOwnProperty.call(u,a)||(u[a]=h++,c[a]=!0),p=f+a,Object.prototype.hasOwnProperty.call(u,p))f=p;else{if(Object.prototype.hasOwnProperty.call(c,f)){if(f.charCodeAt(0)<256){for(t=0;t<d;t++)v<<=1,g==n-1?(g=0,m.push(e(v)),v=0):g++;for(i=f.charCodeAt(0),t=0;t<8;t++)v=v<<1|1&i,g==n-1?(g=0,m.push(e(v)),v=0):g++,i>>=1}else{for(i=1,t=0;t<d;t++)v=v<<1|i,g==n-1?(g=0,m.push(e(v)),v=0):g++,i=0;for(i=f.charCodeAt(0),t=0;t<16;t++)v=v<<1|1&i,g==n-1?(g=0,m.push(e(v)),v=0):g++,i>>=1}0==--l&&(l=Math.pow(2,d),d++),delete c[f]}else for(i=u[f],t=0;t<d;t++)v=v<<1|1&i,g==n-1?(g=0,m.push(e(v)),v=0):g++,i>>=1;0==--l&&(l=Math.pow(2,d),d++),u[p]=h++,f=String(a)}if(""!==f){if(Object.prototype.hasOwnProperty.call(c,f)){if(f.charCodeAt(0)<256){for(t=0;t<d;t++)v<<=1,g==n-1?(g=0,m.push(e(v)),v=0):g++;for(i=f.charCodeAt(0),t=0;t<8;t++)v=v<<1|1&i,g==n-1?(g=0,m.push(e(v)),v=0):g++,i>>=1}else{for(i=1,t=0;t<d;t++)v=v<<1|i,g==n-1?(g=0,m.push(e(v)),v=0):g++,i=0;for(i=f.charCodeAt(0),t=0;t<16;t++)v=v<<1|1&i,g==n-1?(g=0,m.push(e(v)),v=0):g++,i>>=1}0==--l&&(l=Math.pow(2,d),d++),delete c[f]}else for(i=u[f],t=0;t<d;t++)v=v<<1|1&i,g==n-1?(g=0,m.push(e(v)),v=0):g++,i>>=1;0==--l&&(l=Math.pow(2,d),d++)}for(i=2,t=0;t<d;t++)v=v<<1|1&i,g==n-1?(g=0,m.push(e(v)),v=0):g++,i>>=1;for(;;){if(v<<=1,g==n-1){m.push(e(v));break}g++}return m.join("")},_decompress:function(o,n,e){var t,i,s,u,c,a,p,f=[],l=4,h=4,d=3,m="",v=[],g={val:e(0),position:n,index:1};for(t=0;t<3;t+=1)f[t]=t;for(s=0,c=Math.pow(2,2),a=1;a!=c;)u=g.val&g.position,g.position>>=1,0==g.position&&(g.position=n,g.val=e(g.index++)),s|=(u>0?1:0)*a,a<<=1;switch(s){case 0:for(s=0,c=Math.pow(2,8),a=1;a!=c;)u=g.val&g.position,g.position>>=1,0==g.position&&(g.position=n,g.val=e(g.index++)),s|=(u>0?1:0)*a,a<<=1;p=r(s);break;case 1:for(s=0,c=Math.pow(2,16),a=1;a!=c;)u=g.val&g.position,g.position>>=1,0==g.position&&(g.position=n,g.val=e(g.index++)),s|=(u>0?1:0)*a,a<<=1;p=r(s);break;case 2:return""}for(f[3]=p,i=p,v.push(p);;){if(g.index>o)return"";for(s=0,c=Math.pow(2,d),a=1;a!=c;)u=g.val&g.position,g.position>>=1,0==g.position&&(g.position=n,g.val=e(g.index++)),s|=(u>0?1:0)*a,a<<=1;switch(p=s){case 0:for(s=0,c=Math.pow(2,8),a=1;a!=c;)u=g.val&g.position,g.position>>=1,0==g.position&&(g.position=n,g.val=e(g.index++)),s|=(u>0?1:0)*a,a<<=1;f[h++]=r(s),p=h-1,l--;break;case 1:for(s=0,c=Math.pow(2,16),a=1;a!=c;)u=g.val&g.position,g.position>>=1,0==g.position&&(g.position=n,g.val=e(g.index++)),s|=(u>0?1:0)*a,a<<=1;f[h++]=r(s),p=h-1,l--;break;case 2:return v.join("")}if(0==l&&(l=Math.pow(2,d),d++),f[p])m=f[p];else{if(p!==h)return null;m=i+i.charAt(0)}v.push(m),f[h++]=i+m.charAt(0),i=m,0==--l&&(l=Math.pow(2,d),d++)}}};return i}();
+
 let DATA=null, currentTab='home', bpCategory='armor';
-let filters={weight:[],role:[],piece:[],wtype:[],dmg:[],wkind:[],shipwtype:[],shipdmg:[],shipwsize:[],comptype:[],shipcsize:[],shipcclass:[],shipcgrade:[],unlock:'all'};
+let filters={weight:[],role:[],piece:[],wtype:[],dmg:[],wkind:[],shipwtype:[],shipdmg:[],shipwsize:[],comptype:[],shipcsize:[],shipcclass:[],shipcgrade:[],owners:[],unlock:'all'};
 let invFilters={status:'all',type:[],weight:[]};
 
 // Inventory: {materialName: [{qty (in cscu), quality}]}
@@ -25,6 +29,19 @@ let unlockedBlueprints = new Set();
 // Wishlist — blueprints the user intends to acquire. Same key format.
 let wantedBlueprints = new Set();
 
+// Peer-to-peer attribution (4.8.1): other players' names attached to bp keys.
+// otherOwners: { "type|name": [playerName, ...] }
+// ownerTimestamps: { playerName: unixSecondsOfLatestImport }
+// myName is read from adminConfig.playerName.
+let otherOwners = {};
+let ownerTimestamps = {};
+
+// Canonical item ordering for compact share URLs. Built once at init() time
+// from the loaded DATA. Every player loading the same crafting_data.json
+// gets the same indices, so a share URL is just `i1,i2,i3,...` in base36.
+let ITEM_INDEX = [];                 // [{type, key}, ...]
+let KEY_TO_INDEX = new Map();        // 'type|name' -> position in ITEM_INDEX
+
 // Default unlocked blueprints — built dynamically from meta.default_blueprints
 // after data loads. Populated by buildDefaultUnlocked().
 let DEFAULT_UNLOCKED = [];
@@ -41,6 +58,7 @@ let adminConfig = {
   gradeALow: 850,    // Grade A: Premium quality (rare, vault-worthy)
   gradeAHigh: 1000,
   vaultThreshold: 850, // Minimum quality to track in vault inventory
+  playerName: '',     // 4.8.1: display name for peer-to-peer sharing
 };
 
 // Grade helpers
@@ -267,11 +285,30 @@ async function init(){
     DATA.ship_components=DATA.ship_components.filter(c=>c.is_obtainable!==false);
   }
 
+  // Build the canonical item index — used by share/import to translate
+  // between bp keys and tiny base36 numbers. Must run BEFORE any hash import.
+  buildItemIndex();
+
   buildDefaultUnlocked();
   buildMaterialUsage();loadState();updUnitBtn();
-  
+
   // Sync set unlocks - if all pieces of a set are unlocked, unlock the set too
   syncSetUnlocks();
+
+  // Peer-share auto-import from URL hash (#bp=...)
+  if(window.location.hash.startsWith('#bp=')){
+    const payload=window.location.hash.slice(4);
+    const r=applySharePayload(payload);
+    history.replaceState(null,'',window.location.pathname);
+    setTimeout(()=>{
+      if(r.ok){
+        const warn=r.schemaWarn?' (catalog mismatch — some items may be off)':'';
+        showToast(`Imported ${r.count} attributions from ${r.name}${warn}`);
+      }else{
+        showToast(r.error);
+      }
+    },200);
+  }
 
   if(window.location.hash.startsWith('#wo=')){
     const hashData=window.location.hash.slice(4);
@@ -407,6 +444,8 @@ function saveState(){
     localStorage.setItem(LS+'unit',unitMode);
     localStorage.setItem(LS+'unlocked',JSON.stringify([...unlockedBlueprints]));
     localStorage.setItem(LS+'wanted',JSON.stringify([...wantedBlueprints]));
+    localStorage.setItem(LS+'otherOwners',JSON.stringify(otherOwners));
+    localStorage.setItem(LS+'ownerTs',JSON.stringify(ownerTimestamps));
   }catch(e){}
 }
 function loadState(){
@@ -443,6 +482,11 @@ function loadState(){
     // Load wishlist
     const wl=localStorage.getItem(LS+'wanted');
     if(wl){wantedBlueprints=new Set(JSON.parse(wl));}
+    // Load peer attribution
+    const oo=localStorage.getItem(LS+'otherOwners');
+    if(oo){try{const p=JSON.parse(oo);if(p&&typeof p==='object')otherOwners=p;}catch(e){}}
+    const ots=localStorage.getItem(LS+'ownerTs');
+    if(ots){try{const p=JSON.parse(ots);if(p&&typeof p==='object')ownerTimestamps=p;}catch(e){}}
   }catch(e){}
 }
 
@@ -530,6 +574,22 @@ function buildFilters(){
   bldChips('f-shipcclass',compClasses,v=>(SHIP_CLASS_LABELS[v]||v)+(' ('+v+')'),'shipcclass');
   bldChips('f-shipcgrade',compGrades,v=>'Grade '+v,'shipcgrade');
   buildUnlockFilter();
+  buildOwnerFilter();
+}
+function buildOwnerFilter(){
+  const known=getAllKnownNames();
+  const group=document.getElementById('f-owner-group');
+  const sep=document.getElementById('f-owner-sep');
+  if(!group)return;
+  // Hide the whole row when there are no known names yet
+  const show=known.length>0;
+  group.style.display=show?'':'none';
+  if(sep)sep.style.display=show?'':'none';
+  if(!show){filters.owners=[];return;}
+  const me=getMyName();
+  bldChips('f-owner',known,v=>v===me?(esc(v)+' (you)'):esc(v),'owners');
+  // Drop stale entries from filters.owners (in case a name disappeared after a reset)
+  filters.owners=filters.owners.filter(n=>known.includes(n));
 }
 function buildUnlockFilter(){
   const el=document.getElementById('f-unlock');if(!el)return;
@@ -549,6 +609,144 @@ function toggleWanted(type, key){
   if(wantedBlueprints.has(k))wantedBlueprints.delete(k);
   else wantedBlueprints.add(k);
   saveState();filterBlueprints();updateCategoryCounts();
+}
+
+// ════════════════════════════════════════════
+// OWNER ATTRIBUTION (peer-to-peer sharing)
+// ════════════════════════════════════════════
+// myName: current player's display name (from adminConfig).
+// Owners of a BP = (myName if I have it unlocked) + everyone else in otherOwners.
+function getMyName(){return (adminConfig.playerName||'').trim();}
+function getOwners(type, key){
+  const k=type+'|'+key;
+  const others=otherOwners[k]||[];
+  const me=getMyName();
+  if(me && isUnlocked(type,key)){
+    // Put me first, dedup
+    return [me, ...others.filter(n=>n!==me)];
+  }
+  return [...others];
+}
+// Set-level owners: union of owners across all pieces of the set
+function getSetOwners(set){
+  if(!set || !set.pieces)return [];
+  const seen=new Set();
+  set.pieces.forEach(p=>getOwners('piece',p.name).forEach(n=>seen.add(n)));
+  // Also include set-level explicit attribution
+  getOwners('set',set.set_name).forEach(n=>seen.add(n));
+  return [...seen];
+}
+function getAllKnownNames(){
+  const names=new Set();
+  const me=getMyName();
+  if(me && unlockedBlueprints.size>0)names.add(me);
+  Object.values(otherOwners).forEach(arr=>arr.forEach(n=>names.add(n)));
+  return [...names].sort((a,b)=>a.localeCompare(b));
+}
+
+// Tiny stable hash for schema fingerprinting (DJB2 → 4 hex chars).
+function hash32(s){let h=5381;for(let i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))|0;return ((h>>>0)%65536).toString(16).padStart(4,'0');}
+
+function buildItemIndex(){
+  ITEM_INDEX.length=0;
+  KEY_TO_INDEX.clear();
+  const arrays=[
+    ['set',           DATA.armor_sets||[],            'set_name'],
+    ['piece',         DATA.armor_pieces||[],          'name'],
+    ['backpack',      DATA.backpacks||[],             'name'],
+    ['weapon',        DATA.weapons||[],               'name'],
+    ['undersuit',     DATA.undersuits||[],            'name'],
+    ['undersuit_helmet', DATA.undersuit_helmets||[], 'name'],
+    ['flightsuit',    DATA.flightsuits||[],           'name'],
+    ['flightsuit_helmet', DATA.flightsuit_helmets||[], 'name'],
+    ['ship_weapon',   DATA.ship_weapons||[],          'name'],
+    ['ship_component',DATA.ship_components||[],       'name'],
+  ];
+  arrays.forEach(([type,arr,nf])=>{
+    [...arr].sort((a,b)=>(a[nf]||'').localeCompare(b[nf]||''))
+      .forEach(item=>{
+        const k=item[nf]; if(!k)return;
+        ITEM_INDEX.push({type,key:k});
+        KEY_TO_INDEX.set(type+'|'+k, ITEM_INDEX.length-1);
+      });
+  });
+}
+function schemaHash(){
+  return hash32(ITEM_INDEX.map(o=>o.type+'|'+o.key).join('\n'));
+}
+
+// Build a share payload (compressed URL-safe blob) of MY unlocked BPs.
+// Format (pre-compression): v3|name|tsSec|patch|schemaHash|i1,i2,i3,...  (indices in base36)
+function buildSharePayload(){
+  const me=getMyName();
+  if(!me)return {ok:false,error:'Set your name in Admin first.'};
+  const indices=[];
+  for(const k of unlockedBlueprints){
+    const i=KEY_TO_INDEX.get(k);
+    if(i!==undefined)indices.push(i);
+  }
+  if(!indices.length)return {ok:false,error:'You have no unlocked blueprints to share.'};
+  indices.sort((a,b)=>a-b);
+  const ts=Math.floor(Date.now()/1000);
+  const patch=(DATA?.meta?.current_patch)||'?';
+  const hash=schemaHash();
+  const raw=`v3|${me.replace(/\|/g,'')}|${ts}|${patch}|${hash}|${indices.map(i=>i.toString(36)).join(',')}`;
+  const encoded=LZString.compressToEncodedURIComponent(raw);
+  return {ok:true,encoded,rawLen:raw.length,encLen:encoded.length,count:indices.length,name:me,ts};
+}
+
+// Decode + apply a share payload (snapshot-replace per name).
+function applySharePayload(encoded){
+  if(!encoded)return {ok:false,error:'Empty share data.'};
+  // Trim common prefixes if user pasted the URL
+  encoded=encoded.replace(/^.*[#?]bp=/,'').replace(/^BP1:/,'').trim();
+  let raw;
+  try{raw=LZString.decompressFromEncodedURIComponent(encoded);}catch(e){return {ok:false,error:'Could not decompress share data.'};}
+  if(!raw)return {ok:false,error:'Could not decompress share data.'};
+  if(!raw.startsWith('v3|'))return {ok:false,error:'Unsupported share format (expected v3).'};
+  const parts=raw.split('|');
+  if(parts.length<6)return {ok:false,error:'Malformed share payload.'};
+  const [_,name,tsStr,patch,hash,idxStr]=parts;
+  const ts=parseInt(tsStr,10)||0;
+  if(!name)return {ok:false,error:'Share has no sender name.'};
+  if(name===getMyName())return {ok:false,error:"That's your own share."};
+  // Reject if we already have a newer share from this name
+  if(ownerTimestamps[name] && ownerTimestamps[name]>=ts){
+    return {ok:false,error:`You already have a newer share from ${name}.`};
+  }
+  // Schema check (warn, don't block — different patch may still mostly work)
+  const myHash=schemaHash();
+  const schemaWarn=hash!==myHash;
+  // Parse indices
+  const indices=(idxStr||'').split(',').filter(Boolean).map(x=>parseInt(x,36)).filter(n=>Number.isFinite(n));
+  const newKeys=[];
+  for(const i of indices){
+    const item=ITEM_INDEX[i];
+    if(item)newKeys.push(item.type+'|'+item.key);
+  }
+  // Snapshot-replace: wipe this name from all keys, then add to the new set.
+  for(const k of Object.keys(otherOwners)){
+    const idx=otherOwners[k].indexOf(name);
+    if(idx>=0){
+      otherOwners[k].splice(idx,1);
+      if(otherOwners[k].length===0)delete otherOwners[k];
+    }
+  }
+  for(const k of newKeys){
+    if(!otherOwners[k])otherOwners[k]=[];
+    if(!otherOwners[k].includes(name))otherOwners[k].push(name);
+  }
+  ownerTimestamps[name]=ts;
+  saveState();
+  return {ok:true,name,count:newKeys.length,patch,schemaWarn};
+}
+
+// Forget all imported attribution (keep my own state).
+function clearAllAttribution(){
+  otherOwners={};
+  ownerTimestamps={};
+  saveState();
+  filterBlueprints();
 }
 
 // Check if a set is fully unlocked (all its pieces are unlocked)
@@ -653,6 +851,16 @@ function setUnlockCount(set){
   return {unlocked,total,partial:unlocked>0&&unlocked<total,complete:unlocked===total};
 }
 
+// Cross-category Owner filter — passes if no selection OR item has any
+// selected owner among its (piece-union for sets) owners.
+function passesOwnerFilter(type,key){
+  if(!filters.owners.length)return true;
+  const owners=type==='set'
+    ? getSetOwners((DATA.armor_sets||[]).find(s=>s.set_name===key))
+    : getOwners(type,key);
+  return filters.owners.some(n=>owners.includes(n));
+}
+
 function bldChips(id,vals,lbl,key){document.getElementById(id).innerHTML=vals.map(v=>`<button class="fp-chip" data-fk="${key}" data-fv="${v}" onclick="toggleFilter('${key}','${v}')">${lbl(v)}</button>`).join('');}
 function toggleFilter(k,v){const a=filters[k],i=a.indexOf(v);i>=0?a.splice(i,1):a.push(v);document.querySelectorAll(`[data-fk="${k}"]`).forEach(b=>b.classList.toggle('active',filters[k].includes(b.dataset.fv)));updClear();filterBlueprints();}
 function clearFilters(p){const keys=p==='armor'?['weight','role','piece']:p==='weapons'?['wtype','dmg','wkind']:p==='ship_weapons'?['shipwtype','shipdmg','shipwsize']:p==='ship_components'?['comptype','shipcsize','shipcclass','shipcgrade']:[];keys.forEach(k=>{filters[k]=[];document.querySelectorAll(`[data-fk="${k}"]`).forEach(b=>b.classList.remove('active'));});updClear();filterBlueprints();}
@@ -660,6 +868,7 @@ function updClear(){document.getElementById('armor-clear').style.display=(filter
 function fM(a,v){return a.length===0||a.includes(v);}
 
 function filterBlueprints(){
+  buildOwnerFilter(); // refresh owner chip list — names can change after imports/unlocks
   const q=(document.getElementById('bp-search').value||'').toLowerCase(),grid=document.getElementById('bp-grid');
   let html='',count=0;
   if(bpCategory==='armor'){
@@ -684,6 +893,7 @@ function filterBlueprints(){
         if(!fM(filters.weight,s.weight))return false;
         if(!fM(filters.role,s.role))return false;
         if(!passesUnlockFilter('set',s.set_name))return false;
+        if(!passesOwnerFilter('set',s.set_name))return false;
         if(q){const itemNames=s.pieces.flatMap(p=>(p.recipe||[]).filter(r=>r.cost_type==='item').map(r=>r.item_name)).join(' ');const h=`${s.set_name} ${s.manufacturer} ${s.weight} ${s.role} ${s.pieces.map(p=>p.name).join(' ')} ${Object.keys(s.material_totals).join(' ')} ${itemNames}`.toLowerCase();if(!h.includes(q))return false;}
         return true;
       });
@@ -698,6 +908,7 @@ function filterBlueprints(){
         if(!fM(filters.weight,p.weight))return false;
         if(!fM(filters.role,p.role))return false;
         if(!passesUnlockFilter('piece',p.name))return false;
+        if(!passesOwnerFilter('piece',p.name))return false;
         if(q){const h=`${p.name} ${p.set_name} ${p.manufacturer||''} ${p.weight} ${p.role} ${(p.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase();if(!h.includes(q))return false;}
         return true;
       });
@@ -746,6 +957,7 @@ function filterBlueprints(){
       const bps=DATA.backpacks.filter(b=>{
         if(!fM(filters.weight,b.weight))return false;
         if(!passesUnlockFilter('backpack',b.name))return false;
+        if(!passesOwnerFilter('backpack',b.name))return false;
         if(q&&!`${b.name} ${b.manufacturer} ${(b.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
         return true;
       });
@@ -762,6 +974,7 @@ function filterBlueprints(){
       if(!fM(filters.dmg,w.damage_type))return false;
       if(filters.wkind.length){const isMag=/magazine|battery/i.test(w.name);const kind=isMag?'ammo':'gun';if(!filters.wkind.includes(kind))return false;}
       if(!passesUnlockFilter('weapon',w.name))return false;
+      if(!passesOwnerFilter('weapon',w.name))return false;
       if(q&&!`${w.name} ${w.manufacturer} ${w.weapon_type} ${w.damage_type} ${(w.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
       return true;
     });
@@ -778,6 +991,7 @@ function filterBlueprints(){
       if(!fM(filters.shipdmg,w.damage_type))return false;
       if(filters.shipwsize.length&&!filters.shipwsize.includes(String(w.size||0)))return false;
       if(!passesUnlockFilter('ship_weapon',w.name))return false;
+      if(!passesOwnerFilter('ship_weapon',w.name))return false;
       if(q&&!`${w.name} ${w.manufacturer||''} ${w.weapon_type||''} ${w.damage_type||''} S${w.size||''} ${(w.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
       return true;
     });
@@ -791,6 +1005,7 @@ function filterBlueprints(){
         if(filters.shipcclass.length&&!filters.shipcclass.includes(c.class_code||''))return false;
         if(filters.shipcgrade.length&&!filters.shipcgrade.includes(c.grade||''))return false;
         if(!passesUnlockFilter('ship_component',c.name))return false;
+        if(!passesOwnerFilter('ship_component',c.name))return false;
         if(q&&!`${c.name} ${c.manufacturer||''} ${c.component_type||''} ${c.class_code||''} ${c.class_label||''} ${c.grade||''} S${c.size||''} ${(c.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
         return true;
       });
@@ -809,6 +1024,7 @@ function filterBlueprints(){
     const mkSec=(title,items,type)=>{
       const f=items.filter(s=>{
         if(!passesUnlockFilter(type,s.name))return false;
+        if(!passesOwnerFilter(type,s.name))return false;
         if(q&&!`${s.name} ${s.manufacturer||''} ${(s.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
         return true;
       });
@@ -897,6 +1113,33 @@ function lockBadge(t,k){
   const wanted=isWanted(t,k);
   const star=wanted?'<span class="badge-wanted" title="On your wishlist">★</span>':'';
   return '<span class="badge-locked">🔒</span>'+star;
+}
+
+// Owner chips — shows who owns this BP (you + imported peers).
+// `type` is the storage type, e.g. 'set', 'piece', 'weapon', 'ship_component'.
+// For sets the union of all piece owners is shown (handled by getSetOwners).
+function ownerChips(type,key,max){
+  max=max||3;
+  let owners;
+  if(type==='set'){
+    const set=(DATA.armor_sets||[]).find(s=>s.set_name===key);
+    owners=set?getSetOwners(set):[];
+  }else{
+    owners=getOwners(type,key);
+  }
+  if(!owners.length)return '';
+  const me=getMyName();
+  const visible=owners.slice(0,max);
+  const hidden=owners.length>max?owners.slice(max):[];
+  let html='';
+  for(const n of visible){
+    const isMe=n===me;
+    html+=`<span class="owner-chip${isMe?' me':''}" title="${esc(n)}${isMe?' (you)':''}">👤 ${esc(n)}</span>`;
+  }
+  if(hidden.length){
+    html+=`<span class="owner-chip more" title="Also: ${hidden.map(esc).join(', ')}">+${hidden.length}</span>`;
+  }
+  return html;
 }
 
 // Sources info icon with popover
@@ -1048,6 +1291,115 @@ function closeRequestModal(){
   modal.style.display='none';modal.innerHTML='';modal._ctx=null;
 }
 
+// ════════════════════════════════════════════
+// SHARE / IMPORT MODAL
+// ════════════════════════════════════════════
+function openShareModal(){
+  const modal=document.getElementById('share-modal');
+  if(!modal)return;
+  const me=getMyName();
+  const myCount=unlockedBlueprints.size;
+  const known=Object.entries(ownerTimestamps).sort((a,b)=>b[1]-a[1]);
+  let nameWarn='';
+  let shareSection='';
+  if(!me){
+    nameWarn=`<div class="missing-warn" style="margin-bottom:12px">Set your <strong>Name</strong> in <a href="admin/admin.html" style="color:var(--accent)">Admin Settings</a> before sharing.</div>`;
+    shareSection=`<button class="btn-primary" disabled style="opacity:.5;cursor:not-allowed">Generate share</button>`;
+  }else if(myCount===0){
+    nameWarn=`<div class="dim" style="margin-bottom:12px">You have no unlocked blueprints to share yet.</div>`;
+    shareSection=`<button class="btn-primary" disabled style="opacity:.5;cursor:not-allowed">Generate share</button>`;
+  }else{
+    shareSection=`<button class="btn-primary" onclick="generateShare()">Generate share for <strong>${esc(me)}</strong> (${myCount} BPs)</button>
+      <div id="share-output" style="display:none;margin-top:12px">
+        <div style="margin-bottom:8px"><label class="dim" style="font-size:11px;text-transform:uppercase;letter-spacing:.05em">Shareable URL <span id="share-url-len" style="float:right"></span></label>
+          <div style="display:flex;gap:6px;margin-top:4px"><input type="text" id="share-url-out" readonly style="flex:1;background:var(--bg-deep);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:4px;font-size:11px;font-family:monospace"><button class="btn-secondary" onclick="copyShareField('share-url-out')">Copy URL</button></div>
+        </div>
+        <div><label class="dim" style="font-size:11px;text-transform:uppercase;letter-spacing:.05em">Or paste text (for Discord etc.)</label>
+          <div style="display:flex;gap:6px;margin-top:4px"><input type="text" id="share-text-out" readonly style="flex:1;background:var(--bg-deep);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:4px;font-size:11px;font-family:monospace"><button class="btn-secondary" onclick="copyShareField('share-text-out')">Copy Text</button></div>
+        </div>
+      </div>`;
+  }
+  const knownList=known.length
+    ? `<div class="dim" style="font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Currently tracking ${known.length} ${known.length===1?'person':'people'}</div>
+       <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:12px">
+       ${known.map(([n,ts])=>`<div style="display:flex;align-items:center;gap:8px;padding:6px 8px;background:var(--bg-deep);border-radius:4px;font-size:12px"><span style="flex:1"><strong>${esc(n)}</strong> <span class="dim">— imported ${new Date(ts*1000).toLocaleDateString()}</span></span><button class="btn-secondary" style="padding:2px 8px;font-size:11px" onclick="forgetOwner('${escAttr(n)}')">Forget</button></div>`).join('')}
+       </div>`
+    : `<div class="dim" style="margin-bottom:12px">No friends imported yet. Paste a share below to add one.</div>`;
+  modal.innerHTML=`
+    <div class="rqm-overlay" onclick="closeShareModal()"></div>
+    <div class="rqm-dialog" style="max-width:640px">
+      <div class="rqm-header"><h3>🔗 Share &amp; Import Blueprints</h3><button class="rqm-close" onclick="closeShareModal()">×</button></div>
+      <div class="rqm-body">
+        ${nameWarn}
+        <div style="margin-bottom:18px">
+          <div style="font-weight:700;font-size:14px;color:#f8fafc;margin-bottom:8px">Share my collection</div>
+          ${shareSection}
+        </div>
+        <hr style="border:none;border-top:1px solid var(--border);margin:16px 0">
+        <div>
+          <div style="font-weight:700;font-size:14px;color:#f8fafc;margin-bottom:8px">Import from a friend</div>
+          <textarea id="share-import-in" placeholder="Paste a share URL or text block here..." style="width:100%;min-height:60px;background:var(--bg-deep);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:4px;font-size:11px;font-family:monospace;resize:vertical"></textarea>
+          <div style="margin-top:8px"><button class="btn-primary" onclick="doApplyImport()">Apply Import</button></div>
+        </div>
+        <hr style="border:none;border-top:1px solid var(--border);margin:16px 0">
+        ${knownList}
+        ${known.length?'<button class="btn-secondary" onclick="if(confirm(\'Forget all imported attributions? Your own unlocks are not affected.\'))doClearAllAttribution()">Forget All Imports</button>':''}
+      </div>
+    </div>`;
+  modal.style.display='flex';
+}
+function closeShareModal(){
+  const modal=document.getElementById('share-modal');
+  if(!modal)return;
+  modal.style.display='none';modal.innerHTML='';
+}
+function generateShare(){
+  const r=buildSharePayload();
+  if(!r.ok){showToast(r.error);return;}
+  const url=window.location.origin+window.location.pathname+'#bp='+r.encoded;
+  const txt='BP1:'+r.encoded;
+  document.getElementById('share-output').style.display='block';
+  document.getElementById('share-url-out').value=url;
+  document.getElementById('share-text-out').value=txt;
+  document.getElementById('share-url-len').textContent=url.length+' chars'+(url.length>6000?' (large — text fallback recommended)':'');
+}
+function copyShareField(id){
+  const el=document.getElementById(id);if(!el)return;
+  el.select();
+  navigator.clipboard.writeText(el.value).then(()=>showToast('Copied'));
+}
+function doApplyImport(){
+  const v=(document.getElementById('share-import-in')?.value||'').trim();
+  if(!v){showToast('Paste a share first');return;}
+  const r=applySharePayload(v);
+  if(!r.ok){showToast(r.error);return;}
+  const warn=r.schemaWarn?' (catalog mismatch — some items may be off)':'';
+  showToast(`Imported ${r.count} attributions from ${r.name}${warn}`);
+  filterBlueprints();
+  // Re-render the modal to show the new entry
+  openShareModal();
+}
+function forgetOwner(name){
+  if(!confirm(`Forget all blueprints attributed to ${name}?`))return;
+  for(const k of Object.keys(otherOwners)){
+    const idx=otherOwners[k].indexOf(name);
+    if(idx>=0){
+      otherOwners[k].splice(idx,1);
+      if(otherOwners[k].length===0)delete otherOwners[k];
+    }
+  }
+  delete ownerTimestamps[name];
+  saveState();
+  filterBlueprints();
+  openShareModal();
+  showToast(`Forgot ${name}'s attribution`);
+}
+function doClearAllAttribution(){
+  clearAllAttribution();
+  openShareModal();
+  showToast('Cleared all imported attributions');
+}
+
 function renderSetCard(set){
   const id='s-'+set.set_name.replace(/[^a-z0-9]/gi,'_');
   const mats=Object.entries(set.material_totals).map(([m,a])=>chip(m,a)).join('');
@@ -1072,35 +1424,35 @@ function renderSetCard(set){
   const locked=!isUnlocked('set',set.set_name);
   // Progress counter: shown when partial (some pieces unlocked but not all)
   const progBadge=unlockState.partial?`<span class="badge-progress" title="${unlockState.unlocked} of ${unlockState.total} piece blueprints unlocked">${unlockState.unlocked}/${unlockState.total}</span>`:'';
-  return `<div class="item-card${inWO('set',set.set_name)?' in-wo':''}${locked?' locked':''}${unlockState.partial?' partial-set':''}" id="${id}"><div class="card-header" onclick="toggleCard('${id}')"><div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span class="card-title">${esc(set.set_name)}</span>${lockBadge('set',set.set_name)}${progBadge}${sourcesIcon(set.sources)}${wBadge(set.weight)} ${rBadge(set.role)}${set.is_environment_suit?' <span class="badge-env">ENV</span>':''}${!set.complete?' <span class="badge-partial">PARTIAL</span>':''}</div><div class="card-meta"><span style="color:#64748b">${esc(set.manufacturer)}</span><span style="color:#475569">·</span><span style="color:#94a3b8">${set.piece_count}pc · ${uFmt(set.total_cscu)}</span></div>${missingBp}<div class="card-chips">${mats}</div></div><span class="card-arrow">▼</span></div><div class="card-body">${pcs}${bpP}${miss}${woBtn('set',set.set_name)}</div></div>`;
+  return `<div class="item-card${inWO('set',set.set_name)?' in-wo':''}${locked?' locked':''}${unlockState.partial?' partial-set':''}" id="${id}"><div class="card-header" onclick="toggleCard('${id}')"><div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span class="card-title">${esc(set.set_name)}</span>${lockBadge('set',set.set_name)}${progBadge}${sourcesIcon(set.sources)}${wBadge(set.weight)} ${rBadge(set.role)}${set.is_environment_suit?' <span class="badge-env">ENV</span>':''}${!set.complete?' <span class="badge-partial">PARTIAL</span>':''}${ownerChips('set',set.set_name)}</div><div class="card-meta"><span style="color:#64748b">${esc(set.manufacturer)}</span><span style="color:#475569">·</span><span style="color:#94a3b8">${set.piece_count}pc · ${uFmt(set.total_cscu)}</span></div>${missingBp}<div class="card-chips">${mats}</div></div><span class="card-arrow">▼</span></div><div class="card-body">${pcs}${bpP}${miss}${woBtn('set',set.set_name)}</div></div>`;
 }
 function renderBpCard(bp){
   const locked=!isUnlocked('backpack',bp.name);
-  return `<div class="item-card has-wiki-thumb${inWO('backpack',bp.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(bp.name)}<div class="card-content"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(bp.name)}</span>${lockBadge('backpack',bp.name)}${sourcesIcon(bp.sources)}${wBadge(bp.weight)}<span class="badge badge-role">Backpack</span></div><span style="color:#94a3b8;font-size:12px">${uFmt(bp.total_cscu)}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(bp.manufacturer||'')}</span>${ctime(bp.craft_time_seconds)}</div>${recipeHtml(bp.recipe)}${slotStatsHtml(bp.recipe)}${woBtn('backpack',bp.name)}</div></div>`;
+  return `<div class="item-card has-wiki-thumb${inWO('backpack',bp.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(bp.name)}<div class="card-content"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(bp.name)}</span>${lockBadge('backpack',bp.name)}${sourcesIcon(bp.sources)}${wBadge(bp.weight)}<span class="badge badge-role">Backpack</span>${ownerChips('backpack',bp.name)}</div><span style="color:#94a3b8;font-size:12px">${uFmt(bp.total_cscu)}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(bp.manufacturer||'')}</span>${ctime(bp.craft_time_seconds)}</div>${recipeHtml(bp.recipe)}${slotStatsHtml(bp.recipe)}${woBtn('backpack',bp.name)}</div></div>`;
 }
 function renderWepCard(w){
   const locked=!isUnlocked('weapon',w.name);
-  return `<div class="item-card has-wiki-thumb${inWO('weapon',w.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(w.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(w.name)}</span>${lockBadge('weapon',w.name)}${sourcesIcon(w.sources)}<span class="badge badge-wtype">${WTYPE_LABELS[w.weapon_type]||w.weapon_type}</span><span class="badge badge-${w.damage_type}">${w.damage_type}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(w.manufacturer)}</span><span style="color:#94a3b8;font-size:12px">${uFmt(w.total_cscu)}</span>${ctime(w.craft_time_seconds)}</div>${recipeHtml(w.recipe)}${slotStatsHtml(w.recipe)}${woBtn('weapon',w.name)}</div></div>`;
+  return `<div class="item-card has-wiki-thumb${inWO('weapon',w.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(w.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(w.name)}</span>${lockBadge('weapon',w.name)}${sourcesIcon(w.sources)}<span class="badge badge-wtype">${WTYPE_LABELS[w.weapon_type]||w.weapon_type}</span><span class="badge badge-${w.damage_type}">${w.damage_type}</span>${ownerChips('weapon',w.name)}</div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(w.manufacturer)}</span><span style="color:#94a3b8;font-size:12px">${uFmt(w.total_cscu)}</span>${ctime(w.craft_time_seconds)}</div>${recipeHtml(w.recipe)}${slotStatsHtml(w.recipe)}${woBtn('weapon',w.name)}</div></div>`;
 }
 function renderShipWepCard(w){
   const locked=!isUnlocked('ship_weapon',w.name);
   const sizeBadge=w.size?`<span class="badge badge-size">S${w.size}</span>`:'';
-  return `<div class="item-card has-wiki-thumb${inWO('ship_weapon',w.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(w.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(w.name)}</span>${lockBadge('ship_weapon',w.name)}${sourcesIcon(w.sources)}${sizeBadge}<span class="badge badge-wtype">${SHIP_WTYPE_LABELS[w.weapon_type]||w.weapon_type}</span><span class="badge badge-${w.damage_type}">${w.damage_type}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(w.manufacturer||'')}</span><span style="color:#94a3b8;font-size:12px">${uFmt(w.total_cscu)}</span>${ctime(w.craft_time_seconds)}</div>${recipeHtml(w.recipe)}${slotStatsHtml(w.recipe)}${woBtn('ship_weapon',w.name)}</div></div>`;
+  return `<div class="item-card has-wiki-thumb${inWO('ship_weapon',w.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(w.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(w.name)}</span>${lockBadge('ship_weapon',w.name)}${sourcesIcon(w.sources)}${sizeBadge}<span class="badge badge-wtype">${SHIP_WTYPE_LABELS[w.weapon_type]||w.weapon_type}</span><span class="badge badge-${w.damage_type}">${w.damage_type}</span>${ownerChips('ship_weapon',w.name)}</div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(w.manufacturer||'')}</span><span style="color:#94a3b8;font-size:12px">${uFmt(w.total_cscu)}</span>${ctime(w.craft_time_seconds)}</div>${recipeHtml(w.recipe)}${slotStatsHtml(w.recipe)}${woBtn('ship_weapon',w.name)}</div></div>`;
 }
 function renderShipCompCard(c){
   const locked=!isUnlocked('ship_component',c.name);
   const sizeBadge=c.size?`<span class="badge badge-size">S${c.size}</span>`:'';
   const classBadge=c.class_code?`<span class="badge badge-class badge-class-${c.class_code}" title="${esc(c.class_label||c.class_code)}${c.grade?', Grade '+c.grade:''}">${c.class_code}${c.grade?'/'+c.grade:''}</span>`:'';
-  return `<div class="item-card has-wiki-thumb${inWO('ship_component',c.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(c.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(c.name)}</span>${lockBadge('ship_component',c.name)}${sourcesIcon(c.sources)}${sizeBadge}${classBadge}<span class="badge badge-component">${COMP_LABELS[c.component_type]||c.component_type}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(c.manufacturer||'')}</span><span style="color:#94a3b8;font-size:12px">${uFmt(c.total_cscu)}</span>${ctime(c.craft_time_seconds)}</div>${recipeHtml(c.recipe)}${slotStatsHtml(c.recipe)}${woBtn('ship_component',c.name)}</div></div>`;
+  return `<div class="item-card has-wiki-thumb${inWO('ship_component',c.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(c.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(c.name)}</span>${lockBadge('ship_component',c.name)}${sourcesIcon(c.sources)}${sizeBadge}${classBadge}<span class="badge badge-component">${COMP_LABELS[c.component_type]||c.component_type}</span>${ownerChips('ship_component',c.name)}</div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(c.manufacturer||'')}</span><span style="color:#94a3b8;font-size:12px">${uFmt(c.total_cscu)}</span>${ctime(c.craft_time_seconds)}</div>${recipeHtml(c.recipe)}${slotStatsHtml(c.recipe)}${woBtn('ship_component',c.name)}</div></div>`;
 }
 function renderSuitCard(s,type){
   const locked=!isUnlocked(type,s.name);
-  return `<div class="item-card has-wiki-thumb${inWO(type,s.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(s.name)}<div class="card-content"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(s.name)}</span>${lockBadge(type,s.name)}${sourcesIcon(s.sources)}</div><span style="color:#94a3b8;font-size:12px">${uFmt(s.total_cscu)}</span></div><div style="display:flex;gap:6px;margin-bottom:6px">${s.manufacturer?`<span style="color:#64748b;font-size:12px">${esc(s.manufacturer)}</span>`:''}${ctime(s.craft_time_seconds)}</div>${recipeHtml(s.recipe)}${slotStatsHtml(s.recipe)}${woBtn(type,s.name)}</div></div>`;
+  return `<div class="item-card has-wiki-thumb${inWO(type,s.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(s.name)}<div class="card-content"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(s.name)}</span>${lockBadge(type,s.name)}${sourcesIcon(s.sources)}${ownerChips(type,s.name)}</div><span style="color:#94a3b8;font-size:12px">${uFmt(s.total_cscu)}</span></div><div style="display:flex;gap:6px;margin-bottom:6px">${s.manufacturer?`<span style="color:#64748b;font-size:12px">${esc(s.manufacturer)}</span>`:''}${ctime(s.craft_time_seconds)}</div>${recipeHtml(s.recipe)}${slotStatsHtml(s.recipe)}${woBtn(type,s.name)}</div></div>`;
 }
 function renderPieceCard(p){
   const pLabel=PIECE_LABELS[p.piece_type]||p.piece_type;
   const locked=!isUnlocked('piece',p.name);
-  return `<div class="item-card has-wiki-thumb${inWO('piece',p.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(p.name)}<div class="card-content"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(p.name)}</span>${lockBadge('piece',p.name)}${sourcesIcon(p.sources)}${wBadge(p.weight)} ${rBadge(p.role)} <span class="badge badge-set">${pLabel}</span></div><span style="color:#94a3b8;font-size:12px">${uFmt(p.total_cscu)}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(p.manufacturer||'')}</span><span style="color:#475569;font-size:12px">·</span><span style="color:#64748b;font-size:12px">${esc(p.set_name)}</span>${ctime(p.craft_time_seconds)}</div>${recipeHtml(p.recipe)}${slotStatsHtml(p.recipe)}${woBtn('piece',p.name)}</div></div>`;
+  return `<div class="item-card has-wiki-thumb${inWO('piece',p.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(p.name)}<div class="card-content"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(p.name)}</span>${lockBadge('piece',p.name)}${sourcesIcon(p.sources)}${wBadge(p.weight)} ${rBadge(p.role)} <span class="badge badge-set">${pLabel}</span>${ownerChips('piece',p.name)}</div><span style="color:#94a3b8;font-size:12px">${uFmt(p.total_cscu)}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(p.manufacturer||'')}</span><span style="color:#475569;font-size:12px">·</span><span style="color:#64748b;font-size:12px">${esc(p.set_name)}</span>${ctime(p.craft_time_seconds)}</div>${recipeHtml(p.recipe)}${slotStatsHtml(p.recipe)}${woBtn('piece',p.name)}</div></div>`;
 }
 function toggleCard(id){document.getElementById(id)?.classList.toggle('expanded');}
 
