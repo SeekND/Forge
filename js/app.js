@@ -597,7 +597,20 @@ function toggleUnlock(type, key, event){
     if(unlocking)unlockedBlueprints.add(k);
     else unlockedBlueprints.delete(k);
   }
-  
+
+  // Auto-clear wishlist marks when something gets unlocked — once you have
+  // the blueprint, the wishlist intent is fulfilled.
+  if(unlocking){
+    wantedBlueprints.delete(k);
+    if(type==='set'){
+      getSetPieceNames(key).forEach(pn=>wantedBlueprints.delete('piece|'+pn));
+    }else if(type==='piece'){
+      // If the parent set is now fully unlocked, drop its wishlist mark too
+      const setName=getSetForPiece(key);
+      if(setName&&isSetFullyUnlocked(setName))wantedBlueprints.delete('set|'+setName);
+    }
+  }
+
   saveState();filterBlueprints();updateCategoryCounts();
 }
 
