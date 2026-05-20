@@ -143,6 +143,16 @@ nav#tabs{display:flex;gap:1px;overflow-x:auto}
 .badge-energy{background:var(--purple-dim);color:var(--purple);border:1px solid #a855f755}
 .badge-distortion{background:#06b6d422;color:#06b6d4;border:1px solid #06b6d455}
 .badge-component{background:#3b82f622;color:#60a5fa;border:1px solid #3b82f655;font-size:10px}
+.badge-progress{display:inline-flex;align-items:center;background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.4);border-radius:4px;padding:1px 6px;font-size:10px;font-weight:700;letter-spacing:.04em}
+.piece-lock{font-size:11px;display:inline-flex;align-items:center;width:14px;justify-content:center;flex-shrink:0}
+.piece-lock.unlocked{color:var(--green)}
+.piece-lock.locked{filter:grayscale(0.4);opacity:.7}
+.piece-row-locked{opacity:.65}
+.piece-row-locked .piece-name{color:var(--text-dim)}
+.piece-row-unlocked .piece-name{color:#e2e8f0}
+.missing-bp{color:#fbbf24;font-size:11px;margin-top:6px;font-weight:600}
+.missing-bp-name{color:#fde68a;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);border-radius:3px;padding:0 5px;margin:0 2px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:10px}
+.item-card.partial-set{border-color:rgba(245,158,11,.35)}
 .badge-wtype{background:#47556966;color:var(--text);border:1px solid #47556966;font-size:10px}
 .badge-set{background:#47556944;color:var(--text-dim);border:1px solid #47556966;font-size:10px}
 .badge-partial{color:var(--orange);font-size:11px;font-weight:700}
@@ -152,6 +162,8 @@ nav#tabs{display:flex;gap:1px;overflow-x:auto}
 .badge-use-weapons{background:var(--orange-dim);color:var(--orange);border:1px solid #f9731644}
 .badge-use-undersuits{background:var(--purple-dim);color:var(--purple);border:1px solid #a855f744}
 .badge-use-backpacks{background:var(--green-dim);color:var(--green);border:1px solid #05966944}
+.badge-use-ship-weapons{background:#fb716022;color:#fb7185;border:1px solid #fb718544}
+.badge-use-ship-components{background:#06b6d422;color:#22d3ee;border:1px solid #06b6d444}
 .chip{display:inline-flex;align-items:center;gap:3px;background:var(--bg-raised);border:1px solid var(--border-light);border-radius:5px;padding:2px 7px;font-size:12px;color:var(--text);white-space:nowrap}
 .chip .qty{color:var(--text-dim);font-weight:600}
 .chip.green{background:var(--green-dim);border-color:#05966966}

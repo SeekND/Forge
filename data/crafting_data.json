@@ -2,9 +2,9 @@
   "meta": {
     "source": "Datamined from Star Citizen game files",
     "source_url": "",
-    "extracted_date": "2026-05-18",
+    "extracted_date": "2026-05-20",
     "current_patch": "4.8",
-    "data_updated": "2026-05-18",
+    "data_updated": "2026-05-20",
     "news_reel": "",
     "note": "Auto-extracted by SC Hub - Crafting module v4 (4.7 format).",
     "machine_name": "RediMake Item Fabricator",
@@ -39935,7 +39935,7 @@
     },
     {
       "set_key": "vgl_utility_light|01_04_01",
-      "set_name": "Chiron",
+      "set_name": "Chiron Purgatory Camo",
       "weight": "light",
       "role": "combat",
       "manufacturer": "Virgil",
@@ -39953,7 +39953,7 @@
       },
       "pieces": [
         {
-          "name": "Chiron Arms",
+          "name": "Chiron Arms Purgatory Camo",
           "piece_type": "arms",
           "total_cscu": 8.0,
           "recipe": [
@@ -40004,7 +40004,7 @@
           ]
         },
         {
-          "name": "Chiron Core",
+          "name": "Chiron Core Purgatory Camo",
           "piece_type": "core",
           "total_cscu": 10.0,
           "recipe": [
@@ -40055,7 +40055,7 @@
           ]
         },
         {
-          "name": "Chiron Legs",
+          "name": "Chiron Legs Purgatory Camo",
           "piece_type": "legs",
           "total_cscu": 8.0,
           "recipe": [
@@ -40127,7 +40127,7 @@
     },
     {
       "set_key": "vgl_utility_light|01_05_01",
-      "set_name": "Chiron",
+      "set_name": "Chiron Purgatory Camo",
       "weight": "light",
       "role": "combat",
       "manufacturer": "Virgil",
@@ -40147,7 +40147,7 @@
       },
       "pieces": [
         {
-          "name": "Chiron Helmet",
+          "name": "Chiron Helmet Purgatory Camo",
           "piece_type": "helmet",
           "total_cscu": 5.0,
           "recipe": [
@@ -79597,7 +79597,7 @@
       "sources": []
     },
     {
-      "name": "Chiron Arms",
+      "name": "Chiron Arms Purgatory Camo",
       "piece_type": "arms",
       "total_cscu": 8.0,
       "recipe": [
@@ -79639,7 +79639,7 @@
       "output_entity_guid": "ac73e9b7-9bca-4537-9456-71700ee2fa70",
       "blueprint_file": "bp_craft_vgl_utility_light_arms_01_04_01.xml",
       "is_obtainable": true,
-      "set_name": "Chiron",
+      "set_name": "Chiron Purgatory Camo",
       "set_key": "vgl_utility_light|01_04_01",
       "weight": "light",
       "role": "combat",
@@ -79654,7 +79654,7 @@
       ]
     },
     {
-      "name": "Chiron Core",
+      "name": "Chiron Core Purgatory Camo",
       "piece_type": "core",
       "total_cscu": 10.0,
       "recipe": [
@@ -79696,7 +79696,7 @@
       "output_entity_guid": "32efc648-0489-4293-ba06-57b715e18714",
       "blueprint_file": "bp_craft_vgl_utility_light_core_01_04_01.xml",
       "is_obtainable": true,
-      "set_name": "Chiron",
+      "set_name": "Chiron Purgatory Camo",
       "set_key": "vgl_utility_light|01_04_01",
       "weight": "light",
       "role": "combat",
@@ -79711,7 +79711,7 @@
       ]
     },
     {
-      "name": "Chiron Legs",
+      "name": "Chiron Legs Purgatory Camo",
       "piece_type": "legs",
       "total_cscu": 8.0,
       "recipe": [
@@ -79753,7 +79753,7 @@
       "output_entity_guid": "6379240a-3e25-4ce5-ae4b-047d26097038",
       "blueprint_file": "bp_craft_vgl_utility_light_legs_01_04_01.xml",
       "is_obtainable": true,
-      "set_name": "Chiron",
+      "set_name": "Chiron Purgatory Camo",
       "set_key": "vgl_utility_light|01_04_01",
       "weight": "light",
       "role": "combat",
@@ -79768,7 +79768,7 @@
       ]
     },
     {
-      "name": "Chiron Helmet",
+      "name": "Chiron Helmet Purgatory Camo",
       "piece_type": "helmet",
       "total_cscu": 5.0,
       "recipe": [
@@ -79810,7 +79810,7 @@
       "output_entity_guid": "9226de19-21c4-4d22-a9b9-04e8ab2d7d1a",
       "blueprint_file": "bp_craft_vgl_utility_light_helmet_01_05_01.xml",
       "is_obtainable": true,
-      "set_name": "Chiron",
+      "set_name": "Chiron Purgatory Camo",
       "set_key": "vgl_utility_light|01_05_01",
       "weight": "light",
       "role": "combat",
@@ -80028,166 +80028,6 @@
       ]
     },
     {
-      "name": "@PH-item_Name_qrt_combat_medium_backpack_01_01_01",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "7176bf25-ae7d-45d7-b99b-7974d3e8b599",
-      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_01_01.xml",
-      "is_obtainable": true,
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "sources": [
-        {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
-          "probability": 7.1,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "@PH-item_Name_qrt_combat_medium_backpack_01_01_01",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "91d97a2d-2b19-48a9-9246-b64567fe0e88",
-      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_02_01.xml",
-      "is_obtainable": true,
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "sources": [
-        {
-          "mission": "Bp Rewards Xenothreat2 25 02",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "@PH-item_Name_qrt_combat_medium_backpack_01_01_02",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "d463ff3b-ada2-4fd3-8155-6e8c5ecc6bbc",
-      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_01_02.xml",
-      "is_obtainable": true,
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "sources": [
-        {
-          "mission": "InterSec - Defend Ship",
-          "probability": 14.3,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "@PH-item_Name_qrt_combat_medium_backpack_01_01_10",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "a22612b1-4479-43fb-9bfb-7c054a0f1de1",
-      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_01_10.xml",
-      "is_obtainable": true,
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "sources": [
-        {
-          "mission": "InterSec - Patrol",
-          "probability": 7.7,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "@PH-item_Name_qrt_combat_medium_backpack_01_01_15",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "17d9c6b5-8a2c-4900-9639-2026707570b6",
-      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_01_15.xml",
-      "is_obtainable": true,
-      "weight": "medium",
-      "role": "combat",
-      "manufacturer": "Quirinus Technologies",
-      "sources": [
-        {
-          "mission": "InterSec - Resource Gathering",
-          "probability": 14.3,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
       "name": "CSP-68M Backpack",
       "piece_type": "backpack",
       "total_cscu": 4.0,
@@ -80275,6 +80115,166 @@
       "role": "combat",
       "manufacturer": "Grindel",
       "sources": []
+    },
+    {
+      "name": "Testudo Backpack",
+      "piece_type": "backpack",
+      "total_cscu": 4.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "7176bf25-ae7d-45d7-b99b-7974d3e8b599",
+      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_01_01.xml",
+      "is_obtainable": true,
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "Quirinus Technologies",
+      "sources": [
+        {
+          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "probability": 7.1,
+          "type": "RANDOM"
+        }
+      ]
+    },
+    {
+      "name": "Testudo Backpack Combustion",
+      "piece_type": "backpack",
+      "total_cscu": 4.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "d463ff3b-ada2-4fd3-8155-6e8c5ecc6bbc",
+      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_01_02.xml",
+      "is_obtainable": true,
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "Quirinus Technologies",
+      "sources": [
+        {
+          "mission": "InterSec - Defend Ship",
+          "probability": 14.3,
+          "type": "RANDOM"
+        }
+      ]
+    },
+    {
+      "name": "Testudo Backpack Earthshake",
+      "piece_type": "backpack",
+      "total_cscu": 4.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "17d9c6b5-8a2c-4900-9639-2026707570b6",
+      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_01_15.xml",
+      "is_obtainable": true,
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "Quirinus Technologies",
+      "sources": [
+        {
+          "mission": "InterSec - Resource Gathering",
+          "probability": 14.3,
+          "type": "RANDOM"
+        }
+      ]
+    },
+    {
+      "name": "Testudo Backpack Nightveil",
+      "piece_type": "backpack",
+      "total_cscu": 4.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "a22612b1-4479-43fb-9bfb-7c054a0f1de1",
+      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_01_10.xml",
+      "is_obtainable": true,
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "Quirinus Technologies",
+      "sources": [
+        {
+          "mission": "InterSec - Patrol",
+          "probability": 7.7,
+          "type": "RANDOM"
+        }
+      ]
+    },
+    {
+      "name": "Testudo Backpack Purgatory Camo",
+      "piece_type": "backpack",
+      "total_cscu": 4.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "91d97a2d-2b19-48a9-9246-b64567fe0e88",
+      "blueprint_file": "bp_craft_qrt_combat_medium_backpack_01_02_01.xml",
+      "is_obtainable": true,
+      "weight": "medium",
+      "role": "combat",
+      "manufacturer": "Quirinus Technologies",
+      "sources": [
+        {
+          "mission": "Bp Rewards Xenothreat2 25 02",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
     },
     {
       "name": "Testudo Backpack Turfwar",

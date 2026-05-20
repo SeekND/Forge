@@ -517,7 +517,8 @@ function buildFilters(){
 }
 function buildUnlockFilter(){
   const el=document.getElementById('f-unlock');if(!el)return;
-  el.innerHTML=['all','unlocked','locked'].map(v=>`<button class="fp-chip${filters.unlock===v?' active':''}" data-fk="unlock" data-fv="${v}" onclick="setUnlockFilter('${v}')">${v.charAt(0).toUpperCase()+v.slice(1)}</button>`).join('');
+  const labels={all:'All',unlocked:'Unlocked',locked:'Locked',partial:'In Progress'};
+  el.innerHTML=['all','unlocked','locked','partial'].map(v=>`<button class="fp-chip${filters.unlock===v?' active':''}" data-fk="unlock" data-fv="${v}" onclick="setUnlockFilter('${v}')" title="${v==='partial'?'Armor sets where you have some but not all blueprints':''}">${labels[v]}</button>`).join('');
 }
 function setUnlockFilter(v){filters.unlock=v;buildUnlockFilter();filterBlueprints();}
 
@@ -587,10 +588,26 @@ function toggleUnlock(type, key, event){
 
 function passesUnlockFilter(type, key){
   if(filters.unlock==='all')return true;
+  if(filters.unlock==='partial'){
+    // "In Progress" = sets you've started but not finished (some pieces unlocked, not all).
+    // For non-set types we treat partial as "show everything that's part of a partial set"
+    // — for plain pieces show pieces that belong to a partial set.
+    if(type==='set'){const s=DATA.armor_sets.find(x=>x.set_name===key);return !!s&&setUnlockCount(s).partial;}
+    if(type==='piece'){const p=(DATA.armor_pieces||[]).find(x=>x.name===key);if(!p)return false;const s=DATA.armor_sets.find(x=>x.set_name===p.set_name);return !!s&&setUnlockCount(s).partial;}
+    // Other types don't have "partial" semantics — don't hide them
+    return true;
+  }
   const unlocked=isUnlocked(type,key);
   if(filters.unlock==='unlocked')return unlocked;
   if(filters.unlock==='locked')return !unlocked;
   return true;
+}
+
+// Compute unlock state for a set: how many pieces unlocked, partial flag
+function setUnlockCount(set){
+  const total=set.pieces.length;
+  const unlocked=set.pieces.filter(p=>isUnlocked('piece',p.name)).length;
+  return {unlocked,total,partial:unlocked>0&&unlocked<total,complete:unlocked===total};
 }
 
 function bldChips(id,vals,lbl,key){document.getElementById(id).innerHTML=vals.map(v=>`<button class="fp-chip" data-fk="${key}" data-fv="${v}" onclick="toggleFilter('${key}','${v}')">${lbl(v)}</button>`).join('');}
@@ -983,12 +1000,27 @@ function renderSetCard(set){
   const id='s-'+set.set_name.replace(/[^a-z0-9]/gi,'_');
   const mats=Object.entries(set.material_totals).map(([m,a])=>chip(m,a)).join('');
   const compat=DATA.backpacks.filter(b=>b.weight===set.weight);
-  let pcs=set.pieces.map(p=>`<div class="piece-row">${wikiImgHtml(p.name)}<div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px"><span class="piece-type">${p.piece_type}</span><span class="piece-name">${esc(p.name)}</span>${sourcesIcon(p.sources)}</div><div class="piece-recipe">${recipeHtml(p.recipe)}</div>${slotStatsHtml(p.recipe)}</div><div class="piece-stats"><div class="cscu">${uFmt(p.total_cscu)}</div><div class="time">${ctime(p.craft_time_seconds)}</div></div></div>`).join('');
+  // Per-piece unlock annotation
+  const unlockState=setUnlockCount(set);
+  let pcs=set.pieces.map(p=>{
+    const pUnlocked=isUnlocked('piece',p.name);
+    const rowCls='piece-row'+(pUnlocked?' piece-row-unlocked':' piece-row-locked');
+    const pIcon=pUnlocked?'<span class="piece-lock unlocked" title="Blueprint unlocked">✓</span>':'<span class="piece-lock locked" title="Blueprint not yet unlocked">🔒</span>';
+    return `<div class="${rowCls}">${wikiImgHtml(p.name)}<div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px">${pIcon}<span class="piece-type">${p.piece_type}</span><span class="piece-name">${esc(p.name)}</span>${sourcesIcon(p.sources)}</div><div class="piece-recipe">${recipeHtml(p.recipe)}</div>${slotStatsHtml(p.recipe)}</div><div class="piece-stats"><div class="cscu">${uFmt(p.total_cscu)}</div><div class="time">${ctime(p.craft_time_seconds)}</div></div></div>`;
+  }).join('');
   let bpP='';
   if(compat.length&&!set.is_environment_suit)bpP=`<div class="bp-picker"><div class="bp-picker-label">+ ${set.weight.toUpperCase()} BACKPACK</div><div class="bp-picker-btns">${compat.map(b=>`<button class="bp-pick-btn" onclick="event.stopPropagation()">${esc(b.name)} (${uFmt(b.total_cscu)})</button>`).join('')}</div></div>`;
   const miss=!set.complete?`<div class="missing-warn">Missing: ${set.missing.join(', ')}</div>`:'';
+  // Missing-pieces summary (only when set is partially unlocked)
+  let missingBp='';
+  if(unlockState.partial){
+    const lockedPieces=set.pieces.filter(p=>!isUnlocked('piece',p.name));
+    missingBp=`<div class="missing-bp">Need ${lockedPieces.length} more blueprint${lockedPieces.length>1?'s':''}: ${lockedPieces.map(p=>`<span class="missing-bp-name">${PIECE_LABELS[p.piece_type]||p.piece_type}</span>`).join(', ')}</div>`;
+  }
   const locked=!isUnlocked('set',set.set_name);
-  return `<div class="item-card${inWO('set',set.set_name)?' in-wo':''}${locked?' locked':''}" id="${id}"><div class="card-header" onclick="toggleCard('${id}')"><div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span class="card-title">${esc(set.set_name)}</span>${lockBadge('set',set.set_name)}${sourcesIcon(set.sources)}${wBadge(set.weight)} ${rBadge(set.role)}${set.is_environment_suit?' <span class="badge-env">ENV</span>':''}${!set.complete?' <span class="badge-partial">PARTIAL</span>':''}</div><div class="card-meta"><span style="color:#64748b">${esc(set.manufacturer)}</span><span style="color:#475569">·</span><span style="color:#94a3b8">${set.piece_count}pc · ${uFmt(set.total_cscu)}</span></div><div class="card-chips">${mats}</div></div><span class="card-arrow">▼</span></div><div class="card-body">${pcs}${bpP}${miss}${woBtn('set',set.set_name)}</div></div>`;
+  // Progress counter: shown when partial (some pieces unlocked but not all)
+  const progBadge=unlockState.partial?`<span class="badge-progress" title="${unlockState.unlocked} of ${unlockState.total} piece blueprints unlocked">${unlockState.unlocked}/${unlockState.total}</span>`:'';
+  return `<div class="item-card${inWO('set',set.set_name)?' in-wo':''}${locked?' locked':''}${unlockState.partial?' partial-set':''}" id="${id}"><div class="card-header" onclick="toggleCard('${id}')"><div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span class="card-title">${esc(set.set_name)}</span>${lockBadge('set',set.set_name)}${progBadge}${sourcesIcon(set.sources)}${wBadge(set.weight)} ${rBadge(set.role)}${set.is_environment_suit?' <span class="badge-env">ENV</span>':''}${!set.complete?' <span class="badge-partial">PARTIAL</span>':''}</div><div class="card-meta"><span style="color:#64748b">${esc(set.manufacturer)}</span><span style="color:#475569">·</span><span style="color:#94a3b8">${set.piece_count}pc · ${uFmt(set.total_cscu)}</span></div>${missingBp}<div class="card-chips">${mats}</div></div><span class="card-arrow">▼</span></div><div class="card-body">${pcs}${bpP}${miss}${woBtn('set',set.set_name)}</div></div>`;
 }
 function renderBpCard(bp){
   const locked=!isUnlocked('backpack',bp.name);
@@ -2235,13 +2267,14 @@ function updateInventoryResults(){
 // MATERIALS REFERENCE
 // ════════════════════════════════════════════
 function buildMaterialsRef(){
-  const USE_LABELS={armor:'Armor',weapons:'Weapons',undersuits:'Undersuits',backpacks:'Backpacks'};
-  const USE_CLS={armor:'badge-use-armor',weapons:'badge-use-weapons',undersuits:'badge-use-undersuits',backpacks:'badge-use-backpacks'};
+  const USE_LABELS={armor:'Armor',weapons:'Weapons',undersuits:'Undersuits',backpacks:'Backpacks',ship_weapons:'Ship Weapons',ship_components:'Ship Components'};
+  const USE_CLS={armor:'badge-use-armor',weapons:'badge-use-weapons',undersuits:'badge-use-undersuits',backpacks:'badge-use-backpacks',ship_weapons:'badge-use-ship-weapons',ship_components:'badge-use-ship-components'};
   const matSlots={};
   const scanSlots=arr=>arr.forEach(item=>{const recs=item.pieces?item.pieces.flatMap(p=>p.recipe):(item.recipe||[]);recs.forEach(r=>{if(r.material&&r.slot){matSlots[r.material]=matSlots[r.material]||new Set();matSlots[r.material].add(r.slot);}});});
   scanSlots(DATA.armor_sets);scanSlots(DATA.weapons);
   scanSlots(DATA.undersuits.concat(DATA.undersuit_helmets||[],DATA.flightsuits||[],DATA.flightsuit_helmets||[]));
   scanSlots(DATA.backpacks);
+  scanSlots(DATA.ship_weapons||[]);scanSlots(DATA.ship_components||[]);
   document.getElementById('materials-grid').innerHTML=Object.entries(DATA.materials).sort((a,b)=>a[0].localeCompare(b[0])).map(([n,i])=>{
     const uses=(materialUsage[n]||[]).map(u=>`<span class="badge-use ${USE_CLS[u]||''}">${USE_LABELS[u]||u}</span>`).join('');
     const slots=[...(matSlots[n]||[])].map(sl=>{const stat=SLOT_STATS[sl]||'Unknown';return `<div class="mat-slot-stat"><span class="mat-slot-name">${sl}</span><span class="mat-stat-arrow">→</span><span class="mat-stat-name">${stat}</span></div>`;}).join('');
