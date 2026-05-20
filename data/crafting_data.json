@@ -91964,6 +91964,7 @@
       "weapon_type": "weapon",
       "damage_type": "ballistic",
       "manufacturer": "mxox",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Xenothreat2 100 01",
@@ -92018,6 +92019,7 @@
       "weapon_type": "weapon",
       "damage_type": "ballistic",
       "manufacturer": "mxox",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Xenothreat2 100 02",
@@ -92072,6 +92074,7 @@
       "weapon_type": "weapon",
       "damage_type": "ballistic",
       "manufacturer": "mxox",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Xenothreat2 100 03",
@@ -92126,6 +92129,7 @@
       "weapon_type": "weapon",
       "damage_type": "ballistic",
       "manufacturer": "mxox",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregionc",
@@ -92180,6 +92184,7 @@
       "weapon_type": "weapon",
       "damage_type": "ballistic",
       "manufacturer": "mxox",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregionc",
@@ -92234,6 +92239,7 @@
       "weapon_type": "weapon",
       "damage_type": "ballistic",
       "manufacturer": "mxox",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregionc",
@@ -92288,6 +92294,7 @@
       "weapon_type": "weapon",
       "damage_type": "ballistic",
       "manufacturer": "banu",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
@@ -92342,6 +92349,7 @@
       "weapon_type": "weapon",
       "damage_type": "ballistic",
       "manufacturer": "banu",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
@@ -92396,6 +92404,7 @@
       "weapon_type": "weapon",
       "damage_type": "ballistic",
       "manufacturer": "banu",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
@@ -92450,6 +92459,7 @@
       "weapon_type": "weapon",
       "damage_type": "ballistic",
       "manufacturer": "toag",
+      "size": 2,
       "sources": []
     },
     {
@@ -92498,6 +92508,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "kbar",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
@@ -92552,6 +92563,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "kbar",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
@@ -92606,6 +92618,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "kbar",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
@@ -92660,6 +92673,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "Behring",
+      "size": 4,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
@@ -92714,6 +92728,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "Behring",
+      "size": 2,
       "sources": []
     },
     {
@@ -92762,6 +92777,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "espr",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Assistshipincombata",
@@ -92816,6 +92832,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "espr",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Assistshipincombata",
@@ -92870,6 +92887,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "espr",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Assistshipincombata",
@@ -92924,6 +92942,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "espr",
+      "size": 4,
       "sources": [
         {
           "mission": "Bp Rewards Bombingrun",
@@ -92978,6 +92997,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "espr",
+      "size": 5,
       "sources": [
         {
           "mission": "Bp Rewards Bombingrun",
@@ -93032,6 +93052,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "espr",
+      "size": 6,
       "sources": [
         {
           "mission": "Bp Rewards Bombingrun",
@@ -93086,6 +93107,7 @@
       "weapon_type": "cannon",
       "damage_type": "distortion",
       "manufacturer": "Behring",
+      "size": 2,
       "sources": []
     },
     {
@@ -93134,6 +93156,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "kron",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambushmed",
@@ -93188,6 +93211,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "kron",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambushmed",
@@ -93242,6 +93266,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "kron",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambushmed",
@@ -93296,6 +93321,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "espr",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambusheasy",
@@ -93350,6 +93376,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "espr",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambusheasy",
@@ -93404,6 +93431,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "espr",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambusheasy",
@@ -93458,6 +93486,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "espr",
+      "size": 4,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambushhardplus",
@@ -93512,6 +93541,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "espr",
+      "size": 5,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambushhardplus",
@@ -93566,6 +93596,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "espr",
+      "size": 6,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambushhardplus",
@@ -93620,6 +93651,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "Behring",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipseasy",
@@ -93674,6 +93706,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "Behring",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipseasy",
@@ -93728,6 +93761,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "Behring",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipseasy",
@@ -93782,6 +93816,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "Behring",
+      "size": 4,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
@@ -93836,6 +93871,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "Behring",
+      "size": 5,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
@@ -93890,6 +93926,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "Behring",
+      "size": 6,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
@@ -93944,6 +93981,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "Behring",
+      "size": 2,
       "sources": []
     },
     {
@@ -93992,6 +94030,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "amrs",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Fullstrikeonstationb",
@@ -94046,6 +94085,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "amrs",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Fullstrikeonstationb",
@@ -94100,6 +94140,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "amrs",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Fullstrikeonstationb",
@@ -94154,6 +94195,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "amrs",
+      "size": 4,
       "sources": [
         {
           "mission": "Bp Rewards Fullstrikeonstationb",
@@ -94208,6 +94250,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "amrs",
+      "size": 5,
       "sources": [
         {
           "mission": "Bp Rewards Fullstrikeonstationb",
@@ -94262,6 +94305,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "amrs",
+      "size": 6,
       "sources": [
         {
           "mission": "Bp Rewards Fullstrikeonstationb",
@@ -94316,6 +94360,7 @@
       "weapon_type": "cannon",
       "damage_type": "energy",
       "manufacturer": "krig",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipshardplus",
@@ -94370,6 +94415,7 @@
       "weapon_type": "cannon",
       "damage_type": "distortion",
       "manufacturer": "jokr",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipsmed",
@@ -94424,6 +94470,7 @@
       "weapon_type": "cannon",
       "damage_type": "distortion",
       "manufacturer": "jokr",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipsmed",
@@ -94478,6 +94525,7 @@
       "weapon_type": "cannon",
       "damage_type": "distortion",
       "manufacturer": "jokr",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipsmed",
@@ -94532,6 +94580,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "gats",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhuntershard",
@@ -94586,6 +94635,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "gats",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhuntershard",
@@ -94640,6 +94690,7 @@
       "weapon_type": "cannon",
       "damage_type": "ballistic",
       "manufacturer": "gats",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhuntershard",
@@ -94694,6 +94745,7 @@
       "weapon_type": "gatling",
       "damage_type": "ballistic",
       "manufacturer": "Behring",
+      "size": 4,
       "sources": [
         {
           "mission": "Bp Rewards Pyroheadhuntershard",
@@ -94748,6 +94800,7 @@
       "weapon_type": "gatling",
       "damage_type": "ballistic",
       "manufacturer": "Behring",
+      "size": 5,
       "sources": [
         {
           "mission": "Bp Rewards Pyroheadhuntershard",
@@ -94802,6 +94855,7 @@
       "weapon_type": "gatling",
       "damage_type": "ballistic",
       "manufacturer": "Behring",
+      "size": 6,
       "sources": [
         {
           "mission": "Bp Rewards Pyroheadhuntershard",
@@ -94856,6 +94910,7 @@
       "weapon_type": "gatling",
       "damage_type": "ballistic",
       "manufacturer": "apar",
+      "size": 6,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
@@ -94910,6 +94965,7 @@
       "weapon_type": "gatling",
       "damage_type": "ballistic",
       "manufacturer": "gats",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhuntershard",
@@ -94964,6 +95020,7 @@
       "weapon_type": "gatling",
       "damage_type": "ballistic",
       "manufacturer": "apar",
+      "size": 4,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
@@ -95018,6 +95075,7 @@
       "weapon_type": "gatling",
       "damage_type": "ballistic",
       "manufacturer": "gats",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhuntershard",
@@ -95072,6 +95130,7 @@
       "weapon_type": "gatling",
       "damage_type": "ballistic",
       "manufacturer": "krig",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
@@ -95126,6 +95185,7 @@
       "weapon_type": "gatling",
       "damage_type": "ballistic",
       "manufacturer": "gats",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhuntershard",
@@ -95180,6 +95240,7 @@
       "weapon_type": "massdriver",
       "damage_type": "ballistic",
       "manufacturer": "Klaus & Werner",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
@@ -95234,6 +95295,7 @@
       "weapon_type": "massdriver",
       "damage_type": "ballistic",
       "manufacturer": "Klaus & Werner",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
@@ -95288,6 +95350,7 @@
       "weapon_type": "massdriver",
       "damage_type": "ballistic",
       "manufacturer": "Klaus & Werner",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
@@ -95342,6 +95405,7 @@
       "weapon_type": "massdriver",
       "damage_type": "ballistic",
       "manufacturer": "apar",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
@@ -95396,6 +95460,7 @@
       "weapon_type": "repeater",
       "damage_type": "distortion",
       "manufacturer": "Behring",
+      "size": 2,
       "sources": []
     },
     {
@@ -95444,6 +95509,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "hrst",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Idsrecoverencrypteddatavgear",
@@ -95498,6 +95564,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "hrst",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Idsrecoverencrypteddatavgear",
@@ -95552,6 +95619,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "hrst",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Idsrecoverencrypteddatavgear",
@@ -95606,6 +95674,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "hrst",
+      "size": 4,
       "sources": [
         {
           "mission": "Bp Rewards Stantonfoxwellhard",
@@ -95660,6 +95729,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "hrst",
+      "size": 5,
       "sources": [
         {
           "mission": "Bp Rewards Stantonfoxwellhard",
@@ -95714,6 +95784,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "hrst",
+      "size": 6,
       "sources": [
         {
           "mission": "Bp Rewards Stantonfoxwellhard",
@@ -95768,6 +95839,7 @@
       "weapon_type": "repeater",
       "damage_type": "ballistic",
       "manufacturer": "Behring",
+      "size": 2,
       "sources": []
     },
     {
@@ -95816,6 +95888,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "Klaus & Werner",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwellhard",
@@ -95870,6 +95943,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "Klaus & Werner",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwellhard",
@@ -95924,6 +95998,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "Klaus & Werner",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwellhard",
@@ -95978,6 +96053,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "Klaus & Werner",
+      "size": 4,
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwellhard",
@@ -96032,6 +96108,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "Klaus & Werner",
+      "size": 5,
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwellhard",
@@ -96086,6 +96163,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "Klaus & Werner",
+      "size": 6,
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwellhard",
@@ -96140,6 +96218,7 @@
       "weapon_type": "repeater",
       "damage_type": "distortion",
       "manufacturer": "asad",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwellhard",
@@ -96194,6 +96273,7 @@
       "weapon_type": "repeater",
       "damage_type": "distortion",
       "manufacturer": "asad",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwellhard",
@@ -96248,6 +96328,7 @@
       "weapon_type": "repeater",
       "damage_type": "distortion",
       "manufacturer": "asad",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwellhard",
@@ -96302,6 +96383,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "Behring",
+      "size": 2,
       "sources": []
     },
     {
@@ -96350,6 +96432,7 @@
       "weapon_type": "repeater",
       "damage_type": "energy",
       "manufacturer": "hrst",
+      "size": 3,
       "sources": []
     },
     {
@@ -96398,6 +96481,7 @@
       "weapon_type": "repeater",
       "damage_type": "ballistic",
       "manufacturer": "Behring",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhuntershard",
@@ -96452,6 +96536,7 @@
       "weapon_type": "repeater",
       "damage_type": "ballistic",
       "manufacturer": "Behring",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhuntershard",
@@ -96506,6 +96591,7 @@
       "weapon_type": "repeater",
       "damage_type": "ballistic",
       "manufacturer": "Behring",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhuntershard",
@@ -96560,6 +96646,7 @@
       "weapon_type": "scatter",
       "damage_type": "energy",
       "manufacturer": "hrst",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregionb",
@@ -96614,6 +96701,7 @@
       "weapon_type": "scatter",
       "damage_type": "energy",
       "manufacturer": "hrst",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregionb",
@@ -96668,6 +96756,7 @@
       "weapon_type": "scatter",
       "damage_type": "ballistic",
       "manufacturer": "apar",
+      "size": 1,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipshardplus",
@@ -96722,6 +96811,7 @@
       "weapon_type": "scatter",
       "damage_type": "ballistic",
       "manufacturer": "apar",
+      "size": 2,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipshardplus",
@@ -96776,6 +96866,7 @@
       "weapon_type": "scatter",
       "damage_type": "ballistic",
       "manufacturer": "apar",
+      "size": 3,
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipshardplus",
@@ -96830,6 +96921,7 @@
       "weapon_type": "scatter",
       "damage_type": "energy",
       "manufacturer": "amrs",
+      "size": 3,
       "sources": []
     }
   ],
@@ -96879,6 +96971,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -96926,6 +97022,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "B",
       "sources": []
     },
     {
@@ -96973,6 +97073,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -97020,6 +97124,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -97067,6 +97175,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -97120,6 +97232,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -97173,6 +97289,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwellhard",
@@ -97226,6 +97346,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -97279,6 +97403,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -97332,6 +97460,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwellhard",
@@ -97385,6 +97517,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -97432,6 +97568,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -97479,6 +97619,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "A",
       "sources": []
     },
     {
@@ -97526,6 +97670,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -97579,6 +97727,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -97632,6 +97784,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": []
     },
     {
@@ -97679,6 +97835,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -97732,6 +97892,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -97785,6 +97949,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 0,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -97838,6 +98006,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -97891,6 +98063,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -97944,6 +98120,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": []
     },
     {
@@ -97991,6 +98171,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -98044,6 +98228,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -98097,6 +98285,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -98144,6 +98336,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -98197,6 +98393,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 0,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -98250,6 +98450,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -98303,6 +98507,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -98356,6 +98564,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 0,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -98409,6 +98621,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -98462,6 +98678,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -98515,6 +98735,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -98568,6 +98792,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -98621,6 +98849,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -98668,6 +98900,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -98721,6 +98957,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwellhard",
@@ -98774,6 +99014,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -98827,6 +99071,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregionb",
@@ -98880,6 +99128,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -98927,6 +99179,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -98974,6 +99230,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -99021,6 +99281,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": []
     },
     {
@@ -99068,6 +99332,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "C",
       "sources": []
     },
     {
@@ -99115,6 +99383,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "C",
       "sources": []
     },
     {
@@ -99162,6 +99434,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 0,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -99215,6 +99491,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -99268,6 +99548,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -99315,6 +99599,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Bombingrun",
@@ -99368,6 +99656,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Bombingrun",
@@ -99421,6 +99713,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "D",
       "sources": []
     },
     {
@@ -99468,6 +99764,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "D",
       "sources": []
     },
     {
@@ -99515,6 +99815,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -99562,6 +99866,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -99609,6 +99917,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
@@ -99662,6 +99974,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": []
     },
     {
@@ -99709,6 +100025,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "A",
       "sources": []
     },
     {
@@ -99756,6 +100076,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -99809,6 +100133,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Bombingrun",
@@ -99862,6 +100190,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 0,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwelleasy",
@@ -99915,6 +100247,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": []
     },
     {
@@ -99962,6 +100298,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": []
     },
     {
@@ -100009,6 +100349,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -100056,6 +100400,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "A",
       "sources": []
     },
     {
@@ -100103,6 +100451,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Headhuntersmercenaryshipregionc",
@@ -100156,6 +100508,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -100209,6 +100565,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -100262,6 +100622,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -100315,6 +100679,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 0,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -100368,6 +100736,10 @@
       "is_obtainable": true,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhunterseasy",
@@ -100421,6 +100793,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 1,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "B",
       "sources": []
     },
     {
@@ -100468,6 +100844,10 @@
       "is_obtainable": false,
       "component_type": "cooler",
       "manufacturer": "cool",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -100515,6 +100895,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 1,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank2To3",
@@ -100568,6 +100952,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 2,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank4",
@@ -100621,6 +101009,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank0To1",
@@ -100674,6 +101066,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 1,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank2To3",
@@ -100727,6 +101123,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 2,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank4",
@@ -100780,6 +101180,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 1,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank2To3",
@@ -100833,6 +101237,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 2,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank4",
@@ -100886,6 +101294,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 1,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank2To3",
@@ -100939,6 +101351,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 2,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank4",
@@ -100992,6 +101408,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 1,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank2To3",
@@ -101045,6 +101465,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 2,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank4",
@@ -101098,6 +101522,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 1,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank2To3",
@@ -101151,6 +101579,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 2,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank4",
@@ -101204,6 +101636,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank0To1",
@@ -101257,6 +101693,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 1,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank2To3",
@@ -101310,6 +101750,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank0To1",
@@ -101363,6 +101807,10 @@
       "is_obtainable": true,
       "component_type": "mininglaser",
       "manufacturer": "mining",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank0To1",
@@ -101416,6 +101864,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Asd3Vgear",
@@ -101469,6 +101921,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Redwind",
@@ -101522,6 +101978,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwelleasy",
@@ -101575,6 +102035,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -101622,6 +102086,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -101669,6 +102137,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambusheasy",
@@ -101722,6 +102194,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 0,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Ftl",
@@ -101775,6 +102251,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambushmed",
@@ -101828,6 +102308,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": []
     },
     {
@@ -101875,6 +102359,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -101922,6 +102410,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 0,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Pyroheadhunterseasy",
@@ -101975,6 +102467,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Redwind",
@@ -102028,6 +102524,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Asd3Vgear",
@@ -102081,6 +102581,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambushhardplus",
@@ -102134,6 +102638,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -102181,6 +102689,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
@@ -102234,6 +102746,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -102281,6 +102797,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Asd3Vgear",
@@ -102334,6 +102854,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwelleasy",
@@ -102387,6 +102911,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwelleasy",
@@ -102440,6 +102968,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambushmed",
@@ -102493,6 +103025,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Redwind",
@@ -102546,6 +103082,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": []
     },
     {
@@ -102593,6 +103133,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -102640,6 +103184,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwelleasy",
@@ -102693,6 +103241,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwelleasy",
@@ -102746,6 +103298,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwelleasy",
@@ -102799,6 +103355,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 0,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwelleasy",
@@ -102852,6 +103412,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Fullstrikeonstationb",
@@ -102905,6 +103469,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Fullstrikeonstationb",
@@ -102958,6 +103526,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 0,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -103005,6 +103577,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwelleasy",
@@ -103058,6 +103634,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Pyroheadhunterseasy",
@@ -103111,6 +103691,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "A",
       "sources": []
     },
     {
@@ -103158,6 +103742,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "A",
       "sources": []
     },
     {
@@ -103205,6 +103793,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -103252,6 +103844,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwelleasy",
@@ -103305,6 +103901,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -103352,6 +103952,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -103399,6 +104003,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
@@ -103452,6 +104060,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwelleasy",
@@ -103505,6 +104117,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -103552,6 +104168,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwelleasy",
@@ -103605,6 +104225,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Xenothreat2 60 01",
@@ -103658,6 +104282,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Xenothreat2 60 02",
@@ -103711,6 +104339,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Fullstrikeonstationb",
@@ -103764,6 +104396,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwelleasy",
@@ -103817,6 +104453,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 0,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Pyrofoxwelleasy",
@@ -103870,6 +104510,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -103917,6 +104561,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": []
     },
     {
@@ -103964,6 +104612,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -104011,6 +104663,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Ftl",
@@ -104064,6 +104720,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambushhardplus",
@@ -104117,6 +104777,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -104164,6 +104828,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "C",
       "sources": []
     },
     {
@@ -104211,6 +104879,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityshipambusheasy",
@@ -104264,6 +104936,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Pyroheadhunterseasy",
@@ -104317,6 +104993,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Pyroheadhunterseasy",
@@ -104370,6 +105050,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "B",
       "sources": []
     },
     {
@@ -104417,6 +105101,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "B",
       "sources": []
     },
     {
@@ -104464,6 +105152,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 0,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": []
     },
     {
@@ -104511,6 +105203,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -104558,6 +105254,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -104605,6 +105305,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "C",
       "sources": []
     },
     {
@@ -104652,6 +105356,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -104699,6 +105407,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Pyroheadhunterseasy",
@@ -104752,6 +105464,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -104799,6 +105515,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -104846,6 +105566,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
@@ -104899,6 +105623,10 @@
       "is_obtainable": false,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -104946,6 +105674,10 @@
       "is_obtainable": true,
       "component_type": "powerplant",
       "manufacturer": "powr",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Pyroheadhunterseasy",
@@ -104999,6 +105731,10 @@
       "is_obtainable": true,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Ftl",
@@ -105052,6 +105788,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": []
     },
     {
@@ -105099,6 +105839,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -105146,6 +105890,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": []
     },
     {
@@ -105193,6 +105941,10 @@
       "is_obtainable": true,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Covalexsuper",
@@ -105246,6 +105998,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": []
     },
     {
@@ -105293,6 +106049,10 @@
       "is_obtainable": true,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Linghard",
@@ -105346,6 +106106,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": []
     },
     {
@@ -105393,6 +106157,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": []
     },
     {
@@ -105440,6 +106208,10 @@
       "is_obtainable": true,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Ftl",
@@ -105493,6 +106265,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -105540,6 +106316,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "C",
       "sources": []
     },
     {
@@ -105587,6 +106367,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": []
     },
     {
@@ -105634,6 +106418,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": []
     },
     {
@@ -105681,6 +106469,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": []
     },
     {
@@ -105728,6 +106520,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": []
     },
     {
@@ -105775,6 +106571,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": []
     },
     {
@@ -105822,6 +106622,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": []
     },
     {
@@ -105869,6 +106673,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": []
     },
     {
@@ -105916,6 +106724,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": []
     },
     {
@@ -105963,6 +106775,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -106010,6 +106826,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -106057,6 +106877,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": []
     },
     {
@@ -106104,6 +106928,10 @@
       "is_obtainable": true,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Ftl",
@@ -106157,6 +106985,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": []
     },
     {
@@ -106204,6 +107036,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": []
     },
     {
@@ -106251,6 +107087,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": []
     },
     {
@@ -106298,6 +107138,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": []
     },
     {
@@ -106345,6 +107189,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -106392,6 +107240,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": []
     },
     {
@@ -106439,6 +107291,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "C",
       "sources": []
     },
     {
@@ -106486,6 +107342,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": []
     },
     {
@@ -106533,6 +107393,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -106580,6 +107444,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": []
     },
     {
@@ -106627,6 +107495,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": []
     },
     {
@@ -106674,6 +107546,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": []
     },
     {
@@ -106721,6 +107597,10 @@
       "is_obtainable": true,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Covalexsuper",
@@ -106774,6 +107654,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": []
     },
     {
@@ -106821,6 +107705,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "C",
       "sources": []
     },
     {
@@ -106868,6 +107756,10 @@
       "is_obtainable": true,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Linghard",
@@ -106921,6 +107813,10 @@
       "is_obtainable": true,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Linghard",
@@ -106974,6 +107870,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "B",
       "sources": []
     },
     {
@@ -107021,6 +107921,10 @@
       "is_obtainable": true,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Covalexsuper",
@@ -107074,6 +107978,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": []
     },
     {
@@ -107121,6 +108029,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": []
     },
     {
@@ -107168,6 +108080,10 @@
       "is_obtainable": true,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Covalexsuper",
@@ -107221,6 +108137,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -107268,6 +108188,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": []
     },
     {
@@ -107315,6 +108239,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -107362,6 +108290,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": []
     },
     {
@@ -107409,6 +108341,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": []
     },
     {
@@ -107456,6 +108392,10 @@
       "is_obtainable": true,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Covalexsuper",
@@ -107509,6 +108449,10 @@
       "is_obtainable": false,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -107556,6 +108500,10 @@
       "is_obtainable": true,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Covalexsuper",
@@ -107609,6 +108557,10 @@
       "is_obtainable": true,
       "component_type": "quantumdrive",
       "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Linghard",
@@ -107662,6 +108614,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": []
     },
     {
@@ -107709,6 +108665,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": []
     },
     {
@@ -107756,6 +108716,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -107803,6 +108767,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": []
     },
     {
@@ -107850,6 +108818,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": []
     },
     {
@@ -107897,6 +108869,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": []
     },
     {
@@ -107944,6 +108920,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank2To3",
@@ -107997,6 +108977,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank2To3",
@@ -108050,6 +109034,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank2To3",
@@ -108103,6 +109091,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 4,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank2To3",
@@ -108156,6 +109148,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": []
     },
     {
@@ -108203,6 +109199,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "A",
       "sources": []
     },
     {
@@ -108250,6 +109250,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": []
     },
     {
@@ -108297,6 +109301,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhuntershard",
@@ -108350,6 +109358,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -108397,6 +109409,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -108444,6 +109460,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": []
     },
     {
@@ -108491,6 +109511,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -108538,6 +109562,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": []
     },
     {
@@ -108585,6 +109613,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank4",
@@ -108638,6 +109670,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank4",
@@ -108691,6 +109727,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank4",
@@ -108744,6 +109784,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "B",
       "sources": []
     },
     {
@@ -108791,6 +109835,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -108838,6 +109886,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -108885,6 +109937,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -108932,6 +109988,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -108979,6 +110039,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "C",
       "sources": []
     },
     {
@@ -109026,6 +110090,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "B",
       "sources": []
     },
     {
@@ -109073,6 +110141,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -109120,6 +110192,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "A",
       "sources": []
     },
     {
@@ -109167,6 +110243,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -109214,6 +110294,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "D",
       "sources": []
     },
     {
@@ -109261,6 +110345,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "C",
       "sources": []
     },
     {
@@ -109308,6 +110396,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -109355,6 +110447,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "B",
       "sources": []
     },
     {
@@ -109402,6 +110498,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "D",
       "sources": []
     },
     {
@@ -109449,6 +110549,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "B",
       "sources": []
     },
     {
@@ -109496,6 +110600,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -109543,6 +110651,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Stantonfoxwellhard",
@@ -109596,6 +110708,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": []
     },
     {
@@ -109643,6 +110759,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "C",
       "sources": []
     },
     {
@@ -109690,6 +110810,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank0To1",
@@ -109743,6 +110867,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank0To1",
@@ -109796,6 +110924,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank0To1",
@@ -109849,6 +110981,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Shubinrank0To1",
@@ -109902,6 +111038,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Stantonfoxwellhard",
@@ -109960,6 +111100,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Nyxfoxwellhard",
@@ -110013,6 +111157,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Pyroheadhuntershard",
@@ -110066,6 +111214,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Pyroheadhuntershard",
@@ -110119,6 +111271,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Nyxheadhuntershard",
@@ -110172,6 +111328,10 @@
       "is_obtainable": true,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhuntershard",
@@ -110225,6 +111385,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -110272,6 +111436,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -110319,6 +111487,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -110366,6 +111538,10 @@
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -110402,6 +111578,10 @@
       "is_obtainable": true,
       "component_type": "refuelling",
       "manufacturer": "nozzle",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Fuelnozzle",
@@ -110444,6 +111624,10 @@
       "is_obtainable": true,
       "component_type": "refuelling",
       "manufacturer": "nozzle",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Fuelnozzle",
@@ -110486,6 +111670,10 @@
       "is_obtainable": true,
       "component_type": "refuelling",
       "manufacturer": "nozzle",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Fuelnozzle",
@@ -110528,6 +111716,10 @@
       "is_obtainable": true,
       "component_type": "refuelling",
       "manufacturer": "nozzle",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Fuelnozzle",
@@ -110570,6 +111762,10 @@
       "is_obtainable": true,
       "component_type": "refuelling",
       "manufacturer": "nozzle",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Fuelnozzle",
@@ -110612,6 +111808,10 @@
       "is_obtainable": true,
       "component_type": "refuelling",
       "manufacturer": "nozzle",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Fuelnozzle",
@@ -110654,6 +111854,10 @@
       "is_obtainable": true,
       "component_type": "refuelling",
       "manufacturer": "nozzle",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Fuelnozzle",
@@ -110696,6 +111900,10 @@
       "is_obtainable": true,
       "component_type": "refuelling",
       "manufacturer": "nozzle",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Fuelnozzle",
@@ -110749,6 +111957,10 @@
       "is_obtainable": true,
       "component_type": "salvage",
       "manufacturer": "salvage",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Adagioresourcegatheringshipsalvage",
@@ -110802,6 +112014,10 @@
       "is_obtainable": true,
       "component_type": "salvage",
       "manufacturer": "salvage",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Adagioresourcegatheringshipsalvage",
@@ -110855,6 +112071,10 @@
       "is_obtainable": true,
       "component_type": "salvage",
       "manufacturer": "salvage",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Adagioresourcegatheringshipsalvage",
@@ -110908,6 +112128,10 @@
       "is_obtainable": true,
       "component_type": "salvage",
       "manufacturer": "salvage",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Adagioresourcegatheringshipsalvage",
@@ -110961,6 +112185,10 @@
       "is_obtainable": true,
       "component_type": "salvage",
       "manufacturer": "salvage",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Adagioresourcegatheringshipsalvage",
@@ -111014,6 +112242,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhunterseasy",
@@ -111067,6 +112299,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhunterseasy",
@@ -111120,6 +112356,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhunterseasy",
@@ -111173,6 +112413,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhunterseasy",
@@ -111226,6 +112470,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhunterseasy",
@@ -111279,6 +112527,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhunterseasy",
@@ -111332,6 +112584,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Stantonfoxwelleasy",
@@ -111385,6 +112641,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Stantonfoxwelleasy",
@@ -111438,6 +112698,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Stantonfoxwelleasy",
@@ -111491,6 +112755,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -111538,6 +112806,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -111585,6 +112857,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": []
     },
     {
@@ -111632,6 +112908,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhunterseasy",
@@ -111685,6 +112965,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "D",
       "sources": []
     },
     {
@@ -111732,6 +113016,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Linghard",
@@ -111785,6 +113073,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": []
     },
     {
@@ -111832,6 +113124,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 0,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": []
     },
     {
@@ -111879,6 +113175,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Linghard",
@@ -111932,6 +113232,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "D",
       "sources": []
     },
     {
@@ -111979,6 +113283,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Assistshipincombata",
@@ -112032,6 +113340,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Xenothreat2 85 01",
@@ -112085,6 +113397,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Xenothreat2 85 02",
@@ -112138,6 +113454,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Stantonfoxwellhard",
@@ -112191,6 +113511,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "D",
       "sources": []
     },
     {
@@ -112238,6 +113562,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Assistshipincombata",
@@ -112291,6 +113619,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Assistshipincombata",
@@ -112344,6 +113676,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -112391,6 +113727,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhunterseasy",
@@ -112444,6 +113784,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -112491,6 +113835,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Linghard",
@@ -112544,6 +113892,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 3,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Stantonfoxwelleasy",
@@ -112597,6 +113949,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhunterseasy",
@@ -112650,6 +114006,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "B",
       "sources": []
     },
     {
@@ -112697,6 +114057,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -112744,6 +114108,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Stantonfoxwelleasy",
@@ -112797,6 +114165,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "B",
       "sources": []
     },
     {
@@ -112844,6 +114216,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipshardplus",
@@ -112897,6 +114273,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipseasy",
@@ -112950,6 +114330,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 0,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhunterseasy",
@@ -113003,6 +114387,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Covalexsuper",
@@ -113056,6 +114444,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Covalexsuper",
@@ -113109,6 +114501,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "D",
       "sources": [
         {
           "mission": "Bp Rewards Stantonfoxwelleasy",
@@ -113162,6 +114558,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -113209,6 +114609,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Covalexsuper",
@@ -113262,6 +114666,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhunterseasy",
@@ -113315,6 +114723,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -113362,6 +114774,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -113409,6 +114825,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "D",
       "sources": []
     },
     {
@@ -113456,6 +114876,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipsmed",
@@ -113509,6 +114933,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipseasy",
@@ -113562,6 +114990,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "D",
       "sources": []
     },
     {
@@ -113609,6 +115041,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -113656,6 +115092,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": []
     },
     {
@@ -113703,6 +115143,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 3,
+      "class_code": "Mil",
+      "class_label": "Military",
+      "grade": "C",
       "sources": []
     },
     {
@@ -113750,6 +115194,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "C",
       "sources": []
     },
     {
@@ -113797,6 +115245,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Cmp",
+      "class_label": "Competition",
+      "grade": "C",
       "sources": []
     },
     {
@@ -113844,6 +115296,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 2,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "A",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipshardplus",
@@ -113897,6 +115353,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Sth",
+      "class_label": "Stealth",
+      "grade": "B",
       "sources": [
         {
           "mission": "Bp Rewards Eckhartsecurityescortshipsmed",
@@ -113950,6 +115410,10 @@
       "is_obtainable": true,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 1,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
       "sources": [
         {
           "mission": "Bp Rewards Stantonheadhunterseasy",
@@ -114003,6 +115467,10 @@
       "is_obtainable": false,
       "component_type": "shield",
       "manufacturer": "shld",
+      "size": 3,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "D",
       "sources": []
     },
     {
@@ -114050,6 +115518,10 @@
       "is_obtainable": true,
       "component_type": "tractorbeam",
       "manufacturer": "wep",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Redwind",
@@ -114103,6 +115575,10 @@
       "is_obtainable": true,
       "component_type": "tractorbeam",
       "manufacturer": "wep",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Redwind",
@@ -114156,6 +115632,10 @@
       "is_obtainable": true,
       "component_type": "tractorbeam",
       "manufacturer": "wep",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": [
         {
           "mission": "Bp Rewards Redwind",
@@ -114209,6 +115689,10 @@
       "is_obtainable": false,
       "component_type": "tractorbeam",
       "manufacturer": "wep",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -114256,6 +115740,10 @@
       "is_obtainable": false,
       "component_type": "tractorbeam",
       "manufacturer": "wep",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -114303,6 +115791,10 @@
       "is_obtainable": false,
       "component_type": "tractorbeam",
       "manufacturer": "Grindel",
+      "size": 1,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -114350,6 +115842,10 @@
       "is_obtainable": false,
       "component_type": "tractorbeam",
       "manufacturer": "Grindel",
+      "size": 2,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -114397,6 +115893,10 @@
       "is_obtainable": false,
       "component_type": "tractorbeam",
       "manufacturer": "Grindel",
+      "size": 3,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -114444,6 +115944,10 @@
       "is_obtainable": false,
       "component_type": "tractorbeam",
       "manufacturer": "wep",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -114491,6 +115995,10 @@
       "is_obtainable": false,
       "component_type": "tractorbeam",
       "manufacturer": "wep",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     },
     {
@@ -114538,6 +116046,10 @@
       "is_obtainable": false,
       "component_type": "tractorbeam",
       "manufacturer": "wep",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
       "sources": []
     }
   ],

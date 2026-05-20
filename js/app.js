@@ -22,6 +22,9 @@ let woSelected=new Set();
 // Key format: "type|name" e.g. "piece|Field Recon Legs"
 let unlockedBlueprints = new Set();
 
+// Wishlist — blueprints the user intends to acquire. Same key format.
+let wantedBlueprints = new Set();
+
 // Default unlocked blueprints — built dynamically from meta.default_blueprints
 // after data loads. Populated by buildDefaultUnlocked().
 let DEFAULT_UNLOCKED = [];
@@ -402,6 +405,7 @@ function saveState(){
     localStorage.setItem(LS+'planner',JSON.stringify(plannerSelections));
     localStorage.setItem(LS+'unit',unitMode);
     localStorage.setItem(LS+'unlocked',JSON.stringify([...unlockedBlueprints]));
+    localStorage.setItem(LS+'wanted',JSON.stringify([...wantedBlueprints]));
   }catch(e){}
 }
 function loadState(){
@@ -435,6 +439,9 @@ function loadState(){
     if(ul){unlockedBlueprints=new Set(JSON.parse(ul));}
     // Always apply default unlocks
     DEFAULT_UNLOCKED.forEach(k=>unlockedBlueprints.add(k));
+    // Load wishlist
+    const wl=localStorage.getItem(LS+'wanted');
+    if(wl){wantedBlueprints=new Set(JSON.parse(wl));}
   }catch(e){}
 }
 
@@ -517,8 +524,9 @@ function buildFilters(){
 }
 function buildUnlockFilter(){
   const el=document.getElementById('f-unlock');if(!el)return;
-  const labels={all:'All',unlocked:'Unlocked',locked:'Locked',partial:'In Progress'};
-  el.innerHTML=['all','unlocked','locked','partial'].map(v=>`<button class="fp-chip${filters.unlock===v?' active':''}" data-fk="unlock" data-fv="${v}" onclick="setUnlockFilter('${v}')" title="${v==='partial'?'Armor sets where you have some but not all blueprints':''}">${labels[v]}</button>`).join('');
+  const labels={all:'All',unlocked:'Unlocked',locked:'Locked',partial:'In Progress',wanted:'Wishlist'};
+  const titles={partial:'Armor sets where you have some but not all blueprints',wanted:'Blueprints you have marked as want-to-get'};
+  el.innerHTML=['all','unlocked','locked','partial','wanted'].map(v=>`<button class="fp-chip${filters.unlock===v?' active':''}" data-fk="unlock" data-fv="${v}" onclick="setUnlockFilter('${v}')" title="${titles[v]||''}">${labels[v]}</button>`).join('');
 }
 function setUnlockFilter(v){filters.unlock=v;buildUnlockFilter();filterBlueprints();}
 
@@ -526,6 +534,13 @@ function setUnlockFilter(v){filters.unlock=v;buildUnlockFilter();filterBlueprint
 // UNLOCK HELPERS
 // ════════════════════════════════════════════
 function isUnlocked(type, key){return unlockedBlueprints.has(type+'|'+key);}
+function isWanted(type, key){return wantedBlueprints.has(type+'|'+key);}
+function toggleWanted(type, key){
+  const k=type+'|'+key;
+  if(wantedBlueprints.has(k))wantedBlueprints.delete(k);
+  else wantedBlueprints.add(k);
+  saveState();filterBlueprints();updateCategoryCounts();
+}
 
 // Check if a set is fully unlocked (all its pieces are unlocked)
 function isSetFullyUnlocked(setName){
@@ -596,6 +611,12 @@ function passesUnlockFilter(type, key){
     if(type==='piece'){const p=(DATA.armor_pieces||[]).find(x=>x.name===key);if(!p)return false;const s=DATA.armor_sets.find(x=>x.set_name===p.set_name);return !!s&&setUnlockCount(s).partial;}
     // Other types don't have "partial" semantics — don't hide them
     return true;
+  }
+  if(filters.unlock==='wanted'){
+    // Direct hit on this item, OR (for sets) any piece of the set is wanted
+    if(isWanted(type,key))return true;
+    if(type==='set'){const s=DATA.armor_sets.find(x=>x.set_name===key);return !!s&&s.pieces.some(p=>isWanted('piece',p.name));}
+    return false;
   }
   const unlocked=isUnlocked(type,key);
   if(filters.unlock==='unlocked')return unlocked;
@@ -825,26 +846,31 @@ function woBtn(t,k){
   const unlocked=isUnlocked(t,k);
   const inOrder=inWO(t,k);
   const inReq=inRequest(t,k);
-  
+  const wanted=isWanted(t,k);
+
   let html='<div class="wo-btn-row">';
   // Request Build button (always available)
   html+=`<button class="btn-request${inReq?' in-req':''}" onclick="event.stopPropagation();addToRequest('${t}','${escAttr(k)}')" title="Request someone to craft this">${inReq?'✓ REQUESTED':'REQUEST BUILD'}</button>`;
-  
+
   if(unlocked){
     // Add to Work Order button
     html+=`<button class="btn-wo${inOrder?' in-wo':''}" onclick="event.stopPropagation();toggleWOItem('${t}','${escAttr(k)}')">${inOrder?'✓ IN ORDER':'ADD TO ORDER'}</button>`;
     // Re-lock button
     html+=`<button class="btn-relock" onclick="event.stopPropagation();toggleUnlock('${t}','${escAttr(k)}')" title="Re-lock this blueprint">🔒</button>`;
   }else{
-    // Unlock button
+    // Unlock button + wishlist toggle
     html+=`<button class="btn-unlock" onclick="event.stopPropagation();toggleUnlock('${t}','${escAttr(k)}')">Unlock</button>`;
+    html+=`<button class="btn-want${wanted?' is-wanted':''}" onclick="event.stopPropagation();toggleWanted('${t}','${escAttr(k)}')" title="${wanted?'Remove from wishlist':'Mark as want-to-get'}">${wanted?'★ WANTED':'☆ Want'}</button>`;
   }
   html+='</div>';
   return html;
 }
 function lockBadge(t,k){
   const unlocked=isUnlocked(t,k);
-  return unlocked?'<span class="badge-unlocked">✓</span>':'<span class="badge-locked">🔒</span>';
+  if(unlocked)return '<span class="badge-unlocked">✓</span>';
+  const wanted=isWanted(t,k);
+  const star=wanted?'<span class="badge-wanted" title="On your wishlist">★</span>':'';
+  return '<span class="badge-locked">🔒</span>'+star;
 }
 
 // Sources info icon with popover
@@ -1032,11 +1058,14 @@ function renderWepCard(w){
 }
 function renderShipWepCard(w){
   const locked=!isUnlocked('ship_weapon',w.name);
-  return `<div class="item-card has-wiki-thumb${inWO('ship_weapon',w.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(w.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(w.name)}</span>${lockBadge('ship_weapon',w.name)}${sourcesIcon(w.sources)}<span class="badge badge-wtype">${SHIP_WTYPE_LABELS[w.weapon_type]||w.weapon_type}</span><span class="badge badge-${w.damage_type}">${w.damage_type}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(w.manufacturer||'')}</span><span style="color:#94a3b8;font-size:12px">${uFmt(w.total_cscu)}</span>${ctime(w.craft_time_seconds)}</div>${recipeHtml(w.recipe)}${slotStatsHtml(w.recipe)}${woBtn('ship_weapon',w.name)}</div></div>`;
+  const sizeBadge=w.size?`<span class="badge badge-size">S${w.size}</span>`:'';
+  return `<div class="item-card has-wiki-thumb${inWO('ship_weapon',w.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(w.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(w.name)}</span>${lockBadge('ship_weapon',w.name)}${sourcesIcon(w.sources)}${sizeBadge}<span class="badge badge-wtype">${SHIP_WTYPE_LABELS[w.weapon_type]||w.weapon_type}</span><span class="badge badge-${w.damage_type}">${w.damage_type}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(w.manufacturer||'')}</span><span style="color:#94a3b8;font-size:12px">${uFmt(w.total_cscu)}</span>${ctime(w.craft_time_seconds)}</div>${recipeHtml(w.recipe)}${slotStatsHtml(w.recipe)}${woBtn('ship_weapon',w.name)}</div></div>`;
 }
 function renderShipCompCard(c){
   const locked=!isUnlocked('ship_component',c.name);
-  return `<div class="item-card has-wiki-thumb${inWO('ship_component',c.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(c.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(c.name)}</span>${lockBadge('ship_component',c.name)}${sourcesIcon(c.sources)}<span class="badge badge-component">${COMP_LABELS[c.component_type]||c.component_type}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(c.manufacturer||'')}</span><span style="color:#94a3b8;font-size:12px">${uFmt(c.total_cscu)}</span>${ctime(c.craft_time_seconds)}</div>${recipeHtml(c.recipe)}${slotStatsHtml(c.recipe)}${woBtn('ship_component',c.name)}</div></div>`;
+  const sizeBadge=c.size?`<span class="badge badge-size">S${c.size}</span>`:'';
+  const classBadge=c.class_code?`<span class="badge badge-class badge-class-${c.class_code}" title="${esc(c.class_label||c.class_code)}${c.grade?', Grade '+c.grade:''}">${c.class_code}${c.grade?'/'+c.grade:''}</span>`:'';
+  return `<div class="item-card has-wiki-thumb${inWO('ship_component',c.name)?' in-wo':''}${locked?' locked':''}" style="padding:12px 14px">${wikiThumbHtml(c.name)}<div class="card-content"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:4px"><span style="color:#f8fafc;font-weight:700;font-size:14px">${esc(c.name)}</span>${lockBadge('ship_component',c.name)}${sourcesIcon(c.sources)}${sizeBadge}${classBadge}<span class="badge badge-component">${COMP_LABELS[c.component_type]||c.component_type}</span></div><div style="display:flex;gap:6px;margin-bottom:6px"><span style="color:#64748b;font-size:12px">${esc(c.manufacturer||'')}</span><span style="color:#94a3b8;font-size:12px">${uFmt(c.total_cscu)}</span>${ctime(c.craft_time_seconds)}</div>${recipeHtml(c.recipe)}${slotStatsHtml(c.recipe)}${woBtn('ship_component',c.name)}</div></div>`;
 }
 function renderSuitCard(s,type){
   const locked=!isUnlocked(type,s.name);
@@ -1078,8 +1107,8 @@ function itemBadges(type,item){
   if(type==='undersuit_helmet')return '<span class="badge badge-set">Undersuit Helmet</span>';
   if(type==='flightsuit')return '<span class="badge badge-set">Flightsuit</span>';
   if(type==='flightsuit_helmet')return '<span class="badge badge-set">Flightsuit Helmet</span>';
-  if(type==='ship_weapon')return `<span class="badge badge-wtype">${SHIP_WTYPE_LABELS[item.weapon_type]||item.weapon_type}</span> <span class="badge badge-${item.damage_type}">${item.damage_type}</span>`;
-  if(type==='ship_component')return `<span class="badge badge-component">${COMP_LABELS[item.component_type]||item.component_type}</span>`;
+  if(type==='ship_weapon'){const sz=item.size?`<span class="badge badge-size">S${item.size}</span> `:'';return `${sz}<span class="badge badge-wtype">${SHIP_WTYPE_LABELS[item.weapon_type]||item.weapon_type}</span> <span class="badge badge-${item.damage_type}">${item.damage_type}</span>`;}
+  if(type==='ship_component'){const sz=item.size?`<span class="badge badge-size">S${item.size}</span> `:'';const cls=item.class_code?`<span class="badge badge-class badge-class-${item.class_code}">${item.class_code}${item.grade?'/'+item.grade:''}</span> `:'';return `${sz}${cls}<span class="badge badge-component">${COMP_LABELS[item.component_type]||item.component_type}</span>`;}
   return '';
 }
 function itemName(type,item){return type==='set'?item.set_name:item.name;}
