@@ -749,6 +749,99 @@ function clearAllAttribution(){
   filterBlueprints();
 }
 
+// Build a Discord-friendly Markdown report of every owned BP across the
+// known network (me + everyone I've imported). One section per category,
+// each line is "Item Name: Owner1, Owner2, ...". Only items with ≥1
+// owner appear; items with zero attribution are skipped.
+function buildOrgReport(){
+  const known=getAllKnownNames();
+  const patch=DATA?.meta?.current_patch||'?';
+  const today=new Date().toISOString().slice(0,10);
+  const lines=[
+    `**Forge Crafting — Org Inventory** (Patch ${patch} · ${today})`,
+    `**Known players (${known.length}):** ${known.join(', ')||'(none)'}`,
+    ''
+  ];
+  // Map each section to its data array + how to render an item line
+  const sections=[
+    {label:'Armor Sets', items:(DATA.armor_sets||[]),
+      render:s=>{
+        const owners=getSetOwners(s);
+        if(!owners.length)return null;
+        return `• ${s.set_name}: ${owners.join(', ')}`;
+      }},
+    {label:'Backpacks', items:(DATA.backpacks||[]),
+      render:b=>{
+        const o=getOwners('backpack',b.name);
+        if(!o.length)return null;
+        return `• ${b.name}: ${o.join(', ')}`;
+      }},
+    {label:'Weapons', items:(DATA.weapons||[]),
+      render:w=>{
+        const o=getOwners('weapon',w.name);
+        if(!o.length)return null;
+        return `• ${w.name}: ${o.join(', ')}`;
+      }},
+    {label:'Undersuits', items:(DATA.undersuits||[]).concat(DATA.undersuit_helmets||[]),
+      render:s=>{
+        const t=(DATA.undersuit_helmets||[]).includes(s)?'undersuit_helmet':'undersuit';
+        const o=getOwners(t,s.name);
+        if(!o.length)return null;
+        return `• ${s.name}: ${o.join(', ')}`;
+      }},
+    {label:'Flightsuits', items:(DATA.flightsuits||[]).concat(DATA.flightsuit_helmets||[]),
+      render:s=>{
+        const t=(DATA.flightsuit_helmets||[]).includes(s)?'flightsuit_helmet':'flightsuit';
+        const o=getOwners(t,s.name);
+        if(!o.length)return null;
+        return `• ${s.name}: ${o.join(', ')}`;
+      }},
+    {label:'Ship Weapons', items:(DATA.ship_weapons||[]),
+      render:w=>{
+        const o=getOwners('ship_weapon',w.name);
+        if(!o.length)return null;
+        const sz=w.size?` (S${w.size})`:'';
+        return `• ${w.name}${sz}: ${o.join(', ')}`;
+      }},
+    {label:'Ship Components', items:(DATA.ship_components||[]),
+      render:c=>{
+        const o=getOwners('ship_component',c.name);
+        if(!o.length)return null;
+        const meta=[];
+        if(c.size!==undefined&&c.size!==null)meta.push('S'+c.size);
+        if(c.class_code)meta.push(c.class_code+(c.grade?'/'+c.grade:''));
+        const tag=meta.length?` (${meta.join(', ')})`:'';
+        return `• ${c.name}${tag}: ${o.join(', ')}`;
+      }},
+  ];
+  let totalLines=0;
+  sections.forEach(sec=>{
+    const sortedItems=[...sec.items].sort((a,b)=>{
+      const an=a.set_name||a.name||'';
+      const bn=b.set_name||b.name||'';
+      return an.localeCompare(bn);
+    });
+    const ls=sortedItems.map(sec.render).filter(Boolean);
+    if(!ls.length)return;
+    lines.push(`__**${sec.label}** (${ls.length})__`);
+    lines.push(...ls);
+    lines.push('');
+    totalLines+=ls.length;
+  });
+  if(totalLines===0){
+    lines.push('*No owned blueprints yet. Unlock some or import a friend\'s share.*');
+  }
+  return lines.join('\n');
+}
+
+function copyOrgReport(){
+  const text=buildOrgReport();
+  navigator.clipboard.writeText(text).then(
+    ()=>showToast(`Org report copied (${text.length.toLocaleString()} chars)`),
+    ()=>showToast('Clipboard copy failed')
+  );
+}
+
 // Check if a set is fully unlocked (all its pieces are unlocked)
 function isSetFullyUnlocked(setName){
   const set=DATA.armor_sets.find(s=>s.set_name===setName);
@@ -1340,6 +1433,12 @@ function openShareModal(){
           <div style="font-weight:700;font-size:14px;color:#f8fafc;margin-bottom:8px">Import from a friend</div>
           <textarea id="share-import-in" placeholder="Paste a share URL or text block here..." style="width:100%;min-height:60px;background:var(--bg-deep);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:4px;font-size:11px;font-family:monospace;resize:vertical"></textarea>
           <div style="margin-top:8px"><button class="btn-primary" onclick="doApplyImport()">Apply Import</button></div>
+        </div>
+        <hr style="border:none;border-top:1px solid var(--border);margin:16px 0">
+        <div style="margin-bottom:18px">
+          <div style="font-weight:700;font-size:14px;color:#f8fafc;margin-bottom:8px">Org Report</div>
+          <p class="dim" style="font-size:12px;margin-bottom:8px">Discord-friendly Markdown report listing every owned blueprint across everyone you've imported (plus your own unlocks). Use this to share an org-wide inventory in a channel.</p>
+          <button class="btn-secondary" onclick="copyOrgReport()">📋 Copy Org Report</button>
         </div>
         <hr style="border:none;border-top:1px solid var(--border);margin:16px 0">
         ${knownList}
@@ -2378,8 +2477,6 @@ function closeDiscordModal(){
 // ── Share Unlocked to Discord ──
 function updateShareBar(){
   const bar=document.getElementById('bp-share-bar');if(!bar)return;
-  if(!hasDiscordConfig()){bar.style.display='none';return;}
-  
   const cat=bpCategory;
   const summary=buildUnlockedSummary();
   let count=0,label='';
@@ -2389,13 +2486,22 @@ function updateShareBar(){
   }else if(cat==='weapons'){
     count=summary.weaponLines.length;
     label=`${count} unlocked weapon blueprints`;
-  }else{
+  }else if(cat==='undersuits'){
     count=summary.suitLines.length;
     label=`${count} unlocked suit blueprints`;
+  }else if(cat==='ship_weapons'){
+    count=summary.shipWeaponLines.length;
+    label=`${count} unlocked ship weapon blueprints`;
+  }else if(cat==='ship_components'){
+    count=summary.shipCompLines.length;
+    label=`${count} unlocked ship component blueprints`;
   }
-  
+
   bar.style.display=count>0?'flex':'none';
   document.getElementById('bp-share-count').textContent=label;
+  // Hide the Discord button when no webhook is configured (Copy button stays)
+  const dcBtn=document.getElementById('bp-share-discord-btn');
+  if(dcBtn)dcBtn.style.display=hasDiscordConfig()?'':'none';
 }
 
 function buildUnlockedSummary(){
@@ -2435,71 +2541,82 @@ function buildUnlockedSummary(){
   (DATA.undersuit_helmets||[]).filter(s=>isUnlocked('undersuit_helmet',s.name)).forEach(s=>suitLines.push(s.name));
   DATA.flightsuits.filter(s=>isUnlocked('flightsuit',s.name)).forEach(s=>suitLines.push(s.name));
   (DATA.flightsuit_helmets||[]).filter(s=>isUnlocked('flightsuit_helmet',s.name)).forEach(s=>suitLines.push(s.name));
-  
-  return{armorLines,bpLines,weaponLines,suitLines};
+
+  // Ship weapons (with size suffix)
+  const shipWeaponLines=(DATA.ship_weapons||[]).filter(w=>isUnlocked('ship_weapon',w.name)).map(w=>
+    w.name+(w.size?` (S${w.size})`:'')
+  );
+  // Ship components (with size and class/grade)
+  const shipCompLines=(DATA.ship_components||[]).filter(c=>isUnlocked('ship_component',c.name)).map(c=>{
+    const meta=[];
+    if(c.size!==undefined&&c.size!==null)meta.push('S'+c.size);
+    if(c.class_code)meta.push(c.class_code+(c.grade?'/'+c.grade:''));
+    return c.name+(meta.length?` (${meta.join(', ')})`:'');
+  });
+
+  return{armorLines,bpLines,weaponLines,suitLines,shipWeaponLines,shipCompLines};
+}
+
+// Helper: returns [[label, lines[]], ...] for the current category.
+// Used by both Discord share and clipboard copy so they stay in sync.
+function getShareGroupsForCategory(cat){
+  const s=buildUnlockedSummary();
+  if(cat==='armor')return [['Armor',s.armorLines],['Backpacks',s.bpLines]];
+  if(cat==='weapons')return [['Weapons',s.weaponLines]];
+  if(cat==='undersuits')return [['Suits',s.suitLines]];
+  if(cat==='ship_weapons')return [['Ship Weapons',s.shipWeaponLines]];
+  if(cat==='ship_components')return [['Ship Components',s.shipCompLines]];
+  return [];
+}
+function categoryDisplayName(cat){
+  return cat==='armor'?'Armor':cat==='weapons'?'Weapons':cat==='undersuits'?'Suits':cat==='ship_weapons'?'Ship Weapons':cat==='ship_components'?'Ship Components':cat;
 }
 
 async function shareUnlockedToDiscord(){
   if(!hasDiscordConfig()){showToast('Configure Discord in Admin first');return;}
-  
   const userId=adminConfig.discordUserId||'';
   const mention=userId?`<@${userId}>`:'Someone';
-  const summary=buildUnlockedSummary();
   const cat=bpCategory;
+  const groups=getShareGroupsForCategory(cat);
+  const total=groups.reduce((n,[,lines])=>n+lines.length,0);
+  if(!total){showToast('Nothing unlocked in this category');return;}
+  const fields=[];
+  groups.forEach(([label,lines])=>{
+    if(!lines.length)return;
+    const text=lines.join(', ');
+    fields.push({name:`${label} (${lines.length})`,value:text.slice(0,1024)});
+    if(text.length>1024)fields.push({name:`${label} (continued)`,value:text.slice(1024,2048)});
+  });
+  const catName=categoryDisplayName(cat);
   const url=`https://discord.com/api/webhooks/${adminConfig.discordWebhookId}/${adminConfig.discordWebhookToken}`;
-  
-  if(cat==='armor'){
-    // Armor + Backpacks
-    const fields=[];
-    if(summary.armorLines.length){
-      const text=summary.armorLines.join(', ');
-      fields.push({name:`Armor (${summary.armorLines.length})`,value:text.slice(0,1024)});
-      if(text.length>1024)fields.push({name:'Armor (continued)',value:text.slice(1024,2048)});
-    }
-    if(summary.bpLines.length){
-      fields.push({name:`Backpacks (${summary.bpLines.length})`,value:summary.bpLines.join(', ').slice(0,1024)});
-    }
-    if(!fields.length){showToast('No unlocked armor');return;}
-    const total=summary.armorLines.length+summary.bpLines.length;
-    try{
-      const resp=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({content:`[BLUEPRINTS] ${mention}'s unlocked armor blueprints:`,embeds:[{
-          title:'📦 Unlocked Armor Blueprints',description:`${mention}'s collection`,color:0x1d4ed8,fields,
-          footer:{text:`Forge · ${total} unlocked`},timestamp:new Date().toISOString()}]})});
-      if(resp.ok||resp.status===204)showToast(`Shared ${total} armor blueprints to Discord!`);
-      else showToast('Failed to send');
-    }catch(e){showToast('Discord error: '+e.message);}
-    
-  }else if(cat==='weapons'){
-    // Weapons only
-    if(!summary.weaponLines.length){showToast('No unlocked weapons');return;}
-    const text=summary.weaponLines.join(', ');
-    const fields=[{name:`Weapons (${summary.weaponLines.length})`,value:text.slice(0,1024)}];
-    if(text.length>1024)fields.push({name:'Weapons (continued)',value:text.slice(1024,2048)});
-    try{
-      const resp=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({content:`[BLUEPRINTS] ${mention}'s unlocked weapon blueprints:`,embeds:[{
-          title:'📦 Unlocked Weapon Blueprints',description:`${mention}'s collection`,color:0x1d4ed8,fields,
-          footer:{text:`Forge · ${summary.weaponLines.length} unlocked`},timestamp:new Date().toISOString()}]})});
-      if(resp.ok||resp.status===204)showToast(`Shared ${summary.weaponLines.length} weapon blueprints to Discord!`);
-      else showToast('Failed to send');
-    }catch(e){showToast('Discord error: '+e.message);}
-    
-  }else{
-    // Undersuits / Flightsuits
-    if(!summary.suitLines.length){showToast('No unlocked suits');return;}
-    const text=summary.suitLines.join(', ');
-    const fields=[{name:`Suits (${summary.suitLines.length})`,value:text.slice(0,1024)}];
-    if(text.length>1024)fields.push({name:'Suits (continued)',value:text.slice(1024,2048)});
-    try{
-      const resp=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({content:`[BLUEPRINTS] ${mention}'s unlocked suit blueprints:`,embeds:[{
-          title:'📦 Unlocked Suit Blueprints',description:`${mention}'s collection`,color:0x1d4ed8,fields,
-          footer:{text:`Forge · ${summary.suitLines.length} unlocked`},timestamp:new Date().toISOString()}]})});
-      if(resp.ok||resp.status===204)showToast(`Shared ${summary.suitLines.length} suit blueprints to Discord!`);
-      else showToast('Failed to send');
-    }catch(e){showToast('Discord error: '+e.message);}
-  }
+  try{
+    const resp=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({content:`[BLUEPRINTS] ${mention}'s unlocked ${catName.toLowerCase()} blueprints:`,embeds:[{
+        title:`📦 Unlocked ${catName} Blueprints`,description:`${mention}'s collection`,color:0x1d4ed8,fields,
+        footer:{text:`Forge · ${total} unlocked`},timestamp:new Date().toISOString()}]})});
+    if(resp.ok||resp.status===204)showToast(`Shared ${total} ${catName.toLowerCase()} blueprints to Discord!`);
+    else showToast('Failed to send');
+  }catch(e){showToast('Discord error: '+e.message);}
+}
+
+// Clipboard-copy equivalent of the per-category Discord share.
+// Mirrors the same content in plain Markdown that pastes cleanly anywhere.
+function copyUnlockedToClipboard(){
+  const cat=bpCategory;
+  const groups=getShareGroupsForCategory(cat);
+  const total=groups.reduce((n,[,lines])=>n+lines.length,0);
+  if(!total){showToast('Nothing unlocked in this category');return;}
+  const catName=categoryDisplayName(cat);
+  const patch=DATA?.meta?.current_patch||'?';
+  const owner=getMyName()?`${getMyName()}'s`:'Your';
+  const lines=[`**Forge Crafting — ${owner} Unlocked ${catName}** (Patch ${patch})`];
+  groups.forEach(([label,ls])=>{
+    if(ls.length)lines.push(`*${label} (${ls.length}):* ${ls.join(', ')}`);
+  });
+  navigator.clipboard.writeText(lines.join('\n')).then(
+    ()=>showToast(`Copied ${total} ${catName.toLowerCase()} blueprint${total===1?'':'s'} to clipboard`),
+    ()=>showToast('Clipboard copy failed')
+  );
 }
 
 function showToast(msg){const el=document.createElement('div');el.textContent=msg;el.style.cssText='position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1d4ed8;color:#fff;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:700;z-index:999;opacity:0;transition:opacity .3s';document.body.appendChild(el);requestAnimationFrame(()=>{el.style.opacity='1';});setTimeout(()=>{el.style.opacity='0';setTimeout(()=>el.remove(),300);},2000);}
