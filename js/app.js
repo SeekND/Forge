@@ -42,6 +42,11 @@ let ownerTimestamps = {};
 let ITEM_INDEX = [];                 // [{type, key}, ...]
 let KEY_TO_INDEX = new Map();        // 'type|name' -> position in ITEM_INDEX
 
+// What's currently visible after filterBlueprints. Drives Copy/Discord share
+// so they always export the user's current selection (filters + search + owner)
+// rather than everything unlocked. Populated per-type in each filter branch.
+let currentVisible = { category: '', byType: {} };
+
 // Default unlocked blueprints — built dynamically from meta.default_blueprints
 // after data loads. Populated by buildDefaultUnlocked().
 let DEFAULT_UNLOCKED = [];
@@ -749,10 +754,38 @@ function clearAllAttribution(){
   filterBlueprints();
 }
 
+// For an armor set, who has what — per name, "Set" if fully owned else
+// a piece-code string like "A,C". Returns {name: code} dict, ordered as a
+// Map so output is deterministic.
+function getSetOwnershipBreakdown(set){
+  const PIECE_ABBR={arms:'A',core:'C',helmet:'H',legs:'L'};
+  const me=getMyName();
+  const candidates=new Set();
+  set.pieces.forEach(p=>{
+    if(me && isUnlocked('piece',p.name))candidates.add(me);
+    (otherOwners['piece|'+p.name]||[]).forEach(n=>candidates.add(n));
+  });
+  if(me && isUnlocked('set',set.set_name))candidates.add(me);
+  (otherOwners['set|'+set.set_name]||[]).forEach(n=>candidates.add(n));
+  const result={};
+  for(const name of candidates){
+    const myView=name===me;
+    const owns=p=>myView?isUnlocked('piece',p.name):(otherOwners['piece|'+p.name]||[]).includes(name);
+    const ownsSet=myView?isUnlocked('set',set.set_name):(otherOwners['set|'+set.set_name]||[]).includes(name);
+    const ownedPieces=set.pieces.filter(owns);
+    if(ownsSet||ownedPieces.length===set.pieces.length){
+      result[name]='Set';
+    }else if(ownedPieces.length){
+      result[name]=ownedPieces.map(p=>PIECE_ABBR[p.piece_type]||p.piece_type.charAt(0).toUpperCase()).join(',');
+    }
+  }
+  return result;
+}
+
 // Build a Discord-friendly Markdown report of every owned BP across the
-// known network (me + everyone I've imported). One section per category,
-// each line is "Item Name: Owner1, Owner2, ...". Only items with ≥1
-// owner appear; items with zero attribution are skipped.
+// known network (me + everyone I've imported). One section per category.
+// Armor sets use per-person piece breakdowns so a 1-piece owner isn't shown
+// as owning the full set.
 function buildOrgReport(){
   const known=getAllKnownNames();
   const patch=DATA?.meta?.current_patch||'?';
@@ -766,9 +799,11 @@ function buildOrgReport(){
   const sections=[
     {label:'Armor Sets', items:(DATA.armor_sets||[]),
       render:s=>{
-        const owners=getSetOwners(s);
-        if(!owners.length)return null;
-        return `• ${s.set_name}: ${owners.join(', ')}`;
+        const breakdown=getSetOwnershipBreakdown(s);
+        const names=Object.keys(breakdown).sort((a,b)=>a.localeCompare(b));
+        if(!names.length)return null;
+        const parts=names.map(n=>`${n} (${breakdown[n]})`);
+        return `• ${s.set_name}: ${parts.join(', ')}`;
       }},
     {label:'Backpacks', items:(DATA.backpacks||[]),
       render:b=>{
@@ -834,10 +869,84 @@ function buildOrgReport(){
   return lines.join('\n');
 }
 
+// Split a long markdown string into chunks <= maxLen, preferring section
+// boundaries (\n\n), falling back to line splits.
+function chunkText(text,maxLen){
+  maxLen=maxLen||1900;
+  if(text.length<=maxLen)return [text];
+  const chunks=[];
+  let cur='';
+  for(const section of text.split('\n\n')){
+    if(cur.length+section.length+2>maxLen){
+      if(cur)chunks.push(cur);
+      cur=section;
+    }else{
+      cur+=(cur?'\n\n':'')+section;
+    }
+  }
+  if(cur)chunks.push(cur);
+  // Any section still too big? Sub-split by lines.
+  const result=[];
+  for(const c of chunks){
+    if(c.length<=maxLen){result.push(c);continue;}
+    let s='';
+    for(const line of c.split('\n')){
+      if(s.length+line.length+1>maxLen){
+        if(s)result.push(s);
+        s=line;
+      }else{
+        s+=(s?'\n':'')+line;
+      }
+    }
+    if(s)result.push(s);
+  }
+  return result;
+}
+
 function copyOrgReport(){
   const text=buildOrgReport();
-  navigator.clipboard.writeText(text).then(
-    ()=>showToast(`Org report copied (${text.length.toLocaleString()} chars)`),
+  const chunks=chunkText(text,1900); // Discord's message cap is 2000; 1900 leaves room for accidental trailing whitespace
+  if(chunks.length===1){
+    navigator.clipboard.writeText(text).then(
+      ()=>showToast(`Org report copied (${text.length.toLocaleString()} chars)`),
+      ()=>showToast('Clipboard copy failed')
+    );
+    return;
+  }
+  // >2000 chars — open a chunks viewer with per-part copy buttons.
+  openOrgChunksModal(chunks,text.length);
+}
+
+function openOrgChunksModal(chunks,totalLen){
+  const modal=document.getElementById('share-modal');
+  if(!modal)return;
+  modal.innerHTML=`
+    <div class="rqm-overlay" onclick="closeShareModal()"></div>
+    <div class="rqm-dialog" style="max-width:720px">
+      <div class="rqm-header"><h3>📋 Org Report — ${chunks.length} parts</h3><button class="rqm-close" onclick="closeShareModal()">×</button></div>
+      <div class="rqm-body">
+        <p class="dim" style="margin-bottom:12px">Discord caps regular messages at 2000 characters. The full report is ${totalLen.toLocaleString()} chars across <strong>${chunks.length} parts</strong>. Copy each part below and paste them as separate Discord messages in order.</p>
+        ${chunks.map((c,i)=>`
+          <div style="margin-bottom:12px">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+              <strong>Part ${i+1} of ${chunks.length}</strong>
+              <span class="dim" style="font-size:11px">${c.length.toLocaleString()} chars</span>
+            </div>
+            <textarea readonly id="org-chunk-${i}" style="width:100%;height:120px;background:var(--bg-deep);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:4px;font-size:11px;font-family:monospace;resize:vertical">${esc(c)}</textarea>
+            <button class="btn-secondary" style="margin-top:4px" onclick="copyOrgChunk(${i})">📋 Copy Part ${i+1}</button>
+          </div>`).join('')}
+        <hr style="border:none;border-top:1px solid var(--border);margin:16px 0">
+        <button class="btn-secondary" onclick="openShareModal()">← Back to Share</button>
+      </div>
+    </div>`;
+  modal.style.display='flex';
+}
+function copyOrgChunk(i){
+  const ta=document.getElementById('org-chunk-'+i);
+  if(!ta)return;
+  ta.select();
+  navigator.clipboard.writeText(ta.value).then(
+    ()=>showToast(`Part ${i+1} copied — paste into Discord, then click Part ${i+2}`),
     ()=>showToast('Clipboard copy failed')
   );
 }
@@ -954,7 +1063,16 @@ function passesOwnerFilter(type,key){
   return filters.owners.some(n=>owners.includes(n));
 }
 
-function bldChips(id,vals,lbl,key){document.getElementById(id).innerHTML=vals.map(v=>`<button class="fp-chip" data-fk="${key}" data-fv="${v}" onclick="toggleFilter('${key}','${v}')">${lbl(v)}</button>`).join('');}
+function bldChips(id,vals,lbl,key){
+  // Apply active state from current filter selection — important for chip groups
+  // that re-render mid-session (e.g. owner chips rebuild every filterBlueprints).
+  const cur=Array.isArray(filters[key])?filters[key].map(String):[];
+  document.getElementById(id).innerHTML=vals.map(v=>{
+    const sv=String(v);
+    const active=cur.includes(sv);
+    return `<button class="fp-chip${active?' active':''}" data-fk="${key}" data-fv="${sv}" onclick="toggleFilter('${key}','${sv}')">${lbl(v)}</button>`;
+  }).join('');
+}
 function toggleFilter(k,v){const a=filters[k],i=a.indexOf(v);i>=0?a.splice(i,1):a.push(v);document.querySelectorAll(`[data-fk="${k}"]`).forEach(b=>b.classList.toggle('active',filters[k].includes(b.dataset.fv)));updClear();filterBlueprints();}
 function clearFilters(p){const keys=p==='armor'?['weight','role','piece']:p==='weapons'?['wtype','dmg','wkind']:p==='ship_weapons'?['shipwtype','shipdmg','shipwsize']:p==='ship_components'?['comptype','shipcsize','shipcclass','shipcgrade']:[];keys.forEach(k=>{filters[k]=[];document.querySelectorAll(`[data-fk="${k}"]`).forEach(b=>b.classList.remove('active'));});updClear();filterBlueprints();}
 function updClear(){document.getElementById('armor-clear').style.display=(filters.weight.length+filters.role.length+filters.piece.length)?'':'none';document.getElementById('weapon-clear').style.display=(filters.wtype.length+filters.dmg.length+filters.wkind.length)?'':'none';const swc=document.getElementById('ship-weapon-clear');if(swc)swc.style.display=(filters.shipwtype.length+filters.shipdmg.length+filters.shipwsize.length)?'':'none';const scc=document.getElementById('ship-component-clear');if(scc)scc.style.display=(filters.comptype.length+filters.shipcsize.length+filters.shipcclass.length+filters.shipcgrade.length)?'':'none';}
@@ -962,6 +1080,8 @@ function fM(a,v){return a.length===0||a.includes(v);}
 
 function filterBlueprints(){
   buildOwnerFilter(); // refresh owner chip list — names can change after imports/unlocks
+  // Reset what's currently visible — populated by each branch below; used by Copy/Discord share
+  currentVisible = { category: bpCategory, byType: {set:[],piece:[],backpack:[],weapon:[],undersuit:[],undersuit_helmet:[],flightsuit:[],flightsuit_helmet:[],ship_weapon:[],ship_component:[]} };
   const q=(document.getElementById('bp-search').value||'').toLowerCase(),grid=document.getElementById('bp-grid');
   let html='',count=0;
   if(bpCategory==='armor'){
@@ -1023,6 +1143,7 @@ function filterBlueprints(){
       if(ua!==ub)return ua-ub;
       return (WEIGHT_ORDER[a.weight]||0)-(WEIGHT_ORDER[b.weight]||0)||a.set_name.localeCompare(b.set_name);
     });
+    currentVisible.byType.set=setsToShow;
     
     // Sort pieces: unlocked first, then by weight, then by name
     piecesToShow.sort((a,b)=>{
@@ -1030,6 +1151,7 @@ function filterBlueprints(){
       if(ua!==ub)return ua-ub;
       return (WEIGHT_ORDER[a.weight]||0)-(WEIGHT_ORDER[b.weight]||0)||a.name.localeCompare(b.name);
     });
+    currentVisible.byType.piece=piecesToShow;
     
     // Render sets
     if(setsToShow.length){
@@ -1058,6 +1180,7 @@ function filterBlueprints(){
         const ua=isUnlocked('backpack',a.name)?0:1, ub=isUnlocked('backpack',b.name)?0:1;
         return ua-ub||a.name.localeCompare(b.name);
       });
+      currentVisible.byType.backpack=bps;
       if(bps.length){html+=`<div style="grid-column:1/-1;margin-top:16px;padding:8px 0;border-top:1px solid #1e293b;color:#94a3b8;font-size:13px;font-weight:700">BACKPACKS (${bps.length})</div>`;bps.forEach(b=>{html+=renderBpCard(b);count++;});}
     }
   }else if(bpCategory==='weapons'){
@@ -1076,6 +1199,7 @@ function filterBlueprints(){
       const ua=isUnlocked('weapon',a.name)?0:1, ub=isUnlocked('weapon',b.name)?0:1;
       return ua-ub||a.name.localeCompare(b.name);
     });
+    currentVisible.byType.weapon=weapons;
     weapons.forEach(w=>{html+=renderWepCard(w);count++;});
   }else if(bpCategory==='ship_weapons'){
     grid.classList.add('two-col');
@@ -1089,6 +1213,7 @@ function filterBlueprints(){
       return true;
     });
     items.sort((a,b)=>{const ua=isUnlocked('ship_weapon',a.name)?0:1,ub=isUnlocked('ship_weapon',b.name)?0:1;return ua-ub||a.name.localeCompare(b.name);});
+    currentVisible.byType.ship_weapon=items;
     items.forEach(w=>{html+=renderShipWepCard(w);count++;});
   }else if(bpCategory==='ship_components'){
     grid.classList.add('two-col');
@@ -1104,6 +1229,7 @@ function filterBlueprints(){
       });
       if(!f.length)return;
       f.sort((a,b)=>{const ua=isUnlocked('ship_component',a.name)?0:1,ub=isUnlocked('ship_component',b.name)?0:1;return ua-ub||a.name.localeCompare(b.name);});
+      currentVisible.byType.ship_component=currentVisible.byType.ship_component.concat(f);
       html+=`<div style="grid-column:1/-1;color:#f8fafc;font-weight:700;font-size:15px;margin-top:${count?'12':'0'}px">${title} (${f.length})</div>`;
       f.forEach(c=>{html+=renderShipCompCard(c);count++;});
     };
@@ -1127,6 +1253,7 @@ function filterBlueprints(){
         const ua=isUnlocked(type,a.name)?0:1, ub=isUnlocked(type,b.name)?0:1;
         return ua-ub||a.name.localeCompare(b.name);
       });
+      if(currentVisible.byType[type])currentVisible.byType[type]=currentVisible.byType[type].concat(f);
       html+=`<div style="grid-column:1/-1;color:#f8fafc;font-weight:700;font-size:15px;margin-top:${count?'12':'0'}px">${title} (${f.length})</div>`;
       f.forEach(s=>{html+=renderSuitCard(s,type);count++;});
     };
@@ -2478,27 +2605,20 @@ function closeDiscordModal(){
 function updateShareBar(){
   const bar=document.getElementById('bp-share-bar');if(!bar)return;
   const cat=bpCategory;
-  const summary=buildUnlockedSummary();
-  let count=0,label='';
-  if(cat==='armor'){
-    count=summary.armorLines.length+summary.bpLines.length;
-    label=`${count} unlocked armor/backpack blueprints`;
-  }else if(cat==='weapons'){
-    count=summary.weaponLines.length;
-    label=`${count} unlocked weapon blueprints`;
-  }else if(cat==='undersuits'){
-    count=summary.suitLines.length;
-    label=`${count} unlocked suit blueprints`;
-  }else if(cat==='ship_weapons'){
-    count=summary.shipWeaponLines.length;
-    label=`${count} unlocked ship weapon blueprints`;
-  }else if(cat==='ship_components'){
-    count=summary.shipCompLines.length;
-    label=`${count} unlocked ship component blueprints`;
-  }
-
+  const groups=getShareGroupsForCategory(cat);
+  const count=groups.reduce((n,[,lines])=>n+lines.length,0);
+  // Detect if any filter is narrowing the result (vs. showing everything unlocked)
+  const filteredActive=
+    filters.unlock!=='all'||filters.owners.length||
+    filters.weight.length||filters.role.length||filters.piece.length||
+    filters.wtype.length||filters.dmg.length||filters.wkind.length||
+    filters.shipwtype.length||filters.shipdmg.length||filters.shipwsize.length||
+    filters.comptype.length||filters.shipcsize.length||filters.shipcclass.length||filters.shipcgrade.length||
+    !!(document.getElementById('bp-search')?.value||'').trim();
+  const qualifier=filteredActive?'selected':'unlocked';
+  const catName=cat==='armor'?'armor/backpack':cat==='weapons'?'weapon':cat==='undersuits'?'suit':cat==='ship_weapons'?'ship weapon':cat==='ship_components'?'ship component':'';
   bar.style.display=count>0?'flex':'none';
-  document.getElementById('bp-share-count').textContent=label;
+  document.getElementById('bp-share-count').textContent=`${count} ${qualifier} ${catName} blueprint${count===1?'':'s'}`;
   // Hide the Discord button when no webhook is configured (Copy button stays)
   const dcBtn=document.getElementById('bp-share-discord-btn');
   if(dcBtn)dcBtn.style.display=hasDiscordConfig()?'':'none';
@@ -2558,14 +2678,98 @@ function buildUnlockedSummary(){
 }
 
 // Helper: returns [[label, lines[]], ...] for the current category.
-// Used by both Discord share and clipboard copy so they stay in sync.
+// Uses what's currently visible (after search + filters + owner) as the
+// candidate set, then further restricts to items "in scope":
+//   - If owner filter is active → items owned by any selected owner
+//   - Otherwise → items the current user owns (their own unlocks)
+// This makes Copy/Discord-share output match the cards on screen while
+// avoiding the "I'm on Armor with no filter so dump 235 sets" surprise.
 function getShareGroupsForCategory(cat){
-  const s=buildUnlockedSummary();
-  if(cat==='armor')return [['Armor',s.armorLines],['Backpacks',s.bpLines]];
-  if(cat==='weapons')return [['Weapons',s.weaponLines]];
-  if(cat==='undersuits')return [['Suits',s.suitLines]];
-  if(cat==='ship_weapons')return [['Ship Weapons',s.shipWeaponLines]];
-  if(cat==='ship_components')return [['Ship Components',s.shipCompLines]];
+  const v=currentVisible.byType||{};
+  const PIECE_ABBR={arms:'A',core:'C',helmet:'H',legs:'L'};
+  const ownerActive=filters.owners.length>0;
+  // Predicates for "is in scope for copy"
+  const inScope=(type,key)=>{
+    if(ownerActive){
+      const owners=getOwners(type,key);
+      return filters.owners.some(n=>owners.includes(n));
+    }
+    return isUnlocked(type,key);
+  };
+  const setInScope=(set)=>{
+    if(ownerActive){
+      const owners=getSetOwners(set);
+      return filters.owners.some(n=>owners.includes(n));
+    }
+    // Mine: any piece unlocked, or the set itself
+    if(isUnlocked('set',set.set_name))return true;
+    return set.pieces.some(p=>isUnlocked('piece',p.name));
+  };
+  // Piece breakdown for armor sets — codes A/C/H/L, scoped to who's selected.
+  // For owner-mode: pieces owned by selected name(s). For self-mode: my unlocks.
+  const setPieceCodes=(set)=>{
+    if(isUnlocked('set',set.set_name)&&!ownerActive)return 'Set';
+    const relevantPieces=set.pieces.filter(p=>{
+      if(ownerActive){
+        const owners=getOwners('piece',p.name);
+        return filters.owners.some(n=>owners.includes(n));
+      }
+      return isUnlocked('piece',p.name);
+    });
+    if(relevantPieces.length===set.pieces.length)return 'Set';
+    return relevantPieces.map(p=>PIECE_ABBR[p.piece_type]||p.piece_type.charAt(0).toUpperCase()).join(',');
+  };
+
+  if(cat==='armor'){
+    const armorLines=[];
+    (v.set||[]).filter(setInScope).forEach(set=>{
+      const codes=setPieceCodes(set);
+      armorLines.push(codes?`${set.set_name} (${codes})`:set.set_name);
+    });
+    // Standalone pieces (Piece filter chip) — only those not covered by a visible set
+    const visibleSetNames=new Set((v.set||[]).map(s=>s.set_name));
+    (v.piece||[]).filter(p=>!visibleSetNames.has(p.set_name)&&inScope('piece',p.name)).forEach(p=>{
+      armorLines.push(`${p.set_name} ${PIECE_ABBR[p.piece_type]||p.piece_type}`);
+    });
+    const bpLines=(v.backpack||[]).filter(b=>inScope('backpack',b.name)).map(b=>b.name);
+    return [['Armor',armorLines],['Backpacks',bpLines]];
+  }
+  if(cat==='weapons'){
+    // Group guns with their ammo
+    const inScopeWeapons=(v.weapon||[]).filter(w=>inScope('weapon',w.name));
+    const gunNames=new Set();const ammoFor={};
+    inScopeWeapons.forEach(w=>{
+      if(/magazine|battery/i.test(w.name)){
+        const base=w.name.replace(/\s*(Magazine|Battery)\s*\(.*\)/i,'').trim();
+        ammoFor[base]=true;
+      }else{
+        gunNames.add(w.name);
+      }
+    });
+    const weaponLines=[...gunNames].map(n=>ammoFor[n]?`${n} (w/ammo)`:n);
+    return [['Weapons',weaponLines]];
+  }
+  if(cat==='undersuits'){
+    const suitLines=[];
+    (v.undersuit||[]).filter(s=>inScope('undersuit',s.name)).forEach(s=>suitLines.push(s.name));
+    (v.undersuit_helmet||[]).filter(s=>inScope('undersuit_helmet',s.name)).forEach(s=>suitLines.push(s.name));
+    (v.flightsuit||[]).filter(s=>inScope('flightsuit',s.name)).forEach(s=>suitLines.push(s.name));
+    (v.flightsuit_helmet||[]).filter(s=>inScope('flightsuit_helmet',s.name)).forEach(s=>suitLines.push(s.name));
+    return [['Suits',suitLines]];
+  }
+  if(cat==='ship_weapons'){
+    const lines=(v.ship_weapon||[]).filter(w=>inScope('ship_weapon',w.name)).map(w=>w.name+(w.size?` (S${w.size})`:''));
+    return [['Ship Weapons',lines]];
+  }
+  if(cat==='ship_components'){
+    const lines=(v.ship_component||[]).filter(c=>inScope('ship_component',c.name)).map(c=>{
+      const meta=[];
+      if(c.size!==undefined&&c.size!==null)meta.push('S'+c.size);
+      if(c.class_code)meta.push(c.class_code+(c.grade?'/'+c.grade:''));
+      return c.name+(meta.length?` (${meta.join(', ')})`:'');
+    });
+    return [['Ship Components',lines]];
+  }
   return [];
 }
 function categoryDisplayName(cat){
@@ -2600,16 +2804,29 @@ async function shareUnlockedToDiscord(){
 }
 
 // Clipboard-copy equivalent of the per-category Discord share.
-// Mirrors the same content in plain Markdown that pastes cleanly anywhere.
+// Always mirrors what's currently visible (search + filters + owner).
 function copyUnlockedToClipboard(){
   const cat=bpCategory;
   const groups=getShareGroupsForCategory(cat);
   const total=groups.reduce((n,[,lines])=>n+lines.length,0);
-  if(!total){showToast('Nothing unlocked in this category');return;}
+  if(!total){showToast('Nothing in current view to copy');return;}
   const catName=categoryDisplayName(cat);
   const patch=DATA?.meta?.current_patch||'?';
+  const filtered=
+    filters.unlock!=='all'||filters.owners.length||
+    filters.weight.length||filters.role.length||filters.piece.length||
+    filters.wtype.length||filters.dmg.length||filters.wkind.length||
+    filters.shipwtype.length||filters.shipdmg.length||filters.shipwsize.length||
+    filters.comptype.length||filters.shipcsize.length||filters.shipcclass.length||filters.shipcgrade.length||
+    !!(document.getElementById('bp-search')?.value||'').trim();
   const owner=getMyName()?`${getMyName()}'s`:'Your';
-  const lines=[`**Forge Crafting — ${owner} Unlocked ${catName}** (Patch ${patch})`];
+  const qualifier=filtered?'Selected':'Unlocked';
+  // If the owner filter is narrowed to exactly one other player, use their name in the header
+  let headerSubject=`${owner} ${qualifier} ${catName}`;
+  if(filters.owners.length===1 && filters.owners[0]!==getMyName()){
+    headerSubject=`${filters.owners[0]}'s ${catName}`;
+  }
+  const lines=[`**Forge Crafting — ${headerSubject}** (Patch ${patch})`];
   groups.forEach(([label,ls])=>{
     if(ls.length)lines.push(`*${label} (${ls.length}):* ${ls.join(', ')}`);
   });
