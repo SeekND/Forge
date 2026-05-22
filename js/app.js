@@ -1107,7 +1107,7 @@ function filterBlueprints(){
         if(!fM(filters.role,s.role))return false;
         if(!passesUnlockFilter('set',s.set_name))return false;
         if(!passesOwnerFilter('set',s.set_name))return false;
-        if(q){const itemNames=s.pieces.flatMap(p=>(p.recipe||[]).filter(r=>r.cost_type==='item').map(r=>r.item_name)).join(' ');const h=`${s.set_name} ${s.manufacturer} ${s.weight} ${s.role} ${s.pieces.map(p=>p.name).join(' ')} ${Object.keys(s.material_totals).join(' ')} ${itemNames}`.toLowerCase();if(!h.includes(q))return false;}
+        if(q){const itemNames=s.pieces.flatMap(p=>(p.recipe||[]).filter(r=>r.cost_type==='item').map(r=>r.item_name)).join(' ');const missions=(s.sources||[]).map(x=>x.mission||'').join(' ');const h=`${s.set_name} ${s.manufacturer} ${s.weight} ${s.role} ${s.pieces.map(p=>p.name).join(' ')} ${Object.keys(s.material_totals).join(' ')} ${itemNames} ${missions}`.toLowerCase();if(!h.includes(q))return false;}
         return true;
       });
       // Track which pieces are shown via sets
@@ -1122,7 +1122,7 @@ function filterBlueprints(){
         if(!fM(filters.role,p.role))return false;
         if(!passesUnlockFilter('piece',p.name))return false;
         if(!passesOwnerFilter('piece',p.name))return false;
-        if(q){const h=`${p.name} ${p.set_name} ${p.manufacturer||''} ${p.weight} ${p.role} ${(p.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase();if(!h.includes(q))return false;}
+        if(q){const h=`${p.name} ${p.set_name} ${p.manufacturer||''} ${p.weight} ${p.role} ${(p.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')} ${(p.sources||[]).map(x=>x.mission||'').join(' ')}`.toLowerCase();if(!h.includes(q))return false;}
         return true;
       });
     }else if(unlockMode&&showSet){
@@ -1132,7 +1132,7 @@ function filterBlueprints(){
         if(!isUnlocked('piece',p.name))return false;
         if(!fM(filters.weight,p.weight))return false;
         if(!fM(filters.role,p.role))return false;
-        if(q){const h=`${p.name} ${p.set_name} ${p.manufacturer||''} ${p.weight} ${p.role} ${(p.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase();if(!h.includes(q))return false;}
+        if(q){const h=`${p.name} ${p.set_name} ${p.manufacturer||''} ${p.weight} ${p.role} ${(p.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')} ${(p.sources||[]).map(x=>x.mission||'').join(' ')}`.toLowerCase();if(!h.includes(q))return false;}
         return true;
       });
     }
@@ -1173,7 +1173,7 @@ function filterBlueprints(){
         if(!fM(filters.weight,b.weight))return false;
         if(!passesUnlockFilter('backpack',b.name))return false;
         if(!passesOwnerFilter('backpack',b.name))return false;
-        if(q&&!`${b.name} ${b.manufacturer} ${(b.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
+        if(q&&!`${b.name} ${b.manufacturer} ${(b.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')} ${(b.sources||[]).map(x=>x.mission||'').join(' ')}`.toLowerCase().includes(q))return false;
         return true;
       });
       bps.sort((a,b)=>{
@@ -1191,7 +1191,7 @@ function filterBlueprints(){
       if(filters.wkind.length){const isMag=/magazine|battery/i.test(w.name);const kind=isMag?'ammo':'gun';if(!filters.wkind.includes(kind))return false;}
       if(!passesUnlockFilter('weapon',w.name))return false;
       if(!passesOwnerFilter('weapon',w.name))return false;
-      if(q&&!`${w.name} ${w.manufacturer} ${w.weapon_type} ${w.damage_type} ${(w.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
+      if(q&&!`${w.name} ${w.manufacturer} ${w.weapon_type} ${w.damage_type} ${(w.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')} ${(w.sources||[]).map(x=>x.mission||'').join(' ')}`.toLowerCase().includes(q))return false;
       return true;
     });
     // Sort: unlocked first
@@ -1209,7 +1209,7 @@ function filterBlueprints(){
       if(filters.shipwsize.length&&!filters.shipwsize.includes(String(w.size||0)))return false;
       if(!passesUnlockFilter('ship_weapon',w.name))return false;
       if(!passesOwnerFilter('ship_weapon',w.name))return false;
-      if(q&&!`${w.name} ${w.manufacturer||''} ${w.weapon_type||''} ${w.damage_type||''} S${w.size||''} ${(w.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
+      if(q&&!`${w.name} ${w.manufacturer||''} ${w.weapon_type||''} ${w.damage_type||''} S${w.size||''} ${(w.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')} ${(w.sources||[]).map(x=>x.mission||'').join(' ')}`.toLowerCase().includes(q))return false;
       return true;
     });
     items.sort((a,b)=>{const ua=isUnlocked('ship_weapon',a.name)?0:1,ub=isUnlocked('ship_weapon',b.name)?0:1;return ua-ub||a.name.localeCompare(b.name);});
@@ -1224,7 +1224,7 @@ function filterBlueprints(){
         if(filters.shipcgrade.length&&!filters.shipcgrade.includes(c.grade||''))return false;
         if(!passesUnlockFilter('ship_component',c.name))return false;
         if(!passesOwnerFilter('ship_component',c.name))return false;
-        if(q&&!`${c.name} ${c.manufacturer||''} ${c.component_type||''} ${c.class_code||''} ${c.class_label||''} ${c.grade||''} S${c.size||''} ${(c.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
+        if(q&&!`${c.name} ${c.manufacturer||''} ${c.component_type||''} ${c.class_code||''} ${c.class_label||''} ${c.grade||''} S${c.size||''} ${(c.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')} ${(c.sources||[]).map(x=>x.mission||'').join(' ')}`.toLowerCase().includes(q))return false;
         return true;
       });
       if(!f.length)return;
@@ -1244,7 +1244,7 @@ function filterBlueprints(){
       const f=items.filter(s=>{
         if(!passesUnlockFilter(type,s.name))return false;
         if(!passesOwnerFilter(type,s.name))return false;
-        if(q&&!`${s.name} ${s.manufacturer||''} ${(s.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')}`.toLowerCase().includes(q))return false;
+        if(q&&!`${s.name} ${s.manufacturer||''} ${(s.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')} ${(s.sources||[]).map(x=>x.mission||'').join(' ')}`.toLowerCase().includes(q))return false;
         return true;
       });
       if(!f.length)return;
