@@ -2,9 +2,9 @@
   "meta": {
     "source": "Datamined from Star Citizen game files",
     "source_url": "",
-    "extracted_date": "2026-05-20",
+    "extracted_date": "2026-05-22",
     "current_patch": "4.8",
-    "data_updated": "2026-05-20",
+    "data_updated": "2026-05-22",
     "news_reel": "",
     "note": "Auto-extracted by SC Hub - Crafting module v4 (4.7 format).",
     "machine_name": "RediMake Item Fabricator",
@@ -17541,7 +17541,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "Bp Rewards Xenothreat2 50 02",
+              "mission": "XenoThreat 2.0 - 50% Wave (Drop 2)",
               "probability": 100.0,
               "type": "GUARANTEED"
             }
@@ -17592,7 +17592,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "Bp Rewards Xenothreat2 50 03",
+              "mission": "XenoThreat 2.0 - 50% Wave (Drop 3)",
               "probability": 100.0,
               "type": "GUARANTEED"
             }
@@ -17643,7 +17643,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "Bp Rewards Xenothreat2 50 05",
+              "mission": "XenoThreat 2.0 - 50% Wave (Drop 5)",
               "probability": 100.0,
               "type": "GUARANTEED"
             }
@@ -17694,7 +17694,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "Bp Rewards Xenothreat2 50 04",
+              "mission": "XenoThreat 2.0 - 50% Wave (Drop 4)",
               "probability": 100.0,
               "type": "GUARANTEED"
             }
@@ -17704,22 +17704,22 @@
       "is_obtainable": true,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 50 02",
+          "mission": "XenoThreat 2.0 - 50% Wave (Drop 2)",
           "probability": 100.0,
           "type": "GUARANTEED"
         },
         {
-          "mission": "Bp Rewards Xenothreat2 50 03",
+          "mission": "XenoThreat 2.0 - 50% Wave (Drop 3)",
           "probability": 100.0,
           "type": "GUARANTEED"
         },
         {
-          "mission": "Bp Rewards Xenothreat2 50 05",
+          "mission": "XenoThreat 2.0 - 50% Wave (Drop 5)",
           "probability": 100.0,
           "type": "GUARANTEED"
         },
         {
-          "mission": "Bp Rewards Xenothreat2 50 04",
+          "mission": "XenoThreat 2.0 - 50% Wave (Drop 4)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -24960,7 +24960,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "InterSec - Retrieve Additional Smuggler Intel",
+              "mission": "InterSec - Retrieve Smuggler Intel",
               "probability": 7.1,
               "type": "RANDOM"
             }
@@ -25011,7 +25011,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "InterSec - Retrieve Additional Smuggler Intel",
+              "mission": "InterSec - Retrieve Smuggler Intel",
               "probability": 7.1,
               "type": "RANDOM"
             }
@@ -25062,7 +25062,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "InterSec - Retrieve Additional Smuggler Intel",
+              "mission": "InterSec - Retrieve Smuggler Intel",
               "probability": 7.1,
               "type": "RANDOM"
             }
@@ -25113,7 +25113,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "InterSec - Retrieve Additional Smuggler Intel",
+              "mission": "InterSec - Retrieve Smuggler Intel",
               "probability": 7.1,
               "type": "RANDOM"
             }
@@ -25123,7 +25123,7 @@
       "is_obtainable": true,
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -26115,7 +26115,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "Bp Rewards Xenothreat2 25 01",
+              "mission": "XenoThreat 2.0 - 25% Wave (Drop 1)",
               "probability": 100.0,
               "type": "GUARANTEED"
             }
@@ -26166,7 +26166,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "Bp Rewards Xenothreat2 25 03",
+              "mission": "XenoThreat 2.0 - 25% Wave (Drop 3)",
               "probability": 100.0,
               "type": "GUARANTEED"
             }
@@ -26217,7 +26217,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "Bp Rewards Xenothreat2 25 05",
+              "mission": "XenoThreat 2.0 - 25% Wave (Drop 5)",
               "probability": 100.0,
               "type": "GUARANTEED"
             }
@@ -26268,7 +26268,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "Bp Rewards Xenothreat2 25 04",
+              "mission": "XenoThreat 2.0 - 25% Wave (Drop 4)",
               "probability": 100.0,
               "type": "GUARANTEED"
             }
@@ -26278,22 +26278,22 @@
       "is_obtainable": true,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 25 01",
+          "mission": "XenoThreat 2.0 - 25% Wave (Drop 1)",
           "probability": 100.0,
           "type": "GUARANTEED"
         },
         {
-          "mission": "Bp Rewards Xenothreat2 25 03",
+          "mission": "XenoThreat 2.0 - 25% Wave (Drop 3)",
           "probability": 100.0,
           "type": "GUARANTEED"
         },
         {
-          "mission": "Bp Rewards Xenothreat2 25 05",
+          "mission": "XenoThreat 2.0 - 25% Wave (Drop 5)",
           "probability": 100.0,
           "type": "GUARANTEED"
         },
         {
-          "mission": "Bp Rewards Xenothreat2 25 04",
+          "mission": "XenoThreat 2.0 - 25% Wave (Drop 4)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -26361,7 +26361,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "InterSec - Retrieve Additional Smuggler Intel",
+              "mission": "InterSec - Retrieve Smuggler Intel",
               "probability": 7.1,
               "type": "RANDOM"
             }
@@ -26412,7 +26412,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "InterSec - Retrieve Additional Smuggler Intel",
+              "mission": "InterSec - Retrieve Smuggler Intel",
               "probability": 7.1,
               "type": "RANDOM"
             }
@@ -26463,7 +26463,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "InterSec - Retrieve Additional Smuggler Intel",
+              "mission": "InterSec - Retrieve Smuggler Intel",
               "probability": 7.1,
               "type": "RANDOM"
             }
@@ -26514,7 +26514,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "InterSec - Retrieve Additional Smuggler Intel",
+              "mission": "InterSec - Retrieve Smuggler Intel",
               "probability": 7.1,
               "type": "RANDOM"
             }
@@ -26524,7 +26524,7 @@
       "is_obtainable": true,
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -39997,7 +39997,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "Bp Rewards Xenothreat2 15 01",
+              "mission": "XenoThreat 2.0 - 15% Wave (Drop 1)",
               "probability": 100.0,
               "type": "GUARANTEED"
             }
@@ -40048,7 +40048,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "Bp Rewards Xenothreat2 15 03",
+              "mission": "XenoThreat 2.0 - 15% Wave (Drop 3)",
               "probability": 100.0,
               "type": "GUARANTEED"
             }
@@ -40099,7 +40099,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "Bp Rewards Xenothreat2 15 04",
+              "mission": "XenoThreat 2.0 - 15% Wave (Drop 4)",
               "probability": 100.0,
               "type": "GUARANTEED"
             }
@@ -40109,17 +40109,17 @@
       "is_obtainable": true,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 15 01",
+          "mission": "XenoThreat 2.0 - 15% Wave (Drop 1)",
           "probability": 100.0,
           "type": "GUARANTEED"
         },
         {
-          "mission": "Bp Rewards Xenothreat2 15 03",
+          "mission": "XenoThreat 2.0 - 15% Wave (Drop 3)",
           "probability": 100.0,
           "type": "GUARANTEED"
         },
         {
-          "mission": "Bp Rewards Xenothreat2 15 04",
+          "mission": "XenoThreat 2.0 - 15% Wave (Drop 4)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -40191,7 +40191,7 @@
           "is_obtainable": true,
           "sources": [
             {
-              "mission": "Bp Rewards Xenothreat2 15 05",
+              "mission": "XenoThreat 2.0 - 15% Wave (Drop 5)",
               "probability": 100.0,
               "type": "GUARANTEED"
             }
@@ -40201,7 +40201,7 @@
       "is_obtainable": true,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 15 05",
+          "mission": "XenoThreat 2.0 - 15% Wave (Drop 5)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -57525,7 +57525,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 50 02",
+          "mission": "XenoThreat 2.0 - 50% Wave (Drop 2)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -57582,7 +57582,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 50 03",
+          "mission": "XenoThreat 2.0 - 50% Wave (Drop 3)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -57639,7 +57639,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 50 05",
+          "mission": "XenoThreat 2.0 - 50% Wave (Drop 5)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -57696,7 +57696,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 50 04",
+          "mission": "XenoThreat 2.0 - 50% Wave (Drop 4)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -64743,7 +64743,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -64800,7 +64800,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -64857,7 +64857,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -64914,7 +64914,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -65883,7 +65883,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 25 01",
+          "mission": "XenoThreat 2.0 - 25% Wave (Drop 1)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -65940,7 +65940,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 25 03",
+          "mission": "XenoThreat 2.0 - 25% Wave (Drop 3)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -65997,7 +65997,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 25 05",
+          "mission": "XenoThreat 2.0 - 25% Wave (Drop 5)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -66054,7 +66054,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 25 04",
+          "mission": "XenoThreat 2.0 - 25% Wave (Drop 4)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -66111,7 +66111,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -66168,7 +66168,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -66225,7 +66225,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -66282,7 +66282,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -79647,7 +79647,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 15 01",
+          "mission": "XenoThreat 2.0 - 15% Wave (Drop 1)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -79704,7 +79704,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 15 03",
+          "mission": "XenoThreat 2.0 - 15% Wave (Drop 3)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -79761,7 +79761,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 15 04",
+          "mission": "XenoThreat 2.0 - 15% Wave (Drop 4)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -79818,7 +79818,7 @@
       "is_environment_suit": false,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 15 05",
+          "mission": "XenoThreat 2.0 - 15% Wave (Drop 5)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -79915,7 +79915,7 @@
       "manufacturer": "Virgil",
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 50 01",
+          "mission": "XenoThreat 2.0 - 50% Wave (Drop 1)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -80021,7 +80021,7 @@
       "manufacturer": "Virgil",
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 15 02",
+          "mission": "XenoThreat 2.0 - 15% Wave (Drop 2)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -80142,7 +80142,7 @@
       "manufacturer": "Quirinus Technologies",
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -80270,7 +80270,7 @@
       "manufacturer": "Quirinus Technologies",
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 25 02",
+          "mission": "XenoThreat 2.0 - 25% Wave (Drop 2)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -80634,7 +80634,7 @@
       "manufacturer": "Klaus & Werner",
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 50 06",
+          "mission": "XenoThreat 2.0 - 50% Wave (Drop 6)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -82934,7 +82934,7 @@
       "manufacturer": "Volt",
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         },
@@ -83110,7 +83110,7 @@
           "type": "RANDOM"
         },
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         },
@@ -84518,7 +84518,7 @@
       "manufacturer": "",
       "sources": [
         {
-          "mission": "Bp Reward None Rifle Multi 01 Collector01",
+          "mission": "Wikelo Collector - Multi Rifle",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -85423,7 +85423,7 @@
       "manufacturer": "Gemini",
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 25 06",
+          "mission": "XenoThreat 2.0 - 25% Wave (Drop 6)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -85622,7 +85622,7 @@
       "manufacturer": "Behring",
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 15 06",
+          "mission": "XenoThreat 2.0 - 15% Wave (Drop 6)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -88464,7 +88464,7 @@
       "manufacturer": "Volt",
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         },
@@ -88641,7 +88641,7 @@
       "manufacturer": "Volt",
       "sources": [
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         },
@@ -88694,7 +88694,7 @@
           "type": "RANDOM"
         },
         {
-          "mission": "InterSec - Retrieve Additional Smuggler Intel",
+          "mission": "InterSec - Retrieve Smuggler Intel",
           "probability": 7.1,
           "type": "RANDOM"
         },
@@ -91329,7 +91329,7 @@
       "manufacturer": "Mirai",
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationa",
+          "mission": "Full Strike on Station (A)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -91359,7 +91359,7 @@
       "manufacturer": "Mirai",
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationa",
+          "mission": "Full Strike on Station (A)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -91389,7 +91389,7 @@
       "manufacturer": "Mirai",
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationa",
+          "mission": "Full Strike on Station (A)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -91419,7 +91419,7 @@
       "manufacturer": "Mirai",
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationa",
+          "mission": "Full Strike on Station (A)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -91497,7 +91497,7 @@
       "manufacturer": "Virgil",
       "sources": [
         {
-          "mission": "Bp Rewards Bombingrunb",
+          "mission": "Bombing Run (Bonus)",
           "probability": 33.3,
           "type": "RANDOM"
         }
@@ -91527,7 +91527,7 @@
       "manufacturer": "Virgil",
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationa",
+          "mission": "Full Strike on Station (A)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -91557,7 +91557,7 @@
       "manufacturer": "Virgil",
       "sources": [
         {
-          "mission": "Bp Rewards Bombingrunb",
+          "mission": "Bombing Run (Bonus)",
           "probability": 33.3,
           "type": "RANDOM"
         }
@@ -91587,7 +91587,7 @@
       "manufacturer": "Virgil",
       "sources": [
         {
-          "mission": "Bp Rewards Assistshipincombatb",
+          "mission": "Eckhart - Assist Ship in Combat (B)",
           "probability": 33.3,
           "type": "RANDOM"
         }
@@ -91617,7 +91617,7 @@
       "manufacturer": "Virgil",
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationa",
+          "mission": "Full Strike on Station (A)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -91647,7 +91647,7 @@
       "manufacturer": "Virgil",
       "sources": [
         {
-          "mission": "Bp Reward Vgl Flightsuit Helmet 01 02 01",
+          "mission": "Wikelo Collector - Virgil Flightsuit Helmet",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -91677,7 +91677,7 @@
       "manufacturer": "Virgil",
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationa",
+          "mission": "Full Strike on Station (A)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -91707,7 +91707,7 @@
       "manufacturer": "Virgil",
       "sources": [
         {
-          "mission": "Bp Rewards Assistshipincombatb",
+          "mission": "Eckhart - Assist Ship in Combat (B)",
           "probability": 33.3,
           "type": "RANDOM"
         }
@@ -91737,7 +91737,7 @@
       "manufacturer": "Virgil",
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationa",
+          "mission": "Full Strike on Station (A)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -91767,12 +91767,12 @@
       "manufacturer": "Virgil",
       "sources": [
         {
-          "mission": "Bp Rewards Assistshipincombatb",
+          "mission": "Bombing Run (Bonus)",
           "probability": 33.3,
           "type": "RANDOM"
         },
         {
-          "mission": "Bp Rewards Bombingrunb",
+          "mission": "Eckhart - Assist Ship in Combat (B)",
           "probability": 33.3,
           "type": "RANDOM"
         }
@@ -91802,7 +91802,7 @@
       "manufacturer": "Virgil",
       "sources": [
         {
-          "mission": "Bp Reward Vgl Flightsuit 01 02 01",
+          "mission": "Wikelo Collector - Virgil Flightsuit",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -91832,7 +91832,7 @@
       "manufacturer": "Mirai",
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationa",
+          "mission": "Full Strike on Station (A)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -91862,7 +91862,7 @@
       "manufacturer": "Mirai",
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationa",
+          "mission": "Full Strike on Station (A)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -91967,7 +91967,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 100 01",
+          "mission": "XenoThreat 2.0 - 100% Wave (Drop 1)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -92022,7 +92022,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 100 02",
+          "mission": "XenoThreat 2.0 - 100% Wave (Drop 2)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -92077,7 +92077,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 100 03",
+          "mission": "XenoThreat 2.0 - 100% Wave (Drop 3)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -92132,7 +92132,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregionc",
+          "mission": "Headhunters - Mercenary Ship (Region C)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -92187,7 +92187,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregionc",
+          "mission": "Headhunters - Mercenary Ship (Region C)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -92242,7 +92242,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregionc",
+          "mission": "Headhunters - Mercenary Ship (Region C)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -92297,7 +92297,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
+          "mission": "Headhunters - Mercenary Ship (Region D)",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -92352,7 +92352,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
+          "mission": "Headhunters - Mercenary Ship (Region D)",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -92407,7 +92407,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
+          "mission": "Headhunters - Mercenary Ship (Region D)",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -92511,7 +92511,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
+          "mission": "Headhunters - Mercenary Ship (Region A)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -92566,7 +92566,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
+          "mission": "Headhunters - Mercenary Ship (Region A)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -92621,7 +92621,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
+          "mission": "Headhunters - Mercenary Ship (Region A)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -92676,7 +92676,7 @@
       "size": 4,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
+          "mission": "Eckhart Security - Eliminate Boss",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -92780,7 +92780,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Assistshipincombata",
+          "mission": "Eckhart - Assist Ship in Combat (A)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -92835,7 +92835,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Assistshipincombata",
+          "mission": "Eckhart - Assist Ship in Combat (A)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -92890,7 +92890,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Assistshipincombata",
+          "mission": "Eckhart - Assist Ship in Combat (A)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -92945,7 +92945,7 @@
       "size": 4,
       "sources": [
         {
-          "mission": "Bp Rewards Bombingrun",
+          "mission": "Bombing Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -93000,7 +93000,7 @@
       "size": 5,
       "sources": [
         {
-          "mission": "Bp Rewards Bombingrun",
+          "mission": "Bombing Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -93055,7 +93055,7 @@
       "size": 6,
       "sources": [
         {
-          "mission": "Bp Rewards Bombingrun",
+          "mission": "Bombing Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -93159,7 +93159,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambushmed",
+          "mission": "Eckhart Security - Ship Ambush (Medium)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -93214,7 +93214,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambushmed",
+          "mission": "Eckhart Security - Ship Ambush (Medium)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -93269,7 +93269,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambushmed",
+          "mission": "Eckhart Security - Ship Ambush (Medium)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -93324,7 +93324,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambusheasy",
+          "mission": "Eckhart Security - Ship Ambush (Easy)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -93379,7 +93379,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambusheasy",
+          "mission": "Eckhart Security - Ship Ambush (Easy)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -93434,7 +93434,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambusheasy",
+          "mission": "Eckhart Security - Ship Ambush (Easy)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -93489,7 +93489,7 @@
       "size": 4,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambushhardplus",
+          "mission": "Eckhart Security - Ship Ambush (Hard+)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -93544,7 +93544,7 @@
       "size": 5,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambushhardplus",
+          "mission": "Eckhart Security - Ship Ambush (Hard+)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -93599,7 +93599,7 @@
       "size": 6,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambushhardplus",
+          "mission": "Eckhart Security - Ship Ambush (Hard+)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -93654,7 +93654,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipseasy",
+          "mission": "Eckhart Security - Escort Ships (Easy)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -93709,7 +93709,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipseasy",
+          "mission": "Eckhart Security - Escort Ships (Easy)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -93764,7 +93764,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipseasy",
+          "mission": "Eckhart Security - Escort Ships (Easy)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -93819,7 +93819,7 @@
       "size": 4,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
+          "mission": "Headhunters - Mercenary Ship (Region D)",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -93874,7 +93874,7 @@
       "size": 5,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
+          "mission": "Headhunters - Mercenary Ship (Region D)",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -93929,7 +93929,7 @@
       "size": 6,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
+          "mission": "Headhunters - Mercenary Ship (Region D)",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -94033,7 +94033,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationb",
+          "mission": "Full Strike on Station (B)",
           "probability": 10.0,
           "type": "RANDOM"
         }
@@ -94088,7 +94088,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationb",
+          "mission": "Full Strike on Station (B)",
           "probability": 10.0,
           "type": "RANDOM"
         }
@@ -94143,7 +94143,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationb",
+          "mission": "Full Strike on Station (B)",
           "probability": 10.0,
           "type": "RANDOM"
         }
@@ -94198,7 +94198,7 @@
       "size": 4,
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationb",
+          "mission": "Full Strike on Station (B)",
           "probability": 10.0,
           "type": "RANDOM"
         }
@@ -94253,7 +94253,7 @@
       "size": 5,
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationb",
+          "mission": "Full Strike on Station (B)",
           "probability": 10.0,
           "type": "RANDOM"
         }
@@ -94308,7 +94308,7 @@
       "size": 6,
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationb",
+          "mission": "Full Strike on Station (B)",
           "probability": 10.0,
           "type": "RANDOM"
         }
@@ -94363,7 +94363,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipshardplus",
+          "mission": "Eckhart Security - Escort Ships (Hard+)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -94418,7 +94418,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipsmed",
+          "mission": "Eckhart Security - Escort Ships (Medium)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -94473,7 +94473,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipsmed",
+          "mission": "Eckhart Security - Escort Ships (Medium)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -94528,7 +94528,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipsmed",
+          "mission": "Eckhart Security - Escort Ships (Medium)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -94583,7 +94583,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhuntershard",
+          "mission": "Headhunters - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -94638,7 +94638,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhuntershard",
+          "mission": "Headhunters - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -94693,7 +94693,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhuntershard",
+          "mission": "Headhunters - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -94748,7 +94748,7 @@
       "size": 4,
       "sources": [
         {
-          "mission": "Bp Rewards Pyroheadhuntershard",
+          "mission": "Headhunters - Pyro (Hard)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -94803,7 +94803,7 @@
       "size": 5,
       "sources": [
         {
-          "mission": "Bp Rewards Pyroheadhuntershard",
+          "mission": "Headhunters - Pyro (Hard)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -94858,7 +94858,7 @@
       "size": 6,
       "sources": [
         {
-          "mission": "Bp Rewards Pyroheadhuntershard",
+          "mission": "Headhunters - Pyro (Hard)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -94913,7 +94913,7 @@
       "size": 6,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
+          "mission": "Eckhart Security - Eliminate Boss",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -94968,7 +94968,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhuntershard",
+          "mission": "Headhunters - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -95023,7 +95023,7 @@
       "size": 4,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
+          "mission": "Eckhart Security - Eliminate Boss",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -95078,7 +95078,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhuntershard",
+          "mission": "Headhunters - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -95133,7 +95133,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
+          "mission": "Eckhart Security - Eliminate Boss",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -95188,7 +95188,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhuntershard",
+          "mission": "Headhunters - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -95243,7 +95243,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
+          "mission": "Headhunters - Mercenary Ship (Region A)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -95298,7 +95298,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
+          "mission": "Headhunters - Mercenary Ship (Region A)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -95353,7 +95353,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
+          "mission": "Headhunters - Mercenary Ship (Region A)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -95408,7 +95408,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiona",
+          "mission": "Headhunters - Mercenary Ship (Region A)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -95512,7 +95512,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Idsrecoverencrypteddatavgear",
+          "mission": "InterSec - Retrieve Smuggler Intel (Vehicle Gear)",
           "probability": 33.3,
           "type": "RANDOM"
         }
@@ -95567,7 +95567,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Idsrecoverencrypteddatavgear",
+          "mission": "InterSec - Retrieve Smuggler Intel (Vehicle Gear)",
           "probability": 33.3,
           "type": "RANDOM"
         }
@@ -95622,7 +95622,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Idsrecoverencrypteddatavgear",
+          "mission": "InterSec - Retrieve Smuggler Intel (Vehicle Gear)",
           "probability": 33.3,
           "type": "RANDOM"
         }
@@ -95677,7 +95677,7 @@
       "size": 4,
       "sources": [
         {
-          "mission": "Bp Rewards Stantonfoxwellhard",
+          "mission": "Foxwell - Stanton (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -95732,7 +95732,7 @@
       "size": 5,
       "sources": [
         {
-          "mission": "Bp Rewards Stantonfoxwellhard",
+          "mission": "Foxwell - Stanton (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -95787,7 +95787,7 @@
       "size": 6,
       "sources": [
         {
-          "mission": "Bp Rewards Stantonfoxwellhard",
+          "mission": "Foxwell - Stanton (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -95891,7 +95891,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwellhard",
+          "mission": "Foxwell - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -95946,7 +95946,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwellhard",
+          "mission": "Foxwell - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -96001,7 +96001,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwellhard",
+          "mission": "Foxwell - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -96056,7 +96056,7 @@
       "size": 4,
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwellhard",
+          "mission": "Foxwell - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -96111,7 +96111,7 @@
       "size": 5,
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwellhard",
+          "mission": "Foxwell - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -96166,7 +96166,7 @@
       "size": 6,
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwellhard",
+          "mission": "Foxwell - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -96221,7 +96221,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwellhard",
+          "mission": "Foxwell - Pyro (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -96276,7 +96276,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwellhard",
+          "mission": "Foxwell - Pyro (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -96331,7 +96331,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwellhard",
+          "mission": "Foxwell - Pyro (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -96484,7 +96484,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhuntershard",
+          "mission": "Headhunters - Stanton (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -96539,7 +96539,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhuntershard",
+          "mission": "Headhunters - Stanton (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -96594,7 +96594,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhuntershard",
+          "mission": "Headhunters - Stanton (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -96649,7 +96649,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregionb",
+          "mission": "Headhunters - Mercenary Ship (Region B)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -96704,7 +96704,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregionb",
+          "mission": "Headhunters - Mercenary Ship (Region B)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -96759,7 +96759,7 @@
       "size": 1,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipshardplus",
+          "mission": "Eckhart Security - Escort Ships (Hard+)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -96814,7 +96814,7 @@
       "size": 2,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipshardplus",
+          "mission": "Eckhart Security - Escort Ships (Hard+)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -96869,7 +96869,7 @@
       "size": 3,
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipshardplus",
+          "mission": "Eckhart Security - Escort Ships (Hard+)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -97181,7 +97181,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -97238,7 +97238,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -97295,7 +97295,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwellhard",
+          "mission": "Foxwell - Pyro (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -97352,7 +97352,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -97409,7 +97409,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -97466,7 +97466,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwellhard",
+          "mission": "Foxwell - Pyro (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -97676,7 +97676,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -97733,7 +97733,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -97841,7 +97841,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -97898,7 +97898,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -97955,7 +97955,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -98012,7 +98012,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -98069,7 +98069,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -98177,7 +98177,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -98234,7 +98234,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -98342,7 +98342,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -98399,7 +98399,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -98456,7 +98456,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -98513,7 +98513,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -98570,7 +98570,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -98627,7 +98627,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -98684,7 +98684,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -98741,7 +98741,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -98798,7 +98798,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -98906,7 +98906,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -98963,7 +98963,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwellhard",
+          "mission": "Foxwell - Pyro (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -99020,7 +99020,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -99077,7 +99077,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregionb",
+          "mission": "Headhunters - Mercenary Ship (Region B)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -99440,7 +99440,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -99497,7 +99497,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -99605,7 +99605,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Bombingrun",
+          "mission": "Bombing Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -99662,7 +99662,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Bombingrun",
+          "mission": "Bombing Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -99923,7 +99923,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregiond",
+          "mission": "Headhunters - Mercenary Ship (Region D)",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -100082,7 +100082,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -100139,7 +100139,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Bombingrun",
+          "mission": "Bombing Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -100196,7 +100196,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwelleasy",
+          "mission": "Foxwell - Nyx (Easy)",
           "probability": 6.2,
           "type": "RANDOM"
         }
@@ -100457,7 +100457,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Headhuntersmercenaryshipregionc",
+          "mission": "Headhunters - Mercenary Ship (Region C)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -100514,7 +100514,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -100571,7 +100571,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -100628,7 +100628,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -100685,7 +100685,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -100742,7 +100742,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhunterseasy",
+          "mission": "Headhunters - Nyx (Easy)",
           "probability": 5.9,
           "type": "RANDOM"
         }
@@ -100901,7 +100901,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank2To3",
+          "mission": "Shubin Mining - Rank 2-3",
           "probability": 9.1,
           "type": "RANDOM"
         }
@@ -100958,7 +100958,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank4",
+          "mission": "Shubin Mining - Rank 4",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -101015,7 +101015,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank0To1",
+          "mission": "Shubin Mining - Rank 0-1",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -101072,7 +101072,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank2To3",
+          "mission": "Shubin Mining - Rank 2-3",
           "probability": 9.1,
           "type": "RANDOM"
         }
@@ -101129,7 +101129,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank4",
+          "mission": "Shubin Mining - Rank 4",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -101186,7 +101186,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank2To3",
+          "mission": "Shubin Mining - Rank 2-3",
           "probability": 9.1,
           "type": "RANDOM"
         }
@@ -101243,7 +101243,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank4",
+          "mission": "Shubin Mining - Rank 4",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -101300,7 +101300,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank2To3",
+          "mission": "Shubin Mining - Rank 2-3",
           "probability": 9.1,
           "type": "RANDOM"
         }
@@ -101357,7 +101357,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank4",
+          "mission": "Shubin Mining - Rank 4",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -101414,7 +101414,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank2To3",
+          "mission": "Shubin Mining - Rank 2-3",
           "probability": 9.1,
           "type": "RANDOM"
         }
@@ -101471,7 +101471,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank4",
+          "mission": "Shubin Mining - Rank 4",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -101528,7 +101528,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank2To3",
+          "mission": "Shubin Mining - Rank 2-3",
           "probability": 9.1,
           "type": "RANDOM"
         }
@@ -101585,7 +101585,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank4",
+          "mission": "Shubin Mining - Rank 4",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -101642,7 +101642,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank0To1",
+          "mission": "Shubin Mining - Rank 0-1",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -101699,7 +101699,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank2To3",
+          "mission": "Shubin Mining - Rank 2-3",
           "probability": 9.1,
           "type": "RANDOM"
         }
@@ -101756,7 +101756,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank0To1",
+          "mission": "Shubin Mining - Rank 0-1",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -101813,7 +101813,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank0To1",
+          "mission": "Shubin Mining - Rank 0-1",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -101870,7 +101870,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Asd3Vgear",
+          "mission": "ASD - Project Hyperion (Vehicle Gear)",
           "probability": 33.3,
           "type": "RANDOM"
         }
@@ -101927,7 +101927,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Redwind",
+          "mission": "Red Wind Courier Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -101984,7 +101984,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwelleasy",
+          "mission": "Foxwell - Pyro (Easy)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -102143,7 +102143,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambusheasy",
+          "mission": "Eckhart Security - Ship Ambush (Easy)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -102200,7 +102200,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Ftl",
+          "mission": "FTL Courier Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -102257,7 +102257,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambushmed",
+          "mission": "Eckhart Security - Ship Ambush (Medium)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -102416,7 +102416,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Pyroheadhunterseasy",
+          "mission": "Headhunters - Pyro (Easy)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -102473,7 +102473,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Redwind",
+          "mission": "Red Wind Courier Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -102530,7 +102530,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Asd3Vgear",
+          "mission": "ASD - Project Hyperion (Vehicle Gear)",
           "probability": 33.3,
           "type": "RANDOM"
         }
@@ -102587,7 +102587,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambushhardplus",
+          "mission": "Eckhart Security - Ship Ambush (Hard+)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -102695,7 +102695,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
+          "mission": "Eckhart Security - Eliminate Boss",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -102803,7 +102803,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Asd3Vgear",
+          "mission": "ASD - Project Hyperion (Vehicle Gear)",
           "probability": 33.3,
           "type": "RANDOM"
         }
@@ -102860,7 +102860,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwelleasy",
+          "mission": "Foxwell - Pyro (Easy)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -102917,7 +102917,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwelleasy",
+          "mission": "Foxwell - Pyro (Easy)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -102974,7 +102974,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambushmed",
+          "mission": "Eckhart Security - Ship Ambush (Medium)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -103031,7 +103031,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Redwind",
+          "mission": "Red Wind Courier Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -103190,7 +103190,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwelleasy",
+          "mission": "Foxwell - Pyro (Easy)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -103247,7 +103247,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwelleasy",
+          "mission": "Foxwell - Pyro (Easy)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -103304,7 +103304,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwelleasy",
+          "mission": "Foxwell - Pyro (Easy)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -103361,7 +103361,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwelleasy",
+          "mission": "Foxwell - Pyro (Easy)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -103418,7 +103418,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationb",
+          "mission": "Full Strike on Station (B)",
           "probability": 10.0,
           "type": "RANDOM"
         }
@@ -103475,7 +103475,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationb",
+          "mission": "Full Strike on Station (B)",
           "probability": 10.0,
           "type": "RANDOM"
         }
@@ -103583,7 +103583,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwelleasy",
+          "mission": "Foxwell - Pyro (Easy)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -103640,7 +103640,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Pyroheadhunterseasy",
+          "mission": "Headhunters - Pyro (Easy)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -103850,7 +103850,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwelleasy",
+          "mission": "Foxwell - Pyro (Easy)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -104009,7 +104009,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
+          "mission": "Eckhart Security - Eliminate Boss",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -104066,7 +104066,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwelleasy",
+          "mission": "Foxwell - Pyro (Easy)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -104174,7 +104174,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwelleasy",
+          "mission": "Foxwell - Pyro (Easy)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -104231,7 +104231,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 60 01",
+          "mission": "XenoThreat 2.0 - 60% Wave (Drop 1)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -104288,7 +104288,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 60 02",
+          "mission": "XenoThreat 2.0 - 60% Wave (Drop 2)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -104345,7 +104345,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Fullstrikeonstationb",
+          "mission": "Full Strike on Station (B)",
           "probability": 10.0,
           "type": "RANDOM"
         }
@@ -104402,7 +104402,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwelleasy",
+          "mission": "Foxwell - Pyro (Easy)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -104459,7 +104459,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Pyrofoxwelleasy",
+          "mission": "Foxwell - Pyro (Easy)",
           "probability": 7.1,
           "type": "RANDOM"
         }
@@ -104669,7 +104669,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Ftl",
+          "mission": "FTL Courier Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -104726,7 +104726,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambushhardplus",
+          "mission": "Eckhart Security - Ship Ambush (Hard+)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -104885,7 +104885,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityshipambusheasy",
+          "mission": "Eckhart Security - Ship Ambush (Easy)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -104942,7 +104942,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Pyroheadhunterseasy",
+          "mission": "Headhunters - Pyro (Easy)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -104999,7 +104999,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Pyroheadhunterseasy",
+          "mission": "Headhunters - Pyro (Easy)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -105413,7 +105413,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Pyroheadhunterseasy",
+          "mission": "Headhunters - Pyro (Easy)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -105572,7 +105572,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecuritykillnpcboss",
+          "mission": "Eckhart Security - Eliminate Boss",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -105680,7 +105680,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Pyroheadhunterseasy",
+          "mission": "Headhunters - Pyro (Easy)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -105737,7 +105737,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Ftl",
+          "mission": "FTL Courier Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -105947,7 +105947,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Covalexsuper",
+          "mission": "Covalex - Distribution Center",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -106055,7 +106055,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Linghard",
+          "mission": "Ling Family Courier (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -106214,7 +106214,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Ftl",
+          "mission": "FTL Courier Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -106934,7 +106934,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Ftl",
+          "mission": "FTL Courier Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -107603,7 +107603,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Covalexsuper",
+          "mission": "Covalex - Distribution Center",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -107762,7 +107762,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Linghard",
+          "mission": "Ling Family Courier (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -107819,7 +107819,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Linghard",
+          "mission": "Ling Family Courier (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -107927,7 +107927,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Covalexsuper",
+          "mission": "Covalex - Distribution Center",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -108086,7 +108086,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Covalexsuper",
+          "mission": "Covalex - Distribution Center",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -108398,7 +108398,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Covalexsuper",
+          "mission": "Covalex - Distribution Center",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -108506,7 +108506,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Covalexsuper",
+          "mission": "Covalex - Distribution Center",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -108563,7 +108563,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Linghard",
+          "mission": "Ling Family Courier (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -108926,7 +108926,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank2To3",
+          "mission": "Shubin Mining - Rank 2-3",
           "probability": 9.1,
           "type": "RANDOM"
         }
@@ -108983,7 +108983,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank2To3",
+          "mission": "Shubin Mining - Rank 2-3",
           "probability": 9.1,
           "type": "RANDOM"
         }
@@ -109040,7 +109040,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank2To3",
+          "mission": "Shubin Mining - Rank 2-3",
           "probability": 9.1,
           "type": "RANDOM"
         }
@@ -109097,7 +109097,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank2To3",
+          "mission": "Shubin Mining - Rank 2-3",
           "probability": 9.1,
           "type": "RANDOM"
         }
@@ -109307,7 +109307,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhuntershard",
+          "mission": "Headhunters - Stanton (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -109619,7 +109619,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank4",
+          "mission": "Shubin Mining - Rank 4",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -109676,7 +109676,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank4",
+          "mission": "Shubin Mining - Rank 4",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -109733,7 +109733,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank4",
+          "mission": "Shubin Mining - Rank 4",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -110657,7 +110657,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonfoxwellhard",
+          "mission": "Foxwell - Stanton (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -110816,7 +110816,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank0To1",
+          "mission": "Shubin Mining - Rank 0-1",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -110873,7 +110873,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank0To1",
+          "mission": "Shubin Mining - Rank 0-1",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -110930,7 +110930,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank0To1",
+          "mission": "Shubin Mining - Rank 0-1",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -110987,7 +110987,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Shubinrank0To1",
+          "mission": "Shubin Mining - Rank 0-1",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -111044,12 +111044,12 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonfoxwellhard",
+          "mission": "Foxwell - Stanton (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         },
         {
-          "mission": "Bp Rewards Stantonheadhuntershard",
+          "mission": "Headhunters - Stanton (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -111106,7 +111106,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxfoxwellhard",
+          "mission": "Foxwell - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -111163,7 +111163,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Pyroheadhuntershard",
+          "mission": "Headhunters - Pyro (Hard)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -111220,7 +111220,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Pyroheadhuntershard",
+          "mission": "Headhunters - Pyro (Hard)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -111277,7 +111277,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Nyxheadhuntershard",
+          "mission": "Headhunters - Nyx (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -111334,7 +111334,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhuntershard",
+          "mission": "Headhunters - Stanton (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -111584,7 +111584,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Fuelnozzle",
+          "mission": "Refuelling Nozzle Drop",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -111630,7 +111630,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Fuelnozzle",
+          "mission": "Refuelling Nozzle Drop",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -111676,7 +111676,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Fuelnozzle",
+          "mission": "Refuelling Nozzle Drop",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -111722,7 +111722,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Fuelnozzle",
+          "mission": "Refuelling Nozzle Drop",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -111768,7 +111768,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Fuelnozzle",
+          "mission": "Refuelling Nozzle Drop",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -111814,7 +111814,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Fuelnozzle",
+          "mission": "Refuelling Nozzle Drop",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -111860,7 +111860,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Fuelnozzle",
+          "mission": "Refuelling Nozzle Drop",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -111906,7 +111906,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Fuelnozzle",
+          "mission": "Refuelling Nozzle Drop",
           "probability": 12.5,
           "type": "RANDOM"
         }
@@ -111963,7 +111963,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Adagioresourcegatheringshipsalvage",
+          "mission": "Adagio - Salvager Special Order",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -112020,7 +112020,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Adagioresourcegatheringshipsalvage",
+          "mission": "Adagio - Salvager Special Order",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -112077,7 +112077,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Adagioresourcegatheringshipsalvage",
+          "mission": "Adagio - Salvager Special Order",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -112134,7 +112134,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Adagioresourcegatheringshipsalvage",
+          "mission": "Adagio - Salvager Special Order",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -112191,7 +112191,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Adagioresourcegatheringshipsalvage",
+          "mission": "Adagio - Salvager Special Order",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -112248,7 +112248,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
+          "mission": "Headhunters - Stanton (Easy)",
           "probability": 7.7,
           "type": "RANDOM"
         }
@@ -112305,7 +112305,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
+          "mission": "Headhunters - Stanton (Easy)",
           "probability": 7.7,
           "type": "RANDOM"
         }
@@ -112362,7 +112362,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
+          "mission": "Headhunters - Stanton (Easy)",
           "probability": 7.7,
           "type": "RANDOM"
         }
@@ -112419,7 +112419,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
+          "mission": "Headhunters - Stanton (Easy)",
           "probability": 7.7,
           "type": "RANDOM"
         }
@@ -112476,7 +112476,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
+          "mission": "Headhunters - Stanton (Easy)",
           "probability": 7.7,
           "type": "RANDOM"
         }
@@ -112533,7 +112533,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
+          "mission": "Headhunters - Stanton (Easy)",
           "probability": 7.7,
           "type": "RANDOM"
         }
@@ -112590,7 +112590,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonfoxwelleasy",
+          "mission": "Foxwell - Stanton (Easy)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -112647,7 +112647,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonfoxwelleasy",
+          "mission": "Foxwell - Stanton (Easy)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -112704,7 +112704,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonfoxwelleasy",
+          "mission": "Foxwell - Stanton (Easy)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -112914,7 +112914,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
+          "mission": "Headhunters - Stanton (Easy)",
           "probability": 7.7,
           "type": "RANDOM"
         }
@@ -113022,7 +113022,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Linghard",
+          "mission": "Ling Family Courier (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -113181,7 +113181,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Linghard",
+          "mission": "Ling Family Courier (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -113289,7 +113289,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Assistshipincombata",
+          "mission": "Eckhart - Assist Ship in Combat (A)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -113346,7 +113346,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 85 01",
+          "mission": "XenoThreat 2.0 - 85% Wave (Drop 1)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -113403,7 +113403,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Xenothreat2 85 02",
+          "mission": "XenoThreat 2.0 - 85% Wave (Drop 2)",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -113460,7 +113460,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonfoxwellhard",
+          "mission": "Foxwell - Stanton (Hard)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -113568,7 +113568,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Assistshipincombata",
+          "mission": "Eckhart - Assist Ship in Combat (A)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -113625,7 +113625,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Assistshipincombata",
+          "mission": "Eckhart - Assist Ship in Combat (A)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -113733,7 +113733,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
+          "mission": "Headhunters - Stanton (Easy)",
           "probability": 7.7,
           "type": "RANDOM"
         }
@@ -113841,7 +113841,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Linghard",
+          "mission": "Ling Family Courier (Hard)",
           "probability": 14.3,
           "type": "RANDOM"
         }
@@ -113898,7 +113898,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonfoxwelleasy",
+          "mission": "Foxwell - Stanton (Easy)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -113955,7 +113955,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
+          "mission": "Headhunters - Stanton (Easy)",
           "probability": 7.7,
           "type": "RANDOM"
         }
@@ -114114,7 +114114,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonfoxwelleasy",
+          "mission": "Foxwell - Stanton (Easy)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -114222,7 +114222,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipshardplus",
+          "mission": "Eckhart Security - Escort Ships (Hard+)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -114279,7 +114279,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipseasy",
+          "mission": "Eckhart Security - Escort Ships (Easy)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -114336,7 +114336,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
+          "mission": "Headhunters - Stanton (Easy)",
           "probability": 7.7,
           "type": "RANDOM"
         }
@@ -114393,7 +114393,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Covalexsuper",
+          "mission": "Covalex - Distribution Center",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -114450,7 +114450,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Covalexsuper",
+          "mission": "Covalex - Distribution Center",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -114507,7 +114507,7 @@
       "grade": "D",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonfoxwelleasy",
+          "mission": "Foxwell - Stanton (Easy)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -114615,7 +114615,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Covalexsuper",
+          "mission": "Covalex - Distribution Center",
           "probability": 11.1,
           "type": "RANDOM"
         }
@@ -114672,7 +114672,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
+          "mission": "Headhunters - Stanton (Easy)",
           "probability": 7.7,
           "type": "RANDOM"
         }
@@ -114882,7 +114882,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipsmed",
+          "mission": "Eckhart Security - Escort Ships (Medium)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -114939,7 +114939,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipseasy",
+          "mission": "Eckhart Security - Escort Ships (Easy)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -115302,7 +115302,7 @@
       "grade": "A",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipshardplus",
+          "mission": "Eckhart Security - Escort Ships (Hard+)",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -115359,7 +115359,7 @@
       "grade": "B",
       "sources": [
         {
-          "mission": "Bp Rewards Eckhartsecurityescortshipsmed",
+          "mission": "Eckhart Security - Escort Ships (Medium)",
           "probability": 20.0,
           "type": "RANDOM"
         }
@@ -115416,7 +115416,7 @@
       "grade": "C",
       "sources": [
         {
-          "mission": "Bp Rewards Stantonheadhunterseasy",
+          "mission": "Headhunters - Stanton (Easy)",
           "probability": 7.7,
           "type": "RANDOM"
         }
@@ -115524,7 +115524,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Redwind",
+          "mission": "Red Wind Courier Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -115581,7 +115581,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Redwind",
+          "mission": "Red Wind Courier Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
@@ -115638,7 +115638,7 @@
       "grade": "",
       "sources": [
         {
-          "mission": "Bp Rewards Redwind",
+          "mission": "Red Wind Courier Run",
           "probability": 16.7,
           "type": "RANDOM"
         }
