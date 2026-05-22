@@ -80587,6 +80587,178 @@
   ],
   "weapons": [
     {
+      "name": "Novian \"Ghostmaker\" Crossbow",
+      "piece_type": "crossbow",
+      "total_cscu": 7.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Savrilium",
+          "raw_ore": "Savrilium Ore",
+          "amount_cscu": 5.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Tensive Fibre",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 210,
+      "output_entity_guid": "aa5b80da-8bb8-4712-9277-e2cb3a052d4c",
+      "blueprint_file": "bp_craft_utfl_crossbow_ballistic_01_tint02.xml",
+      "is_obtainable": true,
+      "weapon_type": "crossbow",
+      "damage_type": "ballistic",
+      "manufacturer": "utfl",
+      "sources": [
+        {
+          "mission": "Full Strike on Station (A)",
+          "probability": 7.1,
+          "type": "RANDOM"
+        }
+      ]
+    },
+    {
+      "name": "Novian \"Nighthunter\" Crossbow",
+      "piece_type": "crossbow",
+      "total_cscu": 7.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Savrilium",
+          "raw_ore": "Savrilium Ore",
+          "amount_cscu": 5.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Tensive Fibre",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 210,
+      "output_entity_guid": "53309dc8-6988-4923-b765-d0846542e27f",
+      "blueprint_file": "bp_craft_utfl_crossbow_ballistic_01_tint01.xml",
+      "is_obtainable": true,
+      "weapon_type": "crossbow",
+      "damage_type": "ballistic",
+      "manufacturer": "utfl",
+      "sources": [
+        {
+          "mission": "Full Strike on Station (A)",
+          "probability": 7.1,
+          "type": "RANDOM"
+        }
+      ]
+    },
+    {
+      "name": "Novian \"Wildshot\" Crossbow",
+      "piece_type": "crossbow",
+      "total_cscu": 7.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Savrilium",
+          "raw_ore": "Savrilium Ore",
+          "amount_cscu": 5.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Tensive Fibre",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 210,
+      "output_entity_guid": "d0e8d997-381b-44fe-a098-3c3ba6293b18",
+      "blueprint_file": "bp_craft_utfl_crossbow_ballistic_01_tint03.xml",
+      "is_obtainable": true,
+      "weapon_type": "crossbow",
+      "damage_type": "ballistic",
+      "manufacturer": "utfl",
+      "sources": [
+        {
+          "mission": "Full Strike on Station (A)",
+          "probability": 7.1,
+          "type": "RANDOM"
+        }
+      ]
+    },
+    {
+      "name": "Novian Crossbow",
+      "piece_type": "crossbow",
+      "total_cscu": 7.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Savrilium",
+          "raw_ore": "Savrilium Ore",
+          "amount_cscu": 5.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Tensive Fibre",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 210,
+      "output_entity_guid": "cb57dee1-c2f2-4328-bd7f-8ff1c8481008",
+      "blueprint_file": "bp_craft_utfl_crossbow_ballistic_01.xml",
+      "is_obtainable": true,
+      "weapon_type": "crossbow",
+      "damage_type": "ballistic",
+      "manufacturer": "utfl",
+      "sources": [
+        {
+          "mission": "Full Strike on Station (A)",
+          "probability": 7.1,
+          "type": "RANDOM"
+        }
+      ]
+    },
+    {
       "name": "Demeco \"Purgatory Camo\" LMG",
       "piece_type": "lmg",
       "total_cscu": 8.0,

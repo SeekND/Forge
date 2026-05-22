@@ -117,7 +117,7 @@ const SLOT_STATS={
 const MINING_LABELS={hand:'Hand',roc:'ROC',ship:'Ship',fps_mission:'Mission',unknown:'?'};
 
 const ROLE_LABELS={combat:'Combat',cosmonaut:'Cosmonaut',engineer:'Engineer',environment:'Environment',salvager:'Salvager',stealth:'Stealth'};
-const WTYPE_LABELS={lmg:'LMG',pistol:'Pistol',rifle:'Rifle',shotgun:'Shotgun',smg:'SMG',sniper:'Sniper'};
+const WTYPE_LABELS={lmg:'LMG',pistol:'Pistol',rifle:'Rifle',shotgun:'Shotgun',smg:'SMG',sniper:'Sniper',crossbow:'Crossbow'};
 const SHIP_WTYPE_LABELS={cannon:'Cannon',repeater:'Repeater',gatling:'Gatling',scatter:'Scatter',massdriver:'Mass Driver',weapon:'Other'};
 const SHIP_CLASS_LABELS={Mil:'Military',Cmp:'Competition',Sth:'Stealth',Civ:'Civilian',Ind:'Industrial'};
 const COMP_LABELS={cooler:'Cooler',powerplant:'Power Plant',shield:'Shield',radar:'Radar',quantumdrive:'Quantum Drive',tractorbeam:'Tractor Beam',mininglaser:'Mining Laser',salvage:'Salvage',refuelling:'Refuelling'};
