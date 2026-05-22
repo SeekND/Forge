@@ -97100,6 +97100,109 @@
   "ship_components": [
     {
       "name": "<= PLACEHOLDER =>",
+      "piece_type": "carryable",
+      "total_cscu": 40.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Aluminium",
+          "raw_ore": "Aluminium Ore",
+          "amount_cscu": 20.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Electronics",
+          "cost_type": "resource",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 20.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 10,
+      "output_entity_guid": "dcec542b-8973-4ad1-99ad-a138f4d61ca5",
+      "blueprint_file": "bp_craft_carryable_2h_fl_missionitem_microsatellite_a.xml",
+      "is_obtainable": true,
+      "component_type": "carryable",
+      "manufacturer": "carryable",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": [
+        {
+          "mission": "Carryable 2H Fl Missionitem Microsatellite A",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Metamaterial Test #146",
+      "piece_type": "carryable",
+      "total_cscu": 400.0,
+      "recipe": [
+        {
+          "slot": "Substrate",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 200.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 900,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Lattice",
+          "cost_type": "resource",
+          "material": "Hadanite",
+          "raw_ore": "Hadanite",
+          "amount_cscu": 200.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 800,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Filament Coating",
+          "cost_type": "item",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "item_name": "Yormandi Eye",
+          "item_quantity": 4,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 70,
+      "output_entity_guid": "905ba346-0202-4ee4-853e-cfdb2350b195",
+      "blueprint_file": "bp_craft_carryable_2h_cy_collectormaterial_001.xml",
+      "is_obtainable": true,
+      "component_type": "carryable",
+      "manufacturer": "carryable",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": [
+        {
+          "mission": "Wikelo Collector Material (Tier 1)",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "<= PLACEHOLDER =>",
       "piece_type": "cooler",
       "total_cscu": 1365.0,
       "recipe": [
