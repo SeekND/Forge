@@ -1,8 +1,8 @@
 {
   "summary": {
-    "total_missions": 45,
-    "guaranteed": 0,
-    "random": 45
+    "total_missions": 116,
+    "guaranteed": 31,
+    "random": 85
   },
   "missions": [
     {
@@ -57,76 +57,109 @@
       ]
     },
     {
+      "name": "ASD - Project Hyperion (Vehicle Gear)",
+      "pool_name": "asd3vgear",
+      "filename": "bp_rewards_asd3vgear.xml",
+      "type": "RANDOM",
+      "reward_count": 3,
+      "rewards": [
+        {
+          "name": "DynaFlux",
+          "filename": "bp_craft_powr_amrs_s01_dynaflux_scitem.xml",
+          "probability": 33.3,
+          "weight": 1
+        },
+        {
+          "name": "Bolide",
+          "filename": "bp_craft_powr_aegs_s02_bolide_scitem.xml",
+          "probability": 33.3,
+          "weight": 1
+        },
+        {
+          "name": "Fulgur",
+          "filename": "bp_craft_powr_aegs_s03_fulgur_scitem.xml",
+          "probability": 33.3,
+          "weight": 1
+        }
+      ]
+    },
+    {
       "name": "ASD - Updated Energy Anomaly Data",
       "pool_name": "asd2a",
       "filename": "bp_missionreward_asd2a.xml",
       "type": "RANDOM",
-      "reward_count": 11,
+      "reward_count": 12,
       "rewards": [
         {
           "name": "Fresnel Energy LMG",
           "filename": "bp_craft_volt_lmg_energy_01.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Zenith Laser Sniper Rifle",
           "filename": "bp_craft_volt_sniper_energy_01.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Geist Armor Arms Forest",
           "filename": "bp_craft_kap_combat_light_arms_01_01_16.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Geist Armor Core Forest",
           "filename": "bp_craft_kap_combat_light_core_01_01_16.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Geist Armor Legs Forest",
           "filename": "bp_craft_kap_combat_light_legs_01_01_16.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Geist Armor Helmet Forest",
           "filename": "bp_craft_kap_combat_light_helmet_01_01_16.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Corbel Arms Mire",
           "filename": "bp_craft_omc_utility_heavy_arms_01_01_16.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Corbel Core Mire",
           "filename": "bp_craft_omc_utility_heavy_core_01_01_16.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Corbel Legs Mire",
           "filename": "bp_craft_omc_utility_heavy_legs_01_01_16.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Corbel Helmet Mire",
           "filename": "bp_craft_omc_utility_heavy_helmet_01_01_16.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Fresnel Energy LMG Battery (165 Cap)",
           "filename": "bp_craft_volt_lmg_energy_01_mag.xml",
-          "probability": 9.1,
+          "probability": 8.3,
+          "weight": 1
+        },
+        {
+          "name": "Novikov Backpack Mire",
+          "filename": "bp_craft_clda_env_heavy_backpack_01_02_16.xml",
+          "probability": 8.3,
           "weight": 1
         }
       ]
@@ -136,90 +169,96 @@
       "pool_name": "asd2d",
       "filename": "bp_missionreward_asd2d.xml",
       "type": "RANDOM",
-      "reward_count": 14,
+      "reward_count": 15,
       "rewards": [
         {
           "name": "Fresnel \"Icebox\" Energy LMG",
           "filename": "bp_craft_volt_lmg_energy_01_tint02.xml",
-          "probability": 7.1,
+          "probability": 6.7,
           "weight": 1
         },
         {
           "name": "Geist Armor Arms Rogue",
           "filename": "bp_craft_kap_combat_light_arms_01_01_02.xml",
-          "probability": 7.1,
+          "probability": 6.7,
           "weight": 1
         },
         {
           "name": "Geist Armor Core Rogue",
           "filename": "bp_craft_kap_combat_light_core_01_01_02.xml",
-          "probability": 7.1,
+          "probability": 6.7,
           "weight": 1
         },
         {
           "name": "Geist Armor Legs Rogue",
           "filename": "bp_craft_kap_combat_light_legs_01_01_02.xml",
-          "probability": 7.1,
+          "probability": 6.7,
           "weight": 1
         },
         {
           "name": "Geist Armor Helmet Rogue",
           "filename": "bp_craft_kap_combat_light_helmet_01_01_02.xml",
-          "probability": 7.1,
+          "probability": 6.7,
           "weight": 1
         },
         {
           "name": "Geist Armor Arms Whiteout",
           "filename": "bp_craft_kap_combat_light_arms_01_01_10.xml",
-          "probability": 7.1,
+          "probability": 6.7,
           "weight": 1
         },
         {
           "name": "Geist Armor Core Whiteout",
           "filename": "bp_craft_kap_combat_light_core_01_01_10.xml",
-          "probability": 7.1,
+          "probability": 6.7,
           "weight": 1
         },
         {
           "name": "Geist Armor Legs Whiteout",
           "filename": "bp_craft_kap_combat_light_legs_01_01_10.xml",
-          "probability": 7.1,
+          "probability": 6.7,
           "weight": 1
         },
         {
           "name": "Geist Armor Helmet Whiteout",
           "filename": "bp_craft_kap_combat_light_helmet_01_01_10.xml",
-          "probability": 7.1,
+          "probability": 6.7,
           "weight": 1
         },
         {
           "name": "Corbel Arms Smolder",
           "filename": "bp_craft_omc_utility_heavy_arms_01_01_01.xml",
-          "probability": 7.1,
+          "probability": 6.7,
           "weight": 1
         },
         {
           "name": "Corbel Core Smolder",
           "filename": "bp_craft_omc_utility_heavy_core_01_01_01.xml",
-          "probability": 7.1,
+          "probability": 6.7,
           "weight": 1
         },
         {
           "name": "Corbel Legs Smolder",
           "filename": "bp_craft_omc_utility_heavy_legs_01_01_01.xml",
-          "probability": 7.1,
+          "probability": 6.7,
           "weight": 1
         },
         {
           "name": "Corbel Helmet Smolder",
           "filename": "bp_craft_omc_utility_heavy_helmet_01_01_01.xml",
-          "probability": 7.1,
+          "probability": 6.7,
           "weight": 1
         },
         {
           "name": "Fresnel Energy LMG Battery (165 Cap)",
           "filename": "bp_craft_volt_lmg_energy_01_mag.xml",
-          "probability": 7.1,
+          "probability": 6.7,
+          "weight": 1
+        },
+        {
+          "name": "Novikov Backpack Smolder",
+          "filename": "bp_craft_clda_env_heavy_backpack_01_02_01.xml",
+          "probability": 6.7,
           "weight": 1
         }
       ]
@@ -229,72 +268,78 @@
       "pool_name": "asd2b",
       "filename": "bp_missionreward_asd2b.xml",
       "type": "RANDOM",
-      "reward_count": 11,
+      "reward_count": 12,
       "rewards": [
         {
           "name": "Fresnel \"Rockfall\" Energy LMG",
           "filename": "bp_craft_volt_lmg_energy_01_tint03.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Zenith \"Landslide\" Laser Sniper Rifle",
           "filename": "bp_craft_volt_sniper_energy_01_tint02.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Geist Armor Arms",
           "filename": "bp_craft_kap_combat_light_arms_01_01_01.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Geist Armor Core",
           "filename": "bp_craft_kap_combat_light_core_01_01_01.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Geist Armor Legs",
           "filename": "bp_craft_kap_combat_light_legs_01_01_01.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Geist Armor Helmet",
           "filename": "bp_craft_kap_combat_light_helmet_01_01_01.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Corbel Arms Patina",
           "filename": "bp_craft_omc_utility_heavy_arms_01_01_17.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Corbel Core Patina",
           "filename": "bp_craft_omc_utility_heavy_core_01_01_17.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Corbel Legs Patina",
           "filename": "bp_craft_omc_utility_heavy_legs_01_01_17.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Corbel Helmet Patina",
           "filename": "bp_craft_omc_utility_heavy_helmet_01_01_17.xml",
-          "probability": 9.1,
+          "probability": 8.3,
           "weight": 1
         },
         {
           "name": "Fresnel Energy LMG Battery (165 Cap)",
           "filename": "bp_craft_volt_lmg_energy_01_mag.xml",
-          "probability": 9.1,
+          "probability": 8.3,
+          "weight": 1
+        },
+        {
+          "name": "Novikov Backpack Patina",
+          "filename": "bp_craft_clda_env_heavy_backpack_01_02_17.xml",
+          "probability": 8.3,
           "weight": 1
         }
       ]
@@ -385,15 +430,54 @@
           "weight": 1
         },
         {
-          "name": "UNKNOWN",
-          "filename": "GUID:00000000...",
+          "name": "Zenith Laser Sniper Rifle Battery (22 Cap)",
+          "filename": "bp_craft_volt_sniper_energy_01_mag.xml",
           "probability": 6.7,
           "weight": 1
         },
         {
-          "name": "Zenith Laser Sniper Rifle Battery (22 Cap)",
-          "filename": "bp_craft_volt_sniper_energy_01_mag.xml",
+          "name": "Novikov Backpack Halcyon",
+          "filename": "bp_craft_clda_env_heavy_backpack_01_02_04.xml",
           "probability": 6.7,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Adagio - Salvager Special Order",
+      "pool_name": "adagioresourcegatheringshipsalvage",
+      "filename": "bp_rewards_adagioresourcegatheringshipsalvage.xml",
+      "type": "RANDOM",
+      "reward_count": 5,
+      "rewards": [
+        {
+          "name": "Trawler Scraper Module",
+          "filename": "bp_craft_salvage_modifier_scraper_large.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Abrade Scraper Module",
+          "filename": "bp_craft_salvage_modifier_scraper_medium.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Cinch Scraper Module",
+          "filename": "bp_craft_salvage_modifier_scraper_salvation_medium.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Cinch Scraper Module",
+          "filename": "bp_craft_salvage_modifier_scraper_salvation_small.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Cinch Scraper Module",
+          "filename": "bp_craft_salvage_modifier_scraper_small.xml",
+          "probability": 20.0,
           "weight": 1
         }
       ]
@@ -475,7 +559,7 @@
           "weight": 1
         },
         {
-          "name": "Palatino Legs Sunstone",
+          "name": "Palatino Legs Daystar",
           "filename": "bp_craft_qrt_utility_heavy_legs_01_01_04.xml",
           "probability": 12.5,
           "weight": 1
@@ -754,6 +838,78 @@
           "name": "Lumin V SMG Battery (45 cap)",
           "filename": "bp_craft_klwe_smg_energy_01_mag.xml",
           "probability": 11.1,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Bombing Run",
+      "pool_name": "bombingrun",
+      "filename": "bp_rewards_bombingrun.xml",
+      "type": "RANDOM",
+      "reward_count": 6,
+      "rewards": [
+        {
+          "name": "Deadbolt IV Cannon",
+          "filename": "bp_craft_espr_ballisticcannon_s4.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Deadbolt V Cannon",
+          "filename": "bp_craft_espr_ballisticcannon_s5.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Deadbolt VI Cannon",
+          "filename": "bp_craft_espr_ballisticcannon_s6.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Polar",
+          "filename": "bp_craft_cool_aegs_s01_polar_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Permafrost",
+          "filename": "bp_craft_cool_aegs_s02_permafrost_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Tempest",
+          "filename": "bp_craft_cool_aegs_s03_tempest_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Bombing Run (Bonus)",
+      "pool_name": "bombingrunb",
+      "filename": "bp_rewards_bombingrunb.xml",
+      "type": "RANDOM",
+      "reward_count": 3,
+      "rewards": [
+        {
+          "name": "Tailwind Flight Suit",
+          "filename": "bp_craft_vgl_flightsuit_01_01_01.xml",
+          "probability": 33.3,
+          "weight": 1
+        },
+        {
+          "name": "Tailwind Flight Helmet Big Bite",
+          "filename": "bp_craft_vgl_flightsuit_helmet_01_03_01.xml",
+          "probability": 33.3,
+          "weight": 1
+        },
+        {
+          "name": "Tailwind Flight Helmet Adrenaline",
+          "filename": "bp_craft_vgl_flightsuit_helmet_01_06_01.xml",
+          "probability": 33.3,
           "weight": 1
         }
       ]
@@ -1239,6 +1395,492 @@
       ]
     },
     {
+      "name": "Carryable 2H Fl Missionitem Microsatellite A",
+      "pool_name": "carryable_2h_fl_missionitem_microsatellite_a",
+      "filename": "bp_missionreward_carryable_2h_fl_missionitem_microsatellite_a.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "<= PLACEHOLDER =>",
+          "filename": "bp_craft_carryable_2h_fl_missionitem_microsatellite_a.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Covalex - Distribution Center",
+      "pool_name": "covalexsuper",
+      "filename": "bp_rewards_covalexsuper.xml",
+      "type": "RANDOM",
+      "reward_count": 9,
+      "rewards": [
+        {
+          "name": "VK-00",
+          "filename": "bp_craft_qdrv_wetk_s01_vk00_scitem.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "Siren",
+          "filename": "bp_craft_qdrv_wetk_s01_siren_scitem.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "XL-1",
+          "filename": "bp_craft_qdrv_wetk_s02_xl1_scitem.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "Yeager",
+          "filename": "bp_craft_qdrv_wetk_s02_yeager_scitem.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "Balandin",
+          "filename": "bp_craft_qdrv_wetk_s03_balandin_scitem.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "TS-2",
+          "filename": "bp_craft_qdrv_wetk_s03_ts2_scitem.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "Palisade",
+          "filename": "bp_craft_shld_basl_s01_palisade_scitem.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "Rampart",
+          "filename": "bp_craft_shld_basl_s02_rampart_scitem.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "Parapet",
+          "filename": "bp_craft_shld_basl_s03_parapet_scitem.xml",
+          "probability": 11.1,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Eckhart - Assist Ship in Combat (A)",
+      "pool_name": "assistshipincombata",
+      "filename": "bp_rewards_assistshipincombata.xml",
+      "type": "RANDOM",
+      "reward_count": 6,
+      "rewards": [
+        {
+          "name": "Deadbolt I Cannon",
+          "filename": "bp_craft_espr_ballisticcannon_s1.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Deadbolt II Cannon",
+          "filename": "bp_craft_espr_ballisticcannon_s2.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Deadbolt III Cannon",
+          "filename": "bp_craft_espr_ballisticcannon_s3.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "ForceWall",
+          "filename": "bp_craft_shld_godi_s01_forcewall_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "CoverAll",
+          "filename": "bp_craft_shld_godi_s02_coverall_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "FullBlock",
+          "filename": "bp_craft_shld_godi_s03_fullblock_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Eckhart - Assist Ship in Combat (B)",
+      "pool_name": "assistshipincombatb",
+      "filename": "bp_rewards_assistshipincombatb.xml",
+      "type": "RANDOM",
+      "reward_count": 3,
+      "rewards": [
+        {
+          "name": "Tailwind Flight Suit",
+          "filename": "bp_craft_vgl_flightsuit_01_01_01.xml",
+          "probability": 33.3,
+          "weight": 1
+        },
+        {
+          "name": "Tailwind Flight Helmet Green Streak",
+          "filename": "bp_craft_vgl_flightsuit_helmet_01_09_01.xml",
+          "probability": 33.3,
+          "weight": 1
+        },
+        {
+          "name": "Tailwind Flight Helmet Blackbolt",
+          "filename": "bp_craft_vgl_flightsuit_helmet_01_04_01.xml",
+          "probability": 33.3,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Eckhart Security - Eliminate Boss",
+      "pool_name": "eckhartsecuritykillnpcboss",
+      "filename": "bp_rewards_eckhartsecuritykillnpcboss.xml",
+      "type": "RANDOM",
+      "reward_count": 7,
+      "rewards": [
+        {
+          "name": "Fierell Cascade",
+          "filename": "bp_craft_powr_aegs_s01_fierellcascade_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "UltraFlux",
+          "filename": "bp_craft_powr_amrs_s02_ultraflux_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "MegaFlux",
+          "filename": "bp_craft_powr_amrs_s03_megaflux_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "C-788 Cannon",
+          "filename": "bp_craft_behr_ballisticcannon_s4.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Tigerstrike T-19P",
+          "filename": "bp_craft_krig_ballisticgatling_s2.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Revenant Gatling",
+          "filename": "bp_craft_apar_ballisticgatling_s4.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Draugar Gatling",
+          "filename": "bp_craft_apar_ballisticgatling_s6.xml",
+          "probability": 14.3,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Eckhart Security - Escort Ships (Easy)",
+      "pool_name": "eckhartsecurityescortshipseasy",
+      "filename": "bp_rewards_eckhartsecurityescortshipseasy.xml",
+      "type": "RANDOM",
+      "reward_count": 5,
+      "rewards": [
+        {
+          "name": "Shimmer",
+          "filename": "bp_craft_shld_asas_s01_shimmer_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Obscura",
+          "filename": "bp_craft_shld_asas_s02_obscura_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "M3A Cannon",
+          "filename": "bp_craft_behr_lasercannon_s1.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "M4A Cannon",
+          "filename": "bp_craft_behr_lasercannon_s2.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "M5A Cannon",
+          "filename": "bp_craft_behr_lasercannon_s3.xml",
+          "probability": 20.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Eckhart Security - Escort Ships (Hard+)",
+      "pool_name": "eckhartsecurityescortshipshardplus",
+      "filename": "bp_rewards_eckhartsecurityescortshipshardplus.xml",
+      "type": "RANDOM",
+      "reward_count": 6,
+      "rewards": [
+        {
+          "name": "Havoc Scattergun",
+          "filename": "bp_craft_apar_ballisticscattergun_s1.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Hellion Scattergun",
+          "filename": "bp_craft_apar_ballisticscattergun_s2.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Predator Scattergun",
+          "filename": "bp_craft_apar_ballisticscattergun_s3.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Mirage",
+          "filename": "bp_craft_shld_asas_s01_mirage_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Umbra",
+          "filename": "bp_craft_shld_asas_s02_umbra_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Quarreler Cannon",
+          "filename": "bp_craft_krig_lasercannon_s3.xml",
+          "probability": 16.7,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Eckhart Security - Escort Ships (Medium)",
+      "pool_name": "eckhartsecurityescortshipsmed",
+      "filename": "bp_rewards_eckhartsecurityescortshipsmed.xml",
+      "type": "RANDOM",
+      "reward_count": 5,
+      "rewards": [
+        {
+          "name": "Veil",
+          "filename": "bp_craft_shld_asas_s01_veil_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Sheut",
+          "filename": "bp_craft_shld_asas_s02_sheut_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Suckerpunch Cannon",
+          "filename": "bp_craft_jokr_distortioncannon_s1.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Suckerpunch-L Cannon",
+          "filename": "bp_craft_jokr_distortioncannon_s2.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Suckerpunch-XL Cannon",
+          "filename": "bp_craft_jokr_distortioncannon_s3.xml",
+          "probability": 20.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Eckhart Security - Ship Ambush (Easy)",
+      "pool_name": "eckhartsecurityshipambusheasy",
+      "filename": "bp_rewards_eckhartsecurityshipambusheasy.xml",
+      "type": "RANDOM",
+      "reward_count": 5,
+      "rewards": [
+        {
+          "name": "SonicLite",
+          "filename": "bp_craft_powr_tydt_s01_soniclite_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Cirrus",
+          "filename": "bp_craft_powr_tydt_s02_cirrus_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Lightstrike I Cannon",
+          "filename": "bp_craft_espr_lasercannon_s1.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Lightstrike II Cannon",
+          "filename": "bp_craft_espr_lasercannon_s2.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Lightstrike III Cannon",
+          "filename": "bp_craft_espr_lasercannon_s3.xml",
+          "probability": 20.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Eckhart Security - Ship Ambush (Hard+)",
+      "pool_name": "eckhartsecurityshipambushhardplus",
+      "filename": "bp_rewards_eckhartsecurityshipambushhardplus.xml",
+      "type": "RANDOM",
+      "reward_count": 5,
+      "rewards": [
+        {
+          "name": "Slipstream",
+          "filename": "bp_craft_powr_tydt_s01_slipstream_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Eclipse",
+          "filename": "bp_craft_powr_tydt_s02_eclipse_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Lightstrike IV Cannon",
+          "filename": "bp_craft_espr_lasercannon_s4.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Lightstrike V Cannon",
+          "filename": "bp_craft_espr_lasercannon_s5.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Lightstrike VI Cannon",
+          "filename": "bp_craft_espr_lasercannon_s6.xml",
+          "probability": 20.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Eckhart Security - Ship Ambush (Medium)",
+      "pool_name": "eckhartsecurityshipambushmed",
+      "filename": "bp_rewards_eckhartsecurityshipambushmed.xml",
+      "type": "RANDOM",
+      "reward_count": 5,
+      "rewards": [
+        {
+          "name": "DeltaMax",
+          "filename": "bp_craft_powr_tydt_s01_deltamax_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "GammaMax",
+          "filename": "bp_craft_powr_tydt_s02_gammamax_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "FL-11 Cannon",
+          "filename": "bp_craft_kron_lasercannon_s1.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "FL-22 Cannon",
+          "filename": "bp_craft_kron_lasercannon_s2.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "FL-33 Cannon",
+          "filename": "bp_craft_kron_lasercannon_s3.xml",
+          "probability": 20.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "FTL Courier Run",
+      "pool_name": "ftl",
+      "filename": "bp_rewards_ftl.xml",
+      "type": "RANDOM",
+      "reward_count": 6,
+      "rewards": [
+        {
+          "name": "Colossus",
+          "filename": "bp_craft_qdrv_just_s01_colossus_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Huracan",
+          "filename": "bp_craft_qdrv_just_s02_huracan_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Agni",
+          "filename": "bp_craft_qdrv_just_s03_agni_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Defiant",
+          "filename": "bp_craft_powr_just_s00_defiant_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Defiant",
+          "filename": "bp_craft_powr_just_s01_endurance_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Sedulity",
+          "filename": "bp_craft_powr_just_s02_sedulity_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        }
+      ]
+    },
+    {
       "name": "Foxwell - Ambush",
       "pool_name": "foxwellenforcement_ambush",
       "filename": "bp_missionreward_foxwellenforcement_ambush.xml",
@@ -1270,7 +1912,7 @@
           "weight": 1
         },
         {
-          "name": "Antium Helmet Jet",
+          "name": "Antium Core Jet",
           "filename": "bp_craft_qrt_specialist_heavy_helmet_01_01_12.xml",
           "probability": 16.7,
           "weight": 1
@@ -1381,7 +2023,7 @@
       "reward_count": 8,
       "rewards": [
         {
-          "name": "Antium Arms Maroon",
+          "name": "Antium Helmet Jet",
           "filename": "bp_craft_qrt_specialist_heavy_arms_01_01_13.xml",
           "probability": 12.5,
           "weight": 1
@@ -1431,6 +2073,162 @@
       ]
     },
     {
+      "name": "Foxwell - Nyx (Easy)",
+      "pool_name": "nyxfoxwelleasy",
+      "filename": "bp_rewards_nyxfoxwelleasy.xml",
+      "type": "RANDOM",
+      "reward_count": 16,
+      "rewards": [
+        {
+          "name": "Frost-Star SL",
+          "filename": "bp_craft_cool_jspn_s00_froststarsl_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "Fridan",
+          "filename": "bp_craft_cool_wcpr_s00_fridan_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "Tepilo",
+          "filename": "bp_craft_cool_wcpr_s00_tepilo_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "Frost-Star",
+          "filename": "bp_craft_cool_jspn_s01_froststar_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "ArcticStorm",
+          "filename": "bp_craft_cool_lplt_s01_arcticstorm_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "Berian",
+          "filename": "bp_craft_cool_wcpr_s01_berian_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "Gelid",
+          "filename": "bp_craft_cool_wcpr_s01_gelid_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "Frost-Star EX",
+          "filename": "bp_craft_cool_jspn_s02_froststarex_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "ColdSnap",
+          "filename": "bp_craft_cool_lplt_s02_coldsnap_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "Aufeis",
+          "filename": "bp_craft_cool_wcpr_s02_aufeis_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "Graupel",
+          "filename": "bp_craft_cool_wcpr_s02_graupel_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "Frost-Star XL",
+          "filename": "bp_craft_cool_jspn_s03_froststarxl_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "FrostBurn",
+          "filename": "bp_craft_cool_lplt_s03_frostburn_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "Draug",
+          "filename": "bp_craft_cool_wcpr_s03_draug_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "Elsen",
+          "filename": "bp_craft_cool_wcpr_s03_elsen_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        },
+        {
+          "name": "Kragen",
+          "filename": "bp_craft_cool_wcpr_s03_kragen_scitem.xml",
+          "probability": 6.2,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Foxwell - Nyx (Hard)",
+      "pool_name": "nyxfoxwellhard",
+      "filename": "bp_rewards_nyxfoxwellhard.xml",
+      "type": "RANDOM",
+      "reward_count": 7,
+      "rewards": [
+        {
+          "name": "CF-117 Bulldog Repeater",
+          "filename": "bp_craft_klwe_laserrepeater_s1.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "CF-227 Badger Repeater",
+          "filename": "bp_craft_klwe_laserrepeater_s2.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "CF-337 Panther Repeater",
+          "filename": "bp_craft_klwe_laserrepeater_s3.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "CF-447 Rhino Repeater",
+          "filename": "bp_craft_klwe_laserrepeater_s4.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "CF-557 Galdereen Repeater",
+          "filename": "bp_craft_klwe_laserrepeater_s5.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "CF-667 Mammoth Repeater",
+          "filename": "bp_craft_klwe_laserrepeater_s6.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "V60-26",
+          "filename": "bp_craft_radr_grnp_s00_v6026.xml",
+          "probability": 14.3,
+          "weight": 1
+        }
+      ]
+    },
+    {
       "name": "Foxwell - Patrol",
       "pool_name": "foxwellenforcement_patrol",
       "filename": "bp_missionreward_foxwellenforcement_patrol.xml",
@@ -1471,6 +2269,396 @@
           "name": "Parallax Rifle Battery (80 Cap)",
           "filename": "bp_craft_volt_rifle_energy_01_mag.xml",
           "probability": 16.7,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Foxwell - Pyro (Easy)",
+      "pool_name": "pyrofoxwelleasy",
+      "filename": "bp_rewards_pyrofoxwelleasy.xml",
+      "type": "RANDOM",
+      "reward_count": 14,
+      "rewards": [
+        {
+          "name": "IonWave",
+          "filename": "bp_craft_powr_lplt_s00_ionwave_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "Radix",
+          "filename": "bp_craft_powr_lplt_s00_radix_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "IonBurst",
+          "filename": "bp_craft_powr_lplt_s01_ionburst_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "PowerBolt",
+          "filename": "bp_craft_powr_lplt_s01_powerbolt_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "LightBlossom",
+          "filename": "bp_craft_powr_sasu_s01_lightblossom_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "MagnaBloom",
+          "filename": "bp_craft_powr_sasu_s01_magnabloom_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "FullForce",
+          "filename": "bp_craft_powr_lplt_s02_fullforce_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "IonSurge",
+          "filename": "bp_craft_powr_lplt_s02_ionsurge_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "FullForce",
+          "filename": "bp_craft_powr_sasu_s02_daybreak_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "Radiance",
+          "filename": "bp_craft_powr_sasu_s02_radiance_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "FullForce Pro",
+          "filename": "bp_craft_powr_lplt_s03_fullforcepro_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "IonSurge Pro",
+          "filename": "bp_craft_powr_lplt_s03_ionsurgepro_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "Celestial",
+          "filename": "bp_craft_powr_sasu_s03_celestial_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "NewDawn",
+          "filename": "bp_craft_powr_sasu_s03_newdawn_scitem.xml",
+          "probability": 7.1,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Foxwell - Pyro (Hard)",
+      "pool_name": "pyrofoxwellhard",
+      "filename": "bp_rewards_pyrofoxwellhard.xml",
+      "type": "RANDOM",
+      "reward_count": 6,
+      "rewards": [
+        {
+          "name": "Glacier",
+          "filename": "bp_craft_cool_aegs_s01_glacier_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Avalanche",
+          "filename": "bp_craft_cool_aegs_s02_avalanche_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Blizzard",
+          "filename": "bp_craft_cool_aegs_s03_blizzard_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "DR Model-XJ1 Repeater",
+          "filename": "bp_craft_asad_distortionrepeater_s1.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "DR Model-XJ2 Repeater",
+          "filename": "bp_craft_asad_distortionrepeater_s2.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "DR Model-XJ3 Repeater",
+          "filename": "bp_craft_asad_distortionrepeater_s3.xml",
+          "probability": 16.7,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Foxwell - Stanton (Easy)",
+      "pool_name": "stantonfoxwelleasy",
+      "filename": "bp_rewards_stantonfoxwelleasy.xml",
+      "type": "RANDOM",
+      "reward_count": 6,
+      "rewards": [
+        {
+          "name": "7SA 'Concord'",
+          "filename": "bp_craft_shld_behr_s01_7sa_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "INK",
+          "filename": "bp_craft_shld_seco_s01_ink_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "7MA 'Lorica'",
+          "filename": "bp_craft_shld_behr_s02_7ma_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "RPEL",
+          "filename": "bp_craft_shld_seco_s02_rpel_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "7CA 'Nargun'",
+          "filename": "bp_craft_shld_behr_s03_7ca_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "HAVEN",
+          "filename": "bp_craft_shld_seco_s03_haven_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Foxwell - Stanton (Hard)",
+      "pool_name": "stantonfoxwellhard",
+      "filename": "bp_rewards_stantonfoxwellhard.xml",
+      "type": "RANDOM",
+      "reward_count": 6,
+      "rewards": [
+        {
+          "name": "Attrition-4 Repeater",
+          "filename": "bp_craft_hrst_laserrepeater_s4.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Attrition-5 Repeater",
+          "filename": "bp_craft_hrst_laserrepeater_s5.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Attrition-6 Repeater",
+          "filename": "bp_craft_hrst_laserrepeater_s6.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "FR-86",
+          "filename": "bp_craft_shld_godi_s03_fr86_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Sens",
+          "filename": "bp_craft_radr_grnp_s00_sens.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Tige",
+          "filename": "bp_craft_radr_grnp_s01_tige.xml",
+          "probability": 16.7,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Full Strike on Station (A)",
+      "pool_name": "fullstrikeonstationa",
+      "filename": "bp_rewards_fullstrikeonstationa.xml",
+      "type": "RANDOM",
+      "reward_count": 14,
+      "rewards": [
+        {
+          "name": "WhiteHot Racing Flight Suit",
+          "filename": "bp_craft_mrai_flightsuit_01_07_02.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "BlackFire Racing Flight Suit",
+          "filename": "bp_craft_mrai_flightsuit_01_07_12.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "BlueFlame Racing Flight Suit",
+          "filename": "bp_craft_mrai_flightsuit_01_07_18.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "WhiteHot Racing Helmet",
+          "filename": "bp_craft_mrai_flightsuit_helmet_01_07_02.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "BlackFire Racing Helmet",
+          "filename": "bp_craft_mrai_flightsuit_helmet_01_07_12.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "BlueFlame Racing Helmet",
+          "filename": "bp_craft_mrai_flightsuit_helmet_01_07_18.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "Novian Crossbow",
+          "filename": "bp_craft_utfl_crossbow_ballistic_01.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "Novian \"Nighthunter\" Crossbow",
+          "filename": "bp_craft_utfl_crossbow_ballistic_01_tint01.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "Novian \"Ghostmaker\" Crossbow",
+          "filename": "bp_craft_utfl_crossbow_ballistic_01_tint02.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "Novian \"Wildshot\" Crossbow",
+          "filename": "bp_craft_utfl_crossbow_ballistic_01_tint03.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "Tailwind Flight Helmet Thunderstruck",
+          "filename": "bp_craft_vgl_flightsuit_helmet_01_05_01.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "Tailwind Flight Helmet Frostshock",
+          "filename": "bp_craft_vgl_flightsuit_helmet_01_08_01.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "Tailwind Flight Helmet Blue Skies",
+          "filename": "bp_craft_vgl_flightsuit_helmet_01_07_01.xml",
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "Tailwind Flight Helmet Airwolf",
+          "filename": "bp_craft_vgl_flightsuit_helmet_01_10_01.xml",
+          "probability": 7.1,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Full Strike on Station (B)",
+      "pool_name": "fullstrikeonstationb",
+      "filename": "bp_rewards_fullstrikeonstationb.xml",
+      "type": "RANDOM",
+      "reward_count": 10,
+      "rewards": [
+        {
+          "name": "Omnisky III Cannon",
+          "filename": "bp_craft_amrs_lasercannon_s1.xml",
+          "probability": 10.0,
+          "weight": 1
+        },
+        {
+          "name": "Omnisky VI Cannon",
+          "filename": "bp_craft_amrs_lasercannon_s2.xml",
+          "probability": 10.0,
+          "weight": 1
+        },
+        {
+          "name": "Omnisky IX Cannon",
+          "filename": "bp_craft_amrs_lasercannon_s3.xml",
+          "probability": 10.0,
+          "weight": 1
+        },
+        {
+          "name": "Omnisky XII Cannon",
+          "filename": "bp_craft_amrs_lasercannon_s4.xml",
+          "probability": 10.0,
+          "weight": 1
+        },
+        {
+          "name": "Omnisky XV Cannon",
+          "filename": "bp_craft_amrs_lasercannon_s5.xml",
+          "probability": 10.0,
+          "weight": 1
+        },
+        {
+          "name": "Omnisky XVIII Cannon",
+          "filename": "bp_craft_amrs_lasercannon_s6.xml",
+          "probability": 10.0,
+          "weight": 1
+        },
+        {
+          "name": "JS-300",
+          "filename": "bp_craft_powr_amrs_s01_js300_scitem.xml",
+          "probability": 10.0,
+          "weight": 1
+        },
+        {
+          "name": "JS-400",
+          "filename": "bp_craft_powr_amrs_s02_js400_scitem.xml",
+          "probability": 10.0,
+          "weight": 1
+        },
+        {
+          "name": "QuadraCell MX",
+          "filename": "bp_craft_powr_aegs_s03_quadracellmx_scitem.xml",
+          "probability": 10.0,
+          "weight": 1
+        },
+        {
+          "name": "QuadraCell MX",
+          "filename": "bp_craft_powr_amrs_s03_js500_scitem.xml",
+          "probability": 10.0,
           "weight": 1
         }
       ]
@@ -1773,46 +2961,622 @@
       ]
     },
     {
-      "name": "InterSec - Defend Ship",
-      "pool_name": "intersec_defendship",
-      "filename": "bp_missionreward_intersec_defendship.xml",
+      "name": "Headhunters - Mercenary Ship (Region A)",
+      "pool_name": "headhuntersmercenaryshipregiona",
+      "filename": "bp_rewards_headhuntersmercenaryshipregiona.xml",
+      "type": "RANDOM",
+      "reward_count": 7,
+      "rewards": [
+        {
+          "name": "9-Series Longsword Cannon",
+          "filename": "bp_craft_kbar_ballisticcannon_s1.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "10-Series Greatsword Cannon",
+          "filename": "bp_craft_kbar_ballisticcannon_s2.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "11-Series Broadsword Cannon",
+          "filename": "bp_craft_kbar_ballisticcannon_s3.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Sledge I Mass Driver Cannon",
+          "filename": "bp_craft_klwe_massdriver_s1.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Strife Mass Driver Cannon",
+          "filename": "bp_craft_apar_massdriver_s2.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Sledge II Mass Driver Cannon",
+          "filename": "bp_craft_klwe_massdriver_s2.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Sledge III Mass Driver Cannon",
+          "filename": "bp_craft_klwe_massdriver_s3.xml",
+          "probability": 14.3,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Headhunters - Mercenary Ship (Region B)",
+      "pool_name": "headhuntersmercenaryshipregionb",
+      "filename": "bp_rewards_headhuntersmercenaryshipregionb.xml",
+      "type": "RANDOM",
+      "reward_count": 5,
+      "rewards": [
+        {
+          "name": "HeatSafe",
+          "filename": "bp_craft_cool_tydt_s01_heatsafe_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Cryo-Star SL",
+          "filename": "bp_craft_cool_tydt_s02_heatsink_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Dominance-1 Scattergun",
+          "filename": "bp_craft_hrst_laserscattergun_s1.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "UNKNOWN",
+          "filename": "GUID:9138f384...",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Dominance-3 Scattergun",
+          "filename": "bp_craft_hrst_laserscattergun_s3.xml",
+          "probability": 20.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Headhunters - Mercenary Ship (Region C)",
+      "pool_name": "headhuntersmercenaryshipregionc",
+      "filename": "bp_rewards_headhuntersmercenaryshipregionc.xml",
+      "type": "RANDOM",
+      "reward_count": 5,
+      "rewards": [
+        {
+          "name": "VaporBlock",
+          "filename": "bp_craft_cool_tydt_s01_vaporblock_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "Cryo-Star SL",
+          "filename": "bp_craft_cool_tydt_s02_icebox_scitem.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "NN-13 Cannon",
+          "filename": "bp_craft_mxox_neutroncannon_s1.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "NN-14 Cannon",
+          "filename": "bp_craft_mxox_neutroncannon_s2.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "NN-15 Cannon",
+          "filename": "bp_craft_mxox_neutroncannon_s3.xml",
+          "probability": 20.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Headhunters - Mercenary Ship (Region D)",
+      "pool_name": "headhuntersmercenaryshipregiond",
+      "filename": "bp_rewards_headhuntersmercenaryshipregiond.xml",
+      "type": "RANDOM",
+      "reward_count": 8,
+      "rewards": [
+        {
+          "name": "SnowBlind",
+          "filename": "bp_craft_cool_tydt_s01_snowblind_scitem.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Cryo-Star SL",
+          "filename": "bp_craft_cool_tydt_s02_nightfall_scitem.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "M6A Cannon",
+          "filename": "bp_craft_behr_lasercannon_s4.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "M7A Cannon",
+          "filename": "bp_craft_behr_lasercannon_s5.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "M8A Cannon",
+          "filename": "bp_craft_behr_lasercannon_s6.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Singe Cannon (S1)",
+          "filename": "bp_craft_banu_tachyoncannon_s1.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Singe Cannon (S2)",
+          "filename": "bp_craft_banu_tachyoncannon_s2.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Singe Cannon (S3)",
+          "filename": "bp_craft_banu_tachyoncannon_s3.xml",
+          "probability": 12.5,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Headhunters - Nyx (Easy)",
+      "pool_name": "nyxheadhunterseasy",
+      "filename": "bp_rewards_nyxheadhunterseasy.xml",
+      "type": "RANDOM",
+      "reward_count": 17,
+      "rewards": [
+        {
+          "name": "Cryo-Star SL",
+          "filename": "bp_craft_cool_jspn_s00_cryostarsl_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "Winter-Star SL",
+          "filename": "bp_craft_cool_jspn_s00_winterstarsl_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "Kelvid",
+          "filename": "bp_craft_cool_wcpr_s00_kelvid_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "Cryo-Star",
+          "filename": "bp_craft_cool_jspn_s01_cryostar_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "Winter-Star",
+          "filename": "bp_craft_cool_jspn_s01_winterstar_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "BlastChill",
+          "filename": "bp_craft_cool_lplt_s01_blastchill_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "FlashFreeze",
+          "filename": "bp_craft_cool_lplt_s01_flashfreeze_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "Endo",
+          "filename": "bp_craft_cool_wcpr_s01_endo_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "Cryo-Star EX",
+          "filename": "bp_craft_cool_jspn_s02_cryostarex_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "Winter-Star EX",
+          "filename": "bp_craft_cool_jspn_s02_winterstarex_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "FullFrost",
+          "filename": "bp_craft_cool_lplt_s02_fullfrost_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "WhiteOut",
+          "filename": "bp_craft_cool_lplt_s02_whiteout_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "Taiga",
+          "filename": "bp_craft_cool_wcpr_s02_taiga_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "Cryo-Star XL",
+          "filename": "bp_craft_cool_jspn_s03_cryostarxl_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "Winter-Star XL",
+          "filename": "bp_craft_cool_jspn_s03_winterstarxl_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "ColdSurge",
+          "filename": "bp_craft_cool_lplt_s03_coldsurge_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        },
+        {
+          "name": "FrostBite",
+          "filename": "bp_craft_cool_lplt_s03_frostbite_scitem.xml",
+          "probability": 5.9,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Headhunters - Nyx (Hard)",
+      "pool_name": "nyxheadhuntershard",
+      "filename": "bp_rewards_nyxheadhuntershard.xml",
+      "type": "RANDOM",
+      "reward_count": 7,
+      "rewards": [
+        {
+          "name": "Tarantula GT-870 Mark 1 Cannon",
+          "filename": "bp_craft_gats_ballisticcannon_s1.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Tarantula GT-870 Mark 2 Cannon",
+          "filename": "bp_craft_gats_ballisticcannon_s2.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Tarantula GT-870 Mark 3 Cannon",
+          "filename": "bp_craft_gats_ballisticcannon_s3.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "YellowJacket GT-210 Gatling",
+          "filename": "bp_craft_gats_ballisticgatling_s1.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Scorpion GT-215 Gatling",
+          "filename": "bp_craft_gats_ballisticgatling_s2.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Mantis GT-220 Gatling",
+          "filename": "bp_craft_gats_ballisticgatling_s3.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "V880",
+          "filename": "bp_craft_radr_grnp_s03_v880.xml",
+          "probability": 14.3,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Headhunters - Pyro (Easy)",
+      "pool_name": "pyroheadhunterseasy",
+      "filename": "bp_rewards_pyroheadhunterseasy.xml",
+      "type": "RANDOM",
+      "reward_count": 7,
+      "rewards": [
+        {
+          "name": "DuraJet",
+          "filename": "bp_craft_powr_lplt_s00_durajet_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "ZapJet",
+          "filename": "bp_craft_powr_lplt_s01_zapjet_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Defiant",
+          "filename": "bp_craft_powr_sasu_s01_whiterose_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "SparkJet",
+          "filename": "bp_craft_powr_lplt_s02_sparkjet_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Lotus",
+          "filename": "bp_craft_powr_sasu_s02_lotus_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "SparkJet Pro",
+          "filename": "bp_craft_powr_lplt_s03_sparkjetpro_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "TigerLilly",
+          "filename": "bp_craft_powr_sasu_s03_tigerlilly_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Headhunters - Pyro (Hard)",
+      "pool_name": "pyroheadhuntershard",
+      "filename": "bp_rewards_pyroheadhuntershard.xml",
+      "type": "RANDOM",
+      "reward_count": 5,
+      "rewards": [
+        {
+          "name": "AD4B Ballistic Gatling",
+          "filename": "bp_craft_behr_ballisticgatling_s4.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "AD5B Ballistic Gatling",
+          "filename": "bp_craft_behr_ballisticgatling_s5.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "AD6B Ballistic Gatling",
+          "filename": "bp_craft_behr_ballisticgatling_s6.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "V801-11",
+          "filename": "bp_craft_radr_grnp_s01_v80111.xml",
+          "probability": 20.0,
+          "weight": 1
+        },
+        {
+          "name": "V801-12",
+          "filename": "bp_craft_radr_grnp_s02_vb80112.xml",
+          "probability": 20.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Headhunters - Stanton (Easy)",
+      "pool_name": "stantonheadhunterseasy",
+      "filename": "bp_rewards_stantonheadhunterseasy.xml",
+      "type": "RANDOM",
+      "reward_count": 13,
+      "rewards": [
+        {
+          "name": "PIN",
+          "filename": "bp_craft_shld_seco_s00_pin_scitem.xml",
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "5SA 'Rhada'",
+          "filename": "bp_craft_shld_behr_s01_5sa_scitem.xml",
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "6SA 'Arbiter'",
+          "filename": "bp_craft_shld_behr_s01_6sa_scitem.xml",
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "HEX",
+          "filename": "bp_craft_shld_seco_s01_hex_scitem.xml",
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "WEB",
+          "filename": "bp_craft_shld_seco_s01_web_scitem.xml",
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "5MA 'Chimalli'",
+          "filename": "bp_craft_shld_behr_s02_5ma_scitem.xml",
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "6MA 'Kozane'",
+          "filename": "bp_craft_shld_behr_s02_6ma_scitem.xml",
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "BLOC",
+          "filename": "bp_craft_shld_seco_s02_bloc_scitem.xml",
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "STOP",
+          "filename": "bp_craft_shld_seco_s02_stop_scitem.xml",
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "5CA 'Akura'",
+          "filename": "bp_craft_shld_behr_s03_5ca_scitem.xml",
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "6CA 'Bila'",
+          "filename": "bp_craft_shld_behr_s03_6ca_scitem.xml",
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "6CA 'Bila'",
+          "filename": "bp_craft_shld_seco_s03_armor_scitem.xml",
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "GUARD",
+          "filename": "bp_craft_shld_seco_s03_guard_scitem.xml",
+          "probability": 7.7,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Headhunters - Stanton (Hard)",
+      "pool_name": "stantonheadhuntershard",
+      "filename": "bp_rewards_stantonheadhuntershard.xml",
       "type": "RANDOM",
       "reward_count": 6,
       "rewards": [
         {
+          "name": "SW16BR1 “Buzzsaw” Repeater",
+          "filename": "bp_craft_behr_ballisticrepeater_s1.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "SW16BR2 “Sawbuck” Repeater",
+          "filename": "bp_craft_behr_ballisticrepeater_s2.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "SW16BR3 “Shredder” Repeater",
+          "filename": "bp_craft_behr_ballisticrepeater_s3.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Vigilance",
+          "filename": "bp_craft_radr_grnp_s02_vigilance.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Devoue",
+          "filename": "bp_craft_radr_grnp_s03_devoue.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Tige",
+          "filename": "bp_craft_radr_grnp_s01_tige.xml",
+          "probability": 16.7,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "InterSec - Defend Ship",
+      "pool_name": "intersec_defendship",
+      "filename": "bp_missionreward_intersec_defendship.xml",
+      "type": "RANDOM",
+      "reward_count": 7,
+      "rewards": [
+        {
           "name": "Pulse \"Rouge\" Pistol",
           "filename": "bp_craft_volt_pistol_energy_01_tint02.xml",
-          "probability": 16.7,
+          "probability": 14.3,
           "weight": 1
         },
         {
           "name": "Testudo Arms Combustion",
           "filename": "bp_craft_qrt_combat_medium_arms_01_01_02.xml",
-          "probability": 16.7,
+          "probability": 14.3,
           "weight": 1
         },
         {
           "name": "Testudo Core Combustion",
           "filename": "bp_craft_qrt_combat_medium_core_01_01_02.xml",
-          "probability": 16.7,
+          "probability": 14.3,
           "weight": 1
         },
         {
           "name": "Testudo Legs Combustion",
           "filename": "bp_craft_qrt_combat_medium_legs_01_01_02.xml",
-          "probability": 16.7,
+          "probability": 14.3,
           "weight": 1
         },
         {
           "name": "Testudo Helmet Combustion",
           "filename": "bp_craft_qrt_combat_medium_helmet_01_01_02.xml",
-          "probability": 16.7,
+          "probability": 14.3,
           "weight": 1
         },
         {
           "name": "Pulse Laser Pistol Battery (60 Cap)",
           "filename": "bp_craft_volt_pistol_energy_01_mag.xml",
-          "probability": 16.7,
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Testudo Backpack Combustion",
+          "filename": "bp_craft_qrt_combat_medium_backpack_01_01_02.xml",
+          "probability": 14.3,
           "weight": 1
         }
       ]
@@ -1822,78 +3586,84 @@
       "pool_name": "intersec_patrol",
       "filename": "bp_missionreward_intersec_patrol.xml",
       "type": "RANDOM",
-      "reward_count": 12,
+      "reward_count": 13,
       "rewards": [
         {
           "name": "Quartz \"Lumen\" Energy SMG",
           "filename": "bp_craft_volt_smg_energy_01_tint03.xml",
-          "probability": 8.3,
+          "probability": 7.7,
           "weight": 1
         },
         {
           "name": "Testudo Arms Nightveil",
           "filename": "bp_craft_qrt_combat_medium_arms_01_01_10.xml",
-          "probability": 8.3,
+          "probability": 7.7,
           "weight": 1
         },
         {
           "name": "Testudo Core Nightveil",
           "filename": "bp_craft_qrt_combat_medium_core_01_01_10.xml",
-          "probability": 8.3,
+          "probability": 7.7,
           "weight": 1
         },
         {
           "name": "Testudo Legs Nightveil",
           "filename": "bp_craft_qrt_combat_medium_legs_01_01_10.xml",
-          "probability": 8.3,
+          "probability": 7.7,
           "weight": 1
         },
         {
           "name": "Testudo Helmet Nightveil",
           "filename": "bp_craft_qrt_combat_medium_helmet_01_01_10.xml",
-          "probability": 8.3,
-          "weight": 1
-        },
-        {
-          "name": "UNKNOWN",
-          "filename": "GUID:00000000...",
-          "probability": 8.3,
+          "probability": 7.7,
           "weight": 1
         },
         {
           "name": "Quartz \"Deadfall\" Energy SMG",
           "filename": "bp_craft_volt_smg_energy_01_tint01.xml",
-          "probability": 8.3,
+          "probability": 7.7,
           "weight": 1
         },
         {
           "name": "Testudo Arms Turfwar",
           "filename": "bp_craft_qrt_combat_medium_arms_01_01_16.xml",
-          "probability": 8.3,
+          "probability": 7.7,
           "weight": 1
         },
         {
           "name": "Testudo Core Turfwar",
           "filename": "bp_craft_qrt_combat_medium_core_01_01_16.xml",
-          "probability": 8.3,
+          "probability": 7.7,
           "weight": 1
         },
         {
           "name": "Testudo Legs Turfwar",
           "filename": "bp_craft_qrt_combat_medium_legs_01_01_16.xml",
-          "probability": 8.3,
+          "probability": 7.7,
           "weight": 1
         },
         {
           "name": "Testudo Helmet Turfwar",
           "filename": "bp_craft_qrt_combat_medium_helmet_01_01_16.xml",
-          "probability": 8.3,
+          "probability": 7.7,
           "weight": 1
         },
         {
           "name": "Quartz Energy SMG Battery (45 cap)",
           "filename": "bp_craft_volt_smg_energy_01_mag.xml",
-          "probability": 8.3,
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "Testudo Backpack Turfwar",
+          "filename": "bp_craft_qrt_combat_medium_backpack_01_01_16.xml",
+          "probability": 7.7,
+          "weight": 1
+        },
+        {
+          "name": "Testudo Backpack Nightveil",
+          "filename": "bp_craft_qrt_combat_medium_backpack_01_01_10.xml",
+          "probability": 7.7,
           "weight": 1
         }
       ]
@@ -1903,129 +3673,219 @@
       "pool_name": "intersec_resourcegathering",
       "filename": "bp_missionreward_intersec_resourcegathering.xml",
       "type": "RANDOM",
-      "reward_count": 6,
+      "reward_count": 7,
       "rewards": [
         {
           "name": "Pulse Laser Pistol",
           "filename": "bp_craft_volt_pistol_energy_01.xml",
-          "probability": 16.7,
+          "probability": 14.3,
           "weight": 1
         },
         {
           "name": "Testudo Arms Earthshake",
           "filename": "bp_craft_qrt_combat_medium_arms_01_01_15.xml",
-          "probability": 16.7,
+          "probability": 14.3,
           "weight": 1
         },
         {
           "name": "Testudo Core Earthshake",
           "filename": "bp_craft_qrt_combat_medium_core_01_01_15.xml",
-          "probability": 16.7,
+          "probability": 14.3,
           "weight": 1
         },
         {
           "name": "Testudo Legs Earthshake",
           "filename": "bp_craft_qrt_combat_medium_legs_01_01_15.xml",
-          "probability": 16.7,
+          "probability": 14.3,
           "weight": 1
         },
         {
           "name": "Testudo Helmet Earthshake",
           "filename": "bp_craft_qrt_combat_medium_helmet_01_01_15.xml",
-          "probability": 16.7,
+          "probability": 14.3,
           "weight": 1
         },
         {
           "name": "Pulse Laser Pistol Battery (60 Cap)",
           "filename": "bp_craft_volt_pistol_energy_01_mag.xml",
-          "probability": 16.7,
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Testudo Backpack Earthshake",
+          "filename": "bp_craft_qrt_combat_medium_backpack_01_01_15.xml",
+          "probability": 14.3,
           "weight": 1
         }
       ]
     },
     {
-      "name": "InterSec - Retrieve Additional Smuggler Intel",
+      "name": "InterSec - Retrieve Smuggler Intel",
       "pool_name": "ids_recoverencrypteddata",
       "filename": "bp_missionreward_ids_recoverencrypteddata.xml",
       "type": "RANDOM",
-      "reward_count": 13,
+      "reward_count": 14,
       "rewards": [
         {
           "name": "Pulse \"Blacklist\" Pistol",
           "filename": "bp_craft_volt_pistol_energy_01_tint01.xml",
-          "probability": 7.7,
+          "probability": 7.1,
           "weight": 1
         },
         {
           "name": "Quartz Energy SMG",
           "filename": "bp_craft_volt_smg_energy_01.xml",
-          "probability": 7.7,
+          "probability": 7.1,
           "weight": 1
         },
         {
           "name": "Quartz \"Black Op\" Energy SMG",
           "filename": "bp_craft_volt_smg_energy_01_tint02.xml",
-          "probability": 7.7,
+          "probability": 7.1,
           "weight": 1
         },
         {
           "name": "Testudo Arms",
           "filename": "bp_craft_qrt_combat_medium_arms_01_01_01.xml",
-          "probability": 7.7,
+          "probability": 7.1,
           "weight": 1
         },
         {
           "name": "Testudo Core",
           "filename": "bp_craft_qrt_combat_medium_core_01_01_01.xml",
-          "probability": 7.7,
+          "probability": 7.1,
           "weight": 1
         },
         {
           "name": "Testudo Legs",
           "filename": "bp_craft_qrt_combat_medium_legs_01_01_01.xml",
-          "probability": 7.7,
+          "probability": 7.1,
           "weight": 1
         },
         {
           "name": "Testudo Helmet",
           "filename": "bp_craft_qrt_combat_medium_helmet_01_01_01.xml",
-          "probability": 7.7,
+          "probability": 7.1,
           "weight": 1
         },
         {
           "name": "Testudo Helmet Clanguard",
           "filename": "bp_craft_qrt_combat_medium_helmet_02_01_01.xml",
-          "probability": 7.7,
+          "probability": 7.1,
           "weight": 1
         },
         {
           "name": "Testudo Core Clanguard",
           "filename": "bp_craft_qrt_combat_medium_core_02_01_01.xml",
-          "probability": 7.7,
+          "probability": 7.1,
           "weight": 1
         },
         {
           "name": "Testudo Legs Clanguard",
           "filename": "bp_craft_qrt_combat_medium_legs_02_01_01.xml",
-          "probability": 7.7,
+          "probability": 7.1,
           "weight": 1
         },
         {
           "name": "Testudo Arms Clanguard",
           "filename": "bp_craft_qrt_combat_medium_arms_02_01_01.xml",
-          "probability": 7.7,
+          "probability": 7.1,
           "weight": 1
         },
         {
           "name": "Quartz Energy SMG Battery (45 cap)",
           "filename": "bp_craft_volt_smg_energy_01_mag.xml",
-          "probability": 7.7,
+          "probability": 7.1,
           "weight": 1
         },
         {
           "name": "Pulse Laser Pistol Battery (60 Cap)",
           "filename": "bp_craft_volt_pistol_energy_01_mag.xml",
-          "probability": 7.7,
+          "probability": 7.1,
+          "weight": 1
+        },
+        {
+          "name": "Testudo Backpack",
+          "filename": "bp_craft_qrt_combat_medium_backpack_01_01_01.xml",
+          "probability": 7.1,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "InterSec - Retrieve Smuggler Intel (Vehicle Gear)",
+      "pool_name": "idsrecoverencrypteddatavgear",
+      "filename": "bp_rewards_idsrecoverencrypteddatavgear.xml",
+      "type": "RANDOM",
+      "reward_count": 3,
+      "rewards": [
+        {
+          "name": "Attrition-1 Repeater",
+          "filename": "bp_craft_hrst_laserrepeater_s1.xml",
+          "probability": 33.3,
+          "weight": 1
+        },
+        {
+          "name": "Attrition-2 Repeater",
+          "filename": "bp_craft_hrst_laserrepeater_s2.xml",
+          "probability": 33.3,
+          "weight": 1
+        },
+        {
+          "name": "Attrition-3 Repeater",
+          "filename": "bp_craft_hrst_laserrepeater_s3.xml",
+          "probability": 33.3,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Ling Family Courier (Hard)",
+      "pool_name": "linghard",
+      "filename": "bp_rewards_linghard.xml",
+      "type": "RANDOM",
+      "reward_count": 7,
+      "rewards": [
+        {
+          "name": "Spectre",
+          "filename": "bp_craft_qdrv_raco_s01_spectre_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Zephyr",
+          "filename": "bp_craft_qdrv_raco_s01_zephyr_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Bolt",
+          "filename": "bp_craft_qdrv_raco_s02_bolt_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Spicule",
+          "filename": "bp_craft_qdrv_raco_s02_spicule_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Guardian",
+          "filename": "bp_craft_shld_basl_s01_guardian_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Citadel",
+          "filename": "bp_craft_shld_basl_s02_citadel_scitem.xml",
+          "probability": 14.3,
+          "weight": 1
+        },
+        {
+          "name": "Barbican",
+          "filename": "bp_craft_shld_basl_s03_barbican_scitem.xml",
+          "probability": 14.3,
           "weight": 1
         }
       ]
@@ -2226,6 +4086,108 @@
       ]
     },
     {
+      "name": "Red Wind Courier Run",
+      "pool_name": "redwind",
+      "filename": "bp_rewards_redwind.xml",
+      "type": "RANDOM",
+      "reward_count": 6,
+      "rewards": [
+        {
+          "name": "SureGrip HV-S1 Tractor Beam",
+          "filename": "bp_craft_wep_tractorbeam_s1_utility_1.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "SureGrip HV-S2 Tractor Beam",
+          "filename": "bp_craft_wep_tractorbeam_s2_utility_1.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "SureGrip HV-S3 Tractor Beam",
+          "filename": "bp_craft_wep_tractorbeam_s3_utility_1.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Breton",
+          "filename": "bp_craft_powr_just_s01_breton_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Genoa",
+          "filename": "bp_craft_powr_just_s02_genoa_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        },
+        {
+          "name": "Durango",
+          "filename": "bp_craft_powr_just_s03_durango_scitem.xml",
+          "probability": 16.7,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Refuelling Nozzle Drop",
+      "pool_name": "fuelnozzle",
+      "filename": "bp_rewards_fuelnozzle.xml",
+      "type": "RANDOM",
+      "reward_count": 8,
+      "rewards": [
+        {
+          "name": "Norfield",
+          "filename": "bp_craft_nozzle_fuelgiver_grin_nozzlefast.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Marlin",
+          "filename": "bp_craft_nozzle_fuelgiver_grin_nozzlesecure.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Lindstrom",
+          "filename": "bp_craft_nozzle_fuelgiver_grin_nozzleveryfast.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Harkin",
+          "filename": "bp_craft_nozzle_fuelgiver_grin_nozzleverysecure.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "RN-7s",
+          "filename": "bp_craft_nozzle_fuelgiver_misc_nozzlestandard.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Bendix",
+          "filename": "bp_craft_nozzle_fuelgiver_shin_nozzleexpensivefast.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Torrez",
+          "filename": "bp_craft_nozzle_fuelgiver_shin_nozzleexpensivesecure.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Ezra",
+          "filename": "bp_craft_nozzle_fuelgiver_shin_nozzlemostexpensive.xml",
+          "probability": 12.5,
+          "weight": 1
+        }
+      ]
+    },
+    {
       "name": "Rock Cracker Dungeon - Boss",
       "pool_name": "rdc_boss",
       "filename": "bp_missionreward_rdc_boss.xml",
@@ -2344,7 +4306,7 @@
           "weight": 1
         },
         {
-          "name": "Monde Helmet Daimyo",
+          "name": "Monde Helmet Hemlock Camo",
           "filename": "bp_craft_kap_combat_heavy_helmet_02_04_01.xml",
           "probability": 9.1,
           "weight": 1
@@ -2536,6 +4498,201 @@
           "name": "Arclight Pistol Battery (30 cap)",
           "filename": "bp_craft_klwe_pistol_energy_01_mag.xml",
           "probability": 16.7,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Shubin Mining - Rank 0-1",
+      "pool_name": "shubinrank0to1",
+      "filename": "bp_rewards_shubinrank0to1.xml",
+      "type": "RANDOM",
+      "reward_count": 8,
+      "rewards": [
+        {
+          "name": "Arbor MHV Mining Laser",
+          "filename": "bp_craft_mining_laser_grin_arbor_s0.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "S00 Hofstede",
+          "filename": "bp_craft_mining_laser_shin_hofstede_s0.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Lawson Mining Laser",
+          "filename": "bp_craft_mining_laser_shin_klein_s0.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "S0 Helix",
+          "filename": "bp_craft_mining_laser_thcn_helix_s0.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Surveyor-Go",
+          "filename": "bp_craft_radr_chco_s00_surveyorgo.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Surveyor-Lite",
+          "filename": "bp_craft_radr_chco_s01_surveyorlite.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Surveyor",
+          "filename": "bp_craft_radr_chco_s02_surveyor.xml",
+          "probability": 12.5,
+          "weight": 1
+        },
+        {
+          "name": "Surveyor-Max",
+          "filename": "bp_craft_radr_chco_s03_surveyormax.xml",
+          "probability": 12.5,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Shubin Mining - Rank 2-3",
+      "pool_name": "shubinrank2to3",
+      "filename": "bp_rewards_shubinrank2to3.xml",
+      "type": "RANDOM",
+      "reward_count": 11,
+      "rewards": [
+        {
+          "name": "Pitman Mining Laser",
+          "filename": "bp_craft_mining_laser_drak_golem_s1.xml",
+          "probability": 9.1,
+          "weight": 1
+        },
+        {
+          "name": "Hofstede-S1 Mining Laser",
+          "filename": "bp_craft_mining_laser_shin_hofstede_s1.xml",
+          "probability": 9.1,
+          "weight": 1
+        },
+        {
+          "name": "Klein-S1 Mining Laser",
+          "filename": "bp_craft_mining_laser_shin_klein_s1.xml",
+          "probability": 9.1,
+          "weight": 1
+        },
+        {
+          "name": "Helix I Mining Laser",
+          "filename": "bp_craft_mining_laser_thcn_helix_s1.xml",
+          "probability": 9.1,
+          "weight": 1
+        },
+        {
+          "name": "Impact I Mining Laser",
+          "filename": "bp_craft_mining_laser_thcn_impact_s1.xml",
+          "probability": 9.1,
+          "weight": 1
+        },
+        {
+          "name": "Arbor MH1 Mining Laser",
+          "filename": "bp_craft_mining_laser_grin_arbor_s1.xml",
+          "probability": 9.1,
+          "weight": 1
+        },
+        {
+          "name": "Lancet MH1 Mining Laser",
+          "filename": "bp_craft_mining_laser_grin_lancet_s1.xml",
+          "probability": 9.1,
+          "weight": 1
+        },
+        {
+          "name": "BroadSpec-Go",
+          "filename": "bp_craft_radr_chco_s00_broadspecgo.xml",
+          "probability": 9.1,
+          "weight": 1
+        },
+        {
+          "name": "BroadSpec",
+          "filename": "bp_craft_radr_chco_s02_broadspec_lite.xml",
+          "probability": 9.1,
+          "weight": 1
+        },
+        {
+          "name": "BroadSpec",
+          "filename": "bp_craft_radr_chco_s03_broudspec.xml",
+          "probability": 9.1,
+          "weight": 1
+        },
+        {
+          "name": "BroadSpec-Max",
+          "filename": "bp_craft_radr_chco_s04_broadspecmax.xml",
+          "probability": 9.1,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Shubin Mining - Rank 4",
+      "pool_name": "shubinrank4",
+      "filename": "bp_rewards_shubinrank4.xml",
+      "type": "RANDOM",
+      "reward_count": 9,
+      "rewards": [
+        {
+          "name": "Arbor MH2 Mining Laser",
+          "filename": "bp_craft_mining_laser_grin_arbor_s2.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "Lancet MH2 Mining Laser",
+          "filename": "bp_craft_mining_laser_grin_lancet_s2.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "Hofstede-S2 Mining Laser",
+          "filename": "bp_craft_mining_laser_shin_hofstede_s2.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "Klein-S2 Mining Laser",
+          "filename": "bp_craft_mining_laser_shin_klein_s2.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "Helix II Mining Laser",
+          "filename": "bp_craft_mining_laser_thcn_helix_s2.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "Impact II Mining Laser",
+          "filename": "bp_craft_mining_laser_thcn_impact_s2.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "FullSpec-Go",
+          "filename": "bp_craft_radr_chco_s00_fullspecgo.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "FullSpec",
+          "filename": "bp_craft_radr_chco_s02_fullspec.xml",
+          "probability": 11.1,
+          "weight": 1
+        },
+        {
+          "name": "FullSpec-Max",
+          "filename": "bp_craft_radr_chco_s03_fullspecmax.xml",
+          "probability": 11.1,
           "weight": 1
         }
       ]
@@ -2797,6 +4954,456 @@
           "weight": 1
         }
       ]
+    },
+    {
+      "name": "Wikelo Collector - Multi Rifle",
+      "pool_name": "none_rifle_multi_01_collector01",
+      "filename": "bp_reward_none_rifle_multi_01_collector01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Killshot \"Dominion Camo\" Rifle",
+          "filename": "bp_craft_none_rifle_multi_01_collector01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Wikelo Collector - Virgil Flightsuit",
+      "pool_name": "vgl_flightsuit_01_02_01",
+      "filename": "bp_reward_vgl_flightsuit_01_02_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Tailwind Flight Suit Dominion Camo",
+          "filename": "bp_craft_vgl_flightsuit_01_02_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Wikelo Collector - Virgil Flightsuit Helmet",
+      "pool_name": "vgl_flightsuit_helmet_01_02_01",
+      "filename": "bp_reward_vgl_flightsuit_helmet_01_02_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Tailwind Flight Helmet Dominion Camo",
+          "filename": "bp_craft_vgl_flightsuit_helmet_01_02_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Wikelo Collector Material (Tier 1)",
+      "pool_name": "collectormaterial_001",
+      "filename": "bp_reward_collectormaterial_001.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Metamaterial Test #146",
+          "filename": "bp_craft_carryable_2h_cy_collectormaterial_001.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Wikelo Collector Material (Tier 2)",
+      "pool_name": "collectormaterial_002",
+      "filename": "bp_reward_collectormaterial_002.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "UNKNOWN",
+          "filename": "GUID:d31e71e2...",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 100% Wave (Drop 1)",
+      "pool_name": "xenothreat2_100_01",
+      "filename": "bp_rewards_xenothreat2_100_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "NDB-26 Repeater",
+          "filename": "bp_craft_mxox_neutronrepeater_s1.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 100% Wave (Drop 2)",
+      "pool_name": "xenothreat2_100_02",
+      "filename": "bp_rewards_xenothreat2_100_02.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "NDB-28 Repeater",
+          "filename": "bp_craft_mxox_neutronrepeater_s2.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 100% Wave (Drop 3)",
+      "pool_name": "xenothreat2_100_03",
+      "filename": "bp_rewards_xenothreat2_100_03.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "NDB-30 Repeater",
+          "filename": "bp_craft_mxox_neutronrepeater_s3.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 15% Wave (Drop 1)",
+      "pool_name": "xenothreat2_15_01",
+      "filename": "bp_rewards_xenothreat2_15_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Chiron Arms Purgatory Camo",
+          "filename": "bp_craft_vgl_utility_light_arms_01_04_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 15% Wave (Drop 2)",
+      "pool_name": "xenothreat2_15_02",
+      "filename": "bp_rewards_xenothreat2_15_02.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Chiron Backpack Purgatory Camo",
+          "filename": "bp_craft_vgl_utility_light_backpack_01_05_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 15% Wave (Drop 3)",
+      "pool_name": "xenothreat2_15_03",
+      "filename": "bp_rewards_xenothreat2_15_03.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Chiron Core Purgatory Camo",
+          "filename": "bp_craft_vgl_utility_light_core_01_04_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 15% Wave (Drop 4)",
+      "pool_name": "xenothreat2_15_04",
+      "filename": "bp_rewards_xenothreat2_15_04.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Chiron Legs Purgatory Camo",
+          "filename": "bp_craft_vgl_utility_light_legs_01_04_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 15% Wave (Drop 5)",
+      "pool_name": "xenothreat2_15_05",
+      "filename": "bp_rewards_xenothreat2_15_05.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Chiron Helmet Purgatory Camo",
+          "filename": "bp_craft_vgl_utility_light_helmet_01_05_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 15% Wave (Drop 6)",
+      "pool_name": "xenothreat2_15_06",
+      "filename": "bp_rewards_xenothreat2_15_06.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "BR-2 \"Purgatory Camo\" Shotgun",
+          "filename": "bp_craft_behr_shotgun_ballistic_01_mr01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 25% Wave (Drop 1)",
+      "pool_name": "xenothreat2_25_01",
+      "filename": "bp_rewards_xenothreat2_25_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Testudo Arms Purgatory Camo",
+          "filename": "bp_craft_qrt_combat_medium_arms_01_02_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 25% Wave (Drop 2)",
+      "pool_name": "xenothreat2_25_02",
+      "filename": "bp_rewards_xenothreat2_25_02.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Testudo Backpack Purgatory Camo",
+          "filename": "bp_craft_qrt_combat_medium_backpack_01_02_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 25% Wave (Drop 3)",
+      "pool_name": "xenothreat2_25_03",
+      "filename": "bp_rewards_xenothreat2_25_03.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Testudo Core Purgatory Camo",
+          "filename": "bp_craft_qrt_combat_medium_core_01_02_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 25% Wave (Drop 4)",
+      "pool_name": "xenothreat2_25_04",
+      "filename": "bp_rewards_xenothreat2_25_04.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Testudo Legs Purgatory Camo",
+          "filename": "bp_craft_qrt_combat_medium_legs_01_02_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 25% Wave (Drop 5)",
+      "pool_name": "xenothreat2_25_05",
+      "filename": "bp_rewards_xenothreat2_25_05.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Testudo Helmet Purgatory Camo",
+          "filename": "bp_craft_qrt_combat_medium_helmet_01_02_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 25% Wave (Drop 6)",
+      "pool_name": "xenothreat2_25_06",
+      "filename": "bp_rewards_xenothreat2_25_06.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "S71 \"Purgatory Camo\" Rifle",
+          "filename": "bp_craft_gmni_rifle_ballistic_01_mr01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 50% Wave (Drop 1)",
+      "pool_name": "xenothreat2_50_01",
+      "filename": "bp_rewards_xenothreat2_50_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Warden Backpack Purgatory Camo",
+          "filename": "bp_craft_vgl_combat_heavy_backpack_01_12_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 50% Wave (Drop 2)",
+      "pool_name": "xenothreat2_50_02",
+      "filename": "bp_rewards_xenothreat2_50_02.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Monde Arms Purgatory Camo",
+          "filename": "bp_craft_kap_combat_heavy_arms_02_09_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 50% Wave (Drop 3)",
+      "pool_name": "xenothreat2_50_03",
+      "filename": "bp_rewards_xenothreat2_50_03.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Monde Core Purgatory Camo",
+          "filename": "bp_craft_kap_combat_heavy_core_02_09_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 50% Wave (Drop 4)",
+      "pool_name": "xenothreat2_50_04",
+      "filename": "bp_rewards_xenothreat2_50_04.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Monde Legs Purgatory Camo",
+          "filename": "bp_craft_kap_combat_heavy_legs_02_09_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 50% Wave (Drop 5)",
+      "pool_name": "xenothreat2_50_05",
+      "filename": "bp_rewards_xenothreat2_50_05.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Monde Helmet Purgatory Camo",
+          "filename": "bp_craft_kap_combat_heavy_helmet_02_09_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 50% Wave (Drop 6)",
+      "pool_name": "xenothreat2_50_06",
+      "filename": "bp_rewards_xenothreat2_50_06.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Demeco \"Purgatory Camo\" LMG",
+          "filename": "bp_craft_klwe_lmg_energy_01_mr01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 60% Wave (Drop 1)",
+      "pool_name": "xenothreat2_60_01",
+      "filename": "bp_rewards_xenothreat2_60_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "QuadraCell",
+          "filename": "bp_craft_powr_aegs_s01_quadracell_scitem.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 60% Wave (Drop 2)",
+      "pool_name": "xenothreat2_60_02",
+      "filename": "bp_rewards_xenothreat2_60_02.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "QuadraCell MT",
+          "filename": "bp_craft_powr_aegs_s02_quadracellmt_scitem.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 85% Wave (Drop 1)",
+      "pool_name": "xenothreat2_85_01",
+      "filename": "bp_rewards_xenothreat2_85_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "FR-66",
+          "filename": "bp_craft_shld_godi_s01_fr66_scitem.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "XenoThreat 2.0 - 85% Wave (Drop 2)",
+      "pool_name": "xenothreat2_85_02",
+      "filename": "bp_rewards_xenothreat2_85_02.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "FR-76",
+          "filename": "bp_craft_shld_godi_s02_fr76_scitem.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
     }
   ],
   "item_sources": {
@@ -2854,132 +5461,160 @@
         "type": "RANDOM"
       }
     ],
+    "DynaFlux": [
+      {
+        "mission": "ASD - Project Hyperion (Vehicle Gear)",
+        "probability": 33.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Bolide": [
+      {
+        "mission": "ASD - Project Hyperion (Vehicle Gear)",
+        "probability": 33.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Fulgur": [
+      {
+        "mission": "ASD - Project Hyperion (Vehicle Gear)",
+        "probability": 33.3,
+        "type": "RANDOM"
+      }
+    ],
     "Fresnel Energy LMG": [
       {
         "mission": "ASD - Updated Energy Anomaly Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Zenith Laser Sniper Rifle": [
       {
         "mission": "ASD - Updated Energy Anomaly Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Geist Armor Arms Forest": [
       {
         "mission": "ASD - Updated Energy Anomaly Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Geist Armor Core Forest": [
       {
         "mission": "ASD - Updated Energy Anomaly Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Geist Armor Legs Forest": [
       {
         "mission": "ASD - Updated Energy Anomaly Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Geist Armor Helmet Forest": [
       {
         "mission": "ASD - Updated Energy Anomaly Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Corbel Arms Mire": [
       {
         "mission": "ASD - Updated Energy Anomaly Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Corbel Core Mire": [
       {
         "mission": "ASD - Updated Energy Anomaly Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Corbel Legs Mire": [
       {
         "mission": "ASD - Updated Energy Anomaly Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Corbel Helmet Mire": [
       {
         "mission": "ASD - Updated Energy Anomaly Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Fresnel Energy LMG Battery (165 Cap)": [
       {
         "mission": "ASD - Updated Energy Anomaly Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       },
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
         "type": "RANDOM"
       },
       {
         "mission": "ASD - Updated Security Data",
-        "probability": 9.1,
+        "probability": 8.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Novikov Backpack Mire": [
+      {
+        "mission": "ASD - Updated Energy Anomaly Data",
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Fresnel \"Icebox\" Energy LMG": [
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
         "type": "RANDOM"
       }
     ],
     "Geist Armor Arms Rogue": [
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
         "type": "RANDOM"
       }
     ],
     "Geist Armor Core Rogue": [
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
         "type": "RANDOM"
       }
     ],
     "Geist Armor Legs Rogue": [
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
         "type": "RANDOM"
       }
     ],
     "Geist Armor Helmet Rogue": [
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
         "type": "RANDOM"
       }
     ],
     "Geist Armor Arms Whiteout": [
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
         "type": "RANDOM"
       },
       {
@@ -2991,7 +5626,7 @@
     "Geist Armor Core Whiteout": [
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
         "type": "RANDOM"
       },
       {
@@ -3003,7 +5638,7 @@
     "Geist Armor Legs Whiteout": [
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
         "type": "RANDOM"
       },
       {
@@ -3015,7 +5650,7 @@
     "Geist Armor Helmet Whiteout": [
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
         "type": "RANDOM"
       },
       {
@@ -3027,98 +5662,112 @@
     "Corbel Arms Smolder": [
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
         "type": "RANDOM"
       }
     ],
     "Corbel Core Smolder": [
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
         "type": "RANDOM"
       }
     ],
     "Corbel Legs Smolder": [
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
         "type": "RANDOM"
       }
     ],
     "Corbel Helmet Smolder": [
       {
         "mission": "ASD - Updated Power Usage Data",
-        "probability": 7.1,
+        "probability": 6.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Novikov Backpack Smolder": [
+      {
+        "mission": "ASD - Updated Power Usage Data",
+        "probability": 6.7,
         "type": "RANDOM"
       }
     ],
     "Fresnel \"Rockfall\" Energy LMG": [
       {
         "mission": "ASD - Updated Security Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Zenith \"Landslide\" Laser Sniper Rifle": [
       {
         "mission": "ASD - Updated Security Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Geist Armor Arms": [
       {
         "mission": "ASD - Updated Security Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Geist Armor Core": [
       {
         "mission": "ASD - Updated Security Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Geist Armor Legs": [
       {
         "mission": "ASD - Updated Security Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Geist Armor Helmet": [
       {
         "mission": "ASD - Updated Security Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Corbel Arms Patina": [
       {
         "mission": "ASD - Updated Security Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Corbel Core Patina": [
       {
         "mission": "ASD - Updated Security Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Corbel Legs Patina": [
       {
         "mission": "ASD - Updated Security Data",
-        "probability": 9.1,
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
     "Corbel Helmet Patina": [
       {
         "mission": "ASD - Updated Security Data",
-        "probability": 9.1,
+        "probability": 8.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Novikov Backpack Patina": [
+      {
+        "mission": "ASD - Updated Security Data",
+        "probability": 8.3,
         "type": "RANDOM"
       }
     ],
@@ -3185,15 +5834,41 @@
         "type": "RANDOM"
       }
     ],
-    "UNKNOWN": [
+    "Novikov Backpack Halcyon": [
       {
         "mission": "ASD - Updated Seismic Data",
         "probability": 6.7,
         "type": "RANDOM"
+      }
+    ],
+    "Trawler Scraper Module": [
+      {
+        "mission": "Adagio - Salvager Special Order",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Abrade Scraper Module": [
+      {
+        "mission": "Adagio - Salvager Special Order",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Cinch Scraper Module": [
+      {
+        "mission": "Adagio - Salvager Special Order",
+        "probability": 20.0,
+        "type": "RANDOM"
       },
       {
-        "mission": "InterSec - Patrol",
-        "probability": 8.3,
+        "mission": "Adagio - Salvager Special Order",
+        "probability": 20.0,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Adagio - Salvager Special Order",
+        "probability": 20.0,
         "type": "RANDOM"
       }
     ],
@@ -3215,11 +5890,6 @@
       {
         "mission": "BHG - ASD Facility (Engineering Wing)",
         "probability": 25.0,
-        "type": "RANDOM"
-      },
-      {
-        "mission": "BHG - ASD Facility (Research Wing)",
-        "probability": 12.5,
         "type": "RANDOM"
       }
     ],
@@ -3266,6 +5936,13 @@
       }
     ],
     "Palatino Core Daystar": [
+      {
+        "mission": "BHG - ASD Facility (Research Wing)",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Palatino Legs Daystar": [
       {
         "mission": "BHG - ASD Facility (Research Wing)",
         "probability": 12.5,
@@ -3545,6 +6222,74 @@
       {
         "mission": "Bitzeros - Recover Item (Stanton)",
         "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Deadbolt IV Cannon": [
+      {
+        "mission": "Bombing Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Deadbolt V Cannon": [
+      {
+        "mission": "Bombing Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Deadbolt VI Cannon": [
+      {
+        "mission": "Bombing Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Polar": [
+      {
+        "mission": "Bombing Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Permafrost": [
+      {
+        "mission": "Bombing Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Tempest": [
+      {
+        "mission": "Bombing Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Tailwind Flight Suit": [
+      {
+        "mission": "Bombing Run (Bonus)",
+        "probability": 33.3,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Eckhart - Assist Ship in Combat (B)",
+        "probability": 33.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Tailwind Flight Helmet Big Bite": [
+      {
+        "mission": "Bombing Run (Bonus)",
+        "probability": 33.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Tailwind Flight Helmet Adrenaline": [
+      {
+        "mission": "Bombing Run (Bonus)",
+        "probability": 33.3,
         "type": "RANDOM"
       }
     ],
@@ -4014,6 +6759,443 @@
         "type": "RANDOM"
       }
     ],
+    "<= PLACEHOLDER =>": [
+      {
+        "mission": "Carryable 2H Fl Missionitem Microsatellite A",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "VK-00": [
+      {
+        "mission": "Covalex - Distribution Center",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Siren": [
+      {
+        "mission": "Covalex - Distribution Center",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "XL-1": [
+      {
+        "mission": "Covalex - Distribution Center",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Yeager": [
+      {
+        "mission": "Covalex - Distribution Center",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Balandin": [
+      {
+        "mission": "Covalex - Distribution Center",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "TS-2": [
+      {
+        "mission": "Covalex - Distribution Center",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Palisade": [
+      {
+        "mission": "Covalex - Distribution Center",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Rampart": [
+      {
+        "mission": "Covalex - Distribution Center",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Parapet": [
+      {
+        "mission": "Covalex - Distribution Center",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Deadbolt I Cannon": [
+      {
+        "mission": "Eckhart - Assist Ship in Combat (A)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Deadbolt II Cannon": [
+      {
+        "mission": "Eckhart - Assist Ship in Combat (A)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Deadbolt III Cannon": [
+      {
+        "mission": "Eckhart - Assist Ship in Combat (A)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "ForceWall": [
+      {
+        "mission": "Eckhart - Assist Ship in Combat (A)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "CoverAll": [
+      {
+        "mission": "Eckhart - Assist Ship in Combat (A)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "FullBlock": [
+      {
+        "mission": "Eckhart - Assist Ship in Combat (A)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Tailwind Flight Helmet Green Streak": [
+      {
+        "mission": "Eckhart - Assist Ship in Combat (B)",
+        "probability": 33.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Tailwind Flight Helmet Blackbolt": [
+      {
+        "mission": "Eckhart - Assist Ship in Combat (B)",
+        "probability": 33.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Fierell Cascade": [
+      {
+        "mission": "Eckhart Security - Eliminate Boss",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "UltraFlux": [
+      {
+        "mission": "Eckhart Security - Eliminate Boss",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "MegaFlux": [
+      {
+        "mission": "Eckhart Security - Eliminate Boss",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "C-788 Cannon": [
+      {
+        "mission": "Eckhart Security - Eliminate Boss",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Tigerstrike T-19P": [
+      {
+        "mission": "Eckhart Security - Eliminate Boss",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Revenant Gatling": [
+      {
+        "mission": "Eckhart Security - Eliminate Boss",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Draugar Gatling": [
+      {
+        "mission": "Eckhart Security - Eliminate Boss",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Shimmer": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Easy)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Obscura": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Easy)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "M3A Cannon": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Easy)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "M4A Cannon": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Easy)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "M5A Cannon": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Easy)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Havoc Scattergun": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Hard+)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Hellion Scattergun": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Hard+)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Predator Scattergun": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Hard+)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Mirage": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Hard+)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Umbra": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Hard+)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Quarreler Cannon": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Hard+)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Veil": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Medium)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Sheut": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Medium)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Suckerpunch Cannon": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Medium)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Suckerpunch-L Cannon": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Medium)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Suckerpunch-XL Cannon": [
+      {
+        "mission": "Eckhart Security - Escort Ships (Medium)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "SonicLite": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Easy)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Cirrus": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Easy)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Lightstrike I Cannon": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Easy)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Lightstrike II Cannon": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Easy)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Lightstrike III Cannon": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Easy)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Slipstream": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Hard+)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Eclipse": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Hard+)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Lightstrike IV Cannon": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Hard+)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Lightstrike V Cannon": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Hard+)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Lightstrike VI Cannon": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Hard+)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "DeltaMax": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Medium)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "GammaMax": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Medium)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "FL-11 Cannon": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Medium)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "FL-22 Cannon": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Medium)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "FL-33 Cannon": [
+      {
+        "mission": "Eckhart Security - Ship Ambush (Medium)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Colossus": [
+      {
+        "mission": "FTL Courier Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Huracan": [
+      {
+        "mission": "FTL Courier Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Agni": [
+      {
+        "mission": "FTL Courier Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Defiant": [
+      {
+        "mission": "FTL Courier Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "FTL Courier Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Headhunters - Pyro (Easy)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Sedulity": [
+      {
+        "mission": "FTL Courier Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
     "Parallax \"Sunstone\" Energy Assault Rifle": [
       {
         "mission": "Foxwell - Ambush",
@@ -4033,16 +7215,14 @@
         "mission": "Foxwell - Ambush",
         "probability": 16.7,
         "type": "RANDOM"
-      }
-    ],
-    "Antium Legs Jet": [
+      },
       {
         "mission": "Foxwell - Ambush",
         "probability": 16.7,
         "type": "RANDOM"
       }
     ],
-    "Antium Helmet Jet": [
+    "Antium Legs Jet": [
       {
         "mission": "Foxwell - Ambush",
         "probability": 16.7,
@@ -4141,7 +7321,7 @@
         "type": "RANDOM"
       }
     ],
-    "Antium Arms Maroon": [
+    "Antium Helmet Jet": [
       {
         "mission": "Foxwell - General Contracts",
         "probability": 12.5,
@@ -4197,6 +7377,167 @@
         "type": "RANDOM"
       }
     ],
+    "Frost-Star SL": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "Fridan": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "Tepilo": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "Frost-Star": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "ArcticStorm": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "Berian": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "Gelid": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "Frost-Star EX": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "ColdSnap": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "Aufeis": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "Graupel": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "Frost-Star XL": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "FrostBurn": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "Draug": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "Elsen": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "Kragen": [
+      {
+        "mission": "Foxwell - Nyx (Easy)",
+        "probability": 6.2,
+        "type": "RANDOM"
+      }
+    ],
+    "CF-117 Bulldog Repeater": [
+      {
+        "mission": "Foxwell - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "CF-227 Badger Repeater": [
+      {
+        "mission": "Foxwell - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "CF-337 Panther Repeater": [
+      {
+        "mission": "Foxwell - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "CF-447 Rhino Repeater": [
+      {
+        "mission": "Foxwell - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "CF-557 Galdereen Repeater": [
+      {
+        "mission": "Foxwell - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "CF-667 Mammoth Repeater": [
+      {
+        "mission": "Foxwell - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "V60-26": [
+      {
+        "mission": "Foxwell - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
     "Parallax \"Sanguine\" Energy Assault Rifle": [
       {
         "mission": "Foxwell - Patrol",
@@ -4229,6 +7570,399 @@
       {
         "mission": "Foxwell - Patrol",
         "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "IonWave": [
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Radix": [
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "IonBurst": [
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "PowerBolt": [
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "LightBlossom": [
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "MagnaBloom": [
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "FullForce": [
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "IonSurge": [
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Radiance": [
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "FullForce Pro": [
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "IonSurge Pro": [
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Celestial": [
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "NewDawn": [
+      {
+        "mission": "Foxwell - Pyro (Easy)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Glacier": [
+      {
+        "mission": "Foxwell - Pyro (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Avalanche": [
+      {
+        "mission": "Foxwell - Pyro (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Blizzard": [
+      {
+        "mission": "Foxwell - Pyro (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "DR Model-XJ1 Repeater": [
+      {
+        "mission": "Foxwell - Pyro (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "DR Model-XJ2 Repeater": [
+      {
+        "mission": "Foxwell - Pyro (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "DR Model-XJ3 Repeater": [
+      {
+        "mission": "Foxwell - Pyro (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "7SA 'Concord'": [
+      {
+        "mission": "Foxwell - Stanton (Easy)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "INK": [
+      {
+        "mission": "Foxwell - Stanton (Easy)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "7MA 'Lorica'": [
+      {
+        "mission": "Foxwell - Stanton (Easy)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "RPEL": [
+      {
+        "mission": "Foxwell - Stanton (Easy)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "7CA 'Nargun'": [
+      {
+        "mission": "Foxwell - Stanton (Easy)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "HAVEN": [
+      {
+        "mission": "Foxwell - Stanton (Easy)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Attrition-4 Repeater": [
+      {
+        "mission": "Foxwell - Stanton (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Attrition-5 Repeater": [
+      {
+        "mission": "Foxwell - Stanton (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Attrition-6 Repeater": [
+      {
+        "mission": "Foxwell - Stanton (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "FR-86": [
+      {
+        "mission": "Foxwell - Stanton (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Sens": [
+      {
+        "mission": "Foxwell - Stanton (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Tige": [
+      {
+        "mission": "Foxwell - Stanton (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Headhunters - Stanton (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "WhiteHot Racing Flight Suit": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "BlackFire Racing Flight Suit": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "BlueFlame Racing Flight Suit": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "WhiteHot Racing Helmet": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "BlackFire Racing Helmet": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "BlueFlame Racing Helmet": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Novian Crossbow": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Novian \"Nighthunter\" Crossbow": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Novian \"Ghostmaker\" Crossbow": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Novian \"Wildshot\" Crossbow": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Tailwind Flight Helmet Thunderstruck": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Tailwind Flight Helmet Frostshock": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Tailwind Flight Helmet Blue Skies": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Tailwind Flight Helmet Airwolf": [
+      {
+        "mission": "Full Strike on Station (A)",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Omnisky III Cannon": [
+      {
+        "mission": "Full Strike on Station (B)",
+        "probability": 10.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Omnisky VI Cannon": [
+      {
+        "mission": "Full Strike on Station (B)",
+        "probability": 10.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Omnisky IX Cannon": [
+      {
+        "mission": "Full Strike on Station (B)",
+        "probability": 10.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Omnisky XII Cannon": [
+      {
+        "mission": "Full Strike on Station (B)",
+        "probability": 10.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Omnisky XV Cannon": [
+      {
+        "mission": "Full Strike on Station (B)",
+        "probability": 10.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Omnisky XVIII Cannon": [
+      {
+        "mission": "Full Strike on Station (B)",
+        "probability": 10.0,
+        "type": "RANDOM"
+      }
+    ],
+    "JS-300": [
+      {
+        "mission": "Full Strike on Station (B)",
+        "probability": 10.0,
+        "type": "RANDOM"
+      }
+    ],
+    "JS-400": [
+      {
+        "mission": "Full Strike on Station (B)",
+        "probability": 10.0,
+        "type": "RANDOM"
+      }
+    ],
+    "QuadraCell MX": [
+      {
+        "mission": "Full Strike on Station (B)",
+        "probability": 10.0,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Full Strike on Station (B)",
+        "probability": 10.0,
         "type": "RANDOM"
       }
     ],
@@ -4531,10 +8265,553 @@
         "type": "RANDOM"
       }
     ],
+    "9-Series Longsword Cannon": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region A)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "10-Series Greatsword Cannon": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region A)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "11-Series Broadsword Cannon": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region A)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Sledge I Mass Driver Cannon": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region A)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Strife Mass Driver Cannon": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region A)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Sledge II Mass Driver Cannon": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region A)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Sledge III Mass Driver Cannon": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region A)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "HeatSafe": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region B)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "Cryo-Star SL": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region B)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Headhunters - Mercenary Ship (Region C)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Headhunters - Mercenary Ship (Region D)",
+        "probability": 12.5,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "Dominance-1 Scattergun": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region B)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "UNKNOWN": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region B)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Wikelo Collector Material (Tier 2)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Dominance-3 Scattergun": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region B)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "VaporBlock": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region C)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "NN-13 Cannon": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region C)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "NN-14 Cannon": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region C)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "NN-15 Cannon": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region C)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "SnowBlind": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region D)",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "M6A Cannon": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region D)",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "M7A Cannon": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region D)",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "M8A Cannon": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region D)",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Singe Cannon (S1)": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region D)",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Singe Cannon (S2)": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region D)",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Singe Cannon (S3)": [
+      {
+        "mission": "Headhunters - Mercenary Ship (Region D)",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Winter-Star SL": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "Kelvid": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "Cryo-Star": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "Winter-Star": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "BlastChill": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "FlashFreeze": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "Endo": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "Cryo-Star EX": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "Winter-Star EX": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "FullFrost": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "WhiteOut": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "Taiga": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "Cryo-Star XL": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "Winter-Star XL": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "ColdSurge": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "FrostBite": [
+      {
+        "mission": "Headhunters - Nyx (Easy)",
+        "probability": 5.9,
+        "type": "RANDOM"
+      }
+    ],
+    "Tarantula GT-870 Mark 1 Cannon": [
+      {
+        "mission": "Headhunters - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Tarantula GT-870 Mark 2 Cannon": [
+      {
+        "mission": "Headhunters - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Tarantula GT-870 Mark 3 Cannon": [
+      {
+        "mission": "Headhunters - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "YellowJacket GT-210 Gatling": [
+      {
+        "mission": "Headhunters - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Scorpion GT-215 Gatling": [
+      {
+        "mission": "Headhunters - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Mantis GT-220 Gatling": [
+      {
+        "mission": "Headhunters - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "V880": [
+      {
+        "mission": "Headhunters - Nyx (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "DuraJet": [
+      {
+        "mission": "Headhunters - Pyro (Easy)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "ZapJet": [
+      {
+        "mission": "Headhunters - Pyro (Easy)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "SparkJet": [
+      {
+        "mission": "Headhunters - Pyro (Easy)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Lotus": [
+      {
+        "mission": "Headhunters - Pyro (Easy)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "SparkJet Pro": [
+      {
+        "mission": "Headhunters - Pyro (Easy)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "TigerLilly": [
+      {
+        "mission": "Headhunters - Pyro (Easy)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "AD4B Ballistic Gatling": [
+      {
+        "mission": "Headhunters - Pyro (Hard)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "AD5B Ballistic Gatling": [
+      {
+        "mission": "Headhunters - Pyro (Hard)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "AD6B Ballistic Gatling": [
+      {
+        "mission": "Headhunters - Pyro (Hard)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "V801-11": [
+      {
+        "mission": "Headhunters - Pyro (Hard)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "V801-12": [
+      {
+        "mission": "Headhunters - Pyro (Hard)",
+        "probability": 20.0,
+        "type": "RANDOM"
+      }
+    ],
+    "PIN": [
+      {
+        "mission": "Headhunters - Stanton (Easy)",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
+    "5SA 'Rhada'": [
+      {
+        "mission": "Headhunters - Stanton (Easy)",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
+    "6SA 'Arbiter'": [
+      {
+        "mission": "Headhunters - Stanton (Easy)",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
+    "HEX": [
+      {
+        "mission": "Headhunters - Stanton (Easy)",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
+    "WEB": [
+      {
+        "mission": "Headhunters - Stanton (Easy)",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
+    "5MA 'Chimalli'": [
+      {
+        "mission": "Headhunters - Stanton (Easy)",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
+    "6MA 'Kozane'": [
+      {
+        "mission": "Headhunters - Stanton (Easy)",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
+    "BLOC": [
+      {
+        "mission": "Headhunters - Stanton (Easy)",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
+    "STOP": [
+      {
+        "mission": "Headhunters - Stanton (Easy)",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
+    "5CA 'Akura'": [
+      {
+        "mission": "Headhunters - Stanton (Easy)",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
+    "6CA 'Bila'": [
+      {
+        "mission": "Headhunters - Stanton (Easy)",
+        "probability": 7.7,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Headhunters - Stanton (Easy)",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
+    "GUARD": [
+      {
+        "mission": "Headhunters - Stanton (Easy)",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
+    "SW16BR1 “Buzzsaw” Repeater": [
+      {
+        "mission": "Headhunters - Stanton (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "SW16BR2 “Sawbuck” Repeater": [
+      {
+        "mission": "Headhunters - Stanton (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "SW16BR3 “Shredder” Repeater": [
+      {
+        "mission": "Headhunters - Stanton (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Vigilance": [
+      {
+        "mission": "Headhunters - Stanton (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Devoue": [
+      {
+        "mission": "Headhunters - Stanton (Hard)",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
     "Pulse \"Rouge\" Pistol": [
       {
         "mission": "InterSec - Defend Ship",
-        "probability": 16.7,
+        "probability": 14.3,
         "type": "RANDOM"
       },
       {
@@ -4546,45 +8823,45 @@
     "Testudo Arms Combustion": [
       {
         "mission": "InterSec - Defend Ship",
-        "probability": 16.7,
+        "probability": 14.3,
         "type": "RANDOM"
       }
     ],
     "Testudo Core Combustion": [
       {
         "mission": "InterSec - Defend Ship",
-        "probability": 16.7,
+        "probability": 14.3,
         "type": "RANDOM"
       }
     ],
     "Testudo Legs Combustion": [
       {
         "mission": "InterSec - Defend Ship",
-        "probability": 16.7,
+        "probability": 14.3,
         "type": "RANDOM"
       }
     ],
     "Testudo Helmet Combustion": [
       {
         "mission": "InterSec - Defend Ship",
-        "probability": 16.7,
+        "probability": 14.3,
         "type": "RANDOM"
       }
     ],
     "Pulse Laser Pistol Battery (60 Cap)": [
       {
         "mission": "InterSec - Defend Ship",
-        "probability": 16.7,
+        "probability": 14.3,
         "type": "RANDOM"
       },
       {
         "mission": "InterSec - Resource Gathering",
-        "probability": 16.7,
+        "probability": 14.3,
         "type": "RANDOM"
       },
       {
-        "mission": "InterSec - Retrieve Additional Smuggler Intel",
-        "probability": 7.7,
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
         "type": "RANDOM"
       },
       {
@@ -4593,10 +8870,17 @@
         "type": "RANDOM"
       }
     ],
+    "Testudo Backpack Combustion": [
+      {
+        "mission": "InterSec - Defend Ship",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
     "Quartz \"Lumen\" Energy SMG": [
       {
         "mission": "InterSec - Patrol",
-        "probability": 8.3,
+        "probability": 7.7,
         "type": "RANDOM"
       },
       {
@@ -4608,35 +8892,35 @@
     "Testudo Arms Nightveil": [
       {
         "mission": "InterSec - Patrol",
-        "probability": 8.3,
+        "probability": 7.7,
         "type": "RANDOM"
       }
     ],
     "Testudo Core Nightveil": [
       {
         "mission": "InterSec - Patrol",
-        "probability": 8.3,
+        "probability": 7.7,
         "type": "RANDOM"
       }
     ],
     "Testudo Legs Nightveil": [
       {
         "mission": "InterSec - Patrol",
-        "probability": 8.3,
+        "probability": 7.7,
         "type": "RANDOM"
       }
     ],
     "Testudo Helmet Nightveil": [
       {
         "mission": "InterSec - Patrol",
-        "probability": 8.3,
+        "probability": 7.7,
         "type": "RANDOM"
       }
     ],
     "Quartz \"Deadfall\" Energy SMG": [
       {
         "mission": "InterSec - Patrol",
-        "probability": 8.3,
+        "probability": 7.7,
         "type": "RANDOM"
       },
       {
@@ -4648,40 +8932,40 @@
     "Testudo Arms Turfwar": [
       {
         "mission": "InterSec - Patrol",
-        "probability": 8.3,
+        "probability": 7.7,
         "type": "RANDOM"
       }
     ],
     "Testudo Core Turfwar": [
       {
         "mission": "InterSec - Patrol",
-        "probability": 8.3,
+        "probability": 7.7,
         "type": "RANDOM"
       }
     ],
     "Testudo Legs Turfwar": [
       {
         "mission": "InterSec - Patrol",
-        "probability": 8.3,
+        "probability": 7.7,
         "type": "RANDOM"
       }
     ],
     "Testudo Helmet Turfwar": [
       {
         "mission": "InterSec - Patrol",
-        "probability": 8.3,
+        "probability": 7.7,
         "type": "RANDOM"
       }
     ],
     "Quartz Energy SMG Battery (45 cap)": [
       {
         "mission": "InterSec - Patrol",
-        "probability": 8.3,
+        "probability": 7.7,
         "type": "RANDOM"
       },
       {
-        "mission": "InterSec - Retrieve Additional Smuggler Intel",
-        "probability": 7.7,
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
         "type": "RANDOM"
       },
       {
@@ -4690,10 +8974,24 @@
         "type": "RANDOM"
       }
     ],
+    "Testudo Backpack Turfwar": [
+      {
+        "mission": "InterSec - Patrol",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Testudo Backpack Nightveil": [
+      {
+        "mission": "InterSec - Patrol",
+        "probability": 7.7,
+        "type": "RANDOM"
+      }
+    ],
     "Pulse Laser Pistol": [
       {
         "mission": "InterSec - Resource Gathering",
-        "probability": 16.7,
+        "probability": 14.3,
         "type": "RANDOM"
       },
       {
@@ -4705,35 +9003,42 @@
     "Testudo Arms Earthshake": [
       {
         "mission": "InterSec - Resource Gathering",
-        "probability": 16.7,
+        "probability": 14.3,
         "type": "RANDOM"
       }
     ],
     "Testudo Core Earthshake": [
       {
         "mission": "InterSec - Resource Gathering",
-        "probability": 16.7,
+        "probability": 14.3,
         "type": "RANDOM"
       }
     ],
     "Testudo Legs Earthshake": [
       {
         "mission": "InterSec - Resource Gathering",
-        "probability": 16.7,
+        "probability": 14.3,
         "type": "RANDOM"
       }
     ],
     "Testudo Helmet Earthshake": [
       {
         "mission": "InterSec - Resource Gathering",
-        "probability": 16.7,
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Testudo Backpack Earthshake": [
+      {
+        "mission": "InterSec - Resource Gathering",
+        "probability": 14.3,
         "type": "RANDOM"
       }
     ],
     "Pulse \"Blacklist\" Pistol": [
       {
-        "mission": "InterSec - Retrieve Additional Smuggler Intel",
-        "probability": 7.7,
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
         "type": "RANDOM"
       },
       {
@@ -4744,8 +9049,8 @@
     ],
     "Quartz Energy SMG": [
       {
-        "mission": "InterSec - Retrieve Additional Smuggler Intel",
-        "probability": 7.7,
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
         "type": "RANDOM"
       },
       {
@@ -4756,8 +9061,8 @@
     ],
     "Quartz \"Black Op\" Energy SMG": [
       {
-        "mission": "InterSec - Retrieve Additional Smuggler Intel",
-        "probability": 7.7,
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
         "type": "RANDOM"
       },
       {
@@ -4768,57 +9073,134 @@
     ],
     "Testudo Arms": [
       {
-        "mission": "InterSec - Retrieve Additional Smuggler Intel",
-        "probability": 7.7,
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
         "type": "RANDOM"
       }
     ],
     "Testudo Core": [
       {
-        "mission": "InterSec - Retrieve Additional Smuggler Intel",
-        "probability": 7.7,
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
         "type": "RANDOM"
       }
     ],
     "Testudo Legs": [
       {
-        "mission": "InterSec - Retrieve Additional Smuggler Intel",
-        "probability": 7.7,
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
         "type": "RANDOM"
       }
     ],
     "Testudo Helmet": [
       {
-        "mission": "InterSec - Retrieve Additional Smuggler Intel",
-        "probability": 7.7,
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
         "type": "RANDOM"
       }
     ],
     "Testudo Helmet Clanguard": [
       {
-        "mission": "InterSec - Retrieve Additional Smuggler Intel",
-        "probability": 7.7,
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
         "type": "RANDOM"
       }
     ],
     "Testudo Core Clanguard": [
       {
-        "mission": "InterSec - Retrieve Additional Smuggler Intel",
-        "probability": 7.7,
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
         "type": "RANDOM"
       }
     ],
     "Testudo Legs Clanguard": [
       {
-        "mission": "InterSec - Retrieve Additional Smuggler Intel",
-        "probability": 7.7,
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
         "type": "RANDOM"
       }
     ],
     "Testudo Arms Clanguard": [
       {
-        "mission": "InterSec - Retrieve Additional Smuggler Intel",
-        "probability": 7.7,
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Testudo Backpack": [
+      {
+        "mission": "InterSec - Retrieve Smuggler Intel",
+        "probability": 7.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Attrition-1 Repeater": [
+      {
+        "mission": "InterSec - Retrieve Smuggler Intel (Vehicle Gear)",
+        "probability": 33.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Attrition-2 Repeater": [
+      {
+        "mission": "InterSec - Retrieve Smuggler Intel (Vehicle Gear)",
+        "probability": 33.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Attrition-3 Repeater": [
+      {
+        "mission": "InterSec - Retrieve Smuggler Intel (Vehicle Gear)",
+        "probability": 33.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Spectre": [
+      {
+        "mission": "Ling Family Courier (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Zephyr": [
+      {
+        "mission": "Ling Family Courier (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Bolt": [
+      {
+        "mission": "Ling Family Courier (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Spicule": [
+      {
+        "mission": "Ling Family Courier (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Guardian": [
+      {
+        "mission": "Ling Family Courier (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Citadel": [
+      {
+        "mission": "Ling Family Courier (Hard)",
+        "probability": 14.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Barbican": [
+      {
+        "mission": "Ling Family Courier (Hard)",
+        "probability": 14.3,
         "type": "RANDOM"
       }
     ],
@@ -4953,6 +9335,104 @@
         "type": "RANDOM"
       }
     ],
+    "SureGrip HV-S1 Tractor Beam": [
+      {
+        "mission": "Red Wind Courier Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "SureGrip HV-S2 Tractor Beam": [
+      {
+        "mission": "Red Wind Courier Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "SureGrip HV-S3 Tractor Beam": [
+      {
+        "mission": "Red Wind Courier Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Breton": [
+      {
+        "mission": "Red Wind Courier Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Genoa": [
+      {
+        "mission": "Red Wind Courier Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Durango": [
+      {
+        "mission": "Red Wind Courier Run",
+        "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Norfield": [
+      {
+        "mission": "Refuelling Nozzle Drop",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Marlin": [
+      {
+        "mission": "Refuelling Nozzle Drop",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Lindstrom": [
+      {
+        "mission": "Refuelling Nozzle Drop",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Harkin": [
+      {
+        "mission": "Refuelling Nozzle Drop",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "RN-7s": [
+      {
+        "mission": "Refuelling Nozzle Drop",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Bendix": [
+      {
+        "mission": "Refuelling Nozzle Drop",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Torrez": [
+      {
+        "mission": "Refuelling Nozzle Drop",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Ezra": [
+      {
+        "mission": "Refuelling Nozzle Drop",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
     "R97 Shotgun": [
       {
         "mission": "Rock Cracker Dungeon - Boss",
@@ -4996,11 +9476,6 @@
     "Monde Helmet Daimyo": [
       {
         "mission": "Rock Cracker Dungeon - Boss",
-        "probability": 9.1,
-        "type": "RANDOM"
-      },
-      {
-        "mission": "Rock Cracker Dungeon - Exclusive",
         "probability": 9.1,
         "type": "RANDOM"
       }
@@ -5086,6 +9561,13 @@
       }
     ],
     "Monde Helmet Delta Camo": [
+      {
+        "mission": "Rock Cracker Dungeon - Exclusive",
+        "probability": 9.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Monde Helmet Hemlock Camo": [
       {
         "mission": "Rock Cracker Dungeon - Exclusive",
         "probability": 9.1,
@@ -5265,6 +9747,200 @@
       {
         "mission": "Shubin Mining - FPS (Stanton)",
         "probability": 16.7,
+        "type": "RANDOM"
+      }
+    ],
+    "Arbor MHV Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 0-1",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "S00 Hofstede": [
+      {
+        "mission": "Shubin Mining - Rank 0-1",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Lawson Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 0-1",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "S0 Helix": [
+      {
+        "mission": "Shubin Mining - Rank 0-1",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Surveyor-Go": [
+      {
+        "mission": "Shubin Mining - Rank 0-1",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Surveyor-Lite": [
+      {
+        "mission": "Shubin Mining - Rank 0-1",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Surveyor": [
+      {
+        "mission": "Shubin Mining - Rank 0-1",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Surveyor-Max": [
+      {
+        "mission": "Shubin Mining - Rank 0-1",
+        "probability": 12.5,
+        "type": "RANDOM"
+      }
+    ],
+    "Pitman Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 2-3",
+        "probability": 9.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Hofstede-S1 Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 2-3",
+        "probability": 9.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Klein-S1 Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 2-3",
+        "probability": 9.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Helix I Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 2-3",
+        "probability": 9.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Impact I Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 2-3",
+        "probability": 9.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Arbor MH1 Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 2-3",
+        "probability": 9.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Lancet MH1 Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 2-3",
+        "probability": 9.1,
+        "type": "RANDOM"
+      }
+    ],
+    "BroadSpec-Go": [
+      {
+        "mission": "Shubin Mining - Rank 2-3",
+        "probability": 9.1,
+        "type": "RANDOM"
+      }
+    ],
+    "BroadSpec": [
+      {
+        "mission": "Shubin Mining - Rank 2-3",
+        "probability": 9.1,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Shubin Mining - Rank 2-3",
+        "probability": 9.1,
+        "type": "RANDOM"
+      }
+    ],
+    "BroadSpec-Max": [
+      {
+        "mission": "Shubin Mining - Rank 2-3",
+        "probability": 9.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Arbor MH2 Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 4",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Lancet MH2 Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 4",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Hofstede-S2 Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 4",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Klein-S2 Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 4",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Helix II Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 4",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "Impact II Mining Laser": [
+      {
+        "mission": "Shubin Mining - Rank 4",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "FullSpec-Go": [
+      {
+        "mission": "Shubin Mining - Rank 4",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "FullSpec": [
+      {
+        "mission": "Shubin Mining - Rank 4",
+        "probability": 11.1,
+        "type": "RANDOM"
+      }
+    ],
+    "FullSpec-Max": [
+      {
+        "mission": "Shubin Mining - Rank 4",
+        "probability": 11.1,
         "type": "RANDOM"
       }
     ],
@@ -5502,6 +10178,209 @@
         "mission": "Vaughn - Bounty",
         "probability": 8.3,
         "type": "RANDOM"
+      }
+    ],
+    "Killshot \"Dominion Camo\" Rifle": [
+      {
+        "mission": "Wikelo Collector - Multi Rifle",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Tailwind Flight Suit Dominion Camo": [
+      {
+        "mission": "Wikelo Collector - Virgil Flightsuit",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Tailwind Flight Helmet Dominion Camo": [
+      {
+        "mission": "Wikelo Collector - Virgil Flightsuit Helmet",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Metamaterial Test #146": [
+      {
+        "mission": "Wikelo Collector Material (Tier 1)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "NDB-26 Repeater": [
+      {
+        "mission": "XenoThreat 2.0 - 100% Wave (Drop 1)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "NDB-28 Repeater": [
+      {
+        "mission": "XenoThreat 2.0 - 100% Wave (Drop 2)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "NDB-30 Repeater": [
+      {
+        "mission": "XenoThreat 2.0 - 100% Wave (Drop 3)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Chiron Arms Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 15% Wave (Drop 1)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Chiron Backpack Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 15% Wave (Drop 2)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Chiron Core Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 15% Wave (Drop 3)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Chiron Legs Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 15% Wave (Drop 4)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Chiron Helmet Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 15% Wave (Drop 5)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "BR-2 \"Purgatory Camo\" Shotgun": [
+      {
+        "mission": "XenoThreat 2.0 - 15% Wave (Drop 6)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Testudo Arms Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 25% Wave (Drop 1)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Testudo Backpack Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 25% Wave (Drop 2)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Testudo Core Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 25% Wave (Drop 3)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Testudo Legs Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 25% Wave (Drop 4)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Testudo Helmet Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 25% Wave (Drop 5)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "S71 \"Purgatory Camo\" Rifle": [
+      {
+        "mission": "XenoThreat 2.0 - 25% Wave (Drop 6)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Warden Backpack Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 50% Wave (Drop 1)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Monde Arms Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 50% Wave (Drop 2)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Monde Core Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 50% Wave (Drop 3)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Monde Legs Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 50% Wave (Drop 4)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Monde Helmet Purgatory Camo": [
+      {
+        "mission": "XenoThreat 2.0 - 50% Wave (Drop 5)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Demeco \"Purgatory Camo\" LMG": [
+      {
+        "mission": "XenoThreat 2.0 - 50% Wave (Drop 6)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "QuadraCell": [
+      {
+        "mission": "XenoThreat 2.0 - 60% Wave (Drop 1)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "QuadraCell MT": [
+      {
+        "mission": "XenoThreat 2.0 - 60% Wave (Drop 2)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "FR-66": [
+      {
+        "mission": "XenoThreat 2.0 - 85% Wave (Drop 1)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "FR-76": [
+      {
+        "mission": "XenoThreat 2.0 - 85% Wave (Drop 2)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
       }
     ]
   }
