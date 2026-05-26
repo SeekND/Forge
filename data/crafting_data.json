@@ -1,13 +1,8 @@
 {
   "meta": {
-    "source": "Datamined from Star Citizen game files",
-    "source_url": "",
-    "extracted_date": "2026-05-22",
     "current_patch": "4.8",
     "data_updated": "2026-05-22",
     "news_reel": "",
-    "note": "Auto-extracted by SC Hub - Crafting module v4 (4.7 format).",
-    "machine_name": "RediMake Item Fabricator",
     "default_blueprints": [
       "bp_craft_behr_pistol_ballistic_01.xml",
       "bp_craft_behr_pistol_ballistic_01_mag.xml",
