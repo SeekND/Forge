@@ -1140,9 +1140,16 @@ function filterBlueprints(){
     }
     
     // Sort sets: unlocked first, then by weight, then by name
+    // 3-tier sort: fully unlocked → partially unlocked → fully locked.
+    // Within tier, sort by weight then name.
+    const setTier=s=>{
+      if(isUnlocked('set',s.set_name))return 0;
+      if(s.pieces.some(p=>isUnlocked('piece',p.name)))return 1;
+      return 2;
+    };
     setsToShow.sort((a,b)=>{
-      const ua=isUnlocked('set',a.set_name)?0:1, ub=isUnlocked('set',b.set_name)?0:1;
-      if(ua!==ub)return ua-ub;
+      const ta=setTier(a), tb=setTier(b);
+      if(ta!==tb)return ta-tb;
       return (WEIGHT_ORDER[a.weight]||0)-(WEIGHT_ORDER[b.weight]||0)||a.set_name.localeCompare(b.set_name);
     });
     currentVisible.byType.set=setsToShow;
@@ -1230,7 +1237,15 @@ function filterBlueprints(){
         return true;
       });
       if(!f.length)return;
-      f.sort((a,b)=>{const ua=isUnlocked('ship_component',a.name)?0:1,ub=isUnlocked('ship_component',b.name)?0:1;return ua-ub||a.name.localeCompare(b.name);});
+      // Sort: unlocked first, then by grade (A→D, then ungraded), then by name.
+      const gradeRank=g=>g?('ABCD'.indexOf(g)+1)||99:99;
+      f.sort((a,b)=>{
+        const ua=isUnlocked('ship_component',a.name)?0:1, ub=isUnlocked('ship_component',b.name)?0:1;
+        if(ua!==ub)return ua-ub;
+        const ga=gradeRank(a.grade), gb=gradeRank(b.grade);
+        if(ga!==gb)return ga-gb;
+        return a.name.localeCompare(b.name);
+      });
       currentVisible.byType.ship_component=currentVisible.byType.ship_component.concat(f);
       html+=`<div style="grid-column:1/-1;color:#f8fafc;font-weight:700;font-size:15px;margin-top:${count?'12':'0'}px">${title} (${f.length})</div>`;
       f.forEach(c=>{html+=renderShipCompCard(c);count++;});
