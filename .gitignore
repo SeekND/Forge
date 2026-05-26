@@ -1,0 +1,7 @@
+# Local-only files — don't track these in the GitHub repo
+
+# Windows launcher for the local dev server (user-specific, not for the deployed site)
+StartCraftingPage.bat
+
+# Backup of the pre-4.8 data file kept locally as a safety net
+data/crafting_data_pre_ship.backup.json
