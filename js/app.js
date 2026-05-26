@@ -1834,6 +1834,7 @@ function renderWO(){
     const craftBtn=wo.crafted
       ?`<button class="btn-craft done" onclick="uncraftWO(${i})">✓ Crafted</button>`
       :`<button class="btn-craft" onclick="craftWO(${i})">Mark Crafted</button>`;
+    const mineBtn=wo.crafted?'':`<button class="btn-mine" title="Open Strata with this item's ores selected" onclick="goMineSingleWOItem(${i})">⛏️ Mine</button>`;
     const chk=wo.crafted?'':`<input type="checkbox" class="wo-sel-chk" data-idx="${i}" onchange="toggleWOSelect(${i},this.checked)">`;
 
     // Per-piece slot assignment
@@ -1878,7 +1879,7 @@ function renderWO(){
       bpStatus=`<span class="wo-bp-status locked clickable" onclick="event.stopPropagation();unlockFromWO('${esc(wo.type)}','${escAttr(wo.key)}')" title="Click to unlock this blueprint">${sourcesIcon(item.sources||[])}🔒 Unlock BP</span>`;
     }
 
-    return `<div class="wo-item${craftedCls}"><div class="wo-item-top"><div class="wo-item-info"><div style="display:flex;align-items:center;gap:6px">${chk}<span class="wo-item-name">${esc(name)}</span>${bpStatus}</div><div class="wo-item-badges">${badges}</div></div><div class="wo-item-right"><div class="wo-item-cost">${totalCost}</div><div class="wo-item-time">${totalTime}</div></div></div>${slotsHtml}<div class="wo-item-bottom"><div class="wo-qty"><button onclick="setWOQty(${i},-1)">−</button><div class="wo-qty-val">${wo.qty}x</div><button onclick="setWOQty(${i},1)">+</button></div><div class="wo-item-actions">${craftBtn}${moveSel}<button class="btn-remove" onclick="removeWOItem(${i})">Remove</button></div></div></div>`;
+    return `<div class="wo-item${craftedCls}"><div class="wo-item-top"><div class="wo-item-info"><div style="display:flex;align-items:center;gap:6px">${chk}<span class="wo-item-name">${esc(name)}</span>${bpStatus}</div><div class="wo-item-badges">${badges}</div></div><div class="wo-item-right"><div class="wo-item-cost">${totalCost}</div><div class="wo-item-time">${totalTime}</div></div></div>${slotsHtml}<div class="wo-item-bottom"><div class="wo-qty"><button onclick="setWOQty(${i},-1)">−</button><div class="wo-qty-val">${wo.qty}x</div><button onclick="setWOQty(${i},1)">+</button></div><div class="wo-item-actions">${craftBtn}${mineBtn}${moveSel}<button class="btn-remove" onclick="removeWOItem(${i})">Remove</button></div></div></div>`;
   }).join('');
   renderWOTotals();renderWOTime();
 }
@@ -2138,6 +2139,42 @@ function copyWOText(){
 function setOreMode(mode){
   oreMode=mode;
   document.querySelectorAll('.ore-mode').forEach(b=>{b.classList.toggle('active',b.dataset.mode===mode);});
+}
+
+// Collect deduped ore names from a list of item objects (each with .recipe or .pieces).
+// Used by the Go-Mine buttons to build a Strata URL with materials pre-selected.
+function collectOreNamesFromItems(items){
+  const oreSet=new Set();
+  items.forEach(it=>{
+    if(!it)return;
+    getRec(it).forEach(r=>{
+      if(r.material&&r.amount_cscu>0)oreSet.add(miningOreName(r.material));
+      if(r.cost_type==='item'&&r.item_quantity>0)oreSet.add(miningOreName(r.item_name));
+    });
+  });
+  return [...oreSet].sort((a,b)=>a.localeCompare(b));
+}
+function openStrataWithOres(oreNames,label){
+  if(!oreNames.length){showToast('No materials to mine'+(label?' for '+label:''));return;}
+  const url=`https://seeknd.github.io/Strata/?ores=${oreNames.map(encodeURIComponent).join(',')}`;
+  window.open(url,'_blank','noopener');
+  showToast(`Opening Strata · ${oreNames.length} ore${oreNames.length===1?'':'s'}${label?' for '+label:''}`);
+}
+function goMineActiveOrder(){
+  const o=getActiveOrder();
+  if(!o||!o.items.length){showToast('No active order');return;}
+  const remaining=o.items.filter(w=>!w.crafted).map(w=>w.item);
+  openStrataWithOres(collectOreNamesFromItems(remaining),'active order');
+}
+function goMineAllOrders(){
+  const allItems=orders.flatMap(o=>o.items.filter(w=>!w.crafted).map(w=>w.item));
+  if(!allItems.length){showToast('No remaining items across orders');return;}
+  openStrataWithOres(collectOreNamesFromItems(allItems),'all orders');
+}
+function goMineSingleWOItem(idx){
+  const o=getActiveOrder();if(!o)return;
+  const wo=o.items[idx];if(!wo||!wo.item)return;
+  openStrataWithOres(collectOreNamesFromItems([wo.item]),itemName(wo.type,wo.item));
 }
 
 function copyOreRequest(){
