@@ -838,16 +838,7 @@ function buildOrgReport(){
         const sz=w.size?` (S${w.size})`:'';
         return `• ${w.name}${sz}: ${o.join(', ')}`;
       }},
-    {label:'Ship Components', items:(DATA.ship_components||[]),
-      render:c=>{
-        const o=getOwners('ship_component',c.name);
-        if(!o.length)return null;
-        const meta=[];
-        if(c.size!==undefined&&c.size!==null)meta.push('S'+c.size);
-        if(c.class_code)meta.push(c.class_code+(c.grade?'/'+c.grade:''));
-        const tag=meta.length?` (${meta.join(', ')})`:'';
-        return `• ${c.name}${tag}: ${o.join(', ')}`;
-      }},
+    // Ship Components handled specially below — grouped per type, sorted per shipComponentCompare.
   ];
   let totalLines=0;
   sections.forEach(sec=>{
@@ -862,6 +853,33 @@ function buildOrgReport(){
     lines.push(...ls);
     lines.push('');
     totalLines+=ls.length;
+  });
+
+  // Ship Components — grouped by component_type, alphabetised. Within each
+  // group: size ASC → grade A→D → class alpha → name (shipComponentCompare).
+  const shipCompByType={};
+  (DATA.ship_components||[]).forEach(c=>{
+    const o=getOwners('ship_component',c.name);
+    if(!o.length)return;
+    (shipCompByType[c.component_type]=shipCompByType[c.component_type]||[]).push(c);
+  });
+  Object.keys(shipCompByType).sort((a,b)=>{
+    const la=COMP_LABELS[a]||a, lb=COMP_LABELS[b]||b;
+    return la.localeCompare(lb);
+  }).forEach(t=>{
+    const items=shipCompByType[t].sort(shipComponentCompare);
+    const sectionLines=items.map(c=>{
+      const owners=getOwners('ship_component',c.name);
+      const meta=[];
+      if(c.size!==undefined&&c.size!==null)meta.push('S'+c.size);
+      if(c.class_code)meta.push(c.class_code+(c.grade?'/'+c.grade:''));
+      const tag=meta.length?` (${meta.join(', ')})`:'';
+      return `• ${c.name}${tag}: ${owners.join(', ')}`;
+    });
+    lines.push(`__**${COMP_LABELS[t]||t}** (${sectionLines.length})__`);
+    lines.push(...sectionLines);
+    lines.push('');
+    totalLines+=sectionLines.length;
   });
   if(totalLines===0){
     lines.push('*No owned blueprints yet. Unlock some or import a friend\'s share.*');
@@ -1237,14 +1255,11 @@ function filterBlueprints(){
         return true;
       });
       if(!f.length)return;
-      // Sort: unlocked first, then by grade (A→D, then ungraded), then by name.
-      const gradeRank=g=>g?('ABCD'.indexOf(g)+1)||99:99;
+      // Sort: unlocked first, then via shipComponentCompare (size → grade → class → name).
       f.sort((a,b)=>{
         const ua=isUnlocked('ship_component',a.name)?0:1, ub=isUnlocked('ship_component',b.name)?0:1;
         if(ua!==ub)return ua-ub;
-        const ga=gradeRank(a.grade), gb=gradeRank(b.grade);
-        if(ga!==gb)return ga-gb;
-        return a.name.localeCompare(b.name);
+        return shipComponentCompare(a,b);
       });
       currentVisible.byType.ship_component=currentVisible.byType.ship_component.concat(f);
       html+=`<div style="grid-column:1/-1;color:#f8fafc;font-weight:700;font-size:15px;margin-top:${count?'12':'0'}px">${title} (${f.length})</div>`;
@@ -2779,15 +2794,48 @@ function getShareGroupsForCategory(cat){
     return [['Ship Weapons',lines]];
   }
   if(cat==='ship_components'){
-    const lines=(v.ship_component||[]).filter(c=>inScope('ship_component',c.name)).map(c=>{
-      const meta=[];
-      if(c.size!==undefined&&c.size!==null)meta.push('S'+c.size);
-      if(c.class_code)meta.push(c.class_code+(c.grade?'/'+c.grade:''));
-      return c.name+(meta.length?` (${meta.join(', ')})`:'');
+    // Group by component_type. Within each type, sort by:
+    //   1. has-spec items first (class+grade present), no-spec last
+    //   2. size ASC (S0 → S4)
+    //   3. grade A → B → C → D
+    //   4. class alphabetical
+    //   5. name
+    const inScopeComps=(v.ship_component||[]).filter(c=>inScope('ship_component',c.name));
+    const byType={};
+    inScopeComps.forEach(c=>{(byType[c.component_type]=byType[c.component_type]||[]).push(c);});
+    const groups=[];
+    Object.keys(byType).sort((a,b)=>{
+      const la=COMP_LABELS[a]||a, lb=COMP_LABELS[b]||b;
+      return la.localeCompare(lb);
+    }).forEach(t=>{
+      const items=byType[t].sort(shipComponentCompare);
+      const lines=items.map(c=>{
+        const meta=[];
+        if(c.size!==undefined&&c.size!==null)meta.push('S'+c.size);
+        if(c.class_code)meta.push(c.class_code+(c.grade?'/'+c.grade:''));
+        return c.name+(meta.length?` (${meta.join(', ')})`:'');
+      });
+      groups.push([COMP_LABELS[t]||t,lines]);
     });
-    return [['Ship Components',lines]];
+    return groups;
   }
   return [];
+}
+
+// Sort comparator for ship components: has-spec → size ASC → grade A→D
+// → class alphabetical → name. Used by both card sort and copy output.
+function shipComponentCompare(a,b){
+  const sa=a.class_code?0:1, sb=b.class_code?0:1;
+  if(sa!==sb)return sa-sb;
+  const za=(a.size===undefined||a.size===null)?99:a.size;
+  const zb=(b.size===undefined||b.size===null)?99:b.size;
+  if(za!==zb)return za-zb;
+  const gr=g=>g?('ABCD'.indexOf(g)+1)||99:99;
+  const ga=gr(a.grade), gb=gr(b.grade);
+  if(ga!==gb)return ga-gb;
+  const ca=a.class_code||'', cb=b.class_code||'';
+  if(ca!==cb)return ca.localeCompare(cb);
+  return (a.name||'').localeCompare(b.name||'');
 }
 function categoryDisplayName(cat){
   return cat==='armor'?'Armor':cat==='weapons'?'Weapons':cat==='undersuits'?'Suits':cat==='ship_weapons'?'Ship Weapons':cat==='ship_components'?'Ship Components':cat;
