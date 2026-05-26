@@ -914,35 +914,37 @@ function copyOrgReport(){
     return;
   }
   // >2000 chars — open a chunks viewer with per-part copy buttons.
-  openOrgChunksModal(chunks,text.length);
+  openTextChunksModal(chunks,text.length,`Org Report — ${chunks.length} parts`);
 }
 
-function openOrgChunksModal(chunks,totalLen){
+// Generic chunks modal — used by Copy Org Report and the per-category Copy
+// buttons when their output exceeds Discord's 2000-char message cap.
+function openTextChunksModal(chunks,totalLen,title){
   const modal=document.getElementById('share-modal');
   if(!modal)return;
   modal.innerHTML=`
     <div class="rqm-overlay" onclick="closeShareModal()"></div>
     <div class="rqm-dialog" style="max-width:720px">
-      <div class="rqm-header"><h3>📋 Org Report — ${chunks.length} parts</h3><button class="rqm-close" onclick="closeShareModal()">×</button></div>
+      <div class="rqm-header"><h3>📋 ${esc(title||'Text — '+chunks.length+' parts')}</h3><button class="rqm-close" onclick="closeShareModal()">×</button></div>
       <div class="rqm-body">
-        <p class="dim" style="margin-bottom:12px">Discord caps regular messages at 2000 characters. The full report is ${totalLen.toLocaleString()} chars across <strong>${chunks.length} parts</strong>. Copy each part below and paste them as separate Discord messages in order.</p>
+        <p class="dim" style="margin-bottom:12px">Discord caps regular messages at 2000 characters. The full text is ${totalLen.toLocaleString()} chars across <strong>${chunks.length} parts</strong>. Copy each part below and paste them as separate Discord messages in order.</p>
         ${chunks.map((c,i)=>`
           <div style="margin-bottom:12px">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
               <strong>Part ${i+1} of ${chunks.length}</strong>
               <span class="dim" style="font-size:11px">${c.length.toLocaleString()} chars</span>
             </div>
-            <textarea readonly id="org-chunk-${i}" style="width:100%;height:120px;background:var(--bg-deep);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:4px;font-size:11px;font-family:monospace;resize:vertical">${esc(c)}</textarea>
-            <button class="btn-secondary" style="margin-top:4px" onclick="copyOrgChunk(${i})">📋 Copy Part ${i+1}</button>
+            <textarea readonly id="chunk-ta-${i}" style="width:100%;height:120px;background:var(--bg-deep);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:4px;font-size:11px;font-family:monospace;resize:vertical">${esc(c)}</textarea>
+            <button class="btn-secondary" style="margin-top:4px" onclick="copyChunk(${i})">📋 Copy Part ${i+1}</button>
           </div>`).join('')}
         <hr style="border:none;border-top:1px solid var(--border);margin:16px 0">
-        <button class="btn-secondary" onclick="openShareModal()">← Back to Share</button>
+        <button class="btn-secondary" onclick="closeShareModal()">Close</button>
       </div>
     </div>`;
   modal.style.display='flex';
 }
-function copyOrgChunk(i){
-  const ta=document.getElementById('org-chunk-'+i);
+function copyChunk(i){
+  const ta=document.getElementById('chunk-ta-'+i);
   if(!ta)return;
   ta.select();
   navigator.clipboard.writeText(ta.value).then(
@@ -2804,7 +2806,10 @@ async function shareUnlockedToDiscord(){
 }
 
 // Clipboard-copy equivalent of the per-category Discord share.
-// Always mirrors what's currently visible (search + filters + owner).
+// Vertical Markdown format: one item per bullet line — far easier to read
+// in Discord than a long wrapped comma list. Always mirrors what's
+// currently visible (search + filters + owner). Chunks if over ~1900 chars
+// to respect Discord's 2000-char message cap.
 function copyUnlockedToClipboard(){
   const cat=bpCategory;
   const groups=getShareGroupsForCategory(cat);
@@ -2822,18 +2827,30 @@ function copyUnlockedToClipboard(){
   const owner=getMyName()?`${getMyName()}'s`:'Your';
   const qualifier=filtered?'Selected':'Unlocked';
   // If the owner filter is narrowed to exactly one other player, use their name in the header
-  let headerSubject=`${owner} ${qualifier} ${catName}`;
+  let headerSubject=`${owner} ${qualifier} ${catName} Blueprints`;
   if(filters.owners.length===1 && filters.owners[0]!==getMyName()){
-    headerSubject=`${filters.owners[0]}'s ${catName}`;
+    headerSubject=`${filters.owners[0]}'s ${catName} Blueprints`;
   }
-  const lines=[`**Forge Crafting — ${headerSubject}** (Patch ${patch})`];
-  groups.forEach(([label,ls])=>{
-    if(ls.length)lines.push(`*${label} (${ls.length}):* ${ls.join(', ')}`);
+  const lines=[`### ${headerSubject} (Patch ${patch})`];
+  const nonEmpty=groups.filter(([,ls])=>ls.length);
+  const multiSection=nonEmpty.length>1;
+  nonEmpty.forEach(([label,ls])=>{
+    if(multiSection){
+      lines.push('');
+      lines.push(`**${label} (${ls.length})**`);
+    }
+    ls.forEach(item=>lines.push(`- ${item}`));
   });
-  navigator.clipboard.writeText(lines.join('\n')).then(
-    ()=>showToast(`Copied ${total} ${catName.toLowerCase()} blueprint${total===1?'':'s'} to clipboard`),
-    ()=>showToast('Clipboard copy failed')
-  );
+  const text=lines.join('\n');
+  const chunks=chunkText(text,1900);
+  if(chunks.length===1){
+    navigator.clipboard.writeText(text).then(
+      ()=>showToast(`Copied ${total} ${catName.toLowerCase()} blueprint${total===1?'':'s'} to clipboard`),
+      ()=>showToast('Clipboard copy failed')
+    );
+    return;
+  }
+  openTextChunksModal(chunks,text.length,`${catName} Blueprints — ${chunks.length} parts`);
 }
 
 function showToast(msg){const el=document.createElement('div');el.textContent=msg;el.style.cssText='position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1d4ed8;color:#fff;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:700;z-index:999;opacity:0;transition:opacity .3s';document.body.appendChild(el);requestAnimationFrame(()=>{el.style.opacity='1';});setTimeout(()=>{el.style.opacity='0';setTimeout(()=>el.remove(),300);},2000);}
