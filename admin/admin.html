@@ -212,6 +212,17 @@
         <input type="text" id="playerName" value="" placeholder="e.g. Seek" maxlength="40" style="width:280px;background:var(--bg-raised);border:1px solid var(--border-light);color:var(--text);padding:10px 14px;border-radius:6px;font-size:14px">
       </div>
     </div>
+
+    <div class="card">
+      <h2>Dismantle Sourcing</h2>
+      <p class="desc" style="margin-bottom:16px">Materials that <strong>can't</strong> be obtained by dismantling existing items — these must be mined. CIG updates this list patch-to-patch; edit here without touching code. Comma-separated, case-insensitive, must match the material names used in recipes (e.g. <code>Lindinium</code>, not <code>Raw Lindinium</code>).</p>
+
+      <div class="field">
+        <label>Non-Extractable Materials</label>
+        <p class="desc">Defaults to the 8 currently blacklisted by CIG. The Work Order panel and Materials tab will show <strong>⛏️ Mine-only</strong> for these and <strong>♻️ Dismantle from N items</strong> for everything else.</p>
+        <textarea id="nonExtractableMaterials" rows="3" style="width:100%;background:var(--bg-raised);border:1px solid var(--border-light);color:var(--text);padding:10px 14px;border-radius:6px;font-size:13px;font-family:monospace;resize:vertical" placeholder="Quantanium, Stileron, Savrilium, ...">Quantanium, Stileron, Savrilium, Lindinium, Riccite, Ouratite, Saldynium, Janalite</textarea>
+      </div>
+    </div>
     
     <div class="card" style="margin-bottom:24px;background:#1e293b">
       <a href="../blueprint_rewards_viewer.html" target="_blank" style="color:#38bdf8;font-weight:700;font-size:15px;text-decoration:none;display:flex;align-items:center;gap:8px">🎁 Blueprint Rewards Viewer <span style="color:#64748b;font-weight:400;font-size:12px">— Browse mission reward pools and drop rates</span></a>
@@ -358,7 +369,7 @@
     // Discord fields (stored as strings, separate from numeric config)
     const DISCORD_KEYS = ['discordUserId', 'discordWebhookId', 'discordWebhookToken', 'discordDefaultLocation'];
     // Other string-valued admin fields
-    const STRING_KEYS = ['playerName'];
+    const STRING_KEYS = ['playerName', 'nonExtractableMaterials'];
     
     // Load current settings on page load
     function loadSettings() {
@@ -375,10 +386,14 @@
             const input = document.getElementById(key);
             if (input) input.value = config[key] || '';
           });
-          // Load other string fields
+          // Load other string fields (with defaults for missing entries)
+          const STRING_DEFAULTS = {
+            playerName: '',
+            nonExtractableMaterials: 'Quantanium, Stileron, Savrilium, Lindinium, Riccite, Ouratite, Saldynium, Janalite',
+          };
           STRING_KEYS.forEach(key => {
             const input = document.getElementById(key);
-            if (input) input.value = config[key] || '';
+            if (input) input.value = config[key] !== undefined ? config[key] : (STRING_DEFAULTS[key] || '');
           });
           updateDisplays(config);
         }

@@ -64,7 +64,65 @@ let adminConfig = {
   gradeAHigh: 1000,
   vaultThreshold: 850, // Minimum quality to track in vault inventory
   playerName: '',     // 4.8.1: display name for peer-to-peer sharing
+  // Materials that CAN'T be obtained by dismantling existing items — must be mined.
+  // Stored as a comma-separated string in the admin field, normalised to an array
+  // via getNonExtractableMaterials() below. CIG's blacklist changes patch-to-patch
+  // so this is user-editable in Admin instead of hardcoded.
+  nonExtractableMaterials: 'Quantanium, Stileron, Savrilium, Lindinium, Riccite, Ouratite, Saldynium, Janalite',
 };
+
+// Normalised lowercase Set of blacklisted materials (rebuilt on demand because
+// adminConfig.nonExtractableMaterials is a free-text field).
+function getNonExtractableMaterials(){
+  const raw=adminConfig.nonExtractableMaterials||'';
+  return new Set(raw.split(',').map(s=>s.trim().toLowerCase()).filter(Boolean));
+}
+
+// Reverse-lookup index: material name → array of items containing it.
+// Built once after data load, used by the WO recycle chips and Materials tab.
+let MATERIAL_SOURCES = {};
+function buildMaterialSources(){
+  MATERIAL_SOURCES = {};
+  const addItem=(matName,type,name,displayName)=>{
+    if(!matName)return;
+    const key=matName;
+    if(!MATERIAL_SOURCES[key])MATERIAL_SOURCES[key]=[];
+    // Dedup by (type, name)
+    if(!MATERIAL_SOURCES[key].some(s=>s.type===type&&s.name===name)){
+      MATERIAL_SOURCES[key].push({type, name, display: displayName||name});
+    }
+  };
+  const scan=(arr,type,nameField)=>arr.forEach(it=>{
+    const itName=it[nameField];
+    const recs=it.pieces?it.pieces.flatMap(p=>p.recipe||[]):(it.recipe||[]);
+    recs.forEach(r=>{
+      if(r.material&&r.amount_cscu>0)addItem(r.material,type,itName);
+      // Note: item-cost slots (gems) are NOT treated as dismantle sources here.
+    });
+  });
+  scan(DATA.armor_sets||[],'set','set_name');
+  scan(DATA.armor_pieces||[],'piece','name');
+  scan(DATA.backpacks||[],'backpack','name');
+  scan(DATA.weapons||[],'weapon','name');
+  scan(DATA.undersuits||[],'undersuit','name');
+  scan(DATA.undersuit_helmets||[],'undersuit_helmet','name');
+  scan(DATA.flightsuits||[],'flightsuit','name');
+  scan(DATA.flightsuit_helmets||[],'flightsuit_helmet','name');
+  scan(DATA.ship_weapons||[],'ship_weapon','name');
+  scan(DATA.ship_components||[],'ship_component','name');
+  // Sort source lists alphabetically by name for stable display
+  Object.values(MATERIAL_SOURCES).forEach(arr=>arr.sort((a,b)=>a.name.localeCompare(b.name)));
+}
+
+// Recycle status for a material: 'mine' (blacklisted), 'recycle' (dismantleable),
+// or 'none' (no source items found — rare, e.g. material only mined never used).
+function recycleStatus(matName){
+  if(!matName)return {status:'none',sources:[]};
+  const blacklist=getNonExtractableMaterials();
+  if(blacklist.has(matName.toLowerCase()))return {status:'mine',sources:[]};
+  const sources=MATERIAL_SOURCES[matName]||[];
+  return {status:sources.length?'recycle':'none', sources};
+}
 
 // Grade helpers
 function getGrade(q){
@@ -293,6 +351,8 @@ async function init(){
   // Build the canonical item index — used by share/import to translate
   // between bp keys and tiny base36 numbers. Must run BEFORE any hash import.
   buildItemIndex();
+  // Build reverse-lookup material → items map used by the recycle/mine chips.
+  buildMaterialSources();
 
   buildDefaultUnlocked();
   buildMaterialUsage();loadState();updUnitBtn();
@@ -1884,11 +1944,32 @@ function renderWO(){
   renderWOTotals();renderWOTime();
 }
 
+// Render the recycle/mine chip for a slot's material. Returns '' for item-cost
+// slots (gems can't be dismantled like materials can).
+function slotRecycleChip(matName,isItemCost){
+  if(isItemCost||!matName)return '';
+  const info=recycleStatus(matName);
+  if(info.status==='mine'){
+    return `<span class="wo-slot-mine" title="${esc(matName)} can't be obtained by dismantling — must be mined">⛏️ Mine-only</span>`;
+  }
+  if(info.status==='recycle'){
+    const itemList=info.sources.map(s=>`<div class="src-line"><span class="src-mission">${esc(s.name)}</span></div>`).join('');
+    const itemCount=info.sources.length;
+    // Reuses the .sources-wrap / .sources-pop hover pattern from the source-info icon.
+    return `<span class="sources-wrap" onclick="event.stopPropagation()">`
+      +`<span class="wo-slot-recycle" tabindex="0">♻️ ${itemCount} item${itemCount===1?'':'s'}</span>`
+      +`<div class="sources-pop recycle-pop"><div class="dim" style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Dismantle any of these (Q500)</div>${itemList}</div>`
+      +`</span>`;
+  }
+  return '';
+}
+
 function renderSlotRow(r,sq,sqKey,needCscu,woIdx){
   // Unify: item costs use item_name as the effective material name
   const isItemCost=r.cost_type==='item';
   const matName=isItemCost?r.item_name:r.material;
   const needLabel=isItemCost?needCscu+'×':uFmt(needCscu);
+  const recycleChipHtml=slotRecycleChip(matName,isItemCost);
 
   const haveTotal=totalQty(matName);
   const stat=SLOT_STATS[r.slot]||'';
@@ -1938,6 +2019,7 @@ function renderSlotRow(r,sq,sqKey,needCscu,woIdx){
       <span class="wo-slot-name">${esc(r.slot)}</span>
       ${minQBadge}
       <span class="wo-slot-mat">${esc(matName)}${itemTag}</span>
+      ${recycleChipHtml}
       <span class="wo-slot-need">${needLabel}</span>
       <span class="wo-slot-reqtag" style="color:#64748b">Select:</span>
       ${dropdown}
@@ -1948,6 +2030,7 @@ function renderSlotRow(r,sq,sqKey,needCscu,woIdx){
       <span class="wo-slot-name">${esc(r.slot)}</span>
       ${minQBadge}
       <span class="wo-slot-mat">${esc(matName)}${itemTag}</span>
+      ${recycleChipHtml}
       <span class="wo-slot-need">${needLabel}</span>
       <span class="wo-slot-reqtag">Requested:</span>
       ${dropdown}
@@ -1967,6 +2050,7 @@ function renderSlotRow(r,sq,sqKey,needCscu,woIdx){
       <span class="wo-slot-name">${esc(r.slot)}</span>
       ${minQBadge}
       <span class="wo-slot-mat">${esc(matName)}${itemTag}</span>
+      ${recycleChipHtml}
       <span class="wo-slot-need">${needLabel}</span>
       ${reqTag}
       ${haveLabel}
@@ -3137,7 +3221,19 @@ function buildMaterialsRef(){
     const uses=(materialUsage[n]||[]).map(u=>`<span class="badge-use ${USE_CLS[u]||''}">${USE_LABELS[u]||u}</span>`).join('');
     const slots=[...(matSlots[n]||[])].map(sl=>{const stat=SLOT_STATS[sl]||'Unknown';return `<div class="mat-slot-stat"><span class="mat-slot-name">${sl}</span><span class="mat-stat-arrow">→</span><span class="mat-stat-name">${stat}</span></div>`;}).join('');
     const inv=totalQty(n);const invStr=inv>0?`<span style="color:var(--green);font-weight:700">${uFmt(inv)} in inventory</span>`:'';
-    return `<div class="mat-card"><div class="mat-top"><div class="mat-name">${n}</div><div class="mat-bp-count">${i.blueprint_count} blueprints</div></div><div class="mat-details"><div class="mat-detail"><span class="mat-detail-label">Raw Ore</span>${i.raw_ore}</div><div class="mat-detail"><span class="mat-detail-label">Crafting Slots</span>${i.slots_used_in}</div>${invStr?`<div class="mat-detail">${invStr}</div>`:''}</div>${slots?`<div class="mat-slots-stats">${slots}</div>`:''}<div class="mat-uses">${uses}</div></div>`;
+    // Recycle/mine indicator — same status logic as the WO slot chips.
+    const rs=recycleStatus(n);
+    let recycleBadge='';
+    if(rs.status==='mine'){
+      recycleBadge=`<span class="mat-recycle mat-mine" title="Cannot be obtained by dismantling — must be mined">⛏️ Mine-only</span>`;
+    }else if(rs.status==='recycle'){
+      const itemList=rs.sources.map(s=>`<div class="src-line"><span class="src-mission">${esc(s.name)}</span></div>`).join('');
+      recycleBadge=`<span class="sources-wrap" onclick="event.stopPropagation()">`
+        +`<span class="mat-recycle mat-recyclable" tabindex="0">♻️ Dismantle from ${rs.sources.length} item${rs.sources.length===1?'':'s'}</span>`
+        +`<div class="sources-pop recycle-pop"><div class="dim" style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Dismantle any of these (Q500)</div>${itemList}</div>`
+        +`</span>`;
+    }
+    return `<div class="mat-card"><div class="mat-top"><div class="mat-name">${n}</div><div class="mat-bp-count">${i.blueprint_count} blueprints</div></div><div class="mat-details"><div class="mat-detail"><span class="mat-detail-label">Raw Ore</span>${i.raw_ore}</div><div class="mat-detail"><span class="mat-detail-label">Crafting Slots</span>${i.slots_used_in}</div>${invStr?`<div class="mat-detail">${invStr}</div>`:''}</div>${recycleBadge?`<div class="mat-recycle-row">${recycleBadge}</div>`:''}${slots?`<div class="mat-slots-stats">${slots}</div>`:''}<div class="mat-uses">${uses}</div></div>`;
   }).join('');
 }
 

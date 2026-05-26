@@ -277,6 +277,16 @@ nav#tabs{display:flex;gap:1px;overflow-x:auto}
 .btn-craft.done{background:var(--bg-raised);color:var(--green);border:1px solid var(--green)}
 .btn-mine{background:transparent;border:1px solid #f59e0b66;color:#fbbf24;padding:5px 12px;border-radius:var(--radius-sm);font-size:11px;font-weight:700;cursor:pointer;transition:background .15s}
 .btn-mine:hover{background:rgba(245,158,11,.12)}
+
+/* Recycle / mine chips — WO slot annotations + Materials tab */
+.wo-slot-recycle{display:inline-flex;align-items:center;gap:3px;background:rgba(5,150,105,.13);color:#34d399;border:1px solid rgba(5,150,105,.4);border-radius:10px;padding:1px 8px;font-size:10px;font-weight:600;cursor:help;user-select:none;line-height:1.4;white-space:nowrap}
+.wo-slot-mine{display:inline-flex;align-items:center;gap:3px;background:rgba(245,158,11,.13);color:#fbbf24;border:1px solid rgba(245,158,11,.4);border-radius:10px;padding:1px 8px;font-size:10px;font-weight:600;cursor:help;user-select:none;line-height:1.4;white-space:nowrap}
+.mat-recycle-row{margin-top:8px}
+.mat-recycle{display:inline-flex;align-items:center;gap:4px;border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;cursor:help;user-select:none;letter-spacing:.02em}
+.mat-recyclable{background:rgba(5,150,105,.14);color:#34d399;border:1px solid rgba(5,150,105,.4)}
+.mat-mine{background:rgba(245,158,11,.14);color:#fbbf24;border:1px solid rgba(245,158,11,.4)}
+/* Make the recycle popover wide enough for item names + scrollable when long */
+.sources-pop.recycle-pop{max-width:380px;min-width:260px;max-height:380px;overflow-y:auto}
 .toggle-label{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-dim);cursor:pointer}
 .toggle-label input{accent-color:var(--accent)}
 .wo-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start}
