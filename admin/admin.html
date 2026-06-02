@@ -637,20 +637,21 @@
         }
 
         // ─── 4. /state — user count ──────────────────────────────────
-        // Note: Cloudflare KV is eventually consistent (~100ms colo, up to
-        // ~60s global) — a read right after a write may not reflect it yet.
-        // If we just pushed but /state doesn't list us yet, count ourselves
-        // optimistically so the total isn't misleading.
+        // Report "N others currently in org" — exclude ourselves so the user
+        // sees how many friends were there before they joined. Also sidesteps
+        // Cloudflare KV's eventual consistency (~100ms colo, up to ~60s
+        // global): whether /state has already surfaced our just-written record
+        // or not, filtering by name gives the same "others" count.
         const s = await fetch(`${url}/state`, { headers: { 'X-Forge-Token': token } });
         let userCountText = '';
         if (s.ok) {
           const data = await s.json().catch(() => ({}));
           const serverUsers = Array.isArray(data.users) ? data.users : [];
-          let n = serverUsers.length;
-          if (pushedAsName && !serverUsers.some(u => u && u.name === pushedAsName)) {
-            n += 1; // KV propagation lag — server hasn't surfaced our write yet
-          }
-          userCountText = ` — ${n} user${n === 1 ? '' : 's'} in org`;
+          const myKnownName = pushedAsName || (identity && identity.name) || name;
+          const others = myKnownName
+            ? serverUsers.filter(u => u && u.name !== myKnownName).length
+            : serverUsers.length;
+          userCountText = ` — ${others} other${others === 1 ? '' : 's'} currently in org`;
         }
 
         // ─── Combined status line + save ─────────────────────────────
