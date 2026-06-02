@@ -214,6 +214,28 @@
     </div>
 
     <div class="card">
+      <h2>Org Sync (Cloudflare Worker)</h2>
+      <p class="desc" style="margin-bottom:16px">Centralised sync for a small org (up to ~10 people). Anyone with the URL and shared token can read everyone's unlock state and push their own. <strong>Pushes happen automatically</strong> (debounced 5 seconds after the last Unlock/Lock click). <strong>Pulls happen every 30 seconds</strong> while the site is open. Set <strong>Your Name</strong> above before enabling sync — the name is the key under which your state is stored.</p>
+
+      <div class="field">
+        <label>Worker URL</label>
+        <p class="desc">The Cloudflare Worker URL (no trailing slash). Example: <code>https://forge-org-sync.seeknd.workers.dev</code></p>
+        <input type="text" id="orgSyncUrl" value="" placeholder="https://...workers.dev" style="width:100%;background:var(--bg-raised);border:1px solid var(--border-light);color:var(--text);padding:10px 14px;border-radius:6px;font-size:13px;font-family:monospace">
+      </div>
+
+      <div class="field">
+        <label>Org Token</label>
+        <p class="desc">Shared secret. Anyone with admin access to this browser can read it — treat it like the Discord webhook token.</p>
+        <input type="password" id="orgSyncToken" value="" placeholder="••••••••••••" style="width:100%;background:var(--bg-raised);border:1px solid var(--border-light);color:var(--text);padding:10px 14px;border-radius:6px;font-size:13px;font-family:monospace">
+      </div>
+
+      <div style="margin-top:12px">
+        <button class="btn btn-secondary" onclick="testOrgSync()" style="font-size:12px">Test Connection</button>
+        <span id="org-sync-status" style="margin-left:8px;font-size:12px;color:var(--text-muted)"></span>
+      </div>
+    </div>
+
+    <div class="card">
       <h2>Dismantle Sourcing</h2>
       <p class="desc" style="margin-bottom:16px">Materials that <strong>can't</strong> be obtained by dismantling existing items — these must be mined. CIG updates this list patch-to-patch; edit here without touching code. Comma-separated, case-insensitive, must match the material names used in recipes (e.g. <code>Lindinium</code>, not <code>Raw Lindinium</code>).</p>
 
@@ -369,7 +391,7 @@
     // Discord fields (stored as strings, separate from numeric config)
     const DISCORD_KEYS = ['discordUserId', 'discordWebhookId', 'discordWebhookToken', 'discordDefaultLocation'];
     // Other string-valued admin fields
-    const STRING_KEYS = ['playerName', 'nonExtractableMaterials'];
+    const STRING_KEYS = ['playerName', 'nonExtractableMaterials', 'orgSyncUrl', 'orgSyncToken'];
     
     // Load current settings on page load
     function loadSettings() {
@@ -390,6 +412,8 @@
           const STRING_DEFAULTS = {
             playerName: '',
             nonExtractableMaterials: 'Quantanium, Stileron, Savrilium, Lindinium, Riccite, Ouratite, Saldynium, Janalite',
+            orgSyncUrl: '',
+            orgSyncToken: '',
           };
           STRING_KEYS.forEach(key => {
             const input = document.getElementById(key);
@@ -486,7 +510,55 @@
         statusEl.style.color = '#ef4444';
       }
     }
-    
+
+    // Test the org-sync Worker — hits /health (no auth) then /state (with token).
+    async function testOrgSync() {
+      const rawUrl = (document.getElementById('orgSyncUrl')?.value || '').trim();
+      const url = rawUrl.replace(/\/$/, '');
+      const token = (document.getElementById('orgSyncToken')?.value || '').trim();
+      const status = document.getElementById('org-sync-status');
+
+      if (!url) {
+        status.textContent = '⚠️ Enter the Worker URL first';
+        status.style.color = '#f97316';
+        return;
+      }
+      status.textContent = 'Testing...';
+      status.style.color = 'var(--text-muted)';
+
+      try {
+        const h = await fetch(`${url}/health`);
+        if (!h.ok) {
+          status.textContent = `❌ Worker unreachable (HTTP ${h.status})`;
+          status.style.color = '#ef4444';
+          return;
+        }
+        if (!token) {
+          status.textContent = '⚠️ Worker reachable, enter token to test auth';
+          status.style.color = '#f97316';
+          return;
+        }
+        const s = await fetch(`${url}/state`, { headers: { 'X-Forge-Token': token } });
+        if (s.status === 401) {
+          status.textContent = '❌ Auth failed — token rejected by Worker';
+          status.style.color = '#ef4444';
+          return;
+        }
+        if (!s.ok) {
+          status.textContent = `❌ Server error (HTTP ${s.status})`;
+          status.style.color = '#ef4444';
+          return;
+        }
+        const data = await s.json();
+        const n = Array.isArray(data.users) ? data.users.length : 0;
+        status.textContent = `✅ Connected — ${n} user${n === 1 ? '' : 's'} currently in org`;
+        status.style.color = '#059669';
+      } catch (e) {
+        status.textContent = `❌ ${e.message || 'Network error'}`;
+        status.style.color = '#ef4444';
+      }
+    }
+
     // Clear all data
     function clearAllData() {
       if (!confirm('This will delete ALL your saved data including inventory, work orders, and settings.\n\nAre you sure?')) return;

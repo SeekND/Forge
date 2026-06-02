@@ -64,6 +64,8 @@ let adminConfig = {
   gradeAHigh: 1000,
   vaultThreshold: 850, // Minimum quality to track in vault inventory
   playerName: '',     // 4.8.1: display name for peer-to-peer sharing
+  orgSyncUrl: '',     // 4.8.2: Cloudflare Worker URL for centralised org sync
+  orgSyncToken: '',   // 4.8.2: shared org token (treat as password)
   // Materials that CAN'T be obtained by dismantling existing items — must be mined.
   // Stored as a comma-separated string in the admin field, normalised to an array
   // via getNonExtractableMaterials() below. CIG's blacklist changes patch-to-patch
@@ -359,6 +361,12 @@ async function init(){
 
   // Sync set unlocks - if all pieces of a set are unlocked, unlock the set too
   syncSetUnlocks();
+
+  // Org sync — pull current state from the Worker (if configured), then start
+  // the periodic interval. Runs in the background; UI updates when data arrives.
+  if(orgSyncEnabled()){
+    orgSyncPull().then(()=>startOrgSyncInterval());
+  }
 
   // Peer-share auto-import from URL hash (#bp=...)
   if(window.location.hash.startsWith('#bp=')){
@@ -814,6 +822,107 @@ function clearAllAttribution(){
   filterBlueprints();
 }
 
+// ════════════════════════════════════════════
+// ORG SYNC (Cloudflare Worker — centralised)
+// ════════════════════════════════════════════
+// Pushes my state to the org's Worker on toggle (debounced 5s) and pulls
+// everyone else's state every 30s. Snapshot-replace per name on receive,
+// same merge logic as the peer-share import.
+let _orgSyncDebounceTimer = null;
+let _orgSyncPullInterval = null;
+let _orgSyncLastError = '';
+function orgSyncEnabled(){
+  return !!(adminConfig.orgSyncUrl && adminConfig.orgSyncToken && getMyName());
+}
+function _orgUrl(suffix){
+  const base=(adminConfig.orgSyncUrl||'').replace(/\/$/,'');
+  return base+suffix;
+}
+async function orgSyncPush(){
+  if(!orgSyncEnabled())return false;
+  const body={
+    name: getMyName(),
+    unlocked: [...unlockedBlueprints],
+    ts: Math.floor(Date.now()/1000),
+  };
+  try{
+    const resp=await fetch(_orgUrl('/sync'),{
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-Forge-Token':adminConfig.orgSyncToken},
+      body:JSON.stringify(body),
+    });
+    if(!resp.ok){
+      _orgSyncLastError=`push failed: HTTP ${resp.status}`;
+      return false;
+    }
+    _orgSyncLastError='';
+    return true;
+  }catch(e){
+    _orgSyncLastError='push error: '+(e.message||'network');
+    return false;
+  }
+}
+function scheduleOrgSyncPush(){
+  if(!orgSyncEnabled())return;
+  clearTimeout(_orgSyncDebounceTimer);
+  _orgSyncDebounceTimer=setTimeout(()=>{
+    orgSyncPush();
+    _orgSyncDebounceTimer=null;
+  },5000); // 5s of inactivity before pushing
+}
+async function orgSyncPull(){
+  if(!orgSyncEnabled())return false;
+  try{
+    const resp=await fetch(_orgUrl('/state'),{
+      headers:{'X-Forge-Token':adminConfig.orgSyncToken},
+    });
+    if(!resp.ok){
+      _orgSyncLastError=`pull failed: HTTP ${resp.status}`;
+      return false;
+    }
+    const data=await resp.json();
+    if(!data||!Array.isArray(data.users))return false;
+    const myName=getMyName();
+    let changed=false;
+    for(const user of data.users){
+      if(!user||!user.name||user.name===myName)continue;
+      const ts=Number(user.ts)||0;
+      // Skip if we already have a newer record from this user
+      if(ownerTimestamps[user.name]&&ownerTimestamps[user.name]>=ts)continue;
+      const unlockedKeys=Array.isArray(user.unlocked)?user.unlocked:[];
+      // Snapshot-replace: wipe this name from all keys, then add to the new set
+      for(const k of Object.keys(otherOwners)){
+        const idx=otherOwners[k].indexOf(user.name);
+        if(idx>=0){
+          otherOwners[k].splice(idx,1);
+          if(otherOwners[k].length===0)delete otherOwners[k];
+        }
+      }
+      for(const k of unlockedKeys){
+        if(!otherOwners[k])otherOwners[k]=[];
+        if(!otherOwners[k].includes(user.name))otherOwners[k].push(user.name);
+      }
+      ownerTimestamps[user.name]=ts;
+      changed=true;
+    }
+    _orgSyncLastError='';
+    if(changed){
+      saveState();
+      filterBlueprints();
+    }
+    return true;
+  }catch(e){
+    _orgSyncLastError='pull error: '+(e.message||'network');
+    return false;
+  }
+}
+function startOrgSyncInterval(){
+  if(_orgSyncPullInterval)clearInterval(_orgSyncPullInterval);
+  if(!orgSyncEnabled())return;
+  // First pull happens immediately at init; this just schedules the recurring one
+  _orgSyncPullInterval=setInterval(orgSyncPull,30000);
+}
+
 // For an armor set, who has what — per name, "Set" if fully owned else
 // a piece-code string like "A,C". Returns {name: code} dict, ordered as a
 // Map so output is deterministic.
@@ -1101,6 +1210,7 @@ function toggleUnlock(type, key, event){
   }
 
   saveState();filterBlueprints();updateCategoryCounts();
+  scheduleOrgSyncPush(); // Debounced push to org Worker (5s after last toggle)
 }
 
 function passesUnlockFilter(type, key){
