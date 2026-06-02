@@ -1393,18 +1393,25 @@ function setUnlockCount(set){
 // Cross-category Owner filter — passes if no selection OR item has any
 // selected owner among its (piece-union for sets) owners.
 function passesOwnerFilter(type,key){
-  if(!filters.owners.length)return true;
   const owners=type==='set'
     ? getSetOwners((DATA.armor_sets||[]).find(s=>s.set_name===key))
     : getOwners(type,key);
+  // In org-view mode the snapshot only contains owned items — hide everything else.
+  // No owner-chip selection ⇒ "show all items the org has", not "show every item".
+  if(window.FORGE_VIEW&&!filters.owners.length)return owners.length>0;
+  if(!filters.owners.length)return true;
   return filters.owners.some(n=>owners.includes(n));
 }
 
 function bldChips(id,vals,lbl,key){
   // Apply active state from current filter selection — important for chip groups
   // that re-render mid-session (e.g. owner chips rebuild every filterBlueprints).
+  // Skip gracefully if the container element doesn't exist (e.g. on the
+  // simplified ORG view page, which omits some chip groups like f-wkind).
+  const el=document.getElementById(id);
+  if(!el)return;
   const cur=Array.isArray(filters[key])?filters[key].map(String):[];
-  document.getElementById(id).innerHTML=vals.map(v=>{
+  el.innerHTML=vals.map(v=>{
     const sv=String(v);
     const active=cur.includes(sv);
     return `<button class="fp-chip${active?' active':''}" data-fk="${key}" data-fv="${sv}" onclick="toggleFilter('${key}','${sv}')">${lbl(v)}</button>`;
