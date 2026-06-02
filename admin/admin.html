@@ -230,11 +230,10 @@
       </div>
 
       <div style="margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-        <button class="btn btn-secondary" onclick="testOrgSync()" style="font-size:12px">Test Connection</button>
-        <button class="btn btn-secondary" onclick="pushOrgStateNow()" style="font-size:12px" title="Send your current unlocks to the Worker right now, so you don't have to wait for the next toggle to push">Push my state now</button>
+        <button class="btn btn-secondary" onclick="testOrgSync()" style="font-size:12px" title="Pushes your current unlocks (if your token allows writes), confirms the connection, and saves these settings — all in one click">Test Connection</button>
         <span id="org-sync-status" style="font-size:12px;color:var(--text-muted)"></span>
       </div>
-      <p class="desc" style="margin-top:8px;font-size:11px"><strong>Push my state now</strong> reads your unlocks from local storage and POSTs them to the Worker immediately — useful for the first sync after configuring, or to force-refresh without toggling. Uses the URL + token currently in the fields above (no need to Save first).</p>
+      <p class="desc" style="margin-top:8px;font-size:11px"><strong>Test Connection</strong> does three things in one click: <strong>(1)</strong> pushes your current unlocks to the Worker if your token allows writes, <strong>(2)</strong> confirms identity + user count, <strong>(3)</strong> saves these settings to localStorage. No separate Save Settings click needed for this section.</p>
     </div>
 
     <div class="card">
@@ -435,18 +434,18 @@
       });
     }
     
-    // Save settings
-    function saveSettings() {
+    // Save settings to localStorage. Returns true on success.
+    // Used by both the explicit Save Settings button (which then toasts) AND
+    // the Test buttons (which save silently as a side effect).
+    function saveSettingsSilent() {
       try {
         const config = {};
         ALL_KEYS.forEach(key => {
           config[key] = parseInt(document.getElementById(key)?.value) || DEFAULTS[key];
         });
-        // Save Discord string fields
         DISCORD_KEYS.forEach(key => {
           config[key] = (document.getElementById(key)?.value || '').trim();
         });
-        // Save other string fields
         STRING_KEYS.forEach(key => {
           const v = (document.getElementById(key)?.value || '').trim();
           // playerName can't contain '|' (delimiter in share payloads)
@@ -454,10 +453,19 @@
         });
         localStorage.setItem(LS + 'adminConfig', JSON.stringify(config));
         updateDisplays(config);
-        showToast('Settings saved!');
+        return true;
       } catch (e) {
+        console.error('saveSettingsSilent failed:', e);
+        return false;
+      }
+    }
+
+    // Save with user-facing toast — the explicit button at the top of the page.
+    function saveSettings() {
+      if (saveSettingsSilent()) {
+        showToast('Settings saved!');
+      } else {
         showToast('Failed to save settings');
-        console.error(e);
       }
     }
     
@@ -478,16 +486,18 @@
       const whId = (document.getElementById('discordWebhookId')?.value || '').trim();
       const whToken = (document.getElementById('discordWebhookToken')?.value || '').trim();
       const statusEl = document.getElementById('webhook-status');
-      
+
       if (!whId || !whToken) {
         statusEl.textContent = '⚠️ Enter Webhook ID and Token first';
         statusEl.style.color = '#f97316';
+        // Still save what's been typed so user doesn't lose other field edits
+        saveSettingsSilent();
         return;
       }
-      
+
       statusEl.textContent = 'Testing...';
       statusEl.style.color = 'var(--text-muted)';
-      
+
       try {
         const uid = (document.getElementById('discordUserId')?.value || '').trim();
         const mention = uid ? `<@${uid}>` : 'A user';
@@ -500,7 +510,7 @@
           }),
         });
         if (resp.ok || resp.status === 204) {
-          statusEl.textContent = '✅ Sent! Check your Discord channel.';
+          statusEl.textContent = '✅ Sent! Check your Discord channel. · settings saved';
           statusEl.style.color = '#059669';
         } else {
           const err = await resp.text();
@@ -510,25 +520,42 @@
       } catch (e) {
         statusEl.textContent = `❌ Failed: ${e.message}`;
         statusEl.style.color = '#ef4444';
+      } finally {
+        // Save form values regardless of outcome (same logic as testOrgSync)
+        saveSettingsSilent();
       }
     }
 
-    // Test the org-sync Worker — hits /health (no auth) then /state (with token).
+    // One-button merged flow for Org Sync:
+    //   1. /health      — is the Worker reachable?
+    //   2. /whoami      — who does the server think this token is, can it write?
+    //   3. /sync        — push local unlocks (only if the token can write)
+    //   4. /state       — count of users currently in the org
+    //   5. saveSettings — persist URL + token + name to localStorage
+    // Reports the combined result in the status line. Saves regardless of
+    // outcome (so a typo'd token can be fixed and retried without re-typing
+    // the rest of the form).
     async function testOrgSync() {
       const rawUrl = (document.getElementById('orgSyncUrl')?.value || '').trim();
       const url = rawUrl.replace(/\/$/, '');
       const token = (document.getElementById('orgSyncToken')?.value || '').trim();
+      const name = (document.getElementById('playerName')?.value || '').trim();
       const status = document.getElementById('org-sync-status');
+
+      // Always save form values when this button is pressed — see comment above.
+      const finalizeSave = () => { saveSettingsSilent(); };
 
       if (!url) {
         status.textContent = '⚠️ Enter the Worker URL first';
         status.style.color = '#f97316';
+        finalizeSave();
         return;
       }
       status.textContent = 'Testing...';
       status.style.color = 'var(--text-muted)';
 
       try {
+        // ─── 1. /health ──────────────────────────────────────────────
         const h = await fetch(`${url}/health`);
         if (!h.ok) {
           status.textContent = `❌ Worker unreachable (HTTP ${h.status})`;
@@ -536,11 +563,12 @@
           return;
         }
         if (!token) {
-          status.textContent = '⚠️ Worker reachable, enter token to test auth';
+          status.textContent = '⚠️ Worker reachable — enter token to test auth';
           status.style.color = '#f97316';
           return;
         }
-        // Hit /whoami first — gives us identity + mode info from the server
+
+        // ─── 2. /whoami ──────────────────────────────────────────────
         const whoResp = await fetch(`${url}/whoami`, { headers: { 'X-Forge-Token': token } });
         if (whoResp.status === 401) {
           status.textContent = '❌ Auth failed — token rejected by Worker';
@@ -549,124 +577,80 @@
         }
         let identity = null;
         if (whoResp.ok) {
-          // Worker v2+ — returns {ok, name, isAdmin, mode, canWrite}
           try { identity = await whoResp.json(); } catch {}
         }
-        // (If /whoami doesn't exist on an older Worker, identity stays null and
-        //  we fall back to the v1-style "Connected — N users" message.)
 
-        const s = await fetch(`${url}/state`, { headers: { 'X-Forge-Token': token } });
-        if (s.status === 401) {
-          status.textContent = '❌ Auth failed — token rejected by Worker';
-          status.style.color = '#ef4444';
-          return;
-        }
-        if (!s.ok) {
-          status.textContent = `❌ Server error (HTTP ${s.status})`;
-          status.style.color = '#ef4444';
-          return;
-        }
-        const data = await s.json();
-        const n = Array.isArray(data.users) ? data.users.length : 0;
-
-        // Build a status line that reflects who the Worker thinks you are.
-        let icon = '✅', color = '#059669', who;
+        // Build the "who am I" prefix for the status line
+        let whoText, identityIcon = '✅', identityColor = '#059669';
         if (identity) {
           if (identity.name) {
-            // Personal token in per-user (or legacy with both) mode
-            who = `as ${identity.name}` + (identity.mode === 'per-user' ? ' (per-user)' : '');
+            whoText = `Connected as ${identity.name}` + (identity.mode === 'per-user' ? ' (per-user)' : '');
           } else if (identity.isAdmin && identity.canWrite) {
-            // Legacy mode — ORG_TOKEN doing everything
-            who = 'with admin token (legacy mode — single shared token)';
-            icon = '⚠️'; color = '#f59e0b';
+            whoText = 'Connected with admin token (legacy mode)';
+            identityIcon = '⚠️'; identityColor = '#f59e0b';
           } else if (identity.isAdmin && !identity.canWrite) {
-            // Admin token but per-user mode is active — reads work, /sync rejected
-            who = 'with admin token (read-only — per-user mode active)';
-            icon = '🛑'; color = '#ef4444';
+            whoText = 'Connected with admin token (read-only — per-user mode active)';
+            identityIcon = '🛑'; identityColor = '#ef4444';
           } else {
-            who = '(unknown identity)';
+            whoText = 'Connected (unknown identity)';
           }
-          status.textContent = `${icon} Connected ${who} — ${n} user${n === 1 ? '' : 's'} in org`;
         } else {
-          // Older Worker without /whoami
-          status.textContent = `✅ Connected — ${n} user${n === 1 ? '' : 's'} currently in org`;
+          whoText = 'Connected'; // Older Worker without /whoami
         }
-        status.style.color = color;
+
+        // ─── 3. /sync — push local unlocks (if allowed) ──────────────
+        const canWrite = !identity || identity.canWrite !== false;
+        let pushText = '';
+        if (canWrite) {
+          let unlocked = [];
+          try {
+            const raw = localStorage.getItem(LS + 'unlocked');
+            if (raw) {
+              const parsed = JSON.parse(raw);
+              if (Array.isArray(parsed)) unlocked = parsed;
+            }
+          } catch {}
+
+          const syncResp = await fetch(`${url}/sync`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-Forge-Token': token },
+            body: JSON.stringify({
+              name: name,
+              unlocked: unlocked,
+              ts: Math.floor(Date.now() / 1000),
+            }),
+          });
+          if (syncResp.ok) {
+            pushText = `, pushed ${unlocked.length} unlock${unlocked.length === 1 ? '' : 's'}`;
+          } else if (syncResp.status === 403) {
+            // Admin caught by per-user mode mid-flight (shouldn't happen given the canWrite check above, but defensive)
+            pushText = ', push skipped (403)';
+          } else {
+            pushText = `, push failed (HTTP ${syncResp.status})`;
+            identityIcon = '⚠️'; identityColor = '#f59e0b';
+          }
+        } else {
+          pushText = ', push skipped (read-only)';
+        }
+
+        // ─── 4. /state — user count ──────────────────────────────────
+        const s = await fetch(`${url}/state`, { headers: { 'X-Forge-Token': token } });
+        let userCountText = '';
+        if (s.ok) {
+          const data = await s.json().catch(() => ({}));
+          const n = Array.isArray(data.users) ? data.users.length : 0;
+          userCountText = ` — ${n} user${n === 1 ? '' : 's'} in org`;
+        }
+
+        // ─── Combined status line + save ─────────────────────────────
+        status.textContent = `${identityIcon} ${whoText}${pushText}${userCountText} · settings saved`;
+        status.style.color = identityColor;
       } catch (e) {
         status.textContent = `❌ ${e.message || 'Network error'}`;
         status.style.color = '#ef4444';
-      }
-    }
-
-    // Push the local unlocked-blueprints set to the org Worker right now.
-    // Uses the URL + token + name currently in the form fields (not the saved
-    // settings) so it works before / without Save.
-    async function pushOrgStateNow() {
-      const rawUrl = (document.getElementById('orgSyncUrl')?.value || '').trim();
-      const url = rawUrl.replace(/\/$/, '');
-      const token = (document.getElementById('orgSyncToken')?.value || '').trim();
-      const name = (document.getElementById('playerName')?.value || '').trim();
-      const status = document.getElementById('org-sync-status');
-
-      if (!url) {
-        status.textContent = '⚠️ Enter the Worker URL first';
-        status.style.color = '#f97316';
-        return;
-      }
-      if (!token) {
-        status.textContent = '⚠️ Enter the Org Token first';
-        status.style.color = '#f97316';
-        return;
-      }
-      status.textContent = 'Pushing...';
-      status.style.color = 'var(--text-muted)';
-
-      // Read local unlocked state from the same key the main app uses
-      let unlocked = [];
-      try {
-        const raw = localStorage.getItem(LS + 'unlocked');
-        if (raw) {
-          const parsed = JSON.parse(raw);
-          if (Array.isArray(parsed)) unlocked = parsed;
-        }
-      } catch {}
-
-      try {
-        const resp = await fetch(`${url}/sync`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'X-Forge-Token': token },
-          body: JSON.stringify({
-            name: name,
-            unlocked: unlocked,
-            ts: Math.floor(Date.now() / 1000),
-          }),
-        });
-        if (resp.status === 401) {
-          status.textContent = '❌ Auth failed — token rejected';
-          status.style.color = '#ef4444';
-          return;
-        }
-        if (resp.status === 403) {
-          const data = await resp.json().catch(() => ({}));
-          const why = data.error || 'admin tokens cannot write in per-user mode';
-          status.textContent = `🛑 Forbidden — ${why}`;
-          status.style.color = '#ef4444';
-          return;
-        }
-        if (!resp.ok) {
-          const txt = await resp.text().catch(() => '');
-          status.textContent = `❌ Push failed (HTTP ${resp.status})${txt ? ': ' + txt.slice(0, 80) : ''}`;
-          status.style.color = '#ef4444';
-          return;
-        }
-        const data = await resp.json().catch(() => ({}));
-        const recordedAs = data.name || name || '(unknown)';
-        const count = unlocked.length;
-        status.textContent = `✅ Pushed ${count} unlock${count === 1 ? '' : 's'} as ${recordedAs}`;
-        status.style.color = '#059669';
-      } catch (e) {
-        status.textContent = `❌ ${e.message || 'Network error'}`;
-        status.style.color = '#ef4444';
+      } finally {
+        // ─── 5. Persist URL + token + name regardless of outcome ────
+        finalizeSave();
       }
     }
 
