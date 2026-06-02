@@ -3532,16 +3532,20 @@ async function initOrgViewMode(){
   // Mark body so CSS can hide editing UI
   document.body.classList.add('view-mode');
 
-  // Show a loading state if rendering takes a moment
-  const main=document.getElementById('main');
-  if(main)main.innerHTML='<div style="padding:60px;text-align:center;color:#94a3b8"><p>Loading org snapshot…</p></div>';
+  // Loading/error messages go into #bp-results-info so we don't wipe the
+  // blueprint grid container that the renderer needs to write into.
+  const setStatus=(msg,color)=>{
+    const el=document.getElementById('bp-results-info');
+    if(el){el.textContent=msg;el.style.color=color||'';}
+  };
+  setStatus('Loading org snapshot…','#94a3b8');
 
   // 1. Load the catalog (same fetch as the main app)
   try{
     const r=await fetch('data/crafting_data.json');
     DATA=await r.json();
   }catch(e){
-    if(main)main.innerHTML='<div style="padding:60px;text-align:center;color:#ef4444"><p>Failed to load blueprint catalog.</p></div>';
+    setStatus('Failed to load blueprint catalog.','#ef4444');
     return;
   }
 
@@ -3579,12 +3583,12 @@ async function initOrgViewMode(){
   const hash=window.location.hash||'';
   const m=hash.match(/[#&]data=([^&]+)/);
   if(!m){
-    if(main)main.innerHTML='<div style="padding:60px;text-align:center;color:#94a3b8"><p>This URL has no embedded org data.</p></div>';
+    setStatus('This URL has no embedded org data — open the link the admin shared with you.','#fbbf24');
     return;
   }
   const decoded=decodeOrgViewPayload(m[1]);
   if(!decoded.ok){
-    if(main)main.innerHTML=`<div style="padding:60px;text-align:center;color:#ef4444"><p>Could not decode org data: ${esc(decoded.error)}</p></div>`;
+    setStatus(`Could not decode org data: ${decoded.error}`,'#ef4444');
     return;
   }
 
