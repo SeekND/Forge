@@ -3637,6 +3637,10 @@ async function initOrgViewMode(){
   }
   // Update page title too
   document.title=`${decoded.orgName} — Forge Org View`;
+  // Relabel the Blueprints tab to make it clear this is the org's shared pool,
+  // not the viewer's personal blueprint list.
+  const bpTabBtn=document.querySelector('.tab[data-tab="blueprints"]');
+  if(bpTabBtn)bpTabBtn.textContent=`${decoded.orgName} Blueprint Pool`;
 
   // 6. Trigger initial render. We force bpCategory='armor' and use the
   // existing filterBlueprints rendering — it handles otherOwners → chips,
