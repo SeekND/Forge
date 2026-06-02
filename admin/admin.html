@@ -229,10 +229,12 @@
         <input type="password" id="orgSyncToken" value="" placeholder="••••••••••••" style="width:100%;background:var(--bg-raised);border:1px solid var(--border-light);color:var(--text);padding:10px 14px;border-radius:6px;font-size:13px;font-family:monospace">
       </div>
 
-      <div style="margin-top:12px">
+      <div style="margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
         <button class="btn btn-secondary" onclick="testOrgSync()" style="font-size:12px">Test Connection</button>
-        <span id="org-sync-status" style="margin-left:8px;font-size:12px;color:var(--text-muted)"></span>
+        <button class="btn btn-secondary" onclick="pushOrgStateNow()" style="font-size:12px" title="Send your current unlocks to the Worker right now, so you don't have to wait for the next toggle to push">Push my state now</button>
+        <span id="org-sync-status" style="font-size:12px;color:var(--text-muted)"></span>
       </div>
+      <p class="desc" style="margin-top:8px;font-size:11px"><strong>Push my state now</strong> reads your unlocks from local storage and POSTs them to the Worker immediately — useful for the first sync after configuring, or to force-refresh without toggling. Uses the URL + token currently in the fields above (no need to Save first).</p>
     </div>
 
     <div class="card">
@@ -590,6 +592,78 @@
           status.textContent = `✅ Connected — ${n} user${n === 1 ? '' : 's'} currently in org`;
         }
         status.style.color = color;
+      } catch (e) {
+        status.textContent = `❌ ${e.message || 'Network error'}`;
+        status.style.color = '#ef4444';
+      }
+    }
+
+    // Push the local unlocked-blueprints set to the org Worker right now.
+    // Uses the URL + token + name currently in the form fields (not the saved
+    // settings) so it works before / without Save.
+    async function pushOrgStateNow() {
+      const rawUrl = (document.getElementById('orgSyncUrl')?.value || '').trim();
+      const url = rawUrl.replace(/\/$/, '');
+      const token = (document.getElementById('orgSyncToken')?.value || '').trim();
+      const name = (document.getElementById('playerName')?.value || '').trim();
+      const status = document.getElementById('org-sync-status');
+
+      if (!url) {
+        status.textContent = '⚠️ Enter the Worker URL first';
+        status.style.color = '#f97316';
+        return;
+      }
+      if (!token) {
+        status.textContent = '⚠️ Enter the Org Token first';
+        status.style.color = '#f97316';
+        return;
+      }
+      status.textContent = 'Pushing...';
+      status.style.color = 'var(--text-muted)';
+
+      // Read local unlocked state from the same key the main app uses
+      let unlocked = [];
+      try {
+        const raw = localStorage.getItem(LS + 'unlocked');
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) unlocked = parsed;
+        }
+      } catch {}
+
+      try {
+        const resp = await fetch(`${url}/sync`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Forge-Token': token },
+          body: JSON.stringify({
+            name: name,
+            unlocked: unlocked,
+            ts: Math.floor(Date.now() / 1000),
+          }),
+        });
+        if (resp.status === 401) {
+          status.textContent = '❌ Auth failed — token rejected';
+          status.style.color = '#ef4444';
+          return;
+        }
+        if (resp.status === 403) {
+          const data = await resp.json().catch(() => ({}));
+          const why = data.error || 'admin tokens cannot write in per-user mode';
+          status.textContent = `🛑 Forbidden — ${why}`;
+          status.style.color = '#ef4444';
+          return;
+        }
+        if (!resp.ok) {
+          const txt = await resp.text().catch(() => '');
+          status.textContent = `❌ Push failed (HTTP ${resp.status})${txt ? ': ' + txt.slice(0, 80) : ''}`;
+          status.style.color = '#ef4444';
+          return;
+        }
+        const data = await resp.json().catch(() => ({}));
+        const recordedAs = data.name || name || '(unknown)';
+        const count = unlocked.length;
+        status.textContent = `✅ Pushed ${count} unlock${count === 1 ? '' : 's'} as ${recordedAs}`;
+        status.style.color = '#059669';
       } catch (e) {
         status.textContent = `❌ ${e.message || 'Network error'}`;
         status.style.color = '#ef4444';
