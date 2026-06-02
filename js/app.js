@@ -672,9 +672,9 @@ function buildOwnerFilter(){
   if(sep)sep.style.display=show?'':'none';
   if(!show){filters.owners=[];return;}
   const me=getMyName();
-  bldChips('f-owner',known,v=>v===me?(esc(v)+' (you)'):esc(v),'owners');
+  bldChips('f-owner',known,v=>_nameKey(v)===_nameKey(me)?(esc(v)+' (you)'):esc(v),'owners');
   // Drop stale entries from filters.owners (in case a name disappeared after a reset)
-  filters.owners=filters.owners.filter(n=>known.includes(n));
+  filters.owners=filters.owners.filter(n=>namesIncludes(known,n));
 }
 function buildUnlockFilter(){
   const el=document.getElementById('f-unlock');if(!el)return;
@@ -702,31 +702,36 @@ function toggleWanted(type, key){
 // myName: current player's display name (from adminConfig).
 // Owners of a BP = (myName if I have it unlocked) + everyone else in otherOwners.
 function getMyName(){return (adminConfig.playerName||'').trim();}
+// Player names are user-typed and can drift across casings (e.g. "Algorythm"
+// vs "algorythm" for the same person). Match by lowercase but preserve
+// the original casing for display.
+function _nameKey(n){return (n||'').toLowerCase().trim();}
+function dedupeNames(arr){const seen=new Set(),out=[];for(const n of arr){const k=_nameKey(n);if(!k||seen.has(k))continue;seen.add(k);out.push(n);}return out;}
+function namesIncludes(arr,n){const k=_nameKey(n);return arr.some(x=>_nameKey(x)===k);}
 function getOwners(type, key){
   const k=type+'|'+key;
   const others=otherOwners[k]||[];
   const me=getMyName();
   if(me && isUnlocked(type,key)){
-    // Put me first, dedup
-    return [me, ...others.filter(n=>n!==me)];
+    // Put me first, dedup case-insensitively
+    return dedupeNames([me, ...others]);
   }
-  return [...others];
+  return dedupeNames(others);
 }
 // Set-level owners: union of owners across all pieces of the set
 function getSetOwners(set){
   if(!set || !set.pieces)return [];
-  const seen=new Set();
-  set.pieces.forEach(p=>getOwners('piece',p.name).forEach(n=>seen.add(n)));
-  // Also include set-level explicit attribution
-  getOwners('set',set.set_name).forEach(n=>seen.add(n));
-  return [...seen];
+  const all=[];
+  set.pieces.forEach(p=>getOwners('piece',p.name).forEach(n=>all.push(n)));
+  getOwners('set',set.set_name).forEach(n=>all.push(n));
+  return dedupeNames(all);
 }
 function getAllKnownNames(){
-  const names=new Set();
+  const all=[];
   const me=getMyName();
-  if(me && unlockedBlueprints.size>0)names.add(me);
-  Object.values(otherOwners).forEach(arr=>arr.forEach(n=>names.add(n)));
-  return [...names].sort((a,b)=>a.localeCompare(b));
+  if(me && unlockedBlueprints.size>0)all.push(me);
+  Object.values(otherOwners).forEach(arr=>arr.forEach(n=>all.push(n)));
+  return dedupeNames(all).sort((a,b)=>a.localeCompare(b));
 }
 
 // Tiny stable hash for schema fingerprinting (DJB2 → 4 hex chars).
@@ -1400,7 +1405,8 @@ function passesOwnerFilter(type,key){
   // No owner-chip selection ⇒ "show all items the org has", not "show every item".
   if(window.FORGE_VIEW&&!filters.owners.length)return owners.length>0;
   if(!filters.owners.length)return true;
-  return filters.owners.some(n=>owners.includes(n));
+  // Case-insensitive — handles same-user-different-casing situations.
+  return filters.owners.some(n=>namesIncludes(owners,n));
 }
 
 function bldChips(id,vals,lbl,key){
@@ -1476,6 +1482,7 @@ function filterBlueprints(){
         if(!isUnlocked('piece',p.name))return false;
         if(!fM(filters.weight,p.weight))return false;
         if(!fM(filters.role,p.role))return false;
+        if(!passesOwnerFilter('piece',p.name))return false;
         if(q){const h=`${p.name} ${p.set_name} ${p.manufacturer||''} ${p.weight} ${p.role} ${(p.recipe||[]).map(r=>r.material||r.item_name||'').join(' ')} ${(p.sources||[]).map(x=>x.mission||'').join(' ')}`.toLowerCase();if(!h.includes(q))return false;}
         return true;
       });
@@ -1709,7 +1716,7 @@ function ownerChips(type,key,max){
   const hidden=owners.length>max?owners.slice(max):[];
   let html='';
   for(const n of visible){
-    const isMe=n===me;
+    const isMe=_nameKey(n)===_nameKey(me);
     html+=`<span class="owner-chip${isMe?' me':''}" title="${esc(n)}${isMe?' (you)':''}">👤 ${esc(n)}</span>`;
   }
   if(hidden.length){
