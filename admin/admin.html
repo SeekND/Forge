@@ -601,6 +601,7 @@
         // ─── 3. /sync — push local unlocks (if allowed) ──────────────
         const canWrite = !identity || identity.canWrite !== false;
         let pushText = '';
+        let pushedAsName = null; // The name the server confirmed it stored under
         if (canWrite) {
           let unlocked = [];
           try {
@@ -621,6 +622,8 @@
             }),
           });
           if (syncResp.ok) {
+            const syncData = await syncResp.json().catch(() => ({}));
+            pushedAsName = syncData.name || (identity && identity.name) || name;
             pushText = `, pushed ${unlocked.length} unlock${unlocked.length === 1 ? '' : 's'}`;
           } else if (syncResp.status === 403) {
             // Admin caught by per-user mode mid-flight (shouldn't happen given the canWrite check above, but defensive)
@@ -634,11 +637,19 @@
         }
 
         // ─── 4. /state — user count ──────────────────────────────────
+        // Note: Cloudflare KV is eventually consistent (~100ms colo, up to
+        // ~60s global) — a read right after a write may not reflect it yet.
+        // If we just pushed but /state doesn't list us yet, count ourselves
+        // optimistically so the total isn't misleading.
         const s = await fetch(`${url}/state`, { headers: { 'X-Forge-Token': token } });
         let userCountText = '';
         if (s.ok) {
           const data = await s.json().catch(() => ({}));
-          const n = Array.isArray(data.users) ? data.users.length : 0;
+          const serverUsers = Array.isArray(data.users) ? data.users : [];
+          let n = serverUsers.length;
+          if (pushedAsName && !serverUsers.some(u => u && u.name === pushedAsName)) {
+            n += 1; // KV propagation lag — server hasn't surfaced our write yet
+          }
           userCountText = ` — ${n} user${n === 1 ? '' : 's'} in org`;
         }
 
