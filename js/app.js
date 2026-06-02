@@ -1419,7 +1419,7 @@ function bldChips(id,vals,lbl,key){
 }
 function toggleFilter(k,v){const a=filters[k],i=a.indexOf(v);i>=0?a.splice(i,1):a.push(v);document.querySelectorAll(`[data-fk="${k}"]`).forEach(b=>b.classList.toggle('active',filters[k].includes(b.dataset.fv)));updClear();filterBlueprints();}
 function clearFilters(p){const keys=p==='armor'?['weight','role','piece']:p==='weapons'?['wtype','dmg','wkind']:p==='ship_weapons'?['shipwtype','shipdmg','shipwsize']:p==='ship_components'?['comptype','shipcsize','shipcclass','shipcgrade']:[];keys.forEach(k=>{filters[k]=[];document.querySelectorAll(`[data-fk="${k}"]`).forEach(b=>b.classList.remove('active'));});updClear();filterBlueprints();}
-function updClear(){document.getElementById('armor-clear').style.display=(filters.weight.length+filters.role.length+filters.piece.length)?'':'none';document.getElementById('weapon-clear').style.display=(filters.wtype.length+filters.dmg.length+filters.wkind.length)?'':'none';const swc=document.getElementById('ship-weapon-clear');if(swc)swc.style.display=(filters.shipwtype.length+filters.shipdmg.length+filters.shipwsize.length)?'':'none';const scc=document.getElementById('ship-component-clear');if(scc)scc.style.display=(filters.comptype.length+filters.shipcsize.length+filters.shipcclass.length+filters.shipcgrade.length)?'':'none';}
+function updClear(){const ac=document.getElementById('armor-clear');if(ac)ac.style.display=(filters.weight.length+filters.role.length+filters.piece.length)?'':'none';const wc=document.getElementById('weapon-clear');if(wc)wc.style.display=(filters.wtype.length+filters.dmg.length+filters.wkind.length)?'':'none';const swc=document.getElementById('ship-weapon-clear');if(swc)swc.style.display=(filters.shipwtype.length+filters.shipdmg.length+filters.shipwsize.length)?'':'none';const scc=document.getElementById('ship-component-clear');if(scc)scc.style.display=(filters.comptype.length+filters.shipcsize.length+filters.shipcclass.length+filters.shipcgrade.length)?'':'none';}
 function fM(a,v){return a.length===0||a.includes(v);}
 
 function filterBlueprints(){
@@ -3615,7 +3615,7 @@ async function initOrgViewMode(){
   const subtitle=document.getElementById('subtitle');
   if(subtitle){
     const ageDays=Math.max(0,Math.floor((Date.now()/1000-decoded.ts)/86400));
-    const ageLabel=ageDays===0?'today':(ageDays===1?'1 day ago':`${ageDays} days ago`);
+    const ageLabel=ageDays===0?'shared today':(ageDays===1?'shared 1 day ago':`shared ${ageDays} days ago`);
     const schemaWarn=decoded.schemaMatch?'':' · ⚠️ catalog mismatch (some items may not render correctly)';
     subtitle.textContent=`${decoded.orgName} · Read-only snapshot · ${decoded.users.length} member${decoded.users.length===1?'':'s'} · ${ageLabel}${schemaWarn}`;
   }
