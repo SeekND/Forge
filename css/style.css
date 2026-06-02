@@ -278,6 +278,38 @@ nav#tabs{display:flex;gap:1px;overflow-x:auto}
 .btn-mine{background:transparent;border:1px solid #f59e0b66;color:#fbbf24;padding:5px 12px;border-radius:var(--radius-sm);font-size:11px;font-weight:700;cursor:pointer;transition:background .15s}
 .btn-mine:hover{background:rgba(245,158,11,.12)}
 
+/* ═══════════════════════════════════════════════
+   View-mode (ORG/index.html — read-only snapshot)
+   ═══════════════════════════════════════════════ */
+/* Hide every editing surface. Card content stays, owner chips stay,
+   filters stay, search stays. Anything that mutates state is killed. */
+body.view-mode .wo-btn-row,
+body.view-mode .btn-unlock,
+body.view-mode .btn-want,
+body.view-mode .btn-relock,
+body.view-mode .btn-wo,
+body.view-mode .btn-request,
+body.view-mode .btn-craft,
+body.view-mode .btn-mine,
+body.view-mode .bp-share-bar,
+body.view-mode #f-unlock,
+body.view-mode #global-filters .fp-group:has(#f-unlock){
+  display:none !important;
+}
+/* Subtitle tinted to indicate read-only state */
+body.view-mode #subtitle{
+  color:#fbbf24;
+  font-weight:600;
+}
+/* Don't allow any cursor:pointer that implies "click me to act" — except expand/collapse on cards */
+body.view-mode .item-card.locked{opacity:1} /* no "this is locked" dimming since there's no concept of lock */
+body.view-mode .badge-locked,
+body.view-mode .badge-unlocked,
+body.view-mode .badge-wanted,
+body.view-mode .badge-progress,
+body.view-mode .missing-bp,
+body.view-mode .piece-lock{display:none !important}
+
 /* Recycle / mine chips — WO slot annotations + Materials tab */
 .wo-slot-recycle{display:inline-flex;align-items:center;gap:3px;background:rgba(5,150,105,.13);color:#34d399;border:1px solid rgba(5,150,105,.4);border-radius:10px;padding:1px 8px;font-size:10px;font-weight:600;cursor:help;user-select:none;line-height:1.4;white-space:nowrap}
 .wo-slot-mine{display:inline-flex;align-items:center;gap:3px;background:rgba(245,158,11,.13);color:#fbbf24;border:1px solid rgba(245,158,11,.4);border-radius:10px;padding:1px 8px;font-size:10px;font-weight:600;cursor:help;user-select:none;line-height:1.4;white-space:nowrap}

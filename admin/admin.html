@@ -211,6 +211,14 @@
         <p class="desc">Short handle (no pipes <code>|</code>). Example: Seek, Korba, Maya</p>
         <input type="text" id="playerName" value="" placeholder="e.g. Seek" maxlength="40" style="width:280px;background:var(--bg-raised);border:1px solid var(--border-light);color:var(--text);padding:10px 14px;border-radius:6px;font-size:14px">
       </div>
+
+      <div class="field" style="margin-top:14px">
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+          <input type="checkbox" id="isAdmin" style="width:18px;height:18px;cursor:pointer">
+          <span>I'm the <strong>org admin</strong> — show the <strong>🔗 Share</strong> button in the header</span>
+        </label>
+        <p class="desc" style="margin-top:6px">Trust-honour flag, not security. Check it on the device of whoever's in charge of generating the org-view snapshot link. Other org members can leave it unchecked — they don't need to see the Share button.</p>
+      </div>
     </div>
 
     <div class="card">
@@ -393,6 +401,8 @@
     const DISCORD_KEYS = ['discordUserId', 'discordWebhookId', 'discordWebhookToken', 'discordDefaultLocation'];
     // Other string-valued admin fields
     const STRING_KEYS = ['playerName', 'nonExtractableMaterials', 'orgSyncUrl', 'orgSyncToken'];
+    // Boolean (checkbox) admin fields
+    const BOOL_KEYS = ['isAdmin'];
     
     // Load current settings on page load
     function loadSettings() {
@@ -419,6 +429,11 @@
           STRING_KEYS.forEach(key => {
             const input = document.getElementById(key);
             if (input) input.value = config[key] !== undefined ? config[key] : (STRING_DEFAULTS[key] || '');
+          });
+          // Load boolean checkbox fields
+          BOOL_KEYS.forEach(key => {
+            const input = document.getElementById(key);
+            if (input) input.checked = !!config[key];
           });
           updateDisplays(config);
         }
@@ -450,6 +465,10 @@
           const v = (document.getElementById(key)?.value || '').trim();
           // playerName can't contain '|' (delimiter in share payloads)
           config[key] = key === 'playerName' ? v.replace(/\|/g, '') : v;
+        });
+        // Save boolean checkbox fields
+        BOOL_KEYS.forEach(key => {
+          config[key] = !!document.getElementById(key)?.checked;
         });
         localStorage.setItem(LS + 'adminConfig', JSON.stringify(config));
         updateDisplays(config);

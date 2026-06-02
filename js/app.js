@@ -66,6 +66,7 @@ let adminConfig = {
   playerName: '',     // 4.8.1: display name for peer-to-peer sharing
   orgSyncUrl: '',     // 4.8.2: Cloudflare Worker URL for centralised org sync
   orgSyncToken: '',   // 4.8.2: shared org token (treat as password)
+  isAdmin: false,     // 4.8.3: when true, the 🔗 Share button is visible (org admin)
   // Materials that CAN'T be obtained by dismantling existing items — must be mined.
   // Stored as a comma-separated string in the admin field, normalised to an array
   // via getNonExtractableMaterials() below. CIG's blacklist changes patch-to-patch
@@ -318,6 +319,13 @@ function applyWikiSingle(el,name){
 // INIT
 // ════════════════════════════════════════════
 async function init(){
+  // View-mode short-circuit: if the page set window.FORGE_VIEW (i.e. we're
+  // running from /ORG/index.html), we display a read-only snapshot encoded
+  // in location.hash and skip every editing/storage code path. See
+  // initOrgViewMode() at the bottom of this file.
+  if(window.FORGE_VIEW){
+    return initOrgViewMode();
+  }
   try{const r=await fetch('data/crafting_data.json');DATA=await r.json();}
   catch(e){document.getElementById('main').innerHTML='<div style="padding:40px;text-align:center;color:#64748b"><p>Failed to load data</p></div>';return;}
   DATA.armor_sets=DATA.armor_sets.filter(s=>!s.set_name.includes('[Unknown'));
@@ -358,6 +366,10 @@ async function init(){
 
   buildDefaultUnlocked();
   buildMaterialUsage();loadState();updUnitBtn();
+
+  // Show/hide the header Share button based on adminConfig.isAdmin checkbox
+  const shareBtn=document.getElementById('header-share-btn');
+  if(shareBtn)shareBtn.style.display=adminConfig.isAdmin?'':'none';
 
   // Sync set unlocks - if all pieces of a set are unlocked, unlock the set too
   syncSetUnlocks();
@@ -746,6 +758,141 @@ function buildItemIndex(){
 }
 function schemaHash(){
   return hash32(ITEM_INDEX.map(o=>o.type+'|'+o.key).join('\n'));
+}
+
+// ════════════════════════════════════════════
+// ORG VIEW URL ENCODING (v4 — multi-user bitmask)
+// ════════════════════════════════════════════
+// Format (pre-compression):
+//   v4|orgName|tsSec|patch|schemaHash|user1:bitmask1|user2:bitmask2|...
+// Each user's unlock list is encoded as a bitmask over ITEM_INDEX positions,
+// then base64url-encoded. Bitmask is ~213 bytes (=284 chars) for a 1700-item
+// catalog regardless of how many BPs a user has unlocked — much smaller than
+// per-index encoding once a user owns >70 BPs.
+
+function _bytesToBase64Url(bytes){
+  let bin='';
+  for(let i=0;i<bytes.length;i++)bin+=String.fromCharCode(bytes[i]);
+  return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+}
+function _base64UrlToBytes(s){
+  s=s.replace(/-/g,'+').replace(/_/g,'/');
+  while(s.length%4)s+='=';
+  const bin=atob(s);
+  const out=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++)out[i]=bin.charCodeAt(i);
+  return out;
+}
+
+// Build a bitmask Uint8Array marking the positions in ITEM_INDEX that
+// correspond to the given "type|name" unlock keys.
+function _encodeUnlockBitmask(keys){
+  const bytes=new Uint8Array(Math.ceil(ITEM_INDEX.length/8));
+  for(const k of keys){
+    const i=KEY_TO_INDEX.get(k);
+    if(i!==undefined)bytes[i>>3]|=(1<<(i&7));
+  }
+  return _bytesToBase64Url(bytes);
+}
+function _decodeUnlockBitmask(b64){
+  const bytes=_base64UrlToBytes(b64);
+  const out=[];
+  for(let i=0;i<ITEM_INDEX.length;i++){
+    if(bytes[i>>3]&(1<<(i&7))){
+      const item=ITEM_INDEX[i];
+      if(item)out.push(item.type+'|'+item.key);
+    }
+  }
+  return out;
+}
+
+// Build the complete v4 org-share URL. Aggregates the admin's own unlocks
+// (unlockedBlueprints) with everyone in otherOwners, encodes each user's
+// unlock set as a bitmask, joins, LZ-compresses, and slots into the URL hash.
+function buildOrgViewUrl(orgName){
+  if(!orgName||!orgName.trim())return {ok:false,error:'Org name required'};
+  const cleanOrgName=orgName.trim().replace(/[|:]/g,'').slice(0,40);
+
+  // Aggregate per-user unlock sets.
+  // Start with me (if I have a name and some unlocks).
+  const userMap=new Map(); // name → Set of "type|name" keys
+  const me=getMyName();
+  if(me&&unlockedBlueprints.size>0){
+    userMap.set(me,new Set(unlockedBlueprints));
+  }
+  // Then walk otherOwners: each "type|name" maps to a list of owner names.
+  // Invert: build per-name lists of keys they own.
+  for(const [key,names] of Object.entries(otherOwners)){
+    for(const n of names){
+      if(!n)continue;
+      if(!userMap.has(n))userMap.set(n,new Set());
+      userMap.get(n).add(key);
+    }
+  }
+
+  if(userMap.size===0)return {ok:false,error:'No org data to share. Sync with an org first.'};
+
+  // Sort users alphabetically for determinism (same input → same URL)
+  const userEntries=[...userMap.entries()].sort((a,b)=>a[0].localeCompare(b[0]));
+  const userParts=userEntries.map(([name,keys])=>{
+    const cleanName=String(name).replace(/[|:]/g,'').slice(0,40);
+    return cleanName+':'+_encodeUnlockBitmask(keys);
+  });
+
+  const ts=Math.floor(Date.now()/1000);
+  const patch=(DATA?.meta?.current_patch)||'?';
+  const hash=schemaHash();
+  const raw=`v4|${cleanOrgName}|${ts}|${patch}|${hash}|${userParts.join('|')}`;
+  const compressed=LZString.compressToEncodedURIComponent(raw);
+
+  // Build URL: <current site root>/ORG/#data=<compressed>
+  const orgPageUrl=new URL('./ORG/',window.location.href).href;
+  const fullUrl=`${orgPageUrl}#data=${compressed}`;
+
+  return {
+    ok:true,
+    url:fullUrl,
+    rawLen:raw.length,
+    encLen:compressed.length,
+    urlLen:fullUrl.length,
+    userCount:userMap.size,
+    name:cleanOrgName,
+    ts,
+  };
+}
+
+// Decode a v4 payload (without "#data=" prefix). Returns either an error
+// object or the parsed org-view: {orgName, patch, schemaHash, ts, users:[{name, unlocked:[...keys]}]}.
+function decodeOrgViewPayload(encoded){
+  if(!encoded)return {ok:false,error:'Empty payload'};
+  let raw;
+  try{raw=LZString.decompressFromEncodedURIComponent(encoded);}catch(e){return {ok:false,error:'Decompression failed'};}
+  if(!raw)return {ok:false,error:'Decompression returned empty'};
+  if(!raw.startsWith('v4|'))return {ok:false,error:'Unsupported format (expected v4)'};
+  const parts=raw.split('|');
+  if(parts.length<6)return {ok:false,error:'Malformed payload'};
+  const [_,orgName,tsStr,patch,sHash,...userParts]=parts;
+  const users=[];
+  for(const up of userParts){
+    const colonIdx=up.indexOf(':');
+    if(colonIdx<=0)continue;
+    const name=up.slice(0,colonIdx);
+    const bm=up.slice(colonIdx+1);
+    if(!name||!bm)continue;
+    try{
+      const unlocked=_decodeUnlockBitmask(bm);
+      users.push({name,unlocked});
+    }catch(e){/* skip malformed user */}
+  }
+  return {
+    ok:true,
+    orgName,
+    patch,
+    schemaHash:sHash,
+    ts:parseInt(tsStr,10)||0,
+    users,
+    schemaMatch:sHash===schemaHash(),
+  };
 }
 
 // Build a share payload (compressed URL-safe blob) of MY unlocked BPs.
@@ -1719,62 +1866,73 @@ function closeRequestModal(){
 function openShareModal(){
   const modal=document.getElementById('share-modal');
   if(!modal)return;
+  // Count total unique owners we know about (me + everyone imported / synced)
+  const known=Object.keys(ownerTimestamps);
   const me=getMyName();
+  const totalUsers=(me&&unlockedBlueprints.size>0?1:0)+known.length;
   const myCount=unlockedBlueprints.size;
-  const known=Object.entries(ownerTimestamps).sort((a,b)=>b[1]-a[1]);
-  let nameWarn='';
-  let shareSection='';
-  if(!me){
-    nameWarn=`<div class="missing-warn" style="margin-bottom:12px">Set your <strong>Name</strong> in <a href="admin/admin.html" style="color:var(--accent)">Admin Settings</a> before sharing.</div>`;
-    shareSection=`<button class="btn-primary" disabled style="opacity:.5;cursor:not-allowed">Generate share</button>`;
-  }else if(myCount===0){
-    nameWarn=`<div class="dim" style="margin-bottom:12px">You have no unlocked blueprints to share yet.</div>`;
-    shareSection=`<button class="btn-primary" disabled style="opacity:.5;cursor:not-allowed">Generate share</button>`;
-  }else{
-    shareSection=`<button class="btn-primary" onclick="generateShare()">Generate share for <strong>${esc(me)}</strong> (${myCount} BPs)</button>
-      <div id="share-output" style="display:none;margin-top:12px">
-        <div style="margin-bottom:8px"><label class="dim" style="font-size:11px;text-transform:uppercase;letter-spacing:.05em">Shareable URL <span id="share-url-len" style="float:right"></span></label>
-          <div style="display:flex;gap:6px;margin-top:4px"><input type="text" id="share-url-out" readonly style="flex:1;background:var(--bg-deep);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:4px;font-size:11px;font-family:monospace"><button class="btn-secondary" onclick="copyShareField('share-url-out')">Copy URL</button></div>
-        </div>
-        <div><label class="dim" style="font-size:11px;text-transform:uppercase;letter-spacing:.05em">Or paste text (for Discord etc.)</label>
-          <div style="display:flex;gap:6px;margin-top:4px"><input type="text" id="share-text-out" readonly style="flex:1;background:var(--bg-deep);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:4px;font-size:11px;font-family:monospace"><button class="btn-secondary" onclick="copyShareField('share-text-out')">Copy Text</button></div>
-        </div>
-      </div>`;
+  // Total unique BP keys across all known owners (rough number for display)
+  const allKeys=new Set();
+  if(me&&unlockedBlueprints.size>0){
+    for(const k of unlockedBlueprints)allKeys.add(k);
   }
-  const knownList=known.length
-    ? `<div class="dim" style="font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Currently tracking ${known.length} ${known.length===1?'person':'people'}</div>
-       <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:12px">
-       ${known.map(([n,ts])=>`<div style="display:flex;align-items:center;gap:8px;padding:6px 8px;background:var(--bg-deep);border-radius:4px;font-size:12px"><span style="flex:1"><strong>${esc(n)}</strong> <span class="dim">— imported ${new Date(ts*1000).toLocaleDateString()}</span></span><button class="btn-secondary" style="padding:2px 8px;font-size:11px" onclick="forgetOwner('${escAttr(n)}')">Forget</button></div>`).join('')}
-       </div>`
-    : `<div class="dim" style="margin-bottom:12px">No friends imported yet. Paste a share below to add one.</div>`;
+  for(const k of Object.keys(otherOwners))allKeys.add(k);
+
+  const canShare=totalUsers>0&&allKeys.size>0;
+  const buttonHtml=canShare
+    ? `<button class="btn-primary" onclick="generateOrgViewLink()">Generate read-only link</button>`
+    : `<button class="btn-primary" disabled style="opacity:.5;cursor:not-allowed">No org data to share yet</button>`;
+
   modal.innerHTML=`
     <div class="rqm-overlay" onclick="closeShareModal()"></div>
     <div class="rqm-dialog" style="max-width:640px">
-      <div class="rqm-header"><h3>🔗 Share &amp; Import Blueprints</h3><button class="rqm-close" onclick="closeShareModal()">×</button></div>
+      <div class="rqm-header"><h3>🔗 Share Org Snapshot</h3><button class="rqm-close" onclick="closeShareModal()">×</button></div>
       <div class="rqm-body">
-        ${nameWarn}
-        <div style="margin-bottom:18px">
-          <div style="font-weight:700;font-size:14px;color:#f8fafc;margin-bottom:8px">Share my collection</div>
-          ${shareSection}
+        <p class="dim" style="margin-bottom:14px">Generate a self-contained read-only link that opens a viewer page showing every blueprint the org currently has — with attribution per member. The link is a snapshot of right now; if the org unlocks more later, regenerate to get a fresh link.</p>
+        <div style="background:var(--bg-deep);padding:10px 12px;border-radius:6px;margin-bottom:14px;font-size:12px">
+          <div><strong>${totalUsers}</strong> member${totalUsers===1?'':'s'} known · <strong>${allKeys.size}</strong> unique blueprint${allKeys.size===1?'':'s'} unlocked across them</div>
+          ${me?`<div class="dim" style="margin-top:4px">Including you (<strong>${esc(me)}</strong>, ${myCount} BPs)</div>`:''}
         </div>
-        <hr style="border:none;border-top:1px solid var(--border);margin:16px 0">
-        <div>
-          <div style="font-weight:700;font-size:14px;color:#f8fafc;margin-bottom:8px">Import from a friend</div>
-          <textarea id="share-import-in" placeholder="Paste a share URL or text block here..." style="width:100%;min-height:60px;background:var(--bg-deep);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:4px;font-size:11px;font-family:monospace;resize:vertical"></textarea>
-          <div style="margin-top:8px"><button class="btn-primary" onclick="doApplyImport()">Apply Import</button></div>
+        <div class="field">
+          <label class="dim" style="font-size:11px;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:4px">Org name (shown in the viewer header)</label>
+          <input type="text" id="org-view-name" value="" placeholder="e.g. DADCORP" maxlength="40" style="width:100%;background:var(--bg-deep);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:4px;font-size:13px">
         </div>
-        <hr style="border:none;border-top:1px solid var(--border);margin:16px 0">
-        <div style="margin-bottom:18px">
-          <div style="font-weight:700;font-size:14px;color:#f8fafc;margin-bottom:8px">Org Report</div>
-          <p class="dim" style="font-size:12px;margin-bottom:8px">Discord-friendly Markdown report listing every owned blueprint across everyone you've imported (plus your own unlocks). Use this to share an org-wide inventory in a channel.</p>
-          <button class="btn-secondary" onclick="copyOrgReport()">📋 Copy Org Report</button>
+        <div style="margin-top:12px">${buttonHtml}</div>
+        <div id="org-view-output" style="display:none;margin-top:14px">
+          <label class="dim" style="font-size:11px;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:4px">Shareable URL <span id="org-view-len" style="float:right"></span></label>
+          <div style="display:flex;gap:6px"><input type="text" id="org-view-url" readonly style="flex:1;background:var(--bg-deep);border:1px solid var(--border-light);color:var(--text);padding:8px 10px;border-radius:4px;font-size:11px;font-family:monospace"><button class="btn-secondary" onclick="copyOrgViewUrl()">Copy</button></div>
+          <p class="dim" style="margin-top:6px;font-size:11px"><strong>Discord:</strong> paste this URL on its own — Discord auto-previews it. URLs near or over 2000 characters may get truncated; if so, attach as a text file or use a link shortener.</p>
         </div>
-        <hr style="border:none;border-top:1px solid var(--border);margin:16px 0">
-        ${knownList}
-        ${known.length?'<button class="btn-secondary" onclick="if(confirm(\'Forget all imported attributions? Your own unlocks are not affected.\'))doClearAllAttribution()">Forget All Imports</button>':''}
       </div>
     </div>`;
   modal.style.display='flex';
+}
+function generateOrgViewLink(){
+  const nameInput=document.getElementById('org-view-name');
+  const name=(nameInput?.value||'').trim();
+  if(!name){
+    showToast('Enter an org name first');
+    if(nameInput)nameInput.focus();
+    return;
+  }
+  const r=buildOrgViewUrl(name);
+  if(!r.ok){showToast(r.error);return;}
+  const out=document.getElementById('org-view-output');
+  const url=document.getElementById('org-view-url');
+  const lenLabel=document.getElementById('org-view-len');
+  if(out)out.style.display='block';
+  if(url)url.value=r.url;
+  if(lenLabel){
+    const overLimit=r.urlLen>1900;
+    lenLabel.textContent=`${r.urlLen.toLocaleString()} chars`+(overLimit?' ⚠️ may truncate in Discord':'');
+    lenLabel.style.color=overLimit?'#fbbf24':'inherit';
+  }
+}
+function copyOrgViewUrl(){
+  const el=document.getElementById('org-view-url');
+  if(!el)return;
+  el.select();
+  navigator.clipboard.writeText(el.value).then(()=>showToast(`Copied (${el.value.length.toLocaleString()} chars)`));
 }
 function closeShareModal(){
   const modal=document.getElementById('share-modal');
@@ -3362,5 +3520,119 @@ function toggleUnit(){unitMode=unitMode==='cscu'?'scu':'cscu';try{localStorage.s
 function updUnitBtn(){const el=document.getElementById('unit-toggle');if(el){el.textContent=unitMode==='scu'?'SCU':'cSCU';el.classList.toggle('active',unitMode==='scu');}}
 function refreshAll(){filterBlueprints();if(currentTab==='workorder')renderWO();if(currentTab==='inventory'){buildInventoryInputs();updateInventoryResults();}if(currentTab==='sets'){buildPlannerSlots();updPlannerSum();}buildMaterialsRef();}
 function qColor(q){if(q>=adminConfig.gradeALow)return '#22c55e';if(q>=adminConfig.gradeBLow)return '#60a5fa';if(q>=adminConfig.gradeCLow)return '#facc15';return '#ef4444';}
+
+// ════════════════════════════════════════════
+// ORG VIEW MODE (read-only snapshot)
+// ════════════════════════════════════════════
+// Triggered when ORG/index.html sets window.FORGE_VIEW = true. We load the
+// catalog data (same as normal init), decode the v4 payload from the URL
+// hash, populate otherOwners directly (no localStorage involvement), and
+// render only the Blueprints tab in a read-only state.
+async function initOrgViewMode(){
+  // Mark body so CSS can hide editing UI
+  document.body.classList.add('view-mode');
+
+  // Show a loading state if rendering takes a moment
+  const main=document.getElementById('main');
+  if(main)main.innerHTML='<div style="padding:60px;text-align:center;color:#94a3b8"><p>Loading org snapshot…</p></div>';
+
+  // 1. Load the catalog (same fetch as the main app)
+  try{
+    const r=await fetch('data/crafting_data.json');
+    DATA=await r.json();
+  }catch(e){
+    if(main)main.innerHTML='<div style="padding:60px;text-align:center;color:#ef4444"><p>Failed to load blueprint catalog.</p></div>';
+    return;
+  }
+
+  // 2. Apply the same filters the main app applies on load
+  DATA.armor_sets=DATA.armor_sets.filter(s=>!s.set_name.includes('[Unknown'));
+  if(DATA.armor_pieces)DATA.armor_pieces=DATA.armor_pieces.filter(p=>!p.name.includes('[Unknown')&&!p.set_name.includes('[Unknown'));
+  DATA.weapons=DATA.weapons.filter(w=>!w.name.includes('[Unknown'));
+  DATA.undersuits=DATA.undersuits.filter(u=>!u.name.includes('[Unknown'));
+  DATA.flightsuits=DATA.flightsuits.filter(f=>!f.name.includes('[Unknown'));
+  DATA.backpacks=DATA.backpacks.filter(b=>!b.name.includes('[Unknown'));
+  DATA.ship_weapons=(DATA.ship_weapons||[]).filter(w=>!w.name.includes('[Unknown'));
+  DATA.ship_components=(DATA.ship_components||[]).filter(c=>!c.name.includes('[Unknown')&&!c.name.includes('PLACEHOLDER'));
+  const cR=arr=>arr.forEach(item=>{item.pieces?item.pieces.forEach(p=>{p.recipe=p.recipe.filter(r=>!String(r.material||'').includes('[Unknown'));}):item.recipe=(item.recipe||[]).filter(r=>!String(r.material||'').includes('[Unknown'));});
+  cR(DATA.armor_sets);cR(DATA.armor_pieces||[]);cR(DATA.weapons);cR(DATA.undersuits);cR(DATA.flightsuits);cR(DATA.backpacks);cR(DATA.ship_weapons);cR(DATA.ship_components);
+  DATA.undersuit_helmets=DATA.undersuits.filter(u=>u.piece_type==='helmet');
+  DATA.undersuits=DATA.undersuits.filter(u=>u.piece_type!=='helmet');
+  DATA.flightsuit_helmets=DATA.flightsuits.filter(f=>f.piece_type==='helmet');
+  DATA.flightsuits=DATA.flightsuits.filter(f=>f.piece_type!=='helmet');
+  if(!DATA.meta?.show_all){
+    DATA.armor_sets=DATA.armor_sets.filter(s=>s.is_obtainable!==false);
+    if(DATA.armor_pieces)DATA.armor_pieces=DATA.armor_pieces.filter(p=>p.is_obtainable!==false);
+    DATA.weapons=DATA.weapons.filter(w=>w.is_obtainable!==false);
+    DATA.undersuits=DATA.undersuits.filter(u=>u.is_obtainable!==false);
+    DATA.flightsuits=DATA.flightsuits.filter(f=>f.is_obtainable!==false);
+    DATA.backpacks=DATA.backpacks.filter(b=>b.is_obtainable!==false);
+    DATA.undersuit_helmets=(DATA.undersuit_helmets||[]).filter(h=>h.is_obtainable!==false);
+    DATA.flightsuit_helmets=(DATA.flightsuit_helmets||[]).filter(h=>h.is_obtainable!==false);
+    DATA.ship_weapons=DATA.ship_weapons.filter(w=>w.is_obtainable!==false);
+    DATA.ship_components=DATA.ship_components.filter(c=>c.is_obtainable!==false);
+  }
+  buildItemIndex();
+  buildMaterialUsage();
+
+  // 3. Decode the v4 payload from the hash
+  const hash=window.location.hash||'';
+  const m=hash.match(/[#&]data=([^&]+)/);
+  if(!m){
+    if(main)main.innerHTML='<div style="padding:60px;text-align:center;color:#94a3b8"><p>This URL has no embedded org data.</p></div>';
+    return;
+  }
+  const decoded=decodeOrgViewPayload(m[1]);
+  if(!decoded.ok){
+    if(main)main.innerHTML=`<div style="padding:60px;text-align:center;color:#ef4444"><p>Could not decode org data: ${esc(decoded.error)}</p></div>`;
+    return;
+  }
+
+  // 4. Populate otherOwners from every user in the payload — there's no "me"
+  // in view mode, so every owner is "other" from the renderer's perspective.
+  otherOwners={};
+  ownerTimestamps={};
+  for(const user of decoded.users){
+    ownerTimestamps[user.name]=decoded.ts;
+    for(const k of user.unlocked){
+      if(!otherOwners[k])otherOwners[k]=[];
+      otherOwners[k].push(user.name);
+    }
+  }
+
+  // 5. Update the page header with org name + viewer banner
+  const subtitle=document.getElementById('subtitle');
+  if(subtitle){
+    const ageDays=Math.max(0,Math.floor((Date.now()/1000-decoded.ts)/86400));
+    const ageLabel=ageDays===0?'today':(ageDays===1?'1 day ago':`${ageDays} days ago`);
+    const schemaWarn=decoded.schemaMatch?'':' · ⚠️ catalog mismatch (some items may not render correctly)';
+    subtitle.textContent=`${decoded.orgName} · Read-only snapshot · ${decoded.users.length} member${decoded.users.length===1?'':'s'} · ${ageLabel}${schemaWarn}`;
+  }
+  // Update page title too
+  document.title=`${decoded.orgName} — Forge Org View`;
+
+  // 6. Trigger initial render. We force bpCategory='armor' and use the
+  // existing filterBlueprints rendering — it handles otherOwners → chips,
+  // search, type filters, etc. correctly.
+  bpCategory='armor';
+  // Build filter chips (uses otherOwners.* for the Owner filter, also)
+  buildFilters();
+  buildOwnerFilter();
+  // Set up category buttons to switch tabs
+  document.querySelectorAll('.cat-btn').forEach(b=>{
+    b.classList.toggle('active',b.dataset.cat===bpCategory);
+  });
+  // Force the blueprints tab to show
+  document.querySelectorAll('.tab-content').forEach(s=>s.classList.remove('active'));
+  const bpTab=document.getElementById('tab-blueprints');
+  if(bpTab)bpTab.classList.add('active');
+  // Suppress all non-blueprints tab buttons via the existing tab nav
+  document.querySelectorAll('.tab').forEach(t=>{
+    t.classList.toggle('active',t.dataset.tab==='blueprints');
+  });
+
+  filterBlueprints();
+  hydrateWikiImages();
+}
 
 document.addEventListener('DOMContentLoaded',init);

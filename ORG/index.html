@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forge — Org View</title>
+  <!-- Resolve all relative paths against the repo root so app.js can fetch ../data/crafting_data.json etc. -->
+  <base href="../">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+  <script>
+    // Tell app.js to run in view-mode (read-only, no localStorage, no Worker).
+    // The actual data is in location.hash (#data=…) and gets decoded by
+    // initOrgViewMode() inside app.js.
+    window.FORGE_VIEW = true;
+  </script>
+</head>
+<body class="view-mode">
+  <header id="header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="brand">
+          <h1><span class="accent">⬡</span> Forge Crafting Calculator</h1>
+          <div class="subtitle" id="subtitle">Loading…</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <button class="unit-toggle" id="unit-toggle" onclick="toggleUnit()" title="Switch between cSCU and SCU">cSCU</button>
+        </div>
+      </div>
+      <nav id="tabs">
+        <button class="tab active" data-tab="blueprints" onclick="switchTab('blueprints')">Blueprints</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ═══ BLUEPRINTS (read-only) ═══ -->
+    <section id="tab-blueprints" class="tab-content active">
+      <div class="cat-bar">
+        <button class="cat-btn active" data-cat="armor" onclick="setBpCategory('armor')"><span class="cat-label">Armor</span><span class="cat-count" id="cc-armor"></span></button>
+        <button class="cat-btn" data-cat="weapons" onclick="setBpCategory('weapons')"><span class="cat-label">Weapons</span><span class="cat-count" id="cc-weapons"></span></button>
+        <button class="cat-btn" data-cat="undersuits" onclick="setBpCategory('undersuits')"><span class="cat-label">Undersuits</span><span class="cat-count" id="cc-undersuits"></span></button>
+        <button class="cat-btn" data-cat="ship_weapons" onclick="setBpCategory('ship_weapons')"><span class="cat-label">Ship Weapons</span><span class="cat-count" id="cc-ship-weapons"></span></button>
+        <button class="cat-btn" data-cat="ship_components" onclick="setBpCategory('ship_components')"><span class="cat-label">Ship Components</span><span class="cat-count" id="cc-ship-components"></span></button>
+      </div>
+      <input type="text" id="bp-search" class="search-input" placeholder="Search names, materials, manufacturers, missions…" oninput="filterBlueprints()">
+      <div id="global-filters" class="filter-panel">
+        <div class="fp-groups">
+          <div class="fp-sep" id="f-owner-sep" style="display:none"></div>
+          <div class="fp-group" id="f-owner-group" style="display:none"><span class="fp-label">Owner</span><div class="fp-chips" id="f-owner"></div></div>
+        </div>
+      </div>
+      <div id="armor-filters" class="filter-panel">
+        <div class="fp-groups">
+          <div class="fp-group"><span class="fp-label">Weight</span><div class="fp-chips" id="f-weight"></div></div><div class="fp-sep"></div>
+          <div class="fp-group"><span class="fp-label">Role</span><div class="fp-chips" id="f-role"></div></div><div class="fp-sep"></div>
+          <div class="fp-group"><span class="fp-label">Piece</span><div class="fp-chips" id="f-piece"></div></div>
+        </div>
+      </div>
+      <div id="weapon-filters" class="filter-panel" style="display:none">
+        <div class="fp-groups">
+          <div class="fp-group"><span class="fp-label">Type</span><div class="fp-chips" id="f-wtype"></div></div><div class="fp-sep"></div>
+          <div class="fp-group"><span class="fp-label">Damage</span><div class="fp-chips" id="f-dmg"></div></div>
+        </div>
+      </div>
+      <div id="ship-weapon-filters" class="filter-panel" style="display:none">
+        <div class="fp-groups">
+          <div class="fp-group"><span class="fp-label">Type</span><div class="fp-chips" id="f-shipwtype"></div></div><div class="fp-sep"></div>
+          <div class="fp-group"><span class="fp-label">Damage</span><div class="fp-chips" id="f-shipdmg"></div></div><div class="fp-sep"></div>
+          <div class="fp-group"><span class="fp-label">Size</span><div class="fp-chips" id="f-shipwsize"></div></div>
+        </div>
+      </div>
+      <div id="ship-component-filters" class="filter-panel" style="display:none">
+        <div class="fp-groups">
+          <div class="fp-group"><span class="fp-label">Component</span><div class="fp-chips" id="f-comptype"></div></div><div class="fp-sep"></div>
+          <div class="fp-group"><span class="fp-label">Size</span><div class="fp-chips" id="f-shipcsize"></div></div><div class="fp-sep"></div>
+          <div class="fp-group"><span class="fp-label">Class</span><div class="fp-chips" id="f-shipcclass"></div></div><div class="fp-sep"></div>
+          <div class="fp-group"><span class="fp-label">Grade</span><div class="fp-chips" id="f-shipcgrade"></div></div>
+        </div>
+      </div>
+      <div class="results-info" id="bp-results-info"></div>
+      <div id="bp-grid" class="card-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>This site is not endorsed by or affiliated with the Cloud Imperium or Roberts Space Industries group of companies. All game content and materials are copyright Cloud Imperium Rights LLC and Cloud Imperium Rights Ltd.. Star Citizen®, Squadron 42®, Roberts Space Industries®, and Cloud Imperium® are registered trademarks of Cloud Imperium Rights LLC. All rights reserved.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
