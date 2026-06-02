@@ -3624,7 +3624,10 @@ async function initOrgViewMode(){
     const ageDays=Math.max(0,Math.floor((Date.now()/1000-decoded.ts)/86400));
     const ageLabel=ageDays===0?'shared today':(ageDays===1?'shared 1 day ago':`shared ${ageDays} days ago`);
     const schemaWarn=decoded.schemaMatch?'':' · ⚠️ catalog mismatch (some items may not render correctly)';
-    subtitle.textContent=`${decoded.orgName} · Read-only snapshot · ${decoded.users.length} member${decoded.users.length===1?'':'s'} · ${ageLabel}${schemaWarn}`;
+    // Count distinct people, not raw payload entries — older snapshots
+    // baked the same person in twice if their name appeared in two casings.
+    const memberCount=dedupeNames(decoded.users.map(u=>u.name)).length;
+    subtitle.textContent=`${decoded.orgName} · Read-only snapshot · ${memberCount} member${memberCount===1?'':'s'} · ${ageLabel}${schemaWarn}`;
   }
   // Update page title too
   document.title=`${decoded.orgName} — Forge Org View`;
