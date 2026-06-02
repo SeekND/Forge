@@ -818,28 +818,31 @@ function buildOrgViewUrl(orgName){
   if(!orgName||!orgName.trim())return {ok:false,error:'Org name required'};
   const cleanOrgName=orgName.trim().replace(/[|:]/g,'').slice(0,40);
 
-  // Aggregate per-user unlock sets.
-  // Start with me (if I have a name and some unlocks).
-  const userMap=new Map(); // name → Set of "type|name" keys
+  // Aggregate per-user unlock sets, keyed by lowercase name so the same
+  // person under two casings ("Algorythm" + "algorythm") merges into one
+  // entry. First-seen casing wins as the display name.
+  const userMap=new Map(); // _nameKey(n) → { name, keys: Set }
+  const addToUser=(name,key)=>{
+    if(!name)return;
+    const nk=_nameKey(name);
+    if(!nk)return;
+    let entry=userMap.get(nk);
+    if(!entry){entry={name,keys:new Set()};userMap.set(nk,entry);}
+    if(key)entry.keys.add(key);
+  };
   const me=getMyName();
   if(me&&unlockedBlueprints.size>0){
-    userMap.set(me,new Set(unlockedBlueprints));
+    for(const k of unlockedBlueprints)addToUser(me,k);
   }
-  // Then walk otherOwners: each "type|name" maps to a list of owner names.
-  // Invert: build per-name lists of keys they own.
   for(const [key,names] of Object.entries(otherOwners)){
-    for(const n of names){
-      if(!n)continue;
-      if(!userMap.has(n))userMap.set(n,new Set());
-      userMap.get(n).add(key);
-    }
+    for(const n of names)addToUser(n,key);
   }
 
   if(userMap.size===0)return {ok:false,error:'No org data to share. Sync with an org first.'};
 
   // Sort users alphabetically for determinism (same input → same URL)
-  const userEntries=[...userMap.entries()].sort((a,b)=>a[0].localeCompare(b[0]));
-  const userParts=userEntries.map(([name,keys])=>{
+  const userEntries=[...userMap.values()].sort((a,b)=>a.name.localeCompare(b.name));
+  const userParts=userEntries.map(({name,keys})=>{
     const cleanName=String(name).replace(/[|:]/g,'').slice(0,40);
     return cleanName+':'+_encodeUnlockBitmask(keys);
   });
@@ -1880,10 +1883,13 @@ function closeRequestModal(){
 function openShareModal(){
   const modal=document.getElementById('share-modal');
   if(!modal)return;
-  // Count total unique owners we know about (me + everyone imported / synced)
-  const known=Object.keys(ownerTimestamps);
+  // Count total unique owners we know about (me + everyone imported / synced),
+  // deduped case-insensitively so e.g. "Algorythm" and "algorythm" count once.
   const me=getMyName();
-  const totalUsers=(me&&unlockedBlueprints.size>0?1:0)+known.length;
+  const allNames=[];
+  if(me&&unlockedBlueprints.size>0)allNames.push(me);
+  allNames.push(...Object.keys(ownerTimestamps));
+  const totalUsers=dedupeNames(allNames).length;
   const myCount=unlockedBlueprints.size;
   // Total unique BP keys across all known owners (rough number for display)
   const allKeys=new Set();
