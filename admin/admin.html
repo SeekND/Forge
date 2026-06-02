@@ -538,6 +538,21 @@
           status.style.color = '#f97316';
           return;
         }
+        // Hit /whoami first — gives us identity + mode info from the server
+        const whoResp = await fetch(`${url}/whoami`, { headers: { 'X-Forge-Token': token } });
+        if (whoResp.status === 401) {
+          status.textContent = '❌ Auth failed — token rejected by Worker';
+          status.style.color = '#ef4444';
+          return;
+        }
+        let identity = null;
+        if (whoResp.ok) {
+          // Worker v2+ — returns {ok, name, isAdmin, mode, canWrite}
+          try { identity = await whoResp.json(); } catch {}
+        }
+        // (If /whoami doesn't exist on an older Worker, identity stays null and
+        //  we fall back to the v1-style "Connected — N users" message.)
+
         const s = await fetch(`${url}/state`, { headers: { 'X-Forge-Token': token } });
         if (s.status === 401) {
           status.textContent = '❌ Auth failed — token rejected by Worker';
@@ -551,8 +566,30 @@
         }
         const data = await s.json();
         const n = Array.isArray(data.users) ? data.users.length : 0;
-        status.textContent = `✅ Connected — ${n} user${n === 1 ? '' : 's'} currently in org`;
-        status.style.color = '#059669';
+
+        // Build a status line that reflects who the Worker thinks you are.
+        let icon = '✅', color = '#059669', who;
+        if (identity) {
+          if (identity.name) {
+            // Personal token in per-user (or legacy with both) mode
+            who = `as ${identity.name}` + (identity.mode === 'per-user' ? ' (per-user)' : '');
+          } else if (identity.isAdmin && identity.canWrite) {
+            // Legacy mode — ORG_TOKEN doing everything
+            who = 'with admin token (legacy mode — single shared token)';
+            icon = '⚠️'; color = '#f59e0b';
+          } else if (identity.isAdmin && !identity.canWrite) {
+            // Admin token but per-user mode is active — reads work, /sync rejected
+            who = 'with admin token (read-only — per-user mode active)';
+            icon = '🛑'; color = '#ef4444';
+          } else {
+            who = '(unknown identity)';
+          }
+          status.textContent = `${icon} Connected ${who} — ${n} user${n === 1 ? '' : 's'} in org`;
+        } else {
+          // Older Worker without /whoami
+          status.textContent = `✅ Connected — ${n} user${n === 1 ? '' : 's'} currently in org`;
+        }
+        status.style.color = color;
       } catch (e) {
         status.textContent = `❌ ${e.message || 'Network error'}`;
         status.style.color = '#ef4444';
