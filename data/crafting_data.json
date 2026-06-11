@@ -66854,7 +66854,7 @@
       ]
     },
     {
-      "name": "Antium Core Jet",
+      "name": "Antium Core Jet (Helmet)",
       "piece_type": "helmet",
       "total_cscu": 11.0,
       "recipe": [
@@ -109201,7 +109201,7 @@
       "sources": []
     },
     {
-      "name": "BroadSpec",
+      "name": "BroadSpec (S2)",
       "piece_type": "radar",
       "total_cscu": 180.0,
       "recipe": [
@@ -109258,7 +109258,7 @@
       ]
     },
     {
-      "name": "BroadSpec",
+      "name": "BroadSpec (S3)",
       "piece_type": "radar",
       "total_cscu": 360.0,
       "recipe": [
@@ -112295,7 +112295,7 @@
       ]
     },
     {
-      "name": "Cinch Scraper Module",
+      "name": "Cinch Scraper Module (Medium)",
       "piece_type": "salvage",
       "total_cscu": 8.0,
       "recipe": [
@@ -112352,7 +112352,7 @@
       ]
     },
     {
-      "name": "Cinch Scraper Module",
+      "name": "Cinch Scraper Module (Small)",
       "piece_type": "salvage",
       "total_cscu": 6.0,
       "recipe": [
@@ -112393,63 +112393,6 @@
       "craft_time_seconds": 180,
       "output_entity_guid": "1743f1e2-0558-45f6-bc80-d604daf97123",
       "blueprint_file": "bp_craft_salvage_modifier_scraper_salvation_small.xml",
-      "is_obtainable": true,
-      "component_type": "salvage",
-      "manufacturer": "salvage",
-      "size": 0,
-      "class_code": "",
-      "class_label": "",
-      "grade": "",
-      "sources": [
-        {
-          "mission": "Adagio - Salvager Special Order",
-          "probability": 20.0,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "Cinch Scraper Module",
-      "piece_type": "salvage",
-      "total_cscu": 6.0,
-      "recipe": [
-        {
-          "slot": "Case",
-          "cost_type": "resource",
-          "material": "Iron",
-          "raw_ore": "Iron Ore",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 1,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Wiring",
-          "cost_type": "resource",
-          "material": "Copper",
-          "raw_ore": "Copper Ore",
-          "amount_cscu": 3.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 1,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Ocular Enhancer",
-          "cost_type": "item",
-          "material": "",
-          "raw_ore": "",
-          "amount_cscu": 0.0,
-          "item_name": "Sadaryx",
-          "item_quantity": 3,
-          "min_quality": 1,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 180,
-      "output_entity_guid": "81d7c828-42b2-46e8-b2e3-6798bdc32c23",
-      "blueprint_file": "bp_craft_salvage_modifier_scraper_small.xml",
       "is_obtainable": true,
       "component_type": "salvage",
       "manufacturer": "salvage",
