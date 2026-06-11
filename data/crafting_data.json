@@ -1,7 +1,7 @@
 {
   "meta": {
     "current_patch": "4.8",
-    "data_updated": "2026-06-10",
+    "data_updated": "2026-06-11",
     "news_reel": "",
     "default_blueprints": [
       "bp_craft_behr_pistol_ballistic_01.xml",
@@ -96823,6 +96823,61 @@
       ]
     },
     {
+      "name": "Dominance-2 Scattergun",
+      "piece_type": "scatter",
+      "total_cscu": 112.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 64.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Electronics",
+          "cost_type": "resource",
+          "material": "Gold",
+          "raw_ore": "Gold Ore",
+          "amount_cscu": 22.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Torque Junction",
+          "cost_type": "resource",
+          "material": "Savrilium",
+          "raw_ore": "Savrilium Ore",
+          "amount_cscu": 26.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 960,
+      "output_entity_guid": "ac55431a-d662-4d92-bda7-ea44f27ca597",
+      "blueprint_file": "bp_hrst_laserscattergun_s2.xml",
+      "is_obtainable": true,
+      "weapon_type": "scatter",
+      "damage_type": "energy",
+      "manufacturer": "bp",
+      "size": 2,
+      "sources": [
+        {
+          "mission": "Headhunters - Mercenary Ship (Region B)",
+          "probability": 20.0,
+          "type": "RANDOM"
+        }
+      ]
+    },
+    {
       "name": "Dominance-3 Scattergun",
       "piece_type": "scatter",
       "total_cscu": 204.0,
@@ -116394,8 +116449,8 @@
       "resource_guid": "4a47cad8-0271-4048-b19b-d9b52521fc20",
       "raw_ore": "Savrilium Ore",
       "slots_used_in": "Casing Weave",
-      "blueprint_count": 89,
-      "total_cscu_demand": 2731.0,
+      "blueprint_count": 90,
+      "total_cscu_demand": 2757.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -116438,8 +116493,8 @@
       "resource_guid": "21825507-7923-4683-9bf3-9cfe316940e3",
       "raw_ore": "Gold Ore",
       "slots_used_in": "Cabling",
-      "blueprint_count": 62,
-      "total_cscu_demand": 1853.0,
+      "blueprint_count": 63,
+      "total_cscu_demand": 1875.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -116526,8 +116581,8 @@
       "resource_guid": "07570c9f-fdf6-4bca-a56b-c42809ec0e01",
       "raw_ore": "Titanium Ore",
       "slots_used_in": "",
-      "blueprint_count": 94,
-      "total_cscu_demand": 6248.0,
+      "blueprint_count": 95,
+      "total_cscu_demand": 6312.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
