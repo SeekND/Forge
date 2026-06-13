@@ -374,6 +374,9 @@ async function init(){
   // Sync set unlocks - if all pieces of a set are unlocked, unlock the set too
   syncSetUnlocks();
 
+  // Stats tab label: "Org Stats" when connected to a Worker, else "Stats".
+  updateStatsTabLabel();
+
   // Org sync — pull current state from the Worker (if configured), then start
   // the periodic interval. Runs in the background; UI updates when data arrives.
   if(orgSyncEnabled()){
@@ -546,30 +549,64 @@ function computeOrgStats(){
   return {members, unionTotal:union.size, grandTotal, groupTotals, unionByGroup};
 }
 
+// Tab reads "Org Stats" when connected to a Worker, plain "Stats" otherwise.
+function updateStatsTabLabel(){
+  const b=document.querySelector('.tab[data-tab="orgstats"]');
+  if(b)b.textContent=orgSyncEnabled()?'Org Stats':'Stats';
+}
+// Click a member name to drill into just their stats; click again (or "Back to
+// org") to return to the combined view. null = org-wide.
+let orgStatsFocus=null;
+function toggleOrgStatsFocus(name){
+  orgStatsFocus=(orgStatsFocus&&_nameKey(orgStatsFocus)===_nameKey(name))?null:name;
+  renderOrgStats();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
 function renderOrgStats(){
   const body=document.getElementById('orgstats-body');
   if(!body)return;
+  updateStatsTabLabel();
   const s=computeOrgStats();
   if(!s.members.length){
-    body.innerHTML=`<div class="os-empty">No org data yet.<br>Unlock some blueprints, or set up org sync in the admin area so members' progress shows up here.</div>`;
+    orgStatsFocus=null;
+    body.innerHTML=`<div class="os-empty">No stats yet.<br>Unlock some blueprints, or set up org sync in the admin area so your org's progress shows up here.</div>`;
     return;
   }
-  const overallPct=_pct(s.unionTotal,s.grandTotal);
+  // Resolve focus to a current member (drop if the name is no longer present)
+  let focus=null;
+  if(orgStatsFocus){
+    focus=s.members.find(m=>_nameKey(m.name)===_nameKey(orgStatsFocus))||null;
+    if(!focus)orgStatsFocus=null;
+  }
 
-  // 1. Overall hero
-  let html=`<div class="os-hero">
-    <div class="os-hero-pct">${overallPct}<span class="os-hero-pctsign">%</span></div>
+  const heroTotal=focus?focus.total:s.unionTotal;
+  const heroPct=_pct(heroTotal,s.grandTotal);
+  const catVals=focus?focus.perGroup:s.unionByGroup;
+
+  let html='';
+
+  // Focus banner (only when drilled into a member)
+  if(focus){
+    html+=`<div class="os-focusbar">Viewing <strong>${esc(focus.name)}</strong>${focus.isMe?' (you)':''}'s own collection<button class="os-back" data-name="${esc(focus.name)}" onclick="toggleOrgStatsFocus(this.dataset.name)">← Back to org</button></div>`;
+  }
+
+  // 1. Hero (org union, or the focused member)
+  html+=`<div class="os-hero">
+    <div class="os-hero-pct">${heroPct}<span class="os-hero-pctsign">%</span></div>
     <div class="os-hero-meta">
-      <div class="os-hero-label">Org collection</div>
-      <div class="os-hero-sub"><strong>${s.unionTotal.toLocaleString()}</strong> of ${s.grandTotal.toLocaleString()} blueprints unlocked by at least one of <strong>${s.members.length}</strong> member${s.members.length===1?'':'s'}</div>
-      <div class="os-bar os-bar-lg"><div class="os-bar-fill" style="width:${overallPct}%"></div></div>
+      <div class="os-hero-label">${focus?esc(focus.name)+"'s collection":'Org collection'}</div>
+      <div class="os-hero-sub">${focus
+        ?`<strong>${focus.total.toLocaleString()}</strong> of ${s.grandTotal.toLocaleString()} blueprints unlocked`
+        :`<strong>${s.unionTotal.toLocaleString()}</strong> of ${s.grandTotal.toLocaleString()} blueprints unlocked by at least one of <strong>${s.members.length}</strong> member${s.members.length===1?'':'s'}`}</div>
+      <div class="os-bar os-bar-lg"><div class="os-bar-fill" style="width:${heroPct}%"></div></div>
     </div>
   </div>`;
 
-  // 2. By category (org union coverage)
+  // 2. By category (union, or the focused member)
   html+=`<h3 class="os-h">Coverage by category</h3><div class="os-cats">`;
   STAT_GROUPS.forEach((g,i)=>{
-    const got=s.unionByGroup[i], tot=s.groupTotals[i], p=_pct(got,tot);
+    const got=catVals[i], tot=s.groupTotals[i], p=_pct(got,tot);
     html+=`<div class="os-cat">
       <div class="os-cat-top"><span class="os-cat-label">${g.label}</span><span class="os-cat-num">${got} / ${tot}<span class="os-cat-pct">${p}%</span></span></div>
       <div class="os-bar"><div class="os-bar-fill" style="width:${p}%;background:${g.color}"></div></div>
@@ -577,19 +614,23 @@ function renderOrgStats(){
   });
   html+=`</div>`;
 
-  // 3. By member
-  html+=`<h3 class="os-h">By member</h3><div class="os-table-wrap"><table class="os-table">
+  // 3. By member (click a name to focus)
+  const hint=s.members.length>1?` <span class="os-hint">— click a name to see just their stats</span>`:'';
+  html+=`<h3 class="os-h">By member${hint}</h3><div class="os-table-wrap"><table class="os-table">
     <thead><tr><th>Member</th><th>Total</th>${STAT_GROUPS.map(g=>`<th title="${g.label}">${g.short}</th>`).join('')}</tr></thead><tbody>`;
   s.members.forEach(m=>{
     const p=_pct(m.total,s.grandTotal);
-    html+=`<tr>
-      <td class="os-m-name">${esc(m.name)}${m.isMe?'<span class="os-you">(you)</span>':''}</td>
+    const isFocus=focus&&_nameKey(m.name)===_nameKey(focus.name);
+    html+=`<tr class="${isFocus?'os-row-focus':''}">
+      <td class="os-m-name os-clickable" data-name="${esc(m.name)}" onclick="toggleOrgStatsFocus(this.dataset.name)" title="View ${esc(m.name)}'s stats">${esc(m.name)}${m.isMe?'<span class="os-you">(you)</span>':''}</td>
       <td class="os-m-total"><span class="os-mini-bar"><span style="width:${p}%"></span></span><span class="os-m-num">${m.total} <span class="os-cat-pct">${p}%</span></span></td>
       ${m.perGroup.map((n,i)=>`<td>${n?`<span title="${_pct(n,s.groupTotals[i])}% of ${STAT_GROUPS[i].label}">${n}</span>`:'<span class="os-zero">·</span>'}</td>`).join('')}
     </tr>`;
   });
   html+=`</tbody></table></div>`;
-  html+=`<p class="os-foot">Counts a blueprint as "unlocked" if any listed member has it. Based on the latest synced org data.</p>`;
+  html+=`<p class="os-foot">${focus
+    ?`Showing <strong>${esc(focus.name)}</strong>'s own unlocks. Click their name again or "Back to org" to return.`
+    :`Counts a blueprint as "unlocked" if any listed member has it. Based on the latest synced org data.`}</p>`;
 
   body.innerHTML=html;
 }
