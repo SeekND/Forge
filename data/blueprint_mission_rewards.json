@@ -3037,8 +3037,8 @@
           "weight": 1
         },
         {
-          "name": "UNKNOWN",
-          "filename": "GUID:9138f384...",
+          "name": "Dominance-2 Scattergun",
+          "filename": "bp_hrst_laserscattergun_s2.xml",
           "probability": 20.0,
           "weight": 1
         },
@@ -8350,16 +8350,11 @@
         "type": "RANDOM"
       }
     ],
-    "UNKNOWN": [
+    "Dominance-2 Scattergun": [
       {
         "mission": "Headhunters - Mercenary Ship (Region B)",
         "probability": 20.0,
         "type": "RANDOM"
-      },
-      {
-        "mission": "Wikelo Collector Material (Tier 2)",
-        "probability": 100.0,
-        "type": "GUARANTEED"
       }
     ],
     "Dominance-3 Scattergun": [
@@ -10204,6 +10199,13 @@
     "Metamaterial Test #146": [
       {
         "mission": "Wikelo Collector Material (Tier 1)",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "UNKNOWN": [
+      {
+        "mission": "Wikelo Collector Material (Tier 2)",
         "probability": 100.0,
         "type": "GUARANTEED"
       }

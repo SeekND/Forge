@@ -1,7 +1,7 @@
 {
   "meta": {
     "current_patch": "4.8",
-    "data_updated": "2026-06-11",
+    "data_updated": "2026-06-13",
     "news_reel": "",
     "default_blueprints": [
       "bp_craft_behr_pistol_ballistic_01.xml",
@@ -40122,7 +40122,7 @@
     },
     {
       "set_key": "vgl_utility_light|01_05_01",
-      "set_name": "Chiron Purgatory Camo",
+      "set_name": "Chiron Purgatory Camo (Helmet)",
       "weight": "light",
       "role": "combat",
       "manufacturer": "Virgil",
