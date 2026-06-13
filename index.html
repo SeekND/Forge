@@ -29,6 +29,7 @@
         <button class="tab" data-tab="inventory" onclick="switchTab('inventory')">Vault</button>
         <button class="tab" data-tab="workorder" onclick="switchTab('workorder')">Work Orders <span id="wo-badge" class="tab-badge"></span></button>
         <button class="tab" data-tab="materials" onclick="switchTab('materials')">Materials</button>
+        <button class="tab" data-tab="orgstats" onclick="switchTab('orgstats')">Org Stats</button>
       </nav>
     </div>
   </header>
@@ -197,6 +198,12 @@
     <section id="tab-materials" class="tab-content">
       <div class="section-intro"><h2>Material Reference</h2><p class="dim">All crafting materials — ore sources, crafting slots, and common uses.</p></div>
       <div id="materials-grid" class="materials-grid"></div>
+    </section>
+
+    <!-- ═══ ORG STATS ═══ -->
+    <section id="tab-orgstats" class="tab-content">
+      <div class="section-intro"><h2>Org Stats</h2><p class="dim">Blueprint unlock coverage across your org — overall, by category, and per member.</p></div>
+      <div id="orgstats-body"></div>
     </section>
   </main>
 

@@ -499,6 +499,102 @@ function updateCategoryCounts(){
 }
 
 // ════════════════════════════════════════════
+// ORG STATS
+// ════════════════════════════════════════════
+// Catalog grouped into display categories. `types` are ITEM_INDEX type tags.
+const STAT_GROUPS=[
+  {label:'Armor Sets',              short:'Sets',      types:['set'],                                                          color:'#38bdf8'},
+  {label:'Armor Pieces',            short:'Pieces',    types:['piece'],                                                        color:'#22d3ee'},
+  {label:'Backpacks',               short:'Backpacks', types:['backpack'],                                                     color:'#818cf8'},
+  {label:'Weapons',                 short:'Weapons',   types:['weapon'],                                                       color:'#f97316'},
+  {label:'Undersuits & Flightsuits',short:'Suits',     types:['undersuit','undersuit_helmet','flightsuit','flightsuit_helmet'],color:'#a855f7'},
+  {label:'Ship Weapons',            short:'Ship Wpn',  types:['ship_weapon'],                                                  color:'#f43f5e'},
+  {label:'Ship Components',         short:'Ship Comp', types:['ship_component'],                                               color:'#059669'},
+];
+function _typeOfKey(k){const i=k.indexOf('|');return i<0?k:k.slice(0,i);}
+function _pct(n,d){return d>0?Math.round(n/d*100):0;}
+
+// Aggregate everyone we know about into per-member unlock sets. Returns
+// {members:[{name,isMe,total,perGroup[]}], unionTotal, grandTotal, groupTotals[], unionByGroup[]}
+function computeOrgStats(){
+  // Merge by lowercase name (handles same person under different casings),
+  // count only keys that exist in the current catalog (KEY_TO_INDEX).
+  const byKey={}; // _nameKey -> {name, keys:Set}
+  const add=(name,key)=>{
+    if(!name||!KEY_TO_INDEX.has(key))return;
+    const nk=_nameKey(name); if(!nk)return;
+    let e=byKey[nk]; if(!e){e={name,keys:new Set()};byKey[nk]=e;}
+    e.keys.add(key);
+  };
+  const me=getMyName();
+  if(me)for(const k of unlockedBlueprints)add(me,k);
+  for(const [key,owners] of Object.entries(otherOwners))for(const n of owners)add(n,key);
+
+  const totalByType={}; ITEM_INDEX.forEach(it=>{totalByType[it.type]=(totalByType[it.type]||0)+1;});
+  const groupTotals=STAT_GROUPS.map(g=>g.types.reduce((s,t)=>s+(totalByType[t]||0),0));
+  const grandTotal=ITEM_INDEX.length;
+
+  const union=new Set();
+  Object.values(byKey).forEach(m=>m.keys.forEach(k=>union.add(k)));
+  const unionByGroup=STAT_GROUPS.map(g=>{let n=0;union.forEach(k=>{if(g.types.includes(_typeOfKey(k)))n++;});return n;});
+
+  const members=Object.values(byKey).filter(m=>m.keys.size>0).map(m=>{
+    const perGroup=STAT_GROUPS.map(g=>{let n=0;m.keys.forEach(k=>{if(g.types.includes(_typeOfKey(k)))n++;});return n;});
+    return {name:m.name, isMe:!!me&&_nameKey(m.name)===_nameKey(me), total:m.keys.size, perGroup};
+  }).sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name));
+
+  return {members, unionTotal:union.size, grandTotal, groupTotals, unionByGroup};
+}
+
+function renderOrgStats(){
+  const body=document.getElementById('orgstats-body');
+  if(!body)return;
+  const s=computeOrgStats();
+  if(!s.members.length){
+    body.innerHTML=`<div class="os-empty">No org data yet.<br>Unlock some blueprints, or set up org sync in the admin area so members' progress shows up here.</div>`;
+    return;
+  }
+  const overallPct=_pct(s.unionTotal,s.grandTotal);
+
+  // 1. Overall hero
+  let html=`<div class="os-hero">
+    <div class="os-hero-pct">${overallPct}<span class="os-hero-pctsign">%</span></div>
+    <div class="os-hero-meta">
+      <div class="os-hero-label">Org collection</div>
+      <div class="os-hero-sub"><strong>${s.unionTotal.toLocaleString()}</strong> of ${s.grandTotal.toLocaleString()} blueprints unlocked by at least one of <strong>${s.members.length}</strong> member${s.members.length===1?'':'s'}</div>
+      <div class="os-bar os-bar-lg"><div class="os-bar-fill" style="width:${overallPct}%"></div></div>
+    </div>
+  </div>`;
+
+  // 2. By category (org union coverage)
+  html+=`<h3 class="os-h">Coverage by category</h3><div class="os-cats">`;
+  STAT_GROUPS.forEach((g,i)=>{
+    const got=s.unionByGroup[i], tot=s.groupTotals[i], p=_pct(got,tot);
+    html+=`<div class="os-cat">
+      <div class="os-cat-top"><span class="os-cat-label">${g.label}</span><span class="os-cat-num">${got} / ${tot}<span class="os-cat-pct">${p}%</span></span></div>
+      <div class="os-bar"><div class="os-bar-fill" style="width:${p}%;background:${g.color}"></div></div>
+    </div>`;
+  });
+  html+=`</div>`;
+
+  // 3. By member
+  html+=`<h3 class="os-h">By member</h3><div class="os-table-wrap"><table class="os-table">
+    <thead><tr><th>Member</th><th>Total</th>${STAT_GROUPS.map(g=>`<th title="${g.label}">${g.short}</th>`).join('')}</tr></thead><tbody>`;
+  s.members.forEach(m=>{
+    const p=_pct(m.total,s.grandTotal);
+    html+=`<tr>
+      <td class="os-m-name">${esc(m.name)}${m.isMe?'<span class="os-you">(you)</span>':''}</td>
+      <td class="os-m-total"><span class="os-mini-bar"><span style="width:${p}%"></span></span><span class="os-m-num">${m.total} <span class="os-cat-pct">${p}%</span></span></td>
+      ${m.perGroup.map((n,i)=>`<td>${n?`<span title="${_pct(n,s.groupTotals[i])}% of ${STAT_GROUPS[i].label}">${n}</span>`:'<span class="os-zero">·</span>'}</td>`).join('')}
+    </tr>`;
+  });
+  html+=`</tbody></table></div>`;
+  html+=`<p class="os-foot">Counts a blueprint as "unlocked" if any listed member has it. Based on the latest synced org data.</p>`;
+
+  body.innerHTML=html;
+}
+
+// ════════════════════════════════════════════
 // MATERIAL USAGE
 // ════════════════════════════════════════════
 function buildMaterialUsage(){
@@ -623,7 +719,7 @@ function switchTab(tab){
   currentTab=tab;
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===tab));
   document.querySelectorAll('.tab-content').forEach(s=>s.classList.toggle('active',s.id==='tab-'+tab));
-  if(tab==='home')updateCategoryCounts();if(tab==='inventory')updateInventoryResults();if(tab==='workorder')renderWO();if(tab==='blueprints')filterBlueprints();
+  if(tab==='home')updateCategoryCounts();if(tab==='inventory')updateInventoryResults();if(tab==='workorder')renderWO();if(tab==='blueprints')filterBlueprints();if(tab==='orgstats')renderOrgStats();
 }
 
 // ════════════════════════════════════════════
