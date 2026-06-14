@@ -161,6 +161,9 @@ nav#tabs{display:flex;gap:1px;overflow-x:auto}
 .piece-lock{font-size:11px;display:inline-flex;align-items:center;width:14px;justify-content:center;flex-shrink:0}
 .piece-lock.unlocked{color:var(--green)}
 .piece-lock.locked{filter:grayscale(0.4);opacity:.7}
+.piece-lock.clickable{cursor:pointer;width:auto;min-width:14px;padding:1px 3px;border-radius:4px;transition:background .12s,transform .1s;user-select:none}
+.piece-lock.clickable:hover{background:var(--bg-raised);transform:scale(1.18)}
+.piece-lock.locked.clickable:hover{opacity:1;filter:none}
 .piece-row-locked{opacity:.65}
 .piece-row-locked .piece-name{color:var(--text-dim)}
 .piece-row-unlocked .piece-name{color:#e2e8f0}

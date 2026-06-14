@@ -1765,7 +1765,11 @@ function filterBlueprints(){
     mkSec('Flightsuits',DATA.flightsuits,'flightsuit');
     mkSec('Flightsuit Helmets',DATA.flightsuit_helmets,'flightsuit_helmet');
   }
+  // Preserve which cards are expanded across the re-render (so toggling a
+  // per-piece lock, owner filter, etc. doesn't collapse the open card).
+  const _expanded=[...grid.querySelectorAll('.item-card.expanded')].map(c=>c.id);
   grid.innerHTML=html;document.getElementById('bp-results-info').textContent=`${count} items`;
+  _expanded.forEach(id=>document.getElementById(id)?.classList.add('expanded'));
   hydrateWikiImages();
   updateShareBar();
 }
@@ -2152,7 +2156,9 @@ function renderSetCard(set){
   let pcs=set.pieces.map(p=>{
     const pUnlocked=isUnlocked('piece',p.name);
     const rowCls='piece-row'+(pUnlocked?' piece-row-unlocked':' piece-row-locked');
-    const pIcon=pUnlocked?'<span class="piece-lock unlocked" title="Blueprint unlocked">✓</span>':'<span class="piece-lock locked" title="Blueprint not yet unlocked">🔒</span>';
+    const pIcon=pUnlocked
+      ?`<span class="piece-lock unlocked clickable" role="button" tabindex="0" title="Unlocked — click to lock this piece" onclick="toggleUnlock('piece','${escAttr(p.name)}',event)">✓</span>`
+      :`<span class="piece-lock locked clickable" role="button" tabindex="0" title="Locked — click to unlock this piece" onclick="toggleUnlock('piece','${escAttr(p.name)}',event)">🔒</span>`;
     return `<div class="${rowCls}">${wikiImgHtml(p.name)}<div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px">${pIcon}<span class="piece-type">${p.piece_type}</span><span class="piece-name">${esc(p.name)}</span>${sourcesIcon(p.sources)}</div><div class="piece-recipe">${recipeHtml(p.recipe)}</div>${slotStatsHtml(p.recipe)}</div><div class="piece-stats"><div class="cscu">${uFmt(p.total_cscu)}</div><div class="time">${ctime(p.craft_time_seconds)}</div></div></div>`;
   }).join('');
   let bpP='';
