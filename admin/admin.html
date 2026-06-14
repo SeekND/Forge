@@ -241,7 +241,16 @@
         <button class="btn btn-secondary" onclick="testOrgSync()" style="font-size:12px" title="Pushes your current unlocks (if your token allows writes), confirms the connection, and saves these settings — all in one click">Test Connection</button>
         <span id="org-sync-status" style="font-size:12px;color:var(--text-muted)"></span>
       </div>
-      <p class="desc" style="margin-top:8px;font-size:11px"><strong>Test Connection</strong> does three things in one click: <strong>(1)</strong> pushes your current unlocks to the Worker if your token allows writes, <strong>(2)</strong> confirms identity + user count, <strong>(3)</strong> saves these settings to localStorage. No separate Save Settings click needed for this section.</p>
+      <p class="desc" style="margin-top:8px;font-size:11px"><strong>Test Connection</strong> does three things in one click: <strong>(1)</strong> pushes your current unlocks to the Worker if your token allows writes, <strong>(2)</strong> confirms identity + user count, <strong>(3)</strong> saves these settings to localStorage. No separate Save Settings click needed for this section. (An empty browser won't push — so it can't overwrite your saved unlocks.)</p>
+
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border-light)">
+        <label style="display:block;font-weight:600;margin-bottom:4px">New browser? Restore your unlocks</label>
+        <p class="desc" style="margin-bottom:10px">Switched browsers or cleared your data? Fill in the Worker URL, token, and <strong>Your Name</strong> above, then click below to download your own unlocks from the org back into this browser. It <strong>merges</strong> with whatever is already here — it never deletes anything. Reload the calculator afterward to see them.</p>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <button class="btn btn-secondary" onclick="restoreMyUnlocks()" style="font-size:12px" title="Pull your own unlocks from the org database into this browser">⬇ Restore my unlocks from org</button>
+          <span id="org-restore-status" style="font-size:12px;color:var(--text-muted)"></span>
+        </div>
+      </div>
     </div>
 
     <div class="card">
@@ -554,6 +563,51 @@
     // Reports the combined result in the status line. Saves regardless of
     // outcome (so a typo'd token can be fixed and retried without re-typing
     // the rest of the form).
+    // Pull this user's OWN unlocks from the org DB into this browser. Used when
+    // someone switches browsers / clears storage — their state still lives in
+    // KV under their name. Union-merge so it never deletes local data.
+    async function restoreMyUnlocks() {
+      const url = (document.getElementById('orgSyncUrl')?.value || '').trim().replace(/\/$/, '');
+      const token = (document.getElementById('orgSyncToken')?.value || '').trim();
+      const name = (document.getElementById('playerName')?.value || '').trim();
+      const status = document.getElementById('org-restore-status');
+      if (!url || !token || !name) {
+        status.textContent = '⚠️ Enter the Worker URL, token, and Your Name above first';
+        status.style.color = '#f97316';
+        return;
+      }
+      status.textContent = 'Restoring…';
+      status.style.color = 'var(--text-muted)';
+      try {
+        const resp = await fetch(`${url}/state`, { headers: { 'X-Forge-Token': token } });
+        if (!resp.ok) {
+          status.textContent = resp.status === 401 ? '❌ Auth failed — token rejected by Worker' : `❌ Couldn't read org state (HTTP ${resp.status})`;
+          status.style.color = '#ef4444';
+          return;
+        }
+        const data = await resp.json().catch(() => ({}));
+        const users = Array.isArray(data.users) ? data.users : [];
+        // Case-insensitive name match (handles e.g. Algorythm vs algorythm)
+        const mine = users.find(u => u && u.name && u.name.toLowerCase() === name.toLowerCase());
+        if (!mine) {
+          status.textContent = `⚠️ No record found for “${name}” in the org yet — nothing to restore`;
+          status.style.color = '#f97316';
+          return;
+        }
+        const serverKeys = Array.isArray(mine.unlocked) ? mine.unlocked : [];
+        let local = [];
+        try { const raw = localStorage.getItem(LS + 'unlocked'); if (raw) { const p = JSON.parse(raw); if (Array.isArray(p)) local = p; } } catch {}
+        const merged = Array.from(new Set([...local, ...serverKeys]));
+        const added = merged.length - local.length;
+        localStorage.setItem(LS + 'unlocked', JSON.stringify(merged));
+        status.textContent = `✅ Restored ${serverKeys.length} unlock${serverKeys.length === 1 ? '' : 's'} from org (${added} new here) — reload the calculator to see them`;
+        status.style.color = '#059669';
+      } catch (e) {
+        status.textContent = `❌ ${e.message || 'Network error'}`;
+        status.style.color = '#ef4444';
+      }
+    }
+
     async function testOrgSync() {
       const rawUrl = (document.getElementById('orgSyncUrl')?.value || '').trim();
       const url = rawUrl.replace(/\/$/, '');
@@ -631,6 +685,14 @@
             }
           } catch {}
 
+          if (unlocked.length === 0) {
+            // SAFETY: a fresh browser (or cleared storage) has no local unlocks.
+            // Pushing an empty set would snapshot-replace and WIPE this user's
+            // saved unlocks in KV. Skip it — they should "Restore my unlocks"
+            // first. (If they genuinely have zero, there's nothing to sync.)
+            pushText = ', push skipped (no local unlocks — use “Restore my unlocks” below)';
+            pushedAsName = (identity && identity.name) || name;
+          } else {
           const syncResp = await fetch(`${url}/sync`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'X-Forge-Token': token },
@@ -650,6 +712,7 @@
           } else {
             pushText = `, push failed (HTTP ${syncResp.status})`;
             identityIcon = '⚠️'; identityColor = '#f59e0b';
+          }
           }
         } else {
           pushText = ', push skipped (read-only)';

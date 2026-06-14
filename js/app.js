@@ -1132,6 +1132,12 @@ function _orgUrl(suffix){
 }
 async function orgSyncPush(){
   if(!orgSyncEnabled())return false;
+  // SAFETY: never overwrite the server record with an empty unlock set. A fresh
+  // browser (or cleared storage) starts empty, and the push is snapshot-replace
+  // — pushing empty would wipe this user's saved unlocks in KV. They should
+  // restore first (admin → "Restore my unlocks"). Once they unlock anything,
+  // the push resumes normally.
+  if(unlockedBlueprints.size===0)return false;
   const body={
     name: getMyName(),
     unlocked: [...unlockedBlueprints],
