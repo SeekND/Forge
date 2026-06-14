@@ -1123,6 +1123,13 @@ function clearAllAttribution(){
 let _orgSyncDebounceTimer = null;
 let _orgSyncPullInterval = null;
 let _orgSyncLastError = '';
+let _orgLastPullTs = 0;
+let _orgVisibilityHooked = false;
+// Cloudflare KV free tier allows only ~1,000 list/write ops/day (reads 100k),
+// so polling must be frugal. Pull every 5 min, and only while the tab is
+// visible — a 30s poll across a few always-open tabs blows the daily budget.
+const ORG_PULL_INTERVAL_MS = 5 * 60 * 1000;
+const ORG_PULL_MIN_GAP_MS = 2 * 60 * 1000; // floor between focus-triggered pulls
 function orgSyncEnabled(){
   return !!(adminConfig.orgSyncUrl && adminConfig.orgSyncToken && getMyName());
 }
@@ -1170,6 +1177,7 @@ function scheduleOrgSyncPush(){
 }
 async function orgSyncPull(){
   if(!orgSyncEnabled())return false;
+  _orgLastPullTs=Date.now();
   try{
     const resp=await fetch(_orgUrl('/state'),{
       headers:{'X-Forge-Token':adminConfig.orgSyncToken},
@@ -1217,8 +1225,21 @@ async function orgSyncPull(){
 function startOrgSyncInterval(){
   if(_orgSyncPullInterval)clearInterval(_orgSyncPullInterval);
   if(!orgSyncEnabled())return;
-  // First pull happens immediately at init; this just schedules the recurring one
-  _orgSyncPullInterval=setInterval(orgSyncPull,30000);
+  // First pull happens immediately at init; this schedules the recurring one.
+  // Skip the tick entirely when the tab is hidden — a backgrounded tab doesn't
+  // need fresh data and would just burn the KV op budget.
+  _orgSyncPullInterval=setInterval(()=>{
+    if(!document.hidden)orgSyncPull();
+  },ORG_PULL_INTERVAL_MS);
+  // Refresh when the user returns to the tab, but at most once per 2 min.
+  if(!_orgVisibilityHooked){
+    _orgVisibilityHooked=true;
+    document.addEventListener('visibilitychange',()=>{
+      if(!document.hidden&&orgSyncEnabled()&&Date.now()-_orgLastPullTs>ORG_PULL_MIN_GAP_MS){
+        orgSyncPull();
+      }
+    });
+  }
 }
 
 // For an armor set, who has what — per name, "Set" if fully owned else
