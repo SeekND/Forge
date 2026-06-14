@@ -3534,18 +3534,18 @@ function buildInventoryInputs(){
       const realIdx=batches.indexOf(b);
       const qc=qColor(b.quality);
       return `<div class="inv-batch">
-        <input type="number" min="0" step="0.0001" value="${roundScu(b.qty/100)}" onchange="setVaultBatch('${name}',${realIdx},this.value)" title="Amount in SCU">
+        <input type="number" min="0" step="0.0001" value="${roundScu(b.qty/100)}" onchange="setVaultBatch('${escAttr(name)}',${realIdx},this.value)" title="Amount in SCU">
         <span class="unit-label">SCU</span>
         <span style="color:${qc};font-size:11px;font-weight:600">Q${b.quality}</span>
         <span class="q-bar-sm"><span class="q-fill" style="width:${b.quality/10}%;background:${qc}"></span></span>
-        <button class="inv-rm-batch" onclick="rmInvBatch('${name}',${realIdx})">×</button>
+        <button class="inv-rm-batch" onclick="rmInvBatch('${escAttr(name)}',${realIdx})">×</button>
       </div>`;
     }).join('');
     const hasVault=vaultBatches.length>0;
     return `<div class="inv-mat-group${hasVault?' has-vault':''}">
       <div class="inv-mat-header"><span class="inv-mat-name">${name}</span>${vaultTotal>0?`<span class="inv-mat-total">${scuFmt(vaultTotal)}</span>`:''}</div>
       ${batchRows}
-      <button class="inv-add-batch" onclick="addVaultBatch('${name}')">+ add</button>
+      <button class="inv-add-batch" onclick="addVaultBatch('${escAttr(name)}')">+ add</button>
     </div>`;
   }).join('')+itemsHtml;
 }
@@ -3672,7 +3672,18 @@ function buildMaterialsRef(){
 // UTILS
 // ════════════════════════════════════════════
 function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'):'';}
-function escAttr(s){return esc(s).replace(/'/g,'\\&#39;');}
+// Escape a value for use inside a SINGLE-QUOTED JS string literal that sits
+// inside a DOUBLE-QUOTED HTML attribute, e.g. onclick="fn('VALUE')". The old
+// version encoded ' as &#39;, which the browser decodes back to ' before the
+// JS runs — terminating the string and breaking the handler for any name with
+// an apostrophe (e.g. 7MA 'Lorica'). Correct order: HTML-escape &,",<,> for the
+// attribute, then JS-escape \ and ' so they survive into the string literal.
+function escAttr(s){
+  if(!s)return '';
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+}
 function round(n){return Math.round(n*100)/100;}
 function roundScu(n){return Math.round(n*10000)/10000;}
 function uVal(cscu){return unitMode==='scu'?roundScu(cscu/100):round(cscu);}
