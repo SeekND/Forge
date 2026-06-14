@@ -238,10 +238,14 @@
       </div>
 
       <div style="margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-        <button class="btn btn-secondary" onclick="testOrgSync()" style="font-size:12px" title="Pushes your current unlocks (if your token allows writes), confirms the connection, and saves these settings — all in one click">Test Connection</button>
+        <button class="btn btn-secondary" onclick="testOrgSync()" style="font-size:12px" title="Verify the Worker URL + token and save these settings. Read-only — uploads nothing.">Test Connection</button>
         <span id="org-sync-status" style="font-size:12px;color:var(--text-muted)"></span>
       </div>
-      <p class="desc" style="margin-top:8px;font-size:11px"><strong>Test Connection</strong> does three things in one click: <strong>(1)</strong> pushes your current unlocks to the Worker if your token allows writes, <strong>(2)</strong> confirms identity + user count, <strong>(3)</strong> saves these settings to localStorage. No separate Save Settings click needed for this section. (An empty browser won't push — so it can't overwrite your saved unlocks.)</p>
+      <div style="margin-top:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <button class="btn btn-secondary" onclick="syncMyUnlocks()" style="font-size:12px" title="Upload this browser's unlocks to the org database now">⬆ Sync my unlocks to org</button>
+        <span id="org-sync-push-status" style="font-size:12px;color:var(--text-muted)"></span>
+      </div>
+      <p class="desc" style="margin-top:8px;font-size:11px"><strong>Test Connection</strong> is read-only — it checks your URL + token, shows who you are and how many others are in the org, and saves these settings. It <strong>never uploads</strong>, so verifying a token can't overwrite your record. <strong>Sync my unlocks to org</strong> is the explicit upload; it won't push an empty set (so a fresh browser can't wipe your saved unlocks). Unlocks also upload automatically ~5s after each Unlock/Lock click in the calculator.</p>
 
       <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border-light)">
         <label style="display:block;font-weight:600;margin-bottom:4px">New browser? Restore your unlocks</label>
@@ -608,6 +612,54 @@
       }
     }
 
+    // Explicitly upload THIS browser's unlocks to the org DB. Separate from
+    // Test Connection so verifying a token never writes. Skips an empty set so
+    // a fresh browser can't snapshot-replace (wipe) the user's KV record.
+    async function syncMyUnlocks() {
+      const url = (document.getElementById('orgSyncUrl')?.value || '').trim().replace(/\/$/, '');
+      const token = (document.getElementById('orgSyncToken')?.value || '').trim();
+      const name = (document.getElementById('playerName')?.value || '').trim();
+      const status = document.getElementById('org-sync-push-status');
+      if (!url || !token || !name) {
+        status.textContent = '⚠️ Enter the Worker URL, token, and Your Name above first';
+        status.style.color = '#f97316';
+        return;
+      }
+      let unlocked = [];
+      try { const raw = localStorage.getItem(LS + 'unlocked'); if (raw) { const p = JSON.parse(raw); if (Array.isArray(p)) unlocked = p; } } catch {}
+      if (unlocked.length === 0) {
+        status.textContent = '⚠️ Nothing to sync — this browser has no unlocks. (To clear your org record, delete it in Cloudflare.)';
+        status.style.color = '#f97316';
+        return;
+      }
+      status.textContent = 'Syncing…';
+      status.style.color = 'var(--text-muted)';
+      try {
+        const resp = await fetch(`${url}/sync`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Forge-Token': token },
+          body: JSON.stringify({ name, unlocked, ts: Math.floor(Date.now() / 1000) }),
+        });
+        if (resp.ok) {
+          const d = await resp.json().catch(() => ({}));
+          status.textContent = `✅ Synced ${unlocked.length} unlock${unlocked.length === 1 ? '' : 's'} to org${d.name ? ' as ' + d.name : ''}`;
+          status.style.color = '#059669';
+        } else if (resp.status === 401) {
+          status.textContent = '❌ Auth failed — token rejected by Worker';
+          status.style.color = '#ef4444';
+        } else if (resp.status === 403) {
+          status.textContent = '🛑 This token is read-only — can’t sync';
+          status.style.color = '#ef4444';
+        } else {
+          status.textContent = `❌ Sync failed (HTTP ${resp.status})`;
+          status.style.color = '#ef4444';
+        }
+      } catch (e) {
+        status.textContent = `❌ ${e.message || 'Network error'}`;
+        status.style.color = '#ef4444';
+      }
+    }
+
     async function testOrgSync() {
       const rawUrl = (document.getElementById('orgSyncUrl')?.value || '').trim();
       const url = rawUrl.replace(/\/$/, '');
@@ -671,73 +723,25 @@
           whoText = 'Connected'; // Older Worker without /whoami
         }
 
-        // ─── 3. /sync — push local unlocks (if allowed) ──────────────
-        const canWrite = !identity || identity.canWrite !== false;
-        let pushText = '';
-        let pushedAsName = null; // The name the server confirmed it stored under
-        if (canWrite) {
-          let unlocked = [];
-          try {
-            const raw = localStorage.getItem(LS + 'unlocked');
-            if (raw) {
-              const parsed = JSON.parse(raw);
-              if (Array.isArray(parsed)) unlocked = parsed;
-            }
-          } catch {}
-
-          if (unlocked.length === 0) {
-            // SAFETY: a fresh browser (or cleared storage) has no local unlocks.
-            // Pushing an empty set would snapshot-replace and WIPE this user's
-            // saved unlocks in KV. Skip it — they should "Restore my unlocks"
-            // first. (If they genuinely have zero, there's nothing to sync.)
-            pushText = ', push skipped (no local unlocks — use “Restore my unlocks” below)';
-            pushedAsName = (identity && identity.name) || name;
-          } else {
-          const syncResp = await fetch(`${url}/sync`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-Forge-Token': token },
-            body: JSON.stringify({
-              name: name,
-              unlocked: unlocked,
-              ts: Math.floor(Date.now() / 1000),
-            }),
-          });
-          if (syncResp.ok) {
-            const syncData = await syncResp.json().catch(() => ({}));
-            pushedAsName = syncData.name || (identity && identity.name) || name;
-            pushText = `, pushed ${unlocked.length} unlock${unlocked.length === 1 ? '' : 's'}`;
-          } else if (syncResp.status === 403) {
-            // Admin caught by per-user mode mid-flight (shouldn't happen given the canWrite check above, but defensive)
-            pushText = ', push skipped (403)';
-          } else {
-            pushText = `, push failed (HTTP ${syncResp.status})`;
-            identityIcon = '⚠️'; identityColor = '#f59e0b';
-          }
-          }
-        } else {
-          pushText = ', push skipped (read-only)';
-        }
-
-        // ─── 4. /state — user count ──────────────────────────────────
-        // Report "N others currently in org" — exclude ourselves so the user
-        // sees how many friends were there before they joined. Also sidesteps
-        // Cloudflare KV's eventual consistency (~100ms colo, up to ~60s
-        // global): whether /state has already surfaced our just-written record
-        // or not, filtering by name gives the same "others" count.
+        // ─── 3. /state — user count (READ-ONLY, no push) ─────────────
+        // Test Connection is purely diagnostic now: uploading is a separate,
+        // explicit action ("Sync my unlocks to org") so that verifying a token
+        // can never overwrite this user's org record. Report "N others
+        // currently in org" — exclude ourselves (case-insensitive).
         const s = await fetch(`${url}/state`, { headers: { 'X-Forge-Token': token } });
         let userCountText = '';
         if (s.ok) {
           const data = await s.json().catch(() => ({}));
           const serverUsers = Array.isArray(data.users) ? data.users : [];
-          const myKnownName = pushedAsName || (identity && identity.name) || name;
+          const myKnownName = (identity && identity.name) || name;
           const others = myKnownName
-            ? serverUsers.filter(u => u && u.name !== myKnownName).length
+            ? serverUsers.filter(u => u && u.name && u.name.toLowerCase() !== myKnownName.toLowerCase()).length
             : serverUsers.length;
           userCountText = ` — ${others} other${others === 1 ? '' : 's'} currently in org`;
         }
 
-        // ─── Combined status line + save ─────────────────────────────
-        status.textContent = `${identityIcon} ${whoText}${pushText}${userCountText} · settings saved`;
+        // ─── Status line + save ──────────────────────────────────────
+        status.textContent = `${identityIcon} ${whoText}${userCountText} · settings saved`;
         status.style.color = identityColor;
       } catch (e) {
         status.textContent = `❌ ${e.message || 'Network error'}`;
