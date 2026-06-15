@@ -598,7 +598,7 @@ function renderOrgStats(){
       <div class="os-hero-label">${focus?esc(focus.name)+"'s collection":'Org collection'}</div>
       <div class="os-hero-sub">${focus
         ?`<strong>${focus.total.toLocaleString()}</strong> of ${s.grandTotal.toLocaleString()} blueprints unlocked`
-        :`<strong>${s.unionTotal.toLocaleString()}</strong> of ${s.grandTotal.toLocaleString()} blueprints unlocked by at least one of <strong>${s.members.length}</strong> member${s.members.length===1?'':'s'}`}</div>
+        :`<strong>${s.unionTotal.toLocaleString()}</strong> of ${s.grandTotal.toLocaleString()} blueprints unlocked · <strong>${s.members.length}</strong> member${s.members.length===1?'':'s'}${s.members.length===1?'':' combined'}`}</div>
       <div class="os-bar os-bar-lg"><div class="os-bar-fill" style="width:${heroPct}%"></div></div>
     </div>
   </div>`;
