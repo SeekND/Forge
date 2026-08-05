@@ -223,7 +223,7 @@
 
     <div class="card">
       <h2>Org Sync (Cloudflare Worker)</h2>
-      <p class="desc" style="margin-bottom:16px">Centralised sync for a small org (up to ~10 people). Anyone with the URL and shared token can read everyone's unlock state and push their own. <strong>Pushes happen automatically</strong> (debounced 5 seconds after the last Unlock/Lock click). <strong>Pulls happen every 30 seconds</strong> while the site is open. Set <strong>Your Name</strong> above before enabling sync — the name is the key under which your state is stored.</p>
+      <p class="desc" style="margin-bottom:16px">Centralised sync for a small org (up to ~10 people). Anyone with the URL and shared token can read everyone's unlock state and push their own. <strong>Pushes happen automatically</strong> (debounced 5 seconds after the last Unlock/Lock click). <strong>Pulls happen every 5 minutes</strong> while the tab is visible, plus a refresh when you return to the tab (at most once every 2 minutes) — kept infrequent to stay within Cloudflare's free KV budget. Set <strong>Your Name</strong> above before enabling sync — the name is the key under which your state is stored.</p>
 
       <div class="field">
         <label>Worker URL</label>
