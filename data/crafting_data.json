@@ -2811,16 +2811,12 @@
     {
       "set_key": "cds_combat_superheavy|01_01_01",
       "set_name": "BUL-H4",
-      "weight": "heavy",
+      "weight": "superheavy",
       "role": "combat",
       "manufacturer": "CDS",
       "is_environment_suit": false,
-      "complete": false,
-      "missing": [
-        "arms",
-        "core",
-        "legs"
-      ],
+      "complete": true,
+      "missing": [],
       "piece_count": 2,
       "total_cscu": 30.0,
       "material_totals": {
@@ -2944,16 +2940,12 @@
     {
       "set_key": "cds_combat_superheavy|01_03_01",
       "set_name": "BUL-H4 Snow Camo",
-      "weight": "heavy",
+      "weight": "superheavy",
       "role": "combat",
       "manufacturer": "CDS",
       "is_environment_suit": false,
-      "complete": false,
-      "missing": [
-        "arms",
-        "core",
-        "legs"
-      ],
+      "complete": true,
+      "missing": [],
       "piece_count": 2,
       "total_cscu": 30.0,
       "material_totals": {
@@ -44436,7 +44428,7 @@
       "is_obtainable": true,
       "set_name": "BUL-H4",
       "set_key": "cds_combat_superheavy|01_01_01",
-      "weight": "heavy",
+      "weight": "superheavy",
       "role": "combat",
       "manufacturer": "CDS",
       "is_environment_suit": false,
@@ -44493,7 +44485,7 @@
       "is_obtainable": true,
       "set_name": "BUL-H4",
       "set_key": "cds_combat_superheavy|01_01_01",
-      "weight": "heavy",
+      "weight": "superheavy",
       "role": "combat",
       "manufacturer": "CDS",
       "is_environment_suit": false,
@@ -44550,7 +44542,7 @@
       "is_obtainable": true,
       "set_name": "BUL-H4 Snow Camo",
       "set_key": "cds_combat_superheavy|01_03_01",
-      "weight": "heavy",
+      "weight": "superheavy",
       "role": "combat",
       "manufacturer": "CDS",
       "is_environment_suit": false,
@@ -44607,7 +44599,7 @@
       "is_obtainable": true,
       "set_name": "BUL-H4 Snow Camo",
       "set_key": "cds_combat_superheavy|01_03_01",
-      "weight": "heavy",
+      "weight": "superheavy",
       "role": "combat",
       "manufacturer": "CDS",
       "is_environment_suit": false,
@@ -82647,70 +82639,6 @@
       "sources": []
     },
     {
-      "name": "H4-PBF Ammo Carrier",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Support Structure",
-          "cost_type": "resource",
-          "material": "Titanium",
-          "raw_ore": "Titanium Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 210,
-      "output_entity_guid": "6cd07586-9492-4731-8869-7166f995e11c",
-      "blueprint_file": "bp_craft_cds_combat_superheavy_backpack_01_01_01.xml",
-      "is_obtainable": true,
-      "weight": "heavy",
-      "role": "combat",
-      "manufacturer": "CDS",
-      "sources": [
-        {
-          "mission": "Superheavy",
-          "probability": 33.3,
-          "type": "RANDOM"
-        }
-      ]
-    },
-    {
-      "name": "H4-PBF Ammo Carrier Snow Camo",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Support Structure",
-          "cost_type": "resource",
-          "material": "Titanium",
-          "raw_ore": "Titanium Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 210,
-      "output_entity_guid": "8f17c496-c12b-4f2e-93e2-c7b5c4ce9524",
-      "blueprint_file": "bp_craft_cds_combat_superheavy_backpack_01_03_01.xml",
-      "is_obtainable": true,
-      "weight": "heavy",
-      "role": "combat",
-      "manufacturer": "CDS",
-      "sources": [
-        {
-          "mission": "Cds Combat Superheavy Backpack 01 03 01",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
       "name": "Morozov-CH Backpack",
       "piece_type": "backpack",
       "total_cscu": 8.0,
@@ -83215,6 +83143,70 @@
       ]
     },
     {
+      "name": "H4-PBF Ammo Carrier",
+      "piece_type": "backpack",
+      "total_cscu": 4.0,
+      "recipe": [
+        {
+          "slot": "Support Structure",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 210,
+      "output_entity_guid": "6cd07586-9492-4731-8869-7166f995e11c",
+      "blueprint_file": "bp_craft_cds_combat_superheavy_backpack_01_01_01.xml",
+      "is_obtainable": true,
+      "weight": "superheavy",
+      "role": "combat",
+      "manufacturer": "CDS",
+      "sources": [
+        {
+          "mission": "Superheavy",
+          "probability": 33.3,
+          "type": "RANDOM"
+        }
+      ]
+    },
+    {
+      "name": "H4-PBF Ammo Carrier Snow Camo",
+      "piece_type": "backpack",
+      "total_cscu": 4.0,
+      "recipe": [
+        {
+          "slot": "Support Structure",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 210,
+      "output_entity_guid": "8f17c496-c12b-4f2e-93e2-c7b5c4ce9524",
+      "blueprint_file": "bp_craft_cds_combat_superheavy_backpack_01_03_01.xml",
+      "is_obtainable": true,
+      "weight": "superheavy",
+      "role": "combat",
+      "manufacturer": "CDS",
+      "sources": [
+        {
+          "mission": "Cds Combat Superheavy Backpack 01 03 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
       "name": "MacFlex \"Rucksack\" Backpack",
       "piece_type": "backpack",
       "total_cscu": 5.0,
@@ -83663,6 +83655,86 @@
           "type": "RANDOM"
         }
       ]
+    },
+    {
+      "name": "Vendetta \"Snow Camo\" HMG",
+      "piece_type": "hmg",
+      "total_cscu": 23.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Riccite",
+          "raw_ore": "Raw Riccite",
+          "amount_cscu": 15.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrels",
+          "cost_type": "resource",
+          "material": "Tungsten",
+          "raw_ore": "Tungsten Ore",
+          "amount_cscu": 8.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 345,
+      "output_entity_guid": "2445465a-d906-4e06-9a02-7eaead122bf7",
+      "blueprint_file": "bp_craft_apar_hmg_ballistic_01_collector01.xml",
+      "is_obtainable": true,
+      "weapon_type": "hmg",
+      "damage_type": "ballistic",
+      "manufacturer": "apar",
+      "sources": [
+        {
+          "mission": "Apar Hmg Ballistic 01 Collector01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Vendetta HMG",
+      "piece_type": "hmg",
+      "total_cscu": 23.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Riccite",
+          "raw_ore": "Raw Riccite",
+          "amount_cscu": 15.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrels",
+          "cost_type": "resource",
+          "material": "Tungsten",
+          "raw_ore": "Tungsten Ore",
+          "amount_cscu": 8.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 345,
+      "output_entity_guid": "e302c7ae-b850-412d-983e-36dbf04f98fe",
+      "blueprint_file": "bp_craft_apar_hmg_ballistic_01.xml",
+      "is_obtainable": false,
+      "weapon_type": "hmg",
+      "damage_type": "ballistic",
+      "manufacturer": "apar",
+      "sources": []
     },
     {
       "name": "Demeco \"Purgatory Camo\" LMG",
