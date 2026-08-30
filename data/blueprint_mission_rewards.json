@@ -1,7 +1,7 @@
 {
   "summary": {
-    "total_missions": 146,
-    "guaranteed": 54,
+    "total_missions": 154,
+    "guaranteed": 62,
     "random": 92
   },
   "missions": [
@@ -463,13 +463,13 @@
           "weight": 1
         },
         {
-          "name": "Cinch Scraper Module",
+          "name": "Comer Scraper Module",
           "filename": "bp_craft_salvage_modifier_scraper_salvation_medium.xml",
           "probability": 20.0,
           "weight": 1
         },
         {
-          "name": "Cinch Scraper Module",
+          "name": "Hart Scraper Module",
           "filename": "bp_craft_salvage_modifier_scraper_salvation_small.xml",
           "probability": 20.0,
           "weight": 1
@@ -730,13 +730,13 @@
           "weight": 1
         },
         {
-          "name": "Cinch Scraper Module",
+          "name": "Hart Scraper Module",
           "filename": "bp_craft_salvage_modifier_scraper_salvation_small.xml",
           "probability": 5.6,
           "weight": 1
         },
         {
-          "name": "Cinch Scraper Module",
+          "name": "Comer Scraper Module",
           "filename": "bp_craft_salvage_modifier_scraper_salvation_medium.xml",
           "probability": 5.6,
           "weight": 1
@@ -940,13 +940,13 @@
           "weight": 1
         },
         {
-          "name": "Cinch Scraper Module",
+          "name": "Hart Scraper Module",
           "filename": "bp_craft_salvage_modifier_scraper_salvation_small.xml",
           "probability": 8.3,
           "weight": 1
         },
         {
-          "name": "Cinch Scraper Module",
+          "name": "Comer Scraper Module",
           "filename": "bp_craft_salvage_modifier_scraper_salvation_medium.xml",
           "probability": 8.3,
           "weight": 1
@@ -1812,6 +1812,51 @@
       ]
     },
     {
+      "name": "Cargo Shipmining Pod Golem Btgl",
+      "pool_name": "cargo_shipmining_pod_golem_btgl",
+      "filename": "bp_missionreward_cargo_shipmining_pod_golem_btgl.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "GOLEM MC-4 Ore Pod",
+          "filename": "bp_craft_cargo_shipmining_pod_golem_btgl.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Cargo Shipmining Pod Moleprospector Btgl",
+      "pool_name": "cargo_shipmining_pod_moleprospector_btgl",
+      "filename": "bp_missionreward_cargo_shipmining_pod_moleprospector_btgl.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "MISC Enhanced Ore Pod",
+          "filename": "bp_craft_cargo_shipmining_pod_moleprospector_btgl.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Cargo Shipmining Pod Prospector",
+      "pool_name": "cargo_shipmining_pod_prospector",
+      "filename": "bp_missionreward_cargo_shipmining_pod_prospector.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "MISC Ore Pod",
+          "filename": "bp_craft_cargo_shipmining_pod_prospector.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
       "name": "Carryable 2H Fl Missionitem Microsatellite A",
       "pool_name": "carryable_2h_fl_missionitem_microsatellite_a",
       "filename": "bp_missionreward_carryable_2h_fl_missionitem_microsatellite_a.xml",
@@ -1879,7 +1924,7 @@
       "reward_count": 1,
       "rewards": [
         {
-          "name": "[Unknown:97849417-fbb]",
+          "name": "ADP-mk4 Helmet SecondWind",
           "filename": "bp_craft_cds_combat_heavy_helmet_01_02_02.xml",
           "probability": 100.0,
           "weight": 1
@@ -2029,7 +2074,7 @@
       "reward_count": 1,
       "rewards": [
         {
-          "name": "[Unknown:8f17c496-c12]",
+          "name": "H4-PBF Ammo Carrier Snow Camo",
           "filename": "bp_craft_cds_combat_superheavy_backpack_01_03_01.xml",
           "probability": 100.0,
           "weight": 1
@@ -2044,7 +2089,7 @@
       "reward_count": 1,
       "rewards": [
         {
-          "name": "[Unknown:a15e8a38-f90]",
+          "name": "BUL-H4 Helmet Snow Camo",
           "filename": "bp_craft_cds_combat_superheavy_helmet_01_03_01.xml",
           "probability": 100.0,
           "weight": 1
@@ -2059,7 +2104,7 @@
       "reward_count": 1,
       "rewards": [
         {
-          "name": "[Unknown:f2a15cd0-ada]",
+          "name": "BUL-H4 Armor Snow Camo",
           "filename": "bp_craft_cds_combat_superheavy_suit_01_03_01.xml",
           "probability": 100.0,
           "weight": 1
@@ -2074,7 +2119,7 @@
       "reward_count": 1,
       "rewards": [
         {
-          "name": "[Unknown:ae8958f2-b75]",
+          "name": "FBL-8u Undersuit SecondWind",
           "filename": "bp_craft_cds_undersuit_01_02_02.xml",
           "probability": 100.0,
           "weight": 1
@@ -2632,7 +2677,7 @@
           "weight": 1
         },
         {
-          "name": "Antium Core Jet",
+          "name": "Antium Helmet Jet",
           "filename": "bp_craft_qrt_specialist_heavy_helmet_01_01_12.xml",
           "probability": 16.7,
           "weight": 1
@@ -2743,7 +2788,7 @@
       "reward_count": 8,
       "rewards": [
         {
-          "name": "Antium Helmet Jet",
+          "name": "Antium Arms Maroon",
           "filename": "bp_craft_qrt_specialist_heavy_arms_01_01_13.xml",
           "probability": 12.5,
           "weight": 1
@@ -4621,6 +4666,81 @@
           "name": "Barbican",
           "filename": "bp_craft_shld_basl_s03_barbican_scitem.xml",
           "probability": 14.3,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Mining Modules Active Clearcut",
+      "pool_name": "mining_modules_active_clearcut",
+      "filename": "bp_missionreward_mining_modules_active_clearcut.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Clearcut Module",
+          "filename": "bp_craft_mining_modules_active_clearcut.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Mining Modules Active Stampede",
+      "pool_name": "mining_modules_active_stampede",
+      "filename": "bp_missionreward_mining_modules_active_stampede.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Stampede Module",
+          "filename": "bp_craft_mining_modules_active_stampede.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Mining Modules Passive Deluge",
+      "pool_name": "mining_modules_passive_deluge",
+      "filename": "bp_missionreward_mining_modules_passive_deluge.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Deluge Module",
+          "filename": "bp_craft_mining_modules_passive_deluge.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Mining Modules Passive Overrun",
+      "pool_name": "mining_modules_passive_overrun",
+      "filename": "bp_missionreward_mining_modules_passive_overrun.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Overrun Module",
+          "filename": "bp_craft_mining_modules_passive_overrun.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Mining Modules Passive Torrent Mk3",
+      "pool_name": "mining_modules_passive_torrent_mk3",
+      "filename": "bp_missionreward_mining_modules_passive_torrent_mk3.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Torrent III Module",
+          "filename": "bp_craft_mining_modules_passive_torrent_mk3.xml",
+          "probability": 100.0,
           "weight": 1
         }
       ]
@@ -6627,6 +6747,40 @@
         "type": "RANDOM"
       }
     ],
+    "Comer Scraper Module": [
+      {
+        "mission": "Adagio - Salvager Special Order",
+        "probability": 20.0,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Battaglia",
+        "probability": 5.6,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Battaglia Rpt2",
+        "probability": 8.3,
+        "type": "RANDOM"
+      }
+    ],
+    "Hart Scraper Module": [
+      {
+        "mission": "Adagio - Salvager Special Order",
+        "probability": 20.0,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Battaglia",
+        "probability": 5.6,
+        "type": "RANDOM"
+      },
+      {
+        "mission": "Battaglia Rpt2",
+        "probability": 8.3,
+        "type": "RANDOM"
+      }
+    ],
     "Cinch Scraper Module": [
       {
         "mission": "Adagio - Salvager Special Order",
@@ -6634,38 +6788,8 @@
         "type": "RANDOM"
       },
       {
-        "mission": "Adagio - Salvager Special Order",
-        "probability": 20.0,
-        "type": "RANDOM"
-      },
-      {
-        "mission": "Adagio - Salvager Special Order",
-        "probability": 20.0,
-        "type": "RANDOM"
-      },
-      {
         "mission": "Battaglia",
         "probability": 5.6,
-        "type": "RANDOM"
-      },
-      {
-        "mission": "Battaglia",
-        "probability": 5.6,
-        "type": "RANDOM"
-      },
-      {
-        "mission": "Battaglia",
-        "probability": 5.6,
-        "type": "RANDOM"
-      },
-      {
-        "mission": "Battaglia Rpt2",
-        "probability": 8.3,
-        "type": "RANDOM"
-      },
-      {
-        "mission": "Battaglia Rpt2",
-        "probability": 8.3,
         "type": "RANDOM"
       },
       {
@@ -7925,6 +8049,27 @@
         "type": "RANDOM"
       }
     ],
+    "GOLEM MC-4 Ore Pod": [
+      {
+        "mission": "Cargo Shipmining Pod Golem Btgl",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "MISC Enhanced Ore Pod": [
+      {
+        "mission": "Cargo Shipmining Pod Moleprospector Btgl",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "MISC Ore Pod": [
+      {
+        "mission": "Cargo Shipmining Pod Prospector",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
     "Probe": [
       {
         "mission": "Carryable 2H Fl Missionitem Microsatellite A",
@@ -7953,7 +8098,7 @@
         "type": "GUARANTEED"
       }
     ],
-    "[Unknown:97849417-fbb]": [
+    "ADP-mk4 Helmet SecondWind": [
       {
         "mission": "Cds Combat Heavy Helmet 01 02 02",
         "probability": 100.0,
@@ -8028,28 +8173,28 @@
         "type": "GUARANTEED"
       }
     ],
-    "[Unknown:8f17c496-c12]": [
+    "H4-PBF Ammo Carrier Snow Camo": [
       {
         "mission": "Cds Combat Superheavy Backpack 01 03 01",
         "probability": 100.0,
         "type": "GUARANTEED"
       }
     ],
-    "[Unknown:a15e8a38-f90]": [
+    "BUL-H4 Helmet Snow Camo": [
       {
         "mission": "Cds Combat Superheavy Helmet 01 03 01",
         "probability": 100.0,
         "type": "GUARANTEED"
       }
     ],
-    "[Unknown:f2a15cd0-ada]": [
+    "BUL-H4 Armor Snow Camo": [
       {
         "mission": "Cds Combat Superheavy Suit 01 03 01",
         "probability": 100.0,
         "type": "GUARANTEED"
       }
     ],
-    "[Unknown:ae8958f2-b75]": [
+    "FBL-8u Undersuit SecondWind": [
       {
         "mission": "Cds Undersuit 01 02 02",
         "probability": 100.0,
@@ -8530,14 +8675,16 @@
         "mission": "Foxwell - Ambush",
         "probability": 16.7,
         "type": "RANDOM"
-      },
+      }
+    ],
+    "Antium Legs Jet": [
       {
         "mission": "Foxwell - Ambush",
         "probability": 16.7,
         "type": "RANDOM"
       }
     ],
-    "Antium Legs Jet": [
+    "Antium Helmet Jet": [
       {
         "mission": "Foxwell - Ambush",
         "probability": 16.7,
@@ -8636,7 +8783,7 @@
         "type": "RANDOM"
       }
     ],
-    "Antium Helmet Jet": [
+    "Antium Arms Maroon": [
       {
         "mission": "Foxwell - General Contracts",
         "probability": 12.5,
@@ -10536,6 +10683,41 @@
         "mission": "Ling Family Courier (Hard)",
         "probability": 14.3,
         "type": "RANDOM"
+      }
+    ],
+    "Clearcut Module": [
+      {
+        "mission": "Mining Modules Active Clearcut",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Stampede Module": [
+      {
+        "mission": "Mining Modules Active Stampede",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Deluge Module": [
+      {
+        "mission": "Mining Modules Passive Deluge",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Overrun Module": [
+      {
+        "mission": "Mining Modules Passive Overrun",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Torrent III Module": [
+      {
+        "mission": "Mining Modules Passive Torrent Mk3",
+        "probability": 100.0,
+        "type": "GUARANTEED"
       }
     ],
     "F55 LMG": [
