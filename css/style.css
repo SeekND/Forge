@@ -67,6 +67,7 @@ nav#tabs{display:flex;gap:1px;overflow-x:auto}
 .fp-chip.active[data-fv="light"]{background:#4ade8022;border-color:#4ade80;color:#4ade80}
 .fp-chip.active[data-fv="medium"]{background:#facc1522;border-color:#facc15;color:#facc15}
 .fp-chip.active[data-fv="heavy"]{background:#ef444422;border-color:#ef4444;color:#ef4444}
+.fp-chip.active[data-fv="superheavy"]{background:#a855f722;border-color:#a855f7;color:#c084fc}
 .fp-chip.active[data-fv="ballistic"]{background:var(--orange-dim);border-color:var(--orange);color:var(--orange)}
 .fp-chip.active[data-fv="energy"]{background:var(--purple-dim);border-color:var(--purple);color:var(--purple)}
 .fp-chip.active[data-fv="obtainable"]{background:var(--green-dim);border-color:var(--green);color:var(--green)}
@@ -138,6 +139,7 @@ nav#tabs{display:flex;gap:1px;overflow-x:auto}
 .badge-light{background:#4ade8022;color:#4ade80;border:1px solid #4ade8055}
 .badge-medium{background:#facc1522;color:#facc15;border:1px solid #facc1555}
 .badge-heavy{background:#ef444422;color:#ef4444;border:1px solid #ef444455}
+.badge-superheavy{background:#a855f722;color:#c084fc;border:1px solid #a855f755}
 .badge-role{background:var(--accent-dim);color:var(--accent);border:1px solid #38bdf855}
 .badge-ballistic{background:var(--orange-dim);color:var(--orange);border:1px solid #f9731655}
 .badge-energy{background:var(--purple-dim);color:var(--purple);border:1px solid #a855f755}
