@@ -178,12 +178,13 @@ const SLOT_STATS={
 const MINING_LABELS={hand:'Hand',roc:'ROC',ship:'Ship',fps_mission:'Mission',unknown:'?'};
 
 const ROLE_LABELS={combat:'Combat',cosmonaut:'Cosmonaut',engineer:'Engineer',environment:'Environment',salvager:'Salvager',stealth:'Stealth'};
-const WTYPE_LABELS={lmg:'LMG',pistol:'Pistol',rifle:'Rifle',shotgun:'Shotgun',smg:'SMG',sniper:'Sniper',crossbow:'Crossbow'};
+const WTYPE_LABELS={hmg:'HMG',lmg:'LMG',pistol:'Pistol',rifle:'Rifle',shotgun:'Shotgun',smg:'SMG',sniper:'Sniper',crossbow:'Crossbow',other:'Other'};
 const SHIP_WTYPE_LABELS={cannon:'Cannon',repeater:'Repeater',gatling:'Gatling',scatter:'Scatter',massdriver:'Mass Driver',weapon:'Other'};
 const SHIP_CLASS_LABELS={Mil:'Military',Cmp:'Competition',Sth:'Stealth',Civ:'Civilian',Ind:'Industrial'};
 const COMP_LABELS={cooler:'Cooler',powerplant:'Power Plant',shield:'Shield',radar:'Radar',quantumdrive:'Quantum Drive',tractorbeam:'Tractor Beam',mininglaser:'Mining Laser',salvage:'Salvage',refuelling:'Refuelling',carryable:'Mission Item'};
 const PIECE_LABELS={set:'Set',arms:'Arms',core:'Core',helmet:'Helmet',legs:'Legs',backpack:'Backpack',suit:'Suit'};
-const WEIGHT_ORDER={light:0,medium:1,heavy:2};
+const WEIGHT_ORDER={light:0,medium:1,heavy:2,superheavy:3};
+const WEIGHT_LABELS={light:'Light',medium:'Medium',heavy:'Heavy',superheavy:'Super Heavy'};
 
 const CHANGELOG=[
   {ver:'1.0.1',date:'2026-03-08',items:['Inventory respects minQuality — only materials at required quality count toward crafting','Admin panel — configure disassemble quality and other settings','Individual armor pieces can be added to work orders','Fixed batch deletion when only one batch exists']},
@@ -782,7 +783,7 @@ function buildFilters(){
   const compSizes=[...new Set((DATA.ship_components||[]).map(c=>c.size).filter(s=>s>=0&&s!==undefined&&s!==null))].sort((a,b)=>a-b);
   const compClasses=[...new Set((DATA.ship_components||[]).map(c=>c.class_code).filter(Boolean))].sort();
   const compGrades=[...new Set((DATA.ship_components||[]).map(c=>c.grade).filter(Boolean))].sort();
-  bldChips('f-weight',['light','medium','heavy'],v=>v.charAt(0).toUpperCase()+v.slice(1),'weight');
+  bldChips('f-weight',['light','medium','heavy','superheavy'],v=>WEIGHT_LABELS[v]||v,'weight');
   bldChips('f-role',roles,v=>ROLE_LABELS[v]||v,'role');
   bldChips('f-piece',['set','arms','core','helmet','legs','backpack'],v=>PIECE_LABELS[v]||v,'piece');
   bldChips('f-wtype',wtypes,v=>WTYPE_LABELS[v]||v,'wtype');
@@ -1832,7 +1833,7 @@ function slotStatsHtml(r){
 }
 function ctime(s){if(!s)return '';const m=Math.floor(s/60),sc=s%60;return `<span style="color:#64748b;font-size:11px">${m}m${sc>0?sc+'s':''}</span>`;}
 function ctimeFull(s){if(!s)return '0s';const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sc=s%60;let r='';if(h)r+=h+'h ';if(m)r+=m+'m ';if(sc&&!h)r+=sc+'s';return r.trim()||'0s';}
-function wBadge(w){return `<span class="badge badge-${w}">${w}</span>`;}
+function wBadge(w){return `<span class="badge badge-${w}">${WEIGHT_LABELS[w]||w}</span>`;}
 function rBadge(r){return `<span class="badge badge-role">${ROLE_LABELS[r]||r}</span>`;}
 
 function getActiveOrder(){return orders.find(o=>o.id===activeOrderId)||null;}
@@ -2189,7 +2190,7 @@ function renderSetCard(set){
     return `<div class="${rowCls}">${wikiImgHtml(p.name)}<div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px">${pIcon}<span class="piece-type">${p.piece_type}</span><span class="piece-name">${esc(p.name)}</span>${sourcesIcon(p.sources)}</div><div class="piece-recipe">${recipeHtml(p.recipe)}</div>${slotStatsHtml(p.recipe)}</div><div class="piece-stats"><div class="cscu">${uFmt(p.total_cscu)}</div><div class="time">${ctime(p.craft_time_seconds)}</div></div></div>`;
   }).join('');
   let bpP='';
-  if(compat.length&&!set.is_environment_suit)bpP=`<div class="bp-picker"><div class="bp-picker-label">+ ${set.weight.toUpperCase()} BACKPACK</div><div class="bp-picker-btns">${compat.map(b=>`<button class="bp-pick-btn" onclick="event.stopPropagation()">${esc(b.name)} (${uFmt(b.total_cscu)})</button>`).join('')}</div></div>`;
+  if(compat.length&&!set.is_environment_suit)bpP=`<div class="bp-picker"><div class="bp-picker-label">+ ${(WEIGHT_LABELS[set.weight]||set.weight).toUpperCase()} BACKPACK</div><div class="bp-picker-btns">${compat.map(b=>`<button class="bp-pick-btn" onclick="event.stopPropagation()">${esc(b.name)} (${uFmt(b.total_cscu)})</button>`).join('')}</div></div>`;
   const miss=!set.complete?`<div class="missing-warn">Missing: ${set.missing.join(', ')}</div>`:'';
   // Missing-pieces summary (only when set is partially unlocked)
   let missingBp='';
