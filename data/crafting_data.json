@@ -1,7 +1,7 @@
 {
   "meta": {
-    "current_patch": "4.9",
-    "data_updated": "2026-07-17",
+    "current_patch": "4.10",
+    "data_updated": "2026-08-30",
     "news_reel": "",
     "default_blueprints": [
       "bp_craft_behr_pistol_ballistic_01.xml",
@@ -2247,7 +2247,7 @@
           ]
         },
         {
-          "name": "[Unknown:97849417-fbb]",
+          "name": "ADP-mk4 Helmet SecondWind",
           "piece_type": "helmet",
           "total_cscu": 6.0,
           "recipe": [
@@ -2943,7 +2943,7 @@
     },
     {
       "set_key": "cds_combat_superheavy|01_03_01",
-      "set_name": "[Unknown:a15e8a38-f90]",
+      "set_name": "BUL-H4 Snow Camo",
       "weight": "heavy",
       "role": "combat",
       "manufacturer": "CDS",
@@ -2963,7 +2963,7 @@
       },
       "pieces": [
         {
-          "name": "[Unknown:a15e8a38-f90]",
+          "name": "BUL-H4 Helmet Snow Camo",
           "piece_type": "helmet",
           "total_cscu": 10.0,
           "recipe": [
@@ -3014,7 +3014,7 @@
           ]
         },
         {
-          "name": "[Unknown:f2a15cd0-ada]",
+          "name": "BUL-H4 Armor Snow Camo",
           "piece_type": "suit",
           "total_cscu": 20.0,
           "recipe": [
@@ -28373,7 +28373,7 @@
           ]
         },
         {
-          "name": "Antium Core Jet",
+          "name": "Antium Helmet Jet",
           "piece_type": "helmet",
           "total_cscu": 11.0,
           "recipe": [
@@ -28502,7 +28502,7 @@
       },
       "pieces": [
         {
-          "name": "Antium Helmet Jet",
+          "name": "Antium Arms Maroon",
           "piece_type": "arms",
           "total_cscu": 14.0,
           "recipe": [
@@ -43883,7 +43883,7 @@
       ]
     },
     {
-      "name": "[Unknown:97849417-fbb]",
+      "name": "ADP-mk4 Helmet SecondWind",
       "piece_type": "helmet",
       "total_cscu": 6.0,
       "recipe": [
@@ -44506,7 +44506,7 @@
       ]
     },
     {
-      "name": "[Unknown:a15e8a38-f90]",
+      "name": "BUL-H4 Helmet Snow Camo",
       "piece_type": "helmet",
       "total_cscu": 10.0,
       "recipe": [
@@ -44548,7 +44548,7 @@
       "output_entity_guid": "a15e8a38-f90c-47e8-b68c-c81a700c47a5",
       "blueprint_file": "bp_craft_cds_combat_superheavy_helmet_01_03_01.xml",
       "is_obtainable": true,
-      "set_name": "[Unknown:a15e8a38-f90]",
+      "set_name": "BUL-H4 Snow Camo",
       "set_key": "cds_combat_superheavy|01_03_01",
       "weight": "heavy",
       "role": "combat",
@@ -44563,7 +44563,7 @@
       ]
     },
     {
-      "name": "[Unknown:f2a15cd0-ada]",
+      "name": "BUL-H4 Armor Snow Camo",
       "piece_type": "suit",
       "total_cscu": 20.0,
       "recipe": [
@@ -44605,7 +44605,7 @@
       "output_entity_guid": "f2a15cd0-ada8-4b8a-ae25-18b7a6986fd1",
       "blueprint_file": "bp_craft_cds_combat_superheavy_suit_01_03_01.xml",
       "is_obtainable": true,
-      "set_name": "[Unknown:a15e8a38-f90]",
+      "set_name": "BUL-H4 Snow Camo",
       "set_key": "cds_combat_superheavy|01_03_01",
       "weight": "heavy",
       "role": "combat",
@@ -69449,7 +69449,7 @@
       ]
     },
     {
-      "name": "Antium Core Jet (Helmet)",
+      "name": "Antium Helmet Jet",
       "piece_type": "helmet",
       "total_cscu": 11.0,
       "recipe": [
@@ -69563,7 +69563,7 @@
       ]
     },
     {
-      "name": "Antium Helmet Jet",
+      "name": "Antium Arms Maroon",
       "piece_type": "arms",
       "total_cscu": 14.0,
       "recipe": [
@@ -82679,6 +82679,38 @@
       ]
     },
     {
+      "name": "H4-PBF Ammo Carrier Snow Camo",
+      "piece_type": "backpack",
+      "total_cscu": 4.0,
+      "recipe": [
+        {
+          "slot": "Support Structure",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 210,
+      "output_entity_guid": "8f17c496-c12b-4f2e-93e2-c7b5c4ce9524",
+      "blueprint_file": "bp_craft_cds_combat_superheavy_backpack_01_03_01.xml",
+      "is_obtainable": true,
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "CDS",
+      "sources": [
+        {
+          "mission": "Cds Combat Superheavy Backpack 01 03 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
       "name": "Morozov-CH Backpack",
       "piece_type": "backpack",
       "total_cscu": 8.0,
@@ -82742,38 +82774,6 @@
       "sources": [
         {
           "mission": "XenoThreat 2.0 - 50% Wave (Drop 1)",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "[Unknown:8f17c496-c12]",
-      "piece_type": "backpack",
-      "total_cscu": 4.0,
-      "recipe": [
-        {
-          "slot": "Support Structure",
-          "cost_type": "resource",
-          "material": "Titanium",
-          "raw_ore": "Titanium Ore",
-          "amount_cscu": 4.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 210,
-      "output_entity_guid": "8f17c496-c12b-4f2e-93e2-c7b5c4ce9524",
-      "blueprint_file": "bp_craft_cds_combat_superheavy_backpack_01_03_01.xml",
-      "is_obtainable": true,
-      "weight": "heavy",
-      "role": "combat",
-      "manufacturer": "CDS",
-      "sources": [
-        {
-          "mission": "Cds Combat Superheavy Backpack 01 03 01",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -94487,6 +94487,36 @@
       "sources": []
     },
     {
+      "name": "FBL-8u Undersuit SecondWind",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "cost_type": "resource",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "ae8958f2-b753-4891-bacb-8810950e5f07",
+      "blueprint_file": "bp_craft_cds_undersuit_01_02_02.xml",
+      "is_obtainable": true,
+      "manufacturer": "CDS",
+      "sources": [
+        {
+          "mission": "Cds Undersuit 01 02 02",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
       "name": "ForceFlex Undersuit Black/Gold",
       "piece_type": "suit",
       "total_cscu": 6.0,
@@ -94814,36 +94844,6 @@
       "is_obtainable": false,
       "manufacturer": "Survival",
       "sources": []
-    },
-    {
-      "name": "[Unknown:ae8958f2-b75]",
-      "piece_type": "suit",
-      "total_cscu": 6.0,
-      "recipe": [
-        {
-          "slot": "Suit Underlay",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 6.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 90,
-      "output_entity_guid": "ae8958f2-b753-4891-bacb-8810950e5f07",
-      "blueprint_file": "bp_craft_cds_undersuit_01_02_02.xml",
-      "is_obtainable": true,
-      "manufacturer": "CDS",
-      "sources": [
-        {
-          "mission": "Cds Undersuit 01 02 02",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
     }
   ],
   "flightsuits": [
@@ -106042,6 +106042,399 @@
       ]
     },
     {
+      "name": "Argo Ore Pod",
+      "piece_type": "other",
+      "total_cscu": 70.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Iron",
+          "raw_ore": "Iron Ore",
+          "amount_cscu": 70.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 95,
+      "output_entity_guid": "f4aebc6d-ab66-4b7a-93ce-69bdd928ca99",
+      "blueprint_file": "bp_craft_cargo_shipmining_pod_mole.xml",
+      "is_obtainable": false,
+      "component_type": "other",
+      "manufacturer": "cargo",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": []
+    },
+    {
+      "name": "Clearcut Module",
+      "piece_type": "other",
+      "total_cscu": 30.0,
+      "recipe": [
+        {
+          "slot": "Case",
+          "cost_type": "resource",
+          "material": "Iron",
+          "raw_ore": "Iron Ore",
+          "amount_cscu": 20.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 800,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "cost_type": "resource",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 10.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 800,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 95,
+      "output_entity_guid": "a6e3aeb0-95df-4f63-9ca1-e8ad5df1a783",
+      "blueprint_file": "bp_craft_mining_modules_active_clearcut.xml",
+      "is_obtainable": true,
+      "component_type": "other",
+      "manufacturer": "mining",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": [
+        {
+          "mission": "Mining Modules Active Clearcut",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Deluge Module",
+      "piece_type": "other",
+      "total_cscu": 30.0,
+      "recipe": [
+        {
+          "slot": "Case",
+          "cost_type": "resource",
+          "material": "Iron",
+          "raw_ore": "Iron Ore",
+          "amount_cscu": 20.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 800,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "cost_type": "resource",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 10.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 800,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 95,
+      "output_entity_guid": "1f8f946d-7f09-453c-8b2b-f1fbeb8d11bf",
+      "blueprint_file": "bp_craft_mining_modules_passive_deluge.xml",
+      "is_obtainable": true,
+      "component_type": "other",
+      "manufacturer": "mining",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": [
+        {
+          "mission": "Mining Modules Passive Deluge",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Drake Ore Pod",
+      "piece_type": "other",
+      "total_cscu": 30.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Iron",
+          "raw_ore": "Iron Ore",
+          "amount_cscu": 30.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 95,
+      "output_entity_guid": "4c2d5e75-598a-4854-a301-7bbffeb9794e",
+      "blueprint_file": "bp_craft_cargo_shipmining_pod_golem.xml",
+      "is_obtainable": false,
+      "component_type": "other",
+      "manufacturer": "cargo",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": []
+    },
+    {
+      "name": "GOLEM MC-4 Ore Pod",
+      "piece_type": "other",
+      "total_cscu": 30.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Iron",
+          "raw_ore": "Iron Ore",
+          "amount_cscu": 30.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 800,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 95,
+      "output_entity_guid": "b0e33855-c5ae-4267-9aea-c64eee0897b6",
+      "blueprint_file": "bp_craft_cargo_shipmining_pod_golem_btgl.xml",
+      "is_obtainable": true,
+      "component_type": "other",
+      "manufacturer": "cargo",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": [
+        {
+          "mission": "Cargo Shipmining Pod Golem Btgl",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "MISC Enhanced Ore Pod",
+      "piece_type": "other",
+      "total_cscu": 75.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Iron",
+          "raw_ore": "Iron Ore",
+          "amount_cscu": 75.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 800,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 95,
+      "output_entity_guid": "6c5fc288-5f84-4803-aff3-d9d2b410d01e",
+      "blueprint_file": "bp_craft_cargo_shipmining_pod_moleprospector_btgl.xml",
+      "is_obtainable": true,
+      "component_type": "other",
+      "manufacturer": "cargo",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": [
+        {
+          "mission": "Cargo Shipmining Pod Moleprospector Btgl",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "MISC Ore Pod",
+      "piece_type": "other",
+      "total_cscu": 50.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Iron",
+          "raw_ore": "Iron Ore",
+          "amount_cscu": 50.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 95,
+      "output_entity_guid": "ca23670c-f690-4027-af9a-a5d6dda74c79",
+      "blueprint_file": "bp_craft_cargo_shipmining_pod_prospector.xml",
+      "is_obtainable": true,
+      "component_type": "other",
+      "manufacturer": "cargo",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": [
+        {
+          "mission": "Cargo Shipmining Pod Prospector",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Overrun Module",
+      "piece_type": "other",
+      "total_cscu": 30.0,
+      "recipe": [
+        {
+          "slot": "Case",
+          "cost_type": "resource",
+          "material": "Iron",
+          "raw_ore": "Iron Ore",
+          "amount_cscu": 20.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 800,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "cost_type": "resource",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 10.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 800,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 95,
+      "output_entity_guid": "a69721a2-06e7-4fb3-93b4-c94e4faa6820",
+      "blueprint_file": "bp_craft_mining_modules_passive_overrun.xml",
+      "is_obtainable": true,
+      "component_type": "other",
+      "manufacturer": "mining",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": [
+        {
+          "mission": "Mining Modules Passive Overrun",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Stampede Module",
+      "piece_type": "other",
+      "total_cscu": 30.0,
+      "recipe": [
+        {
+          "slot": "Case",
+          "cost_type": "resource",
+          "material": "Iron",
+          "raw_ore": "Iron Ore",
+          "amount_cscu": 20.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "cost_type": "resource",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 10.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 95,
+      "output_entity_guid": "1bb6ee6d-3930-4c03-b6c6-38aad3a4703b",
+      "blueprint_file": "bp_craft_mining_modules_active_stampede.xml",
+      "is_obtainable": true,
+      "component_type": "other",
+      "manufacturer": "mining",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": [
+        {
+          "mission": "Mining Modules Active Stampede",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Torrent III Module",
+      "piece_type": "other",
+      "total_cscu": 30.0,
+      "recipe": [
+        {
+          "slot": "Case",
+          "cost_type": "resource",
+          "material": "Iron",
+          "raw_ore": "Iron Ore",
+          "amount_cscu": 20.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "cost_type": "resource",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 10.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 95,
+      "output_entity_guid": "54f4471f-592d-49c1-a12f-fb24c4771ab2",
+      "blueprint_file": "bp_craft_mining_modules_passive_torrent_mk3.xml",
+      "is_obtainable": true,
+      "component_type": "other",
+      "manufacturer": "mining",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": [
+        {
+          "mission": "Mining Modules Passive Torrent Mk3",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
       "name": "Bolide",
       "piece_type": "powerplant",
       "total_cscu": 257.0,
@@ -116678,7 +117071,74 @@
       ]
     },
     {
-      "name": "Cinch Scraper Module (Medium)",
+      "name": "Cinch Scraper Module",
+      "piece_type": "salvage",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Case",
+          "cost_type": "resource",
+          "material": "Iron",
+          "raw_ore": "Iron Ore",
+          "amount_cscu": 3.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "cost_type": "resource",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 3.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Ocular Enhancer",
+          "cost_type": "item",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "item_name": "Sadaryx",
+          "item_quantity": 3,
+          "min_quality": 1,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 180,
+      "output_entity_guid": "81d7c828-42b2-46e8-b2e3-6798bdc32c23",
+      "blueprint_file": "bp_craft_salvage_modifier_scraper_small.xml",
+      "is_obtainable": true,
+      "component_type": "salvage",
+      "manufacturer": "salvage",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": [
+        {
+          "mission": "Adagio - Salvager Special Order",
+          "probability": 20.0,
+          "type": "RANDOM"
+        },
+        {
+          "mission": "Battaglia",
+          "probability": 5.6,
+          "type": "RANDOM"
+        },
+        {
+          "mission": "Battaglia Rpt2",
+          "probability": 8.3,
+          "type": "RANDOM"
+        }
+      ]
+    },
+    {
+      "name": "Comer Scraper Module",
       "piece_type": "salvage",
       "total_cscu": 8.0,
       "recipe": [
@@ -116745,7 +117205,7 @@
       ]
     },
     {
-      "name": "Cinch Scraper Module (Small)",
+      "name": "Hart Scraper Module",
       "piece_type": "salvage",
       "total_cscu": 6.0,
       "recipe": [
@@ -120881,8 +121341,8 @@
       "resource_guid": "f386a33c-ac9a-400a-a7b8-fe1fc7c8d270",
       "raw_ore": "Iron Ore",
       "slots_used_in": "Barrel",
-      "blueprint_count": 248,
-      "total_cscu_demand": 15133.0,
+      "blueprint_count": 258,
+      "total_cscu_demand": 15488.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -120925,8 +121385,8 @@
       "resource_guid": "a789f57a-e12b-4bcd-8132-e0c03d84fc89",
       "raw_ore": "Copper Ore",
       "slots_used_in": "Conduit, Wiring",
-      "blueprint_count": 96,
-      "total_cscu_demand": 621.0,
+      "blueprint_count": 101,
+      "total_cscu_demand": 671.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
