@@ -1,7 +1,7 @@
 {
   "meta": {
-    "current_patch": "4.10",
-    "data_updated": "2026-08-30",
+    "current_patch": "4.10.2",
+    "data_updated": "2026-10-09",
     "news_reel": "",
     "default_blueprints": [
       "bp_craft_behr_pistol_ballistic_01.xml",
@@ -17347,6 +17347,377 @@
       ]
     },
     {
+      "set_key": "kap_combat_heavy|01_01_01",
+      "set_name": "Monolith",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Kessler & Pollard",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 49.0,
+      "material_totals": {
+        "Aslarite": 7.0,
+        "Ouratite": 24.0,
+        "Titanium": 18.0
+      },
+      "pieces": [
+        {
+          "name": "Monolith Armor Arms",
+          "piece_type": "arms",
+          "total_cscu": 8.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "cost_type": "resource",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 240,
+          "output_entity_guid": "cece6caa-9885-411a-a0df-da06ced8bb90",
+          "blueprint_file": "bp_craft_kap_combat_heavy_arms_01_01_01.xml",
+          "is_obtainable": false,
+          "sources": []
+        },
+        {
+          "name": "Monolith Armor Core",
+          "piece_type": "core",
+          "total_cscu": 16.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "cost_type": "resource",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 7.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Support Structure",
+              "cost_type": "resource",
+              "material": "Titanium",
+              "raw_ore": "Titanium Ore",
+              "amount_cscu": 7.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 250,
+          "output_entity_guid": "b00197b9-3179-4bf7-8067-49f3199d8e3d",
+          "blueprint_file": "bp_craft_kap_combat_heavy_core_01_01_01.xml",
+          "is_obtainable": false,
+          "sources": []
+        },
+        {
+          "name": "Monolith Helmet",
+          "piece_type": "helmet",
+          "total_cscu": 11.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "cost_type": "resource",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 5.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Support Structure",
+              "cost_type": "resource",
+              "material": "Titanium",
+              "raw_ore": "Titanium Ore",
+              "amount_cscu": 5.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 250,
+          "output_entity_guid": "d9071899-894f-4515-b439-d7dad8e1777a",
+          "blueprint_file": "bp_craft_kap_combat_heavy_helmet_01_01_01.xml",
+          "is_obtainable": false,
+          "sources": []
+        },
+        {
+          "name": "Monolith Armor Legs",
+          "piece_type": "legs",
+          "total_cscu": 14.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "cost_type": "resource",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Support Structure",
+              "cost_type": "resource",
+              "material": "Titanium",
+              "raw_ore": "Titanium Ore",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 250,
+          "output_entity_guid": "ba065183-57e1-451e-a2c1-dcc248be6293",
+          "blueprint_file": "bp_craft_kap_combat_heavy_legs_01_01_01.xml",
+          "is_obtainable": false,
+          "sources": []
+        }
+      ],
+      "is_obtainable": false,
+      "sources": []
+    },
+    {
+      "set_key": "kap_combat_heavy|01_04_01",
+      "set_name": "kap_combat_heavy_arms_01_04_01",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Kessler & Pollard",
+      "is_environment_suit": false,
+      "complete": false,
+      "missing": [
+        "helmet"
+      ],
+      "piece_count": 3,
+      "total_cscu": 38.0,
+      "material_totals": {
+        "Aslarite": 6.0,
+        "Ouratite": 19.0,
+        "Titanium": 13.0
+      },
+      "pieces": [
+        {
+          "name": "kap_combat_heavy_arms_01_04_01",
+          "piece_type": "arms",
+          "total_cscu": 8.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "cost_type": "resource",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 240,
+          "output_entity_guid": "b930194d-391e-48db-aa08-3b0e089e7273",
+          "blueprint_file": "bp_craft_kap_combat_heavy_arms_01_04_01.xml",
+          "is_obtainable": true,
+          "sources": [
+            {
+              "mission": "Kap Combat Heavy Arms 01 04 01",
+              "probability": 100.0,
+              "type": "GUARANTEED"
+            }
+          ]
+        },
+        {
+          "name": "kap_combat_heavy_core_01_04_01",
+          "piece_type": "core",
+          "total_cscu": 16.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "cost_type": "resource",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 7.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Support Structure",
+              "cost_type": "resource",
+              "material": "Titanium",
+              "raw_ore": "Titanium Ore",
+              "amount_cscu": 7.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 250,
+          "output_entity_guid": "3c7c48f2-0c4c-4b1f-9a6c-4f340dee6017",
+          "blueprint_file": "bp_craft_kap_combat_heavy_core_01_04_01.xml",
+          "is_obtainable": true,
+          "sources": [
+            {
+              "mission": "Kap Combat Heavy Core 01 04 01",
+              "probability": 100.0,
+              "type": "GUARANTEED"
+            }
+          ]
+        },
+        {
+          "name": "kap_combat_heavy_legs_01_04_01",
+          "piece_type": "legs",
+          "total_cscu": 14.0,
+          "recipe": [
+            {
+              "slot": "Armored Carapace",
+              "cost_type": "resource",
+              "material": "Ouratite",
+              "raw_ore": "Raw Ouratite",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Support Structure",
+              "cost_type": "resource",
+              "material": "Titanium",
+              "raw_ore": "Titanium Ore",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 250,
+          "output_entity_guid": "736a7125-d45d-4c54-8daf-aacad83fb021",
+          "blueprint_file": "bp_craft_kap_combat_heavy_legs_01_04_01.xml",
+          "is_obtainable": true,
+          "sources": [
+            {
+              "mission": "Kap Combat Heavy Legs 01 04 01",
+              "probability": 100.0,
+              "type": "GUARANTEED"
+            }
+          ]
+        }
+      ],
+      "is_obtainable": true,
+      "sources": [
+        {
+          "mission": "Kap Combat Heavy Arms 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        },
+        {
+          "mission": "Kap Combat Heavy Core 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        },
+        {
+          "mission": "Kap Combat Heavy Legs 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
       "set_key": "kap_combat_heavy|02_01_01",
       "set_name": "Monde",
       "weight": "heavy",
@@ -28365,7 +28736,7 @@
           ]
         },
         {
-          "name": "Antium Helmet Jet",
+          "name": "Antium Core Jet",
           "piece_type": "helmet",
           "total_cscu": 11.0,
           "recipe": [
@@ -28494,7 +28865,7 @@
       },
       "pieces": [
         {
-          "name": "Antium Arms Maroon",
+          "name": "Antium Helmet Jet",
           "piece_type": "arms",
           "total_cscu": 14.0,
           "recipe": [
@@ -58689,6 +59060,359 @@
       ]
     },
     {
+      "name": "Monolith Armor Arms",
+      "piece_type": "arms",
+      "total_cscu": 8.0,
+      "recipe": [
+        {
+          "slot": "Armored Carapace",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 240,
+      "output_entity_guid": "cece6caa-9885-411a-a0df-da06ced8bb90",
+      "blueprint_file": "bp_craft_kap_combat_heavy_arms_01_01_01.xml",
+      "is_obtainable": false,
+      "set_name": "Monolith",
+      "set_key": "kap_combat_heavy|01_01_01",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Kessler & Pollard",
+      "is_environment_suit": false,
+      "sources": []
+    },
+    {
+      "name": "Monolith Armor Core",
+      "piece_type": "core",
+      "total_cscu": 16.0,
+      "recipe": [
+        {
+          "slot": "Armored Carapace",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 7.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Support Structure",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 7.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 250,
+      "output_entity_guid": "b00197b9-3179-4bf7-8067-49f3199d8e3d",
+      "blueprint_file": "bp_craft_kap_combat_heavy_core_01_01_01.xml",
+      "is_obtainable": false,
+      "set_name": "Monolith",
+      "set_key": "kap_combat_heavy|01_01_01",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Kessler & Pollard",
+      "is_environment_suit": false,
+      "sources": []
+    },
+    {
+      "name": "Monolith Helmet",
+      "piece_type": "helmet",
+      "total_cscu": 11.0,
+      "recipe": [
+        {
+          "slot": "Armored Carapace",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 5.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Support Structure",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 5.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 250,
+      "output_entity_guid": "d9071899-894f-4515-b439-d7dad8e1777a",
+      "blueprint_file": "bp_craft_kap_combat_heavy_helmet_01_01_01.xml",
+      "is_obtainable": false,
+      "set_name": "Monolith",
+      "set_key": "kap_combat_heavy|01_01_01",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Kessler & Pollard",
+      "is_environment_suit": false,
+      "sources": []
+    },
+    {
+      "name": "Monolith Armor Legs",
+      "piece_type": "legs",
+      "total_cscu": 14.0,
+      "recipe": [
+        {
+          "slot": "Armored Carapace",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Support Structure",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 250,
+      "output_entity_guid": "ba065183-57e1-451e-a2c1-dcc248be6293",
+      "blueprint_file": "bp_craft_kap_combat_heavy_legs_01_01_01.xml",
+      "is_obtainable": false,
+      "set_name": "Monolith",
+      "set_key": "kap_combat_heavy|01_01_01",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Kessler & Pollard",
+      "is_environment_suit": false,
+      "sources": []
+    },
+    {
+      "name": "kap_combat_heavy_arms_01_04_01",
+      "piece_type": "arms",
+      "total_cscu": 8.0,
+      "recipe": [
+        {
+          "slot": "Armored Carapace",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 240,
+      "output_entity_guid": "b930194d-391e-48db-aa08-3b0e089e7273",
+      "blueprint_file": "bp_craft_kap_combat_heavy_arms_01_04_01.xml",
+      "is_obtainable": true,
+      "set_name": "kap_combat_heavy_arms_01_04_01",
+      "set_key": "kap_combat_heavy|01_04_01",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Kessler & Pollard",
+      "is_environment_suit": false,
+      "sources": [
+        {
+          "mission": "Kap Combat Heavy Arms 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "kap_combat_heavy_core_01_04_01",
+      "piece_type": "core",
+      "total_cscu": 16.0,
+      "recipe": [
+        {
+          "slot": "Armored Carapace",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 7.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Support Structure",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 7.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 250,
+      "output_entity_guid": "3c7c48f2-0c4c-4b1f-9a6c-4f340dee6017",
+      "blueprint_file": "bp_craft_kap_combat_heavy_core_01_04_01.xml",
+      "is_obtainable": true,
+      "set_name": "kap_combat_heavy_arms_01_04_01",
+      "set_key": "kap_combat_heavy|01_04_01",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Kessler & Pollard",
+      "is_environment_suit": false,
+      "sources": [
+        {
+          "mission": "Kap Combat Heavy Core 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "kap_combat_heavy_legs_01_04_01",
+      "piece_type": "legs",
+      "total_cscu": 14.0,
+      "recipe": [
+        {
+          "slot": "Armored Carapace",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Support Structure",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 250,
+      "output_entity_guid": "736a7125-d45d-4c54-8daf-aacad83fb021",
+      "blueprint_file": "bp_craft_kap_combat_heavy_legs_01_04_01.xml",
+      "is_obtainable": true,
+      "set_name": "kap_combat_heavy_arms_01_04_01",
+      "set_key": "kap_combat_heavy|01_04_01",
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Kessler & Pollard",
+      "is_environment_suit": false,
+      "sources": [
+        {
+          "mission": "Kap Combat Heavy Legs 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
       "name": "Monde Arms",
       "piece_type": "arms",
       "total_cscu": 10.0,
@@ -69441,7 +70165,7 @@
       ]
     },
     {
-      "name": "Antium Helmet Jet",
+      "name": "Antium Core Jet (Helmet)",
       "piece_type": "helmet",
       "total_cscu": 11.0,
       "recipe": [
@@ -69555,7 +70279,7 @@
       ]
     },
     {
-      "name": "Antium Arms Maroon",
+      "name": "Antium Helmet Jet",
       "piece_type": "arms",
       "total_cscu": 14.0,
       "recipe": [
@@ -82639,6 +83363,32 @@
       "sources": []
     },
     {
+      "name": "Monolith Backpack",
+      "piece_type": "backpack",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 105,
+      "output_entity_guid": "5a57e015-d77c-4741-b364-d2488d190fc3",
+      "blueprint_file": "bp_craft_kap_combat_heavy_backpack_01_01_01.xml",
+      "is_obtainable": false,
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Kessler & Pollard",
+      "sources": []
+    },
+    {
       "name": "Morozov-CH Backpack",
       "piece_type": "backpack",
       "total_cscu": 8.0,
@@ -82702,6 +83452,38 @@
       "sources": [
         {
           "mission": "XenoThreat 2.0 - 50% Wave (Drop 1)",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "kap_combat_heavy_backpack_01_04_01",
+      "piece_type": "backpack",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 105,
+      "output_entity_guid": "20656be4-506f-4e4c-8db7-a813a9fd757d",
+      "blueprint_file": "bp_craft_kap_combat_heavy_backpack_01_04_01.xml",
+      "is_obtainable": true,
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Kessler & Pollard",
+      "sources": [
+        {
+          "mission": "Kap Combat Heavy Backpack 01 04 01",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -83970,6 +84752,60 @@
       "damage_type": "ballistic",
       "manufacturer": "Gemini",
       "sources": []
+    },
+    {
+      "name": "F55 \"Shadowflux\" LMG",
+      "piece_type": "lmg",
+      "total_cscu": 13.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Lindinium",
+          "raw_ore": "Lindinium Ore",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stock",
+          "cost_type": "resource",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Barrel",
+          "cost_type": "resource",
+          "material": "Iron",
+          "raw_ore": "Iron Ore",
+          "amount_cscu": 3.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 240,
+      "output_entity_guid": "ddb8eb6e-a55d-4846-90f3-5adda9ea8e9d",
+      "blueprint_file": "bp_craft_gmni_lmg_ballistic_01_collector02.xml",
+      "is_obtainable": true,
+      "weapon_type": "lmg",
+      "damage_type": "ballistic",
+      "manufacturer": "Gemini",
+      "sources": [
+        {
+          "mission": "Gmni Lmg Ballistic 01 Collector02",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
     },
     {
       "name": "F55 \"Valor\" LMG",
@@ -106837,6 +107673,63 @@
       ]
     },
     {
+      "name": "DayBreak",
+      "piece_type": "powerplant",
+      "total_cscu": 257.0,
+      "recipe": [
+        {
+          "slot": "Shell",
+          "cost_type": "resource",
+          "material": "Iron",
+          "raw_ore": "Iron Ore",
+          "amount_cscu": 122.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Voltage Regulator",
+          "cost_type": "resource",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 50.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Stator Cores",
+          "cost_type": "resource",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 85.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 1080,
+      "output_entity_guid": "fda65886-0ccb-4a80-a5ee-528b186d4584",
+      "blueprint_file": "bp_craft_powr_sasu_s02_daybreak_scitem.xml",
+      "is_obtainable": true,
+      "component_type": "powerplant",
+      "manufacturer": "powr",
+      "size": 2,
+      "class_code": "Civ",
+      "class_label": "Civilian",
+      "grade": "C",
+      "sources": [
+        {
+          "mission": "Foxwell - Pyro (Easy)",
+          "probability": 7.1,
+          "type": "RANDOM"
+        }
+      ]
+    },
+    {
       "name": "Defiant",
       "piece_type": "powerplant",
       "total_cscu": 21.0,
@@ -111739,6 +112632,57 @@
       "class_code": "",
       "class_label": "",
       "grade": "",
+      "sources": []
+    },
+    {
+      "name": "Goliath",
+      "piece_type": "quantumdrive",
+      "total_cscu": 63.0,
+      "recipe": [
+        {
+          "slot": "Case",
+          "cost_type": "resource",
+          "material": "Tungsten",
+          "raw_ore": "Tungsten Ore",
+          "amount_cscu": 35.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Injector Nozzles",
+          "cost_type": "resource",
+          "material": "Tungsten",
+          "raw_ore": "Tungsten Ore",
+          "amount_cscu": 14.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Containment Matrix",
+          "cost_type": "resource",
+          "material": "Laranite",
+          "raw_ore": "Raw Laranite",
+          "amount_cscu": 14.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 780,
+      "output_entity_guid": "fc3fadaa-cd29-4ac5-a2f5-51d4988d3def",
+      "blueprint_file": "bp_craft_qdrv_just_s01_goliath_scitem.xml",
+      "is_obtainable": false,
+      "component_type": "quantumdrive",
+      "manufacturer": "qdrv",
+      "size": 1,
+      "class_code": "Ind",
+      "class_label": "Industrial",
+      "grade": "C",
       "sources": []
     },
     {
@@ -121380,8 +122324,8 @@
       "resource_guid": "fde0cd65-8827-4b23-804d-cc8845dfa7ac",
       "raw_ore": "Raw Aslarite",
       "slots_used_in": "Insulative Liner",
-      "blueprint_count": 856,
-      "total_cscu_demand": 1574.5,
+      "blueprint_count": 863,
+      "total_cscu_demand": 1587.5,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -121391,8 +122335,8 @@
       "resource_guid": "61189578-ed7a-4491-9774-37ae2f82b8b0",
       "raw_ore": "Raw Hephaestanite",
       "slots_used_in": "Grip, Stock",
-      "blueprint_count": 122,
-      "total_cscu_demand": 919.0,
+      "blueprint_count": 123,
+      "total_cscu_demand": 923.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -121402,8 +122346,8 @@
       "resource_guid": "989f9b73-f636-4f35-a81d-579dcbe3f0ab",
       "raw_ore": "Raw Ouratite",
       "slots_used_in": "Armored Carapace",
-      "blueprint_count": 495,
-      "total_cscu_demand": 3580.0,
+      "blueprint_count": 504,
+      "total_cscu_demand": 3635.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -121413,8 +122357,8 @@
       "resource_guid": "f386a33c-ac9a-400a-a7b8-fe1fc7c8d270",
       "raw_ore": "Iron Ore",
       "slots_used_in": "Barrel",
-      "blueprint_count": 258,
-      "total_cscu_demand": 15488.0,
+      "blueprint_count": 259,
+      "total_cscu_demand": 15491.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -121490,8 +122434,8 @@
       "resource_guid": "392b4dca-449a-4d4d-8fef-beab024d9ee7",
       "raw_ore": "Lindinium Ore",
       "slots_used_in": "Frame (pistol)",
-      "blueprint_count": 116,
-      "total_cscu_demand": 2539.0,
+      "blueprint_count": 117,
+      "total_cscu_demand": 2545.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -121567,8 +122511,8 @@
       "resource_guid": "07570c9f-fdf6-4bca-a56b-c42809ec0e01",
       "raw_ore": "Titanium Ore",
       "slots_used_in": "",
-      "blueprint_count": 101,
-      "total_cscu_demand": 6344.0,
+      "blueprint_count": 106,
+      "total_cscu_demand": 6375.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
