@@ -1,7 +1,7 @@
 {
   "summary": {
-    "total_missions": 154,
-    "guaranteed": 62,
+    "total_missions": 160,
+    "guaranteed": 68,
     "random": 92
   },
   "missions": [
@@ -2677,7 +2677,7 @@
           "weight": 1
         },
         {
-          "name": "Antium Helmet Jet",
+          "name": "Antium Core Jet",
           "filename": "bp_craft_qrt_specialist_heavy_helmet_01_01_12.xml",
           "probability": 16.7,
           "weight": 1
@@ -2788,7 +2788,7 @@
       "reward_count": 8,
       "rewards": [
         {
-          "name": "Antium Arms Maroon",
+          "name": "Antium Helmet Jet",
           "filename": "bp_craft_qrt_specialist_heavy_arms_01_01_13.xml",
           "probability": 12.5,
           "weight": 1
@@ -3094,7 +3094,7 @@
           "weight": 1
         },
         {
-          "name": "FullForce",
+          "name": "DayBreak",
           "filename": "bp_craft_powr_sasu_s02_daybreak_scitem.xml",
           "probability": 7.1,
           "weight": 1
@@ -3424,6 +3424,21 @@
           "name": "JS-500",
           "filename": "bp_craft_powr_amrs_s03_js500_scitem.xml",
           "probability": 10.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Gmni Lmg Ballistic 01 Collector02",
+      "pool_name": "gmni_lmg_ballistic_01_collector02",
+      "filename": "bp_reward_gmni_lmg_ballistic_01_collector02.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "F55 \"Shadowflux\" LMG",
+          "filename": "bp_craft_gmni_lmg_ballistic_01_collector02.xml",
+          "probability": 100.0,
           "weight": 1
         }
       ]
@@ -4600,6 +4615,81 @@
           "name": "Attrition-3 Repeater",
           "filename": "bp_craft_hrst_laserrepeater_s3.xml",
           "probability": 33.3,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Kap Combat Heavy Arms 01 04 01",
+      "pool_name": "kap_combat_heavy_arms_01_04_01",
+      "filename": "bp_reward_kap_combat_heavy_arms_01_04_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "kap_combat_heavy_arms_01_04_01",
+          "filename": "bp_craft_kap_combat_heavy_arms_01_04_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Kap Combat Heavy Backpack 01 04 01",
+      "pool_name": "kap_combat_heavy_backpack_01_04_01",
+      "filename": "bp_reward_kap_combat_heavy_backpack_01_04_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "kap_combat_heavy_backpack_01_04_01",
+          "filename": "bp_craft_kap_combat_heavy_backpack_01_04_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Kap Combat Heavy Core 01 04 01",
+      "pool_name": "kap_combat_heavy_core_01_04_01",
+      "filename": "bp_reward_kap_combat_heavy_core_01_04_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "kap_combat_heavy_core_01_04_01",
+          "filename": "bp_craft_kap_combat_heavy_core_01_04_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Kap Combat Heavy Helmet 01 04 01",
+      "pool_name": "kap_combat_heavy_helmet_01_04_01",
+      "filename": "bp_reward_kap_combat_heavy_helmet_01_04_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "UNKNOWN",
+          "filename": "GUID:129eaa5c...",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Kap Combat Heavy Legs 01 04 01",
+      "pool_name": "kap_combat_heavy_legs_01_04_01",
+      "filename": "bp_reward_kap_combat_heavy_legs_01_04_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "kap_combat_heavy_legs_01_04_01",
+          "filename": "bp_craft_kap_combat_heavy_legs_01_04_01.xml",
+          "probability": 100.0,
           "weight": 1
         }
       ]
@@ -8675,16 +8765,14 @@
         "mission": "Foxwell - Ambush",
         "probability": 16.7,
         "type": "RANDOM"
-      }
-    ],
-    "Antium Legs Jet": [
+      },
       {
         "mission": "Foxwell - Ambush",
         "probability": 16.7,
         "type": "RANDOM"
       }
     ],
-    "Antium Helmet Jet": [
+    "Antium Legs Jet": [
       {
         "mission": "Foxwell - Ambush",
         "probability": 16.7,
@@ -8783,7 +8871,7 @@
         "type": "RANDOM"
       }
     ],
-    "Antium Arms Maroon": [
+    "Antium Helmet Jet": [
       {
         "mission": "Foxwell - General Contracts",
         "probability": 12.5,
@@ -9082,14 +9170,16 @@
         "mission": "Foxwell - Pyro (Easy)",
         "probability": 7.1,
         "type": "RANDOM"
-      },
+      }
+    ],
+    "IonSurge": [
       {
         "mission": "Foxwell - Pyro (Easy)",
         "probability": 7.1,
         "type": "RANDOM"
       }
     ],
-    "IonSurge": [
+    "DayBreak": [
       {
         "mission": "Foxwell - Pyro (Easy)",
         "probability": 7.1,
@@ -9428,6 +9518,13 @@
         "mission": "Full Strike on Station (B)",
         "probability": 10.0,
         "type": "RANDOM"
+      }
+    ],
+    "F55 \"Shadowflux\" LMG": [
+      {
+        "mission": "Gmni Lmg Ballistic 01 Collector02",
+        "probability": 100.0,
+        "type": "GUARANTEED"
       }
     ],
     "Ravager-212 Twin Shotgun": [
@@ -10627,6 +10724,41 @@
         "mission": "InterSec - Retrieve Smuggler Intel (Vehicle Gear)",
         "probability": 33.3,
         "type": "RANDOM"
+      }
+    ],
+    "kap_combat_heavy_arms_01_04_01": [
+      {
+        "mission": "Kap Combat Heavy Arms 01 04 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "kap_combat_heavy_backpack_01_04_01": [
+      {
+        "mission": "Kap Combat Heavy Backpack 01 04 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "kap_combat_heavy_core_01_04_01": [
+      {
+        "mission": "Kap Combat Heavy Core 01 04 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "UNKNOWN": [
+      {
+        "mission": "Kap Combat Heavy Helmet 01 04 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "kap_combat_heavy_legs_01_04_01": [
+      {
+        "mission": "Kap Combat Heavy Legs 01 04 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
       }
     ],
     "Lumin V \"SecondWind\" SMG": [
