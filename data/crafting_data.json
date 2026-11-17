@@ -1,7 +1,7 @@
 {
   "meta": {
-    "current_patch": "4.10.2",
-    "data_updated": "2026-10-09",
+    "current_patch": "4.10.3",
+    "data_updated": "2026-11-17",
     "news_reel": "",
     "default_blueprints": [
       "bp_craft_behr_pistol_ballistic_01.xml",
@@ -17538,7 +17538,7 @@
     },
     {
       "set_key": "kap_combat_heavy|01_04_01",
-      "set_name": "kap_combat_heavy_arms_01_04_01",
+      "set_name": "Monolith Shadowflux",
       "weight": "heavy",
       "role": "combat",
       "manufacturer": "Kessler & Pollard",
@@ -17556,7 +17556,7 @@
       },
       "pieces": [
         {
-          "name": "kap_combat_heavy_arms_01_04_01",
+          "name": "Monolith Armor Arms Shadowflux",
           "piece_type": "arms",
           "total_cscu": 8.0,
           "recipe": [
@@ -17596,7 +17596,7 @@
           ]
         },
         {
-          "name": "kap_combat_heavy_core_01_04_01",
+          "name": "Monolith Armor Core Shadowflux",
           "piece_type": "core",
           "total_cscu": 16.0,
           "recipe": [
@@ -17647,7 +17647,7 @@
           ]
         },
         {
-          "name": "kap_combat_heavy_legs_01_04_01",
+          "name": "Monolith Armor Legs Shadowflux",
           "piece_type": "legs",
           "total_cscu": 14.0,
           "recipe": [
@@ -22241,6 +22241,252 @@
       ],
       "is_obtainable": false,
       "sources": []
+    },
+    {
+      "set_key": "omc_utility_heavy|01_03_01",
+      "set_name": "Corbel Raider Camo",
+      "weight": "heavy",
+      "role": "engineer",
+      "manufacturer": "OMC",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 55.0,
+      "material_totals": {
+        "Aslarite": 7.0,
+        "Laranite": 24.0,
+        "Titanium": 24.0
+      },
+      "pieces": [
+        {
+          "name": "Corbel Arms Raider Camo",
+          "piece_type": "arms",
+          "total_cscu": 14.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "cost_type": "resource",
+              "material": "Laranite",
+              "raw_ore": "Raw Laranite",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Casing Weave",
+              "cost_type": "resource",
+              "material": "Titanium",
+              "raw_ore": "Titanium Ore",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "4349df6e-8a6a-4419-9ce7-9cc311d111e7",
+          "blueprint_file": "bp_craft_omc_utility_heavy_arms_01_03_01.xml",
+          "is_obtainable": true,
+          "sources": [
+            {
+              "mission": "Omc Utility Heavy Arms 01 03 01",
+              "probability": 100.0,
+              "type": "GUARANTEED"
+            }
+          ]
+        },
+        {
+          "name": "Corbel Core Raider Camo",
+          "piece_type": "core",
+          "total_cscu": 16.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "cost_type": "resource",
+              "material": "Laranite",
+              "raw_ore": "Raw Laranite",
+              "amount_cscu": 7.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Casing Weave",
+              "cost_type": "resource",
+              "material": "Titanium",
+              "raw_ore": "Titanium Ore",
+              "amount_cscu": 7.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 500,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "3be51fb7-31c5-49cc-80ca-f92d161c1e5c",
+          "blueprint_file": "bp_craft_omc_utility_heavy_core_01_03_01.xml",
+          "is_obtainable": true,
+          "sources": [
+            {
+              "mission": "Omc Utility Heavy Core 01 03 01",
+              "probability": 100.0,
+              "type": "GUARANTEED"
+            }
+          ]
+        },
+        {
+          "name": "Corbel Helmet Raider Camo",
+          "piece_type": "helmet",
+          "total_cscu": 11.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "cost_type": "resource",
+              "material": "Laranite",
+              "raw_ore": "Raw Laranite",
+              "amount_cscu": 5.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Casing Weave",
+              "cost_type": "resource",
+              "material": "Titanium",
+              "raw_ore": "Titanium Ore",
+              "amount_cscu": 5.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "571f0880-7b33-48f0-a860-4aee78b73e28",
+          "blueprint_file": "bp_craft_omc_utility_heavy_helmet_01_03_01.xml",
+          "is_obtainable": true,
+          "sources": [
+            {
+              "mission": "Omc Utility Heavy Helmet 01 03 01",
+              "probability": 100.0,
+              "type": "GUARANTEED"
+            }
+          ]
+        },
+        {
+          "name": "Corbel Legs Raider Camo",
+          "piece_type": "legs",
+          "total_cscu": 14.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "cost_type": "resource",
+              "material": "Laranite",
+              "raw_ore": "Raw Laranite",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Casing Weave",
+              "cost_type": "resource",
+              "material": "Titanium",
+              "raw_ore": "Titanium Ore",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 90,
+          "output_entity_guid": "ab3f1e07-fa55-4db2-96d6-7db0083b9e67",
+          "blueprint_file": "bp_craft_omc_utility_heavy_legs_01_03_01.xml",
+          "is_obtainable": true,
+          "sources": [
+            {
+              "mission": "Omc Utility Heavy Legs 01 03 01",
+              "probability": 100.0,
+              "type": "GUARANTEED"
+            }
+          ]
+        }
+      ],
+      "is_obtainable": true,
+      "sources": [
+        {
+          "mission": "Omc Utility Heavy Arms 01 03 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        },
+        {
+          "mission": "Omc Utility Heavy Core 01 03 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        },
+        {
+          "mission": "Omc Utility Heavy Helmet 01 03 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        },
+        {
+          "mission": "Omc Utility Heavy Legs 01 03 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
     },
     {
       "set_key": "outlaw_legacy_armor_heavy|01_01_01",
@@ -33112,6 +33358,252 @@
           "mission": "BHG - ASD Facility (Research Wing)",
           "probability": 12.5,
           "type": "RANDOM"
+        }
+      ]
+    },
+    {
+      "set_key": "qrt_utility_heavy|01_04_01",
+      "set_name": "Palatino Raider Camo",
+      "weight": "heavy",
+      "role": "engineer",
+      "manufacturer": "Quirinus Technologies",
+      "is_environment_suit": false,
+      "complete": true,
+      "missing": [],
+      "piece_count": 4,
+      "total_cscu": 55.0,
+      "material_totals": {
+        "Aslarite": 7.0,
+        "Laranite": 24.0,
+        "Savrilium": 24.0
+      },
+      "pieces": [
+        {
+          "name": "Palatino Arms Raider Camo",
+          "piece_type": "arms",
+          "total_cscu": 14.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "cost_type": "resource",
+              "material": "Laranite",
+              "raw_ore": "Raw Laranite",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Casing Weave",
+              "cost_type": "resource",
+              "material": "Savrilium",
+              "raw_ore": "Savrilium Ore",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 270,
+          "output_entity_guid": "bad0bae6-013e-4528-9088-58f62ff57645",
+          "blueprint_file": "bp_craft_qrt_utility_heavy_arms_01_04_01.xml",
+          "is_obtainable": true,
+          "sources": [
+            {
+              "mission": "Qrt Utility Heavy Arms 01 04 01",
+              "probability": 100.0,
+              "type": "GUARANTEED"
+            }
+          ]
+        },
+        {
+          "name": "Palatino Core Raider Camo",
+          "piece_type": "core",
+          "total_cscu": 16.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "cost_type": "resource",
+              "material": "Laranite",
+              "raw_ore": "Raw Laranite",
+              "amount_cscu": 7.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Casing Weave",
+              "cost_type": "resource",
+              "material": "Savrilium",
+              "raw_ore": "Savrilium Ore",
+              "amount_cscu": 7.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 270,
+          "output_entity_guid": "23195726-303a-436b-a3e6-55e6b82f7419",
+          "blueprint_file": "bp_craft_qrt_utility_heavy_core_01_04_01.xml",
+          "is_obtainable": true,
+          "sources": [
+            {
+              "mission": "Qrt Utility Heavy Core 01 04 01",
+              "probability": 100.0,
+              "type": "GUARANTEED"
+            }
+          ]
+        },
+        {
+          "name": "Palatino Helmet Raider Camo",
+          "piece_type": "helmet",
+          "total_cscu": 11.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "cost_type": "resource",
+              "material": "Laranite",
+              "raw_ore": "Raw Laranite",
+              "amount_cscu": 5.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 1.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Casing Weave",
+              "cost_type": "resource",
+              "material": "Savrilium",
+              "raw_ore": "Savrilium Ore",
+              "amount_cscu": 5.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 270,
+          "output_entity_guid": "730c213b-ce3b-4286-a9fc-08cc10c6d8ad",
+          "blueprint_file": "bp_craft_qrt_utility_heavy_helmet_01_04_01.xml",
+          "is_obtainable": true,
+          "sources": [
+            {
+              "mission": "Qrt Utility Heavy Helmet 01 04 01",
+              "probability": 100.0,
+              "type": "GUARANTEED"
+            }
+          ]
+        },
+        {
+          "name": "Palatino Legs Raider Camo",
+          "piece_type": "legs",
+          "total_cscu": 14.0,
+          "recipe": [
+            {
+              "slot": "Casing",
+              "cost_type": "resource",
+              "material": "Laranite",
+              "raw_ore": "Raw Laranite",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Insulative Liner",
+              "cost_type": "resource",
+              "material": "Aslarite",
+              "raw_ore": "Raw Aslarite",
+              "amount_cscu": 2.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            },
+            {
+              "slot": "Casing Weave",
+              "cost_type": "resource",
+              "material": "Savrilium",
+              "raw_ore": "Savrilium Ore",
+              "amount_cscu": 6.0,
+              "item_name": "",
+              "item_quantity": 0,
+              "min_quality": 0,
+              "is_catalyst": false
+            }
+          ],
+          "craft_time_seconds": 270,
+          "output_entity_guid": "e0c7ae94-0428-4236-90da-3e9900e7d4d9",
+          "blueprint_file": "bp_craft_qrt_utility_heavy_legs_01_04_01.xml",
+          "is_obtainable": true,
+          "sources": [
+            {
+              "mission": "Qrt Utility Heavy Legs 01 04 01",
+              "probability": 100.0,
+              "type": "GUARANTEED"
+            }
+          ]
+        }
+      ],
+      "is_obtainable": true,
+      "sources": [
+        {
+          "mission": "Qrt Utility Heavy Arms 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        },
+        {
+          "mission": "Qrt Utility Heavy Core 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        },
+        {
+          "mission": "Qrt Utility Heavy Helmet 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        },
+        {
+          "mission": "Qrt Utility Heavy Legs 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
         }
       ]
     },
@@ -59253,7 +59745,7 @@
       "sources": []
     },
     {
-      "name": "kap_combat_heavy_arms_01_04_01",
+      "name": "Monolith Armor Arms Shadowflux",
       "piece_type": "arms",
       "total_cscu": 8.0,
       "recipe": [
@@ -59284,7 +59776,7 @@
       "output_entity_guid": "b930194d-391e-48db-aa08-3b0e089e7273",
       "blueprint_file": "bp_craft_kap_combat_heavy_arms_01_04_01.xml",
       "is_obtainable": true,
-      "set_name": "kap_combat_heavy_arms_01_04_01",
+      "set_name": "Monolith Shadowflux",
       "set_key": "kap_combat_heavy|01_04_01",
       "weight": "heavy",
       "role": "combat",
@@ -59299,7 +59791,7 @@
       ]
     },
     {
-      "name": "kap_combat_heavy_core_01_04_01",
+      "name": "Monolith Armor Core Shadowflux",
       "piece_type": "core",
       "total_cscu": 16.0,
       "recipe": [
@@ -59341,7 +59833,7 @@
       "output_entity_guid": "3c7c48f2-0c4c-4b1f-9a6c-4f340dee6017",
       "blueprint_file": "bp_craft_kap_combat_heavy_core_01_04_01.xml",
       "is_obtainable": true,
-      "set_name": "kap_combat_heavy_arms_01_04_01",
+      "set_name": "Monolith Shadowflux",
       "set_key": "kap_combat_heavy|01_04_01",
       "weight": "heavy",
       "role": "combat",
@@ -59356,7 +59848,7 @@
       ]
     },
     {
-      "name": "kap_combat_heavy_legs_01_04_01",
+      "name": "Monolith Armor Legs Shadowflux",
       "piece_type": "legs",
       "total_cscu": 14.0,
       "recipe": [
@@ -59398,7 +59890,7 @@
       "output_entity_guid": "736a7125-d45d-4c54-8daf-aacad83fb021",
       "blueprint_file": "bp_craft_kap_combat_heavy_legs_01_04_01.xml",
       "is_obtainable": true,
-      "set_name": "kap_combat_heavy_arms_01_04_01",
+      "set_name": "Monolith Shadowflux",
       "set_key": "kap_combat_heavy|01_04_01",
       "weight": "heavy",
       "role": "combat",
@@ -63875,6 +64367,234 @@
       "manufacturer": "OMC",
       "is_environment_suit": false,
       "sources": []
+    },
+    {
+      "name": "Corbel Arms Raider Camo",
+      "piece_type": "arms",
+      "total_cscu": 14.0,
+      "recipe": [
+        {
+          "slot": "Casing",
+          "cost_type": "resource",
+          "material": "Laranite",
+          "raw_ore": "Raw Laranite",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Casing Weave",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "4349df6e-8a6a-4419-9ce7-9cc311d111e7",
+      "blueprint_file": "bp_craft_omc_utility_heavy_arms_01_03_01.xml",
+      "is_obtainable": true,
+      "set_name": "Corbel Raider Camo",
+      "set_key": "omc_utility_heavy|01_03_01",
+      "weight": "heavy",
+      "role": "engineer",
+      "manufacturer": "OMC",
+      "is_environment_suit": false,
+      "sources": [
+        {
+          "mission": "Omc Utility Heavy Arms 01 03 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Corbel Core Raider Camo",
+      "piece_type": "core",
+      "total_cscu": 16.0,
+      "recipe": [
+        {
+          "slot": "Casing",
+          "cost_type": "resource",
+          "material": "Laranite",
+          "raw_ore": "Raw Laranite",
+          "amount_cscu": 7.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Casing Weave",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 7.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 500,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "3be51fb7-31c5-49cc-80ca-f92d161c1e5c",
+      "blueprint_file": "bp_craft_omc_utility_heavy_core_01_03_01.xml",
+      "is_obtainable": true,
+      "set_name": "Corbel Raider Camo",
+      "set_key": "omc_utility_heavy|01_03_01",
+      "weight": "heavy",
+      "role": "engineer",
+      "manufacturer": "OMC",
+      "is_environment_suit": false,
+      "sources": [
+        {
+          "mission": "Omc Utility Heavy Core 01 03 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Corbel Helmet Raider Camo",
+      "piece_type": "helmet",
+      "total_cscu": 11.0,
+      "recipe": [
+        {
+          "slot": "Casing",
+          "cost_type": "resource",
+          "material": "Laranite",
+          "raw_ore": "Raw Laranite",
+          "amount_cscu": 5.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Casing Weave",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 5.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "571f0880-7b33-48f0-a860-4aee78b73e28",
+      "blueprint_file": "bp_craft_omc_utility_heavy_helmet_01_03_01.xml",
+      "is_obtainable": true,
+      "set_name": "Corbel Raider Camo",
+      "set_key": "omc_utility_heavy|01_03_01",
+      "weight": "heavy",
+      "role": "engineer",
+      "manufacturer": "OMC",
+      "is_environment_suit": false,
+      "sources": [
+        {
+          "mission": "Omc Utility Heavy Helmet 01 03 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Corbel Legs Raider Camo",
+      "piece_type": "legs",
+      "total_cscu": 14.0,
+      "recipe": [
+        {
+          "slot": "Casing",
+          "cost_type": "resource",
+          "material": "Laranite",
+          "raw_ore": "Raw Laranite",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Casing Weave",
+          "cost_type": "resource",
+          "material": "Titanium",
+          "raw_ore": "Titanium Ore",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "ab3f1e07-fa55-4db2-96d6-7db0083b9e67",
+      "blueprint_file": "bp_craft_omc_utility_heavy_legs_01_03_01.xml",
+      "is_obtainable": true,
+      "set_name": "Corbel Raider Camo",
+      "set_key": "omc_utility_heavy|01_03_01",
+      "weight": "heavy",
+      "role": "engineer",
+      "manufacturer": "OMC",
+      "is_environment_suit": false,
+      "sources": [
+        {
+          "mission": "Omc Utility Heavy Legs 01 03 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
     },
     {
       "name": "Citadel Arms Base",
@@ -74506,6 +75226,234 @@
       ]
     },
     {
+      "name": "Palatino Arms Raider Camo",
+      "piece_type": "arms",
+      "total_cscu": 14.0,
+      "recipe": [
+        {
+          "slot": "Casing",
+          "cost_type": "resource",
+          "material": "Laranite",
+          "raw_ore": "Raw Laranite",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Casing Weave",
+          "cost_type": "resource",
+          "material": "Savrilium",
+          "raw_ore": "Savrilium Ore",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 270,
+      "output_entity_guid": "bad0bae6-013e-4528-9088-58f62ff57645",
+      "blueprint_file": "bp_craft_qrt_utility_heavy_arms_01_04_01.xml",
+      "is_obtainable": true,
+      "set_name": "Palatino Raider Camo",
+      "set_key": "qrt_utility_heavy|01_04_01",
+      "weight": "heavy",
+      "role": "engineer",
+      "manufacturer": "Quirinus Technologies",
+      "is_environment_suit": false,
+      "sources": [
+        {
+          "mission": "Qrt Utility Heavy Arms 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Palatino Core Raider Camo",
+      "piece_type": "core",
+      "total_cscu": 16.0,
+      "recipe": [
+        {
+          "slot": "Casing",
+          "cost_type": "resource",
+          "material": "Laranite",
+          "raw_ore": "Raw Laranite",
+          "amount_cscu": 7.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Casing Weave",
+          "cost_type": "resource",
+          "material": "Savrilium",
+          "raw_ore": "Savrilium Ore",
+          "amount_cscu": 7.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 270,
+      "output_entity_guid": "23195726-303a-436b-a3e6-55e6b82f7419",
+      "blueprint_file": "bp_craft_qrt_utility_heavy_core_01_04_01.xml",
+      "is_obtainable": true,
+      "set_name": "Palatino Raider Camo",
+      "set_key": "qrt_utility_heavy|01_04_01",
+      "weight": "heavy",
+      "role": "engineer",
+      "manufacturer": "Quirinus Technologies",
+      "is_environment_suit": false,
+      "sources": [
+        {
+          "mission": "Qrt Utility Heavy Core 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Palatino Helmet Raider Camo",
+      "piece_type": "helmet",
+      "total_cscu": 11.0,
+      "recipe": [
+        {
+          "slot": "Casing",
+          "cost_type": "resource",
+          "material": "Laranite",
+          "raw_ore": "Raw Laranite",
+          "amount_cscu": 5.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 1.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Casing Weave",
+          "cost_type": "resource",
+          "material": "Savrilium",
+          "raw_ore": "Savrilium Ore",
+          "amount_cscu": 5.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 270,
+      "output_entity_guid": "730c213b-ce3b-4286-a9fc-08cc10c6d8ad",
+      "blueprint_file": "bp_craft_qrt_utility_heavy_helmet_01_04_01.xml",
+      "is_obtainable": true,
+      "set_name": "Palatino Raider Camo",
+      "set_key": "qrt_utility_heavy|01_04_01",
+      "weight": "heavy",
+      "role": "engineer",
+      "manufacturer": "Quirinus Technologies",
+      "is_environment_suit": false,
+      "sources": [
+        {
+          "mission": "Qrt Utility Heavy Helmet 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Palatino Legs Raider Camo",
+      "piece_type": "legs",
+      "total_cscu": 14.0,
+      "recipe": [
+        {
+          "slot": "Casing",
+          "cost_type": "resource",
+          "material": "Laranite",
+          "raw_ore": "Raw Laranite",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Insulative Liner",
+          "cost_type": "resource",
+          "material": "Aslarite",
+          "raw_ore": "Raw Aslarite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Casing Weave",
+          "cost_type": "resource",
+          "material": "Savrilium",
+          "raw_ore": "Savrilium Ore",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 270,
+      "output_entity_guid": "e0c7ae94-0428-4236-90da-3e9900e7d4d9",
+      "blueprint_file": "bp_craft_qrt_utility_heavy_legs_01_04_01.xml",
+      "is_obtainable": true,
+      "set_name": "Palatino Raider Camo",
+      "set_key": "qrt_utility_heavy|01_04_01",
+      "weight": "heavy",
+      "role": "engineer",
+      "manufacturer": "Quirinus Technologies",
+      "is_environment_suit": false,
+      "sources": [
+        {
+          "mission": "Qrt Utility Heavy Legs 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
       "name": "Morozov-SH Arms",
       "piece_type": "arms",
       "total_cscu": 14.0,
@@ -83389,6 +84337,38 @@
       "sources": []
     },
     {
+      "name": "Monolith Backpack Shadowflux",
+      "piece_type": "backpack",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 105,
+      "output_entity_guid": "20656be4-506f-4e4c-8db7-a813a9fd757d",
+      "blueprint_file": "bp_craft_kap_combat_heavy_backpack_01_04_01.xml",
+      "is_obtainable": true,
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Kessler & Pollard",
+      "sources": [
+        {
+          "mission": "Kap Combat Heavy Backpack 01 04 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
       "name": "Morozov-CH Backpack",
       "piece_type": "backpack",
       "total_cscu": 8.0,
@@ -83426,6 +84406,38 @@
       "sources": []
     },
     {
+      "name": "Palatino Backpack Raider Camo",
+      "piece_type": "backpack",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Ouratite",
+          "raw_ore": "Raw Ouratite",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 105,
+      "output_entity_guid": "49b78c3e-5645-4155-a614-d9d628e2bbdf",
+      "blueprint_file": "bp_craft_qrt_utility_heavy_backpack_01_05_01.xml",
+      "is_obtainable": true,
+      "weight": "heavy",
+      "role": "combat",
+      "manufacturer": "Quirinus Technologies",
+      "sources": [
+        {
+          "mission": "Qrt Utility Heavy Backpack 01 05 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
       "name": "Warden Backpack Purgatory Camo",
       "piece_type": "backpack",
       "total_cscu": 6.0,
@@ -83452,38 +84464,6 @@
       "sources": [
         {
           "mission": "XenoThreat 2.0 - 50% Wave (Drop 1)",
-          "probability": 100.0,
-          "type": "GUARANTEED"
-        }
-      ]
-    },
-    {
-      "name": "kap_combat_heavy_backpack_01_04_01",
-      "piece_type": "backpack",
-      "total_cscu": 6.0,
-      "recipe": [
-        {
-          "slot": "Frame",
-          "cost_type": "resource",
-          "material": "Ouratite",
-          "raw_ore": "Raw Ouratite",
-          "amount_cscu": 6.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 0,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 105,
-      "output_entity_guid": "20656be4-506f-4e4c-8db7-a813a9fd757d",
-      "blueprint_file": "bp_craft_kap_combat_heavy_backpack_01_04_01.xml",
-      "is_obtainable": true,
-      "weight": "heavy",
-      "role": "combat",
-      "manufacturer": "Kessler & Pollard",
-      "sources": [
-        {
-          "mission": "Kap Combat Heavy Backpack 01 04 01",
           "probability": 100.0,
           "type": "GUARANTEED"
         }
@@ -89725,6 +90705,103 @@
           "mission": "CFP - Recover Cargo (Pyro)",
           "probability": 7.1,
           "type": "RANDOM"
+        }
+      ]
+    },
+    {
+      "name": "Skarnov \"Raider Camo\" Rifle",
+      "piece_type": "rifle",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Corundum",
+          "raw_ore": "Raw Corundum",
+          "amount_cscu": 4.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Wiring",
+          "cost_type": "resource",
+          "material": "Copper",
+          "raw_ore": "Copper Ore",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Lenses",
+          "cost_type": "item",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "item_name": "Sadaryx",
+          "item_quantity": 1,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 150,
+      "output_entity_guid": "ce5baed0-3269-495e-b38b-f7af7b3bd9c6",
+      "blueprint_file": "bp_craft_lbco_rifle_energy_01_mr01.xml",
+      "is_obtainable": true,
+      "weapon_type": "rifle",
+      "damage_type": "energy",
+      "manufacturer": "Lightning Bolt Co.",
+      "sources": [
+        {
+          "mission": "Lbco Rifle Energy 01 Mr01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Skarnov Rifle Battery (30 cap)",
+      "piece_type": "rifle",
+      "total_cscu": 3.0,
+      "recipe": [
+        {
+          "slot": "Magazine",
+          "cost_type": "resource",
+          "material": "Hephaestanite",
+          "raw_ore": "Raw Hephaestanite",
+          "amount_cscu": 2.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Charge Chamber",
+          "cost_type": "resource",
+          "material": "Gold",
+          "raw_ore": "Gold Ore",
+          "amount_cscu": 1.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 10,
+      "output_entity_guid": "62c5b91c-fd3e-4a9b-8ee6-a35e59cf82c3",
+      "blueprint_file": "bp_craft_lbco_rifle_energy_01_mag.xml",
+      "is_obtainable": true,
+      "weapon_type": "rifle",
+      "damage_type": "energy",
+      "manufacturer": "Lightning Bolt Co.",
+      "sources": [
+        {
+          "mission": "Lbco Rifle Energy 01 Mag",
+          "probability": 100.0,
+          "type": "GUARANTEED"
         }
       ]
     },
@@ -96319,6 +97396,66 @@
       ]
     },
     {
+      "name": "Tailwind Flight Suit Raider Camo",
+      "piece_type": "suit",
+      "total_cscu": 6.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "cost_type": "resource",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 6.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "a147bd26-7e93-410f-95f4-166da8d79a9c",
+      "blueprint_file": "bp_craft_vgl_flightsuit_01_03_01.xml",
+      "is_obtainable": true,
+      "manufacturer": "Virgil",
+      "sources": [
+        {
+          "mission": "Vgl Flightsuit 01 03 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
+      "name": "Tailwind Helmet Raider Camo",
+      "piece_type": "helmet",
+      "total_cscu": 3.0,
+      "recipe": [
+        {
+          "slot": "Suit Underlay",
+          "cost_type": "resource",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 3.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 0,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "e71b77f0-156a-4f8f-9d32-4a026faf90f2",
+      "blueprint_file": "bp_craft_vgl_flightsuit_helmet_01_11_01.xml",
+      "is_obtainable": true,
+      "manufacturer": "Virgil",
+      "sources": [
+        {
+          "mission": "Vgl Flightsuit Helmet 01 11 01",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
       "name": "Xanthule Flight Helmet",
       "piece_type": "helmet",
       "total_cscu": 3.0,
@@ -98111,6 +99248,61 @@
       ]
     },
     {
+      "name": "M3A Cannon Raider Camo",
+      "piece_type": "cannon",
+      "total_cscu": 36.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Agricium",
+          "raw_ore": "Agricium Ore",
+          "amount_cscu": 36.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Emitter",
+          "cost_type": "item",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "item_name": "Hadanite",
+          "item_quantity": 7,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Aperture Iris",
+          "cost_type": "item",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "item_name": "Dolivine",
+          "item_quantity": 7,
+          "min_quality": 1,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 540,
+      "output_entity_guid": "36db47ca-d33b-484e-a2cc-fdf51b7bd549",
+      "blueprint_file": "bp_craft_behr_lasercannon_s1_mr02.xml",
+      "is_obtainable": true,
+      "weapon_type": "cannon",
+      "damage_type": "energy",
+      "manufacturer": "Behring",
+      "size": 0,
+      "sources": [
+        {
+          "mission": "Behr Lasercannon S1 Mr02",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
       "name": "M4A Cannon",
       "piece_type": "cannon",
       "total_cscu": 64.0,
@@ -98166,6 +99358,61 @@
       ]
     },
     {
+      "name": "M4A Cannon Raider Camo",
+      "piece_type": "cannon",
+      "total_cscu": 64.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Agricium",
+          "raw_ore": "Agricium Ore",
+          "amount_cscu": 64.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Emitter",
+          "cost_type": "item",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "item_name": "Hadanite",
+          "item_quantity": 13,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Aperture Iris",
+          "cost_type": "item",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "item_name": "Dolivine",
+          "item_quantity": 13,
+          "min_quality": 1,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 960,
+      "output_entity_guid": "b0ff21c6-312f-4196-88fb-c24d883ca003",
+      "blueprint_file": "bp_craft_behr_lasercannon_s2_mr02.xml",
+      "is_obtainable": true,
+      "weapon_type": "cannon",
+      "damage_type": "energy",
+      "manufacturer": "Behring",
+      "size": 0,
+      "sources": [
+        {
+          "mission": "Behr Lasercannon S2 Mr02",
+          "probability": 100.0,
+          "type": "GUARANTEED"
+        }
+      ]
+    },
+    {
       "name": "M5A Cannon",
       "piece_type": "cannon",
       "total_cscu": 116.0,
@@ -98217,6 +99464,61 @@
           "mission": "Eckhart Security - Escort Ships (Easy)",
           "probability": 20.0,
           "type": "RANDOM"
+        }
+      ]
+    },
+    {
+      "name": "M5A Cannon Raider Camo",
+      "piece_type": "cannon",
+      "total_cscu": 116.0,
+      "recipe": [
+        {
+          "slot": "Frame",
+          "cost_type": "resource",
+          "material": "Agricium",
+          "raw_ore": "Agricium Ore",
+          "amount_cscu": 116.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Emitter",
+          "cost_type": "item",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "item_name": "Hadanite",
+          "item_quantity": 23,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Aperture Iris",
+          "cost_type": "item",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "item_name": "Dolivine",
+          "item_quantity": 23,
+          "min_quality": 1,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 1680,
+      "output_entity_guid": "9fd5d7b0-0a54-40b5-a36e-dca802cd3aaa",
+      "blueprint_file": "bp_craft_behr_lasercannon_s3_mr02.xml",
+      "is_obtainable": true,
+      "weapon_type": "cannon",
+      "damage_type": "energy",
+      "manufacturer": "Behring",
+      "size": 0,
+      "sources": [
+        {
+          "mission": "Behr Lasercannon S3 Mr02",
+          "probability": 100.0,
+          "type": "GUARANTEED"
         }
       ]
     },
@@ -115797,6 +117099,57 @@
       "sources": []
     },
     {
+      "name": "Lephari",
+      "piece_type": "radar",
+      "total_cscu": 360.0,
+      "recipe": [
+        {
+          "slot": "Case",
+          "cost_type": "resource",
+          "material": "Tin",
+          "raw_ore": "Tin Ore",
+          "amount_cscu": 200.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Transmitter",
+          "cost_type": "resource",
+          "material": "Quartz",
+          "raw_ore": "Quartz",
+          "amount_cscu": 80.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Signal Provessor",
+          "cost_type": "resource",
+          "material": "Silicon",
+          "raw_ore": "Raw Silicon",
+          "amount_cscu": 80.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 780,
+      "output_entity_guid": "462c1e37-6259-4942-91e1-9c4de47ef0e4",
+      "blueprint_file": "bp_craft_radr_wlop_s03_lephari.xml",
+      "is_obtainable": false,
+      "component_type": "radar",
+      "manufacturer": "radr",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": []
+    },
+    {
       "name": "Observer",
       "piece_type": "radar",
       "total_cscu": 180.0,
@@ -117541,57 +118894,6 @@
       "craft_time_seconds": 90,
       "output_entity_guid": "a39d0aa5-f1af-49fb-aad0-0c1cde0f133f",
       "blueprint_file": "bp_craft_radr_rsi_s04_polaris.xml",
-      "is_obtainable": false,
-      "component_type": "radar",
-      "manufacturer": "radr",
-      "size": 0,
-      "class_code": "",
-      "class_label": "",
-      "grade": "",
-      "sources": []
-    },
-    {
-      "name": "radr_wlop_s03_lephari",
-      "piece_type": "radar",
-      "total_cscu": 360.0,
-      "recipe": [
-        {
-          "slot": "Case",
-          "cost_type": "resource",
-          "material": "Tin",
-          "raw_ore": "Tin Ore",
-          "amount_cscu": 200.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 1,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Transmitter",
-          "cost_type": "resource",
-          "material": "Quartz",
-          "raw_ore": "Quartz",
-          "amount_cscu": 80.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 1,
-          "is_catalyst": false
-        },
-        {
-          "slot": "Signal Provessor",
-          "cost_type": "resource",
-          "material": "Silicon",
-          "raw_ore": "Raw Silicon",
-          "amount_cscu": 80.0,
-          "item_name": "",
-          "item_quantity": 0,
-          "min_quality": 1,
-          "is_catalyst": false
-        }
-      ],
-      "craft_time_seconds": 780,
-      "output_entity_guid": "462c1e37-6259-4942-91e1-9c4de47ef0e4",
-      "blueprint_file": "bp_craft_radr_wlop_s03_lephari.xml",
       "is_obtainable": false,
       "component_type": "radar",
       "manufacturer": "radr",
@@ -119498,6 +120800,57 @@
           "type": "RANDOM"
         }
       ]
+    },
+    {
+      "name": "Deterrent",
+      "piece_type": "shield",
+      "total_cscu": 920.0,
+      "recipe": [
+        {
+          "slot": "Shell",
+          "cost_type": "resource",
+          "material": "Riccite",
+          "raw_ore": "Raw Riccite",
+          "amount_cscu": 350.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Field Array",
+          "cost_type": "resource",
+          "material": "Riccite",
+          "raw_ore": "Raw Riccite",
+          "amount_cscu": 570.0,
+          "item_name": "",
+          "item_quantity": 0,
+          "min_quality": 1,
+          "is_catalyst": false
+        },
+        {
+          "slot": "Frequency Controller",
+          "cost_type": "item",
+          "material": "",
+          "raw_ore": "",
+          "amount_cscu": 0.0,
+          "item_name": "Beradom",
+          "item_quantity": 495,
+          "min_quality": 1,
+          "is_catalyst": false
+        }
+      ],
+      "craft_time_seconds": 90,
+      "output_entity_guid": "d9870a05-1a66-4a9a-bec6-30eb67e3a3ce",
+      "blueprint_file": "bp_craft_shld_rsi_s04_polaris_scitem.xml",
+      "is_obtainable": false,
+      "component_type": "shield",
+      "manufacturer": "shld",
+      "size": 0,
+      "class_code": "",
+      "class_label": "",
+      "grade": "",
+      "sources": []
     },
     {
       "name": "FR-66",
@@ -122324,8 +123677,8 @@
       "resource_guid": "fde0cd65-8827-4b23-804d-cc8845dfa7ac",
       "raw_ore": "Raw Aslarite",
       "slots_used_in": "Insulative Liner",
-      "blueprint_count": 863,
-      "total_cscu_demand": 1587.5,
+      "blueprint_count": 871,
+      "total_cscu_demand": 1601.5,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -122335,8 +123688,8 @@
       "resource_guid": "61189578-ed7a-4491-9774-37ae2f82b8b0",
       "raw_ore": "Raw Hephaestanite",
       "slots_used_in": "Grip, Stock",
-      "blueprint_count": 123,
-      "total_cscu_demand": 923.0,
+      "blueprint_count": 124,
+      "total_cscu_demand": 925.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -122346,8 +123699,8 @@
       "resource_guid": "989f9b73-f636-4f35-a81d-579dcbe3f0ab",
       "raw_ore": "Raw Ouratite",
       "slots_used_in": "Armored Carapace",
-      "blueprint_count": 504,
-      "total_cscu_demand": 3635.0,
+      "blueprint_count": 505,
+      "total_cscu_demand": 3641.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -122368,8 +123721,8 @@
       "resource_guid": "7f4599b0-a2b2-4178-8c7e-13292054ab20",
       "raw_ore": "Raw Laranite",
       "slots_used_in": "Casing",
-      "blueprint_count": 353,
-      "total_cscu_demand": 11252.0,
+      "blueprint_count": 361,
+      "total_cscu_demand": 11300.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -122379,8 +123732,8 @@
       "resource_guid": "4a47cad8-0271-4048-b19b-d9b52521fc20",
       "raw_ore": "Savrilium Ore",
       "slots_used_in": "Casing Weave",
-      "blueprint_count": 90,
-      "total_cscu_demand": 2757.0,
+      "blueprint_count": 94,
+      "total_cscu_demand": 2781.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -122401,8 +123754,8 @@
       "resource_guid": "a789f57a-e12b-4bcd-8132-e0c03d84fc89",
       "raw_ore": "Copper Ore",
       "slots_used_in": "Conduit, Wiring",
-      "blueprint_count": 101,
-      "total_cscu_demand": 671.0,
+      "blueprint_count": 102,
+      "total_cscu_demand": 673.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -122412,8 +123765,8 @@
       "resource_guid": "4236c16b-c47f-4083-9e26-4313733f2326",
       "raw_ore": "Raw Corundum",
       "slots_used_in": "Plating, Frame",
-      "blueprint_count": 73,
-      "total_cscu_demand": 1628.0,
+      "blueprint_count": 74,
+      "total_cscu_demand": 1632.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -122423,8 +123776,8 @@
       "resource_guid": "21825507-7923-4683-9bf3-9cfe316940e3",
       "raw_ore": "Gold Ore",
       "slots_used_in": "Cabling",
-      "blueprint_count": 63,
-      "total_cscu_demand": 1875.0,
+      "blueprint_count": 64,
+      "total_cscu_demand": 1876.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -122445,8 +123798,8 @@
       "resource_guid": "7bbd3197-a6e1-49b3-a495-0b7ef4f8ce40",
       "raw_ore": "Raw Silicon",
       "slots_used_in": "Suit Underlay",
-      "blueprint_count": 86,
-      "total_cscu_demand": 3045.0,
+      "blueprint_count": 88,
+      "total_cscu_demand": 3054.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -122511,8 +123864,8 @@
       "resource_guid": "07570c9f-fdf6-4bca-a56b-c42809ec0e01",
       "raw_ore": "Titanium Ore",
       "slots_used_in": "",
-      "blueprint_count": 106,
-      "total_cscu_demand": 6375.0,
+      "blueprint_count": 110,
+      "total_cscu_demand": 6399.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -122544,8 +123897,8 @@
       "resource_guid": "dc6fbcbb-5990-4ed5-82ee-93152dab7845",
       "raw_ore": "Agricium Ore",
       "slots_used_in": "",
-      "blueprint_count": 194,
-      "total_cscu_demand": 12072.0,
+      "blueprint_count": 197,
+      "total_cscu_demand": 12288.0,
       "mining_type": "ship",
       "location": "",
       "link_url": "",
@@ -122611,8 +123964,8 @@
     "Hadanite": {
       "item_guid": "125dd723-95ad-488d-830f-62c954445ca1",
       "mining_type": "hand",
-      "blueprint_count": 58,
-      "total_quantity_demand": 1648
+      "blueprint_count": 61,
+      "total_quantity_demand": 1691
     },
     "Aphorite": {
       "item_guid": "3f137385-dd8f-410b-b5f3-7b4d283c09cd",
@@ -122629,14 +123982,14 @@
     "Dolivine": {
       "item_guid": "20094ded-ad04-46a3-b734-9e37aa3154b3",
       "mining_type": "hand",
-      "blueprint_count": 71,
-      "total_quantity_demand": 1232
+      "blueprint_count": 74,
+      "total_quantity_demand": 1275
     },
     "Sadaryx": {
       "item_guid": "51b456cd-e73e-42a8-b36e-0bf6fbe29ce6",
       "mining_type": "hand",
-      "blueprint_count": 37,
-      "total_quantity_demand": 178
+      "blueprint_count": 38,
+      "total_quantity_demand": 179
     },
     "Carinite": {
       "item_guid": "0b83f4b2-1d15-4843-aa94-29f2b40a5cbe",
