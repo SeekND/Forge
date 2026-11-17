@@ -1,7 +1,7 @@
 {
   "summary": {
-    "total_missions": 160,
-    "guaranteed": 68,
+    "total_missions": 176,
+    "guaranteed": 84,
     "random": 92
   },
   "missions": [
@@ -1024,6 +1024,51 @@
           "name": "CF-337 Panther \"Hazard-Zone\" Repeater",
           "filename": "bp_craft_klwe_laserrepeater_s3_mr01.xml",
           "probability": 12.5,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Behr Lasercannon S1 Mr02",
+      "pool_name": "behr_lasercannon_s1_mr02",
+      "filename": "bp_reward_behr_lasercannon_s1_mr02.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "M3A Cannon Raider Camo",
+          "filename": "bp_craft_behr_lasercannon_s1_mr02.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Behr Lasercannon S2 Mr02",
+      "pool_name": "behr_lasercannon_s2_mr02",
+      "filename": "bp_reward_behr_lasercannon_s2_mr02.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "M4A Cannon Raider Camo",
+          "filename": "bp_craft_behr_lasercannon_s2_mr02.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Behr Lasercannon S3 Mr02",
+      "pool_name": "behr_lasercannon_s3_mr02",
+      "filename": "bp_reward_behr_lasercannon_s3_mr02.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "M5A Cannon Raider Camo",
+          "filename": "bp_craft_behr_lasercannon_s3_mr02.xml",
+          "probability": 100.0,
           "weight": 1
         }
       ]
@@ -4627,7 +4672,7 @@
       "reward_count": 1,
       "rewards": [
         {
-          "name": "kap_combat_heavy_arms_01_04_01",
+          "name": "Monolith Armor Arms Shadowflux",
           "filename": "bp_craft_kap_combat_heavy_arms_01_04_01.xml",
           "probability": 100.0,
           "weight": 1
@@ -4642,7 +4687,7 @@
       "reward_count": 1,
       "rewards": [
         {
-          "name": "kap_combat_heavy_backpack_01_04_01",
+          "name": "Monolith Backpack Shadowflux",
           "filename": "bp_craft_kap_combat_heavy_backpack_01_04_01.xml",
           "probability": 100.0,
           "weight": 1
@@ -4657,7 +4702,7 @@
       "reward_count": 1,
       "rewards": [
         {
-          "name": "kap_combat_heavy_core_01_04_01",
+          "name": "Monolith Armor Core Shadowflux",
           "filename": "bp_craft_kap_combat_heavy_core_01_04_01.xml",
           "probability": 100.0,
           "weight": 1
@@ -4687,7 +4732,7 @@
       "reward_count": 1,
       "rewards": [
         {
-          "name": "kap_combat_heavy_legs_01_04_01",
+          "name": "Monolith Armor Legs Shadowflux",
           "filename": "bp_craft_kap_combat_heavy_legs_01_04_01.xml",
           "probability": 100.0,
           "weight": 1
@@ -4704,6 +4749,36 @@
         {
           "name": "Lumin V \"SecondWind\" SMG",
           "filename": "bp_craft_klwe_smg_energy_01_mr01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Lbco Rifle Energy 01 Mag",
+      "pool_name": "lbco_rifle_energy_01_mag",
+      "filename": "bp_reward_lbco_rifle_energy_01_mag.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Skarnov Rifle Battery (30 cap)",
+          "filename": "bp_craft_lbco_rifle_energy_01_mag.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Lbco Rifle Energy 01 Mr01",
+      "pool_name": "lbco_rifle_energy_01_mr01",
+      "filename": "bp_reward_lbco_rifle_energy_01_mr01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Skarnov \"Raider Camo\" Rifle",
+          "filename": "bp_craft_lbco_rifle_energy_01_mr01.xml",
           "probability": 100.0,
           "weight": 1
         }
@@ -4912,6 +4987,141 @@
           "name": "F55 LMG Magazine (150 cap)",
           "filename": "bp_craft_gmni_lmg_ballistic_01_mag.xml",
           "probability": 8.3,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Omc Utility Heavy Arms 01 03 01",
+      "pool_name": "omc_utility_heavy_arms_01_03_01",
+      "filename": "bp_reward_omc_utility_heavy_arms_01_03_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Corbel Arms Raider Camo",
+          "filename": "bp_craft_omc_utility_heavy_arms_01_03_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Omc Utility Heavy Core 01 03 01",
+      "pool_name": "omc_utility_heavy_core_01_03_01",
+      "filename": "bp_reward_omc_utility_heavy_core_01_03_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Corbel Core Raider Camo",
+          "filename": "bp_craft_omc_utility_heavy_core_01_03_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Omc Utility Heavy Helmet 01 03 01",
+      "pool_name": "omc_utility_heavy_helmet_01_03_01",
+      "filename": "bp_reward_omc_utility_heavy_helmet_01_03_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Corbel Helmet Raider Camo",
+          "filename": "bp_craft_omc_utility_heavy_helmet_01_03_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Omc Utility Heavy Legs 01 03 01",
+      "pool_name": "omc_utility_heavy_legs_01_03_01",
+      "filename": "bp_reward_omc_utility_heavy_legs_01_03_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Corbel Legs Raider Camo",
+          "filename": "bp_craft_omc_utility_heavy_legs_01_03_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Qrt Utility Heavy Arms 01 04 01",
+      "pool_name": "qrt_utility_heavy_arms_01_04_01",
+      "filename": "bp_reward_qrt_utility_heavy_arms_01_04_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Palatino Arms Raider Camo",
+          "filename": "bp_craft_qrt_utility_heavy_arms_01_04_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Qrt Utility Heavy Backpack 01 05 01",
+      "pool_name": "qrt_utility_heavy_backpack_01_05_01",
+      "filename": "bp_reward_qrt_utility_heavy_backpack_01_05_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Palatino Backpack Raider Camo",
+          "filename": "bp_craft_qrt_utility_heavy_backpack_01_05_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Qrt Utility Heavy Core 01 04 01",
+      "pool_name": "qrt_utility_heavy_core_01_04_01",
+      "filename": "bp_reward_qrt_utility_heavy_core_01_04_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Palatino Core Raider Camo",
+          "filename": "bp_craft_qrt_utility_heavy_core_01_04_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Qrt Utility Heavy Helmet 01 04 01",
+      "pool_name": "qrt_utility_heavy_helmet_01_04_01",
+      "filename": "bp_reward_qrt_utility_heavy_helmet_01_04_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Palatino Helmet Raider Camo",
+          "filename": "bp_craft_qrt_utility_heavy_helmet_01_04_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Qrt Utility Heavy Legs 01 04 01",
+      "pool_name": "qrt_utility_heavy_legs_01_04_01",
+      "filename": "bp_reward_qrt_utility_heavy_legs_01_04_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Palatino Legs Raider Camo",
+          "filename": "bp_craft_qrt_utility_heavy_legs_01_04_01.xml",
+          "probability": 100.0,
           "weight": 1
         }
       ]
@@ -5923,6 +6133,36 @@
           "name": "Deadrig Shotgun Magazine (8 cap)",
           "filename": "bp_craft_none_shotgun_ballistic_01_mag.xml",
           "probability": 8.3,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Vgl Flightsuit 01 03 01",
+      "pool_name": "vgl_flightsuit_01_03_01",
+      "filename": "bp_reward_vgl_flightsuit_01_03_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Tailwind Flight Suit Raider Camo",
+          "filename": "bp_craft_vgl_flightsuit_01_03_01.xml",
+          "probability": 100.0,
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Vgl Flightsuit Helmet 01 11 01",
+      "pool_name": "vgl_flightsuit_helmet_01_11_01",
+      "filename": "bp_reward_vgl_flightsuit_helmet_01_11_01.xml",
+      "type": "GUARANTEED",
+      "reward_count": 1,
+      "rewards": [
+        {
+          "name": "Tailwind Helmet Raider Camo",
+          "filename": "bp_craft_vgl_flightsuit_helmet_01_11_01.xml",
+          "probability": 100.0,
           "weight": 1
         }
       ]
@@ -7388,6 +7628,27 @@
         "mission": "Battagliaexclusive",
         "probability": 12.5,
         "type": "RANDOM"
+      }
+    ],
+    "M3A Cannon Raider Camo": [
+      {
+        "mission": "Behr Lasercannon S1 Mr02",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "M4A Cannon Raider Camo": [
+      {
+        "mission": "Behr Lasercannon S2 Mr02",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "M5A Cannon Raider Camo": [
+      {
+        "mission": "Behr Lasercannon S3 Mr02",
+        "probability": 100.0,
+        "type": "GUARANTEED"
       }
     ],
     "S-38 \"SecondWind\" Pistol": [
@@ -10726,21 +10987,21 @@
         "type": "RANDOM"
       }
     ],
-    "kap_combat_heavy_arms_01_04_01": [
+    "Monolith Armor Arms Shadowflux": [
       {
         "mission": "Kap Combat Heavy Arms 01 04 01",
         "probability": 100.0,
         "type": "GUARANTEED"
       }
     ],
-    "kap_combat_heavy_backpack_01_04_01": [
+    "Monolith Backpack Shadowflux": [
       {
         "mission": "Kap Combat Heavy Backpack 01 04 01",
         "probability": 100.0,
         "type": "GUARANTEED"
       }
     ],
-    "kap_combat_heavy_core_01_04_01": [
+    "Monolith Armor Core Shadowflux": [
       {
         "mission": "Kap Combat Heavy Core 01 04 01",
         "probability": 100.0,
@@ -10754,7 +11015,7 @@
         "type": "GUARANTEED"
       }
     ],
-    "kap_combat_heavy_legs_01_04_01": [
+    "Monolith Armor Legs Shadowflux": [
       {
         "mission": "Kap Combat Heavy Legs 01 04 01",
         "probability": 100.0,
@@ -10764,6 +11025,20 @@
     "Lumin V \"SecondWind\" SMG": [
       {
         "mission": "Klwe Smg Energy 01 Mr01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Skarnov Rifle Battery (30 cap)": [
+      {
+        "mission": "Lbco Rifle Energy 01 Mag",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Skarnov \"Raider Camo\" Rifle": [
+      {
+        "mission": "Lbco Rifle Energy 01 Mr01",
         "probability": 100.0,
         "type": "GUARANTEED"
       }
@@ -10932,6 +11207,69 @@
         "mission": "Northrock - Bounty Assignment (HRT)",
         "probability": 8.3,
         "type": "RANDOM"
+      }
+    ],
+    "Corbel Arms Raider Camo": [
+      {
+        "mission": "Omc Utility Heavy Arms 01 03 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Corbel Core Raider Camo": [
+      {
+        "mission": "Omc Utility Heavy Core 01 03 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Corbel Helmet Raider Camo": [
+      {
+        "mission": "Omc Utility Heavy Helmet 01 03 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Corbel Legs Raider Camo": [
+      {
+        "mission": "Omc Utility Heavy Legs 01 03 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Palatino Arms Raider Camo": [
+      {
+        "mission": "Qrt Utility Heavy Arms 01 04 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Palatino Backpack Raider Camo": [
+      {
+        "mission": "Qrt Utility Heavy Backpack 01 05 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Palatino Core Raider Camo": [
+      {
+        "mission": "Qrt Utility Heavy Core 01 04 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Palatino Helmet Raider Camo": [
+      {
+        "mission": "Qrt Utility Heavy Helmet 01 04 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Palatino Legs Raider Camo": [
+      {
+        "mission": "Qrt Utility Heavy Legs 01 04 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
       }
     ],
     "Prism \"Deep Sea\" Laser Shotgun": [
@@ -11749,6 +12087,20 @@
         "mission": "Vaughn - Bounty",
         "probability": 8.3,
         "type": "RANDOM"
+      }
+    ],
+    "Tailwind Flight Suit Raider Camo": [
+      {
+        "mission": "Vgl Flightsuit 01 03 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
+      }
+    ],
+    "Tailwind Helmet Raider Camo": [
+      {
+        "mission": "Vgl Flightsuit Helmet 01 11 01",
+        "probability": 100.0,
+        "type": "GUARANTEED"
       }
     ],
     "Killshot \"Dominion Camo\" Rifle": [
